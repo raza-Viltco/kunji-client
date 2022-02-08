@@ -1,13 +1,14 @@
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Provider } from "react-redux";
 import { blue, grey } from "@mui/material/colors";
 
+import { usePersistance } from "./hooks/usePersistance";
 import AppRouter from "./routes";
-import store from "./redux/store";
 import "./App.css";
 
-function App() {
+const App = () => {
+	usePersistance();
+
 	const theme = createTheme({
 		palette: {
 			primary: blue,
@@ -16,12 +17,10 @@ function App() {
 	});
 
 	return (
-		<Provider store={store}>
-			<ThemeProvider theme={theme}>
-				<AppRouter />
-			</ThemeProvider>
-		</Provider>
+		<ThemeProvider theme={theme}>
+			<AppRouter />
+		</ThemeProvider>
 	);
-}
+};
 
 export default App;

@@ -42,7 +42,7 @@ const Header = ({ styled, drawerWidth, openSidebar, handleDrawerOpen }) => {
 					<MenuIcon />
 				</IconButton>
 				<Typography variant="h6" noWrap component="div">
-					Mini variant drawer
+					Kunji
 				</Typography>
 			</Toolbar>
 		</AppBar>

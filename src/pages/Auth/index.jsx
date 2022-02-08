@@ -18,8 +18,6 @@ const Auth = () => {
 	const state = useSelector((state) => state.user.data);
 
 	const loginHandler = () => {
-		// formValues
-		// dispatch({ type: "LOGIN", payload: { email: "myemail@gmail.com", password: "password" }});
 		dispatch(login({ email: "myemail@gmail.com", password: "password" }));
 	};
 
