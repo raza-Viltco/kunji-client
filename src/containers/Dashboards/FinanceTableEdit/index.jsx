@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Container, Row } from 'reactstrap';
-import TopTenEditForm from './components/TopTenEditForm';
+import { Container } from 'reactstrap';
+// import TopTenEditForm from './components/TopTenEditForm';
 import { changeCryptoTableData, loadCryptoTableData } from '../../../redux/actions/cryptoTableActions';
 
 const FinanceDashboardEdit = ({ dispatch, match }) => {
@@ -13,10 +13,10 @@ const FinanceDashboardEdit = ({ dispatch, match }) => {
     dispatch(loadCryptoTableData(match.params.index));
   }, [dispatch, match.params.index]);
 
-  const handleSubmit = (formValues) => {
-    dispatch(changeCryptoTableData(formValues, match.params.index));
-    setIsRedirect(true);
-  };
+  // const handleSubmit = (formValues) => {
+  //   dispatch(changeCryptoTableData(formValues, match.params.index));
+  //   setIsRedirect(true);
+  // };
 
   if (isRedirect) {
     return <Redirect to="/finance_dashboard" />;
