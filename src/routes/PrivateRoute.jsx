@@ -7,7 +7,7 @@ const PrivateRoute = ({ component: ReactComponent }) => {
 	// const state = useSelector((state) => state);
 	const state = getFromPersistance("kunji_auth_data");
 
-	if (state?.token) return <ReactComponent />;
+	if (state?.data?.token) return <ReactComponent />;
 	return <Navigate to="/login" />;
 };
 
