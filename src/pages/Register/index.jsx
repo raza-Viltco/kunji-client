@@ -7,7 +7,7 @@ import AuthView from "../../components/AuthView/AuthView";
 
 const Register = () => {
   return (
-    <AuthView>
+    <AuthView heading="Sign Up">
       <Input
         margin="normal"
         //   required

@@ -7,7 +7,7 @@ import AuthView from "../../components/AuthView/AuthView";
 
 const ForgotPassword = () => {
   return (
-    <AuthView>
+    <AuthView heading="Forgot Password">
       <Input
         margin="normal"
         //   required

@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import { Button, Grid} from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import { ToastContainer } from "react-toastify";
 
 import Input from "../../components/Form/Input";
 import { login } from "../../redux/actions/user";
 import AuthView from "../../components/AuthView/AuthView";
+import "react-toastify/dist/ReactToastify.css";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -26,9 +28,10 @@ const Auth = () => {
     password: Yup.string().required("Password is required."),
   });
 
-  const loginHandler = (values) => {
+  const loginHandler = (values, { resetForm }) => {
     console.log(values);
     dispatch(login(values));
+    resetForm(initialValues);
   };
 
   useEffect(() => {
@@ -38,15 +41,15 @@ const Auth = () => {
   }, [state]);
 
   return (
-    <AuthView>
+    <AuthView heading="Sign In">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={loginHandler}
       >
         {(props) => (
-          <Form noValidate>
-            {console.log(props)}
+          <Form>
+            {/* {console.log(props)} */}
             <Input
               margin="normal"
               //   required
@@ -66,7 +69,7 @@ const Auth = () => {
             )} */}
             <Input
               margin="normal"
-              required
+              // required
               fullWidth
               name="password"
               label="Password"
@@ -96,6 +99,7 @@ const Auth = () => {
             >
               Sign In
             </Button>
+            <ToastContainer />
           </Form>
         )}
       </Formik>

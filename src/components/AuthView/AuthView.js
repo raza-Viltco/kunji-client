@@ -2,16 +2,16 @@ import React from "react";
 import {
   Typography,
   Box,
-  Avatar,
   Grid,
   CssBaseline,
   Paper,
 } from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import AuthImage from "../../assets/auth-bg.png";
+import { APP_LOGO } from "../../constants/AssetsConstants";
 
-const AuthView = ({ children }) => {
+
+const AuthView = ({ children, heading }) => {
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
       <CssBaseline />
@@ -41,18 +41,11 @@ const AuthView = ({ children }) => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <img src={APP_LOGO} alt="logo-img" />
+          <Typography component="h1" variant="h5" >
+            {heading}
           </Typography>
-          <Box
-            // onSubmit={handleSubmit}
-            sx={{ mt: 1 }}
-          >
-            {children}
-          </Box>
+          <Box sx={{ mt: 1 }}>{children}</Box>
         </Box>
       </Grid>
     </Grid>
