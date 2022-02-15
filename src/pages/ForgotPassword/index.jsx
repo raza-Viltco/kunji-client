@@ -7,7 +7,7 @@ import AuthView from "../../components/AuthView/AuthView";
 
 const ForgotPassword = () => {
   return (
-    <AuthView heading="Forgot Password">
+    <AuthView heading="Forgot Password" subject="Enter your email">
       <Input
         margin="normal"
         //   required
@@ -18,13 +18,13 @@ const ForgotPassword = () => {
         type="text"
       />
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-        Reset Password
+        Send
       </Button>
-      <Grid container>
+      {/* <Grid container>
         <Grid item xs>
           <Link to="/login">Remember your password? Login</Link>
         </Grid>
-      </Grid>
+      </Grid> */}
     </AuthView>
   );
 };

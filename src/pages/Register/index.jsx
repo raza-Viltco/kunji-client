@@ -1,5 +1,5 @@
 import React from "react";
-import { Button,Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import Input from "../../components/Form/Input";
@@ -7,7 +7,7 @@ import AuthView from "../../components/AuthView/AuthView";
 
 const Register = () => {
   return (
-    <AuthView heading="Sign Up">
+    <AuthView heading="Sign Up" subject="Enter your email & mobile no.">
       <Input
         margin="normal"
         //   required
@@ -47,11 +47,11 @@ const Register = () => {
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
         Sign Up
       </Button>
-      <Grid container>
+      {/* <Grid container>
         <Grid item xs>
           <Link to="/login">Already have an account? Sign in</Link>
         </Grid>
-      </Grid>
+      </Grid> */}
     </AuthView>
   );
 };

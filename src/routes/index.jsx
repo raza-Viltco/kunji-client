@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import ForgotPassword from "../pages/ForgotPassword";
+import OtpVerification from "../pages/Otp";
 import Visitor from "../pages/Visitor";
 import VisitorDetail from "../pages/Visitor/Detail";
 import PrivateRoute from "./PrivateRoute";
@@ -17,6 +18,7 @@ const AppRouter = () => {
         <Route path="/login" element={<Auth />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot_password" element={<ForgotPassword />} />
+        <Route path="/otp_verification" element={<OtpVerification />} />
         <Route path="/" element={<PrivateRoute component={Home} />}>
           <Route index element={<PrivateRoute component={Dashboard} />} />
           <Route path="visitor" element={<PrivateRoute component={Visitor} />}>

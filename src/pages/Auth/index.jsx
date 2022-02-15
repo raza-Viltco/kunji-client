@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Grid } from "@mui/material";
+import { Button} from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
@@ -41,7 +41,7 @@ const Auth = () => {
   }, [state]);
 
   return (
-    <AuthView heading="Sign In">
+    <AuthView heading="Sign In" subject="Enter your email & password">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -103,14 +103,6 @@ const Auth = () => {
           </Form>
         )}
       </Formik>
-      <Grid container>
-        <Grid item xs>
-          <Link to="/forgot_password">Forgot password?</Link>
-        </Grid>
-        <Grid item>
-          <Link to="/register">{"Don't have an account? Sign Up"}</Link>
-        </Grid>
-      </Grid>
     </AuthView>
   );
 };
