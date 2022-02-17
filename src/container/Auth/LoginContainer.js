@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 import { login } from "../../redux/actions/user";
 
-const loginContainer = Login => () => {
+const loginContainer = (Login) => () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state.user.data);
@@ -24,7 +24,6 @@ const loginContainer = Login => () => {
 	});
 
 	const loginHandler = (values, { resetForm }) => {
-		console.log(values);
 		dispatch(login(values));
 		// resetForm(initialValues);
 	};
@@ -34,6 +33,10 @@ const loginContainer = Login => () => {
 			navigate("/");
 		}
 	}, [navigate, state]);
+
+	useEffect(() => {
+		console.log(stateLoading);
+	}, [stateLoading]);
 
 	return (
 		<Login

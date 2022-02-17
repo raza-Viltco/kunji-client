@@ -10,7 +10,6 @@ export const usePersistance = () => {
 	const checkForAuthData = () => {
 		const data = getFromPersistance("kunji_auth_data");
 		if (data) {
-			console.log("2");
 			dispatch(setUserData(data));
 		}
 	};
