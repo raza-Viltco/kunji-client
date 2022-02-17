@@ -27,7 +27,7 @@ const Input = ({
       autoComplete={autoComplete}
       sx={{ backgroundColor: 'white' }}
       // autoFocus
-      error={error ? error : false}
+      error={error ? !!error : false}
       helperText={error}
       onChange={onChange}
       onBlur={onBlur}

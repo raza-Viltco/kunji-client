@@ -3,8 +3,10 @@ import createSagaMiddleware from "redux-saga";
 import { watcherSaga } from "./sagas/rootSaga";
 
 import userReducer from "./reducer/user";
+import localReducer from "./reducer/local";
 
 const reducers = combineReducers({
+	local: localReducer,
 	user: userReducer,
 });
 
