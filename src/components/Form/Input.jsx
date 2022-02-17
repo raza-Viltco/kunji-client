@@ -8,7 +8,7 @@ const Input = ({
   label,
   name,
   autoComplete,
-  error=null,
+  error,
   onChange,
   onBlur,
   value,
@@ -25,12 +25,14 @@ const Input = ({
       name={name}
       type={type}
       autoComplete={autoComplete}
-      autoFocus
-      error={error ? true : false}
-      helperText={helperText}
+      sx={{ backgroundColor: 'white' }}
+      // autoFocus
+      error={error ? error : false}
+      helperText={error}
       onChange={onChange}
       onBlur={onBlur}
       value={value}
+      variant="filled"
     />
   );
 };

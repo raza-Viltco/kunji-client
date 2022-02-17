@@ -1,5 +1,5 @@
 import React from "react";
-import { Button,Grid } from "@mui/material";
+import { Button} from "@mui/material";
 import { Link } from "react-router-dom";
 
 import Input from "../../components/Form/Input";
@@ -20,11 +20,12 @@ const ForgotPassword = () => {
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
         Send
       </Button>
-      {/* <Grid container>
-        <Grid item xs>
-          <Link to="/login">Remember your password? Login</Link>
-        </Grid>
-      </Grid> */}
+      <div className="form_bottom__line"></div>
+      <Link to="/login">
+        <p className="text-center m-0 form_signup__link">
+          Remember your password? Login
+        </p>
+      </Link>
     </AuthView>
   );
 };

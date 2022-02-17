@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button} from "@mui/material";
+import { Button } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
@@ -10,6 +10,7 @@ import Input from "../../components/Form/Input";
 import { login } from "../../redux/actions/user";
 import AuthView from "../../components/AuthView/AuthView";
 import "react-toastify/dist/ReactToastify.css";
+import "./Auth.css";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -52,7 +53,6 @@ const Auth = () => {
             {/* {console.log(props)} */}
             <Input
               margin="normal"
-              //   required
               fullWidth
               id="email"
               label="Email Address"
@@ -61,36 +61,26 @@ const Auth = () => {
               value={props.values.email}
               onChange={props.handleChange}
               onBlur={props.handleBlur}
+              onBlur={props.handleBlur}
+              error={props.errors.email}
+              helperText
             />
-            {/* {props.errors.email && props.touched.email && (
-              <div className="text-start">
-                <p className="badge bg-danger">{props.errors.email}</p>
-              </div>
-            )} */}
             <Input
               margin="normal"
-              // required
               fullWidth
               name="password"
               label="Password"
               type="password"
               id="password"
-              //   autoComplete="current-password"
               value={props.values.password}
               onChange={props.handleChange}
               onBlur={props.handleBlur}
-              //   error={props.errors.password}
-              //   helperText
+              error={props.errors.password}
+              helperText
             />
-            {/* {props.errors.password && props.touched.password && (
-              <div className="text-start">
-                <p className="badge bg-danger">{props.errors.password}</p>
-              </div>
-            )} */}
-            {/* <FormControlLabel
-						control={<Checkbox value="remember" color="primary" />}
-						label="Remember me"
-					/> */}
+            <Link to="/forgot_password">
+              <p className="text-end m-0 forgot_text__link">forgot password!</p>
+            </Link>
             <Button
               type="submit"
               fullWidth
@@ -99,7 +89,13 @@ const Auth = () => {
             >
               Sign In
             </Button>
-            <ToastContainer />
+            <div className="form_bottom__line"></div>
+            <Link to="/register">
+              <p className="text-center m-0 form_signup__link">
+                Do you have account? Sign UP
+              </p>
+            </Link>
+            <ToastContainer position="top-center" />
           </Form>
         )}
       </Formik>
