@@ -8,3 +8,11 @@ export const loginApi = async (data) => {
     data,
   });
 };
+
+export const registerApi = async (data) => {
+  return API.request({
+    method: "POST",
+    url: "user/add",
+    data,
+  });
+};

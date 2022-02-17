@@ -2,8 +2,8 @@ import { call, put } from "redux-saga/effects";
 import { toast } from "react-toastify";
 
 import { saveToPersistance } from "../../../utils/functions";
-import { setUserData } from "../../actions/user";
-import { loginApi } from "../apis/user";
+import { setUserData, userRegisterData } from "../../actions/user";
+import { loginApi, registerApi } from "../apis/user";
 
 export function* handleLogin(action) {
   console.log(action);
@@ -21,5 +21,15 @@ export function* handleLogin(action) {
     ) {
       toast.error("Invalid Credentials");
     }
+  }
+}
+
+export function* handleRegister(action) {
+  try {
+    const { data } = yield call(registerApi, action.payload);
+    console.log(data)
+    yield put(userRegisterData(data));
+  } catch (error) {
+    console.log(error.message);
   }
 }
