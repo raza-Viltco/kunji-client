@@ -1,52 +1,18 @@
-import React, { useEffect } from "react";
-import { Button } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
 
+import Button from "../../components/Button"
 import Input from "../../components/Form/Input";
 import AuthView from "../../components/AuthView/AuthView";
-import { register } from "../../redux/actions/user";
+import registerContainer from "../../container/Auth/RegisterContainer";
 
-const Register = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.user.data);
-
-  const initialValues = {
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-    mobile: "",
-  };
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required."),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required."),
-    password: Yup.string().required("Password is required."),
-    password_confirmation: Yup.string().oneOf(
-      [Yup.ref("password"), null],
-      "Passwords must match"
-    ),
-    mobile: Yup.string().required("Contact is required."),
-  });
-
-  const registerHandler = (values, { resetForm }) => {
-    console.log(values);
-    dispatch(register(values));
-    resetForm(values);
-  };
-
-  useEffect(() => {
-    if (state?.data?.token) {
-      navigate("/otp_verification");
-    }
-  }, [state]);
-
+const Register = ({
+  initialValues,
+  validationSchema,
+  registerHandler,
+  stateLoading,
+}) => {
   return (
     <AuthView heading="Sign Up" subject="Enter your email & mobile no.">
       <Formik
@@ -127,6 +93,7 @@ const Register = () => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              isLoading={stateLoading}
             >
               Sign Up
             </Button>
@@ -144,4 +111,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default registerContainer(Register);

@@ -6,7 +6,6 @@ import { usePersistance } from "./hooks/usePersistance";
 import AppRouter from "./routes";
 import "./App.css";
 import Toast from "./components/Toast";
-import { useSelector } from "react-redux";
 
 const App = () => {
 	usePersistance();

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
-import { ToastContainer } from "react-toastify";
 
 import Button from "../../components/Button";
 import Input from "../../components/Form/Input";
@@ -23,7 +22,6 @@ const Auth = ({
 		>
 			{(props) => (
 				<Form>
-					{/* {console.log(props)} */}
 					<Input
 						margin="normal"
 						fullWidth
@@ -34,7 +32,6 @@ const Auth = ({
 						value={props.values.email}
 						onChange={props.handleChange}
 						onBlur={props.handleBlur}
-						// eslint-disable-next-line react/jsx-no-duplicate-props
 						onBlur={props.handleBlur}
 						error={props.errors.email}
 						helperText
@@ -72,7 +69,6 @@ const Auth = ({
 							Do you have account? Sign UP
 						</p>
 					</Link>
-					<ToastContainer position="top-center" />
 				</Form>
 			)}
 		</Formik>

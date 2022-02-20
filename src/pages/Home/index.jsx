@@ -49,7 +49,7 @@ const MiniDrawer = () => {
 			/>
 			<Box component="main" sx={{ flexGrow: 1, p: 3 }}>
 				<DrawerHeader />
-				<Outlet />
+				{/* <Outlet /> */}
 			</Box>
 		</Box>
 	);

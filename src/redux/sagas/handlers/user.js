@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { toast } from "react-toastify";
+import { push } from "connected-react-router";
 
 import { saveToPersistance } from "../../../utils/functions";
 import { setUserData, userRegisterData } from "../../actions/user";
@@ -22,29 +22,24 @@ import { localApiStateHandler } from "./localApiStateHandler";
 // }
 
 export function* handleLogin(action) {
-	function* api() {
-		const { data } = yield call(loginApi, action.payload);
-		saveToPersistance("kunji_auth_data", data);
-		yield put(setUserData(data));
-	}
+  function* api() {
+    const { data } = yield call(loginApi, action.payload);
+    saveToPersistance("kunji_auth_data", data);
+    yield put(setUserData(data));
+    yield put(push("/"));
+  }
 
-	yield call(() => localApiStateHandler(api));
+  yield call(() => localApiStateHandler(api));
 }
 
 export function* handleRegister(action) {
-	function* api() {
-		const { data } = yield call(registerApi, action.payload);
-		// console.log(data);
-		yield put(userRegisterData(data));
-	}
+  function* api() {
+    const { data } = yield call(registerApi, action.payload);
+    console.log(data);
+    saveToPersistance("Bearer_Otp_Token", data.data.token);
+    yield put(userRegisterData(data));
+    yield put(push("/otp_verification"));
+  }
 
-	yield call(() => localApiStateHandler(api));
-
-	// try {
-	// 	const { data } = yield call(registerApi, action.payload);
-	// 	// console.log(data);
-	// 	yield put(userRegisterData(data));
-	// } catch (error) {
-	// 	console.log(error.message);
-	// }
+  yield call(() => localApiStateHandler(api));
 }

@@ -1,38 +1,36 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
 
-import { login } from "../../redux/actions/user";
+import { forgotPassword } from "../../redux/actions/password";
 
-const loginContainer = (Login) => () => {
+const forgotPasswordContainer = (ForgotPassword) => () => {
   const dispatch = useDispatch();
   const stateLoading = useSelector((state) => state.local.isLoading);
 
   const initialValues = {
     email: "",
-    password: "",
   };
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required."),
-    password: Yup.string().required("Password is required."),
   });
 
-  const loginHandler = (values, { resetForm }) => {
-    dispatch(login(values));
-    resetForm(initialValues);
+  const forgotPasswordHandler = (values) => {
+    console.log(values);
+    dispatch(forgotPassword(values));
   };
 
   return (
-    <Login
+    <ForgotPassword
       initialValues={initialValues}
       validationSchema={validationSchema}
-      loginHandler={loginHandler}
+      forgotPasswordHandler={forgotPasswordHandler}
       stateLoading={stateLoading}
     />
   );
 };
 
-export default loginContainer;
+export default forgotPasswordContainer;
