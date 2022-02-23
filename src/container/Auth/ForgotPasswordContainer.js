@@ -18,9 +18,10 @@ const forgotPasswordContainer = (ForgotPassword) => () => {
       .required("Email is required."),
   });
 
-  const forgotPasswordHandler = (values) => {
+  const forgotPasswordHandler = (values, actions) => {
     console.log(values);
-    dispatch(forgotPassword(values));
+    dispatch(forgotPassword({values, formikActions: actions}));
+    actions.setSubmitting(false);
   };
 
   return (

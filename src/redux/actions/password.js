@@ -15,7 +15,7 @@ export const recoverPassword = (payload) => ({
   payload,
 });
 
-export const setRecoverPasswor = (payload) => ({
+export const setRecoverPassword = (payload) => ({
   type: actionTypes.SET_RECOVER_PASSWORD,
   payload,
 });

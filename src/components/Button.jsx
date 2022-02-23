@@ -9,6 +9,7 @@ const LoadingButton = ({
 	variant,
 	color,
 	sx,
+	size
 }) => {
 	return (
 		<Button
@@ -17,8 +18,9 @@ const LoadingButton = ({
 			variant={variant}
 			color={color}
 			sx={sx}
+			size={size}
 		>
-			{isLoading ? <CircularProgress color="secondary" /> : children}
+			{isLoading ? <CircularProgress color="secondary" size={25}/> : children}
 		</Button>
 	);
 };

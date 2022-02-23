@@ -32,7 +32,6 @@ const ForgotPassword = ({
               value={props.values.email}
               onChange={props.handleChange}
               onBlur={props.handleBlur}
-              onBlur={props.handleBlur}
               error={props.errors.email}
               helperText
             />
@@ -40,17 +39,20 @@ const ForgotPassword = ({
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, borderRadius: "1rem" }}
               isLoading={stateLoading}
+              size="small"
             >
               Send
             </Button>
             <div className="form_bottom__line"></div>
-            <Link to="/login">
-              <p className="text-center m-0 form_signup__link">
-                Remember your password? Login
-              </p>
-            </Link>
+            <div className="form_signup__link">
+              <Link to="/login">
+                <p className="text-center m-0 ">
+                  Remember your password? Login
+                </p>
+              </Link>
+            </div>
           </Form>
         )}
       </Formik>

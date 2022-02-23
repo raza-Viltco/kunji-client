@@ -25,14 +25,14 @@ const Input = ({
       name={name}
       type={type}
       autoComplete={autoComplete}
-      sx={{ backgroundColor: 'white' }}
-      // autoFocus
+      sx={{ backgroundColor: 'white'}}
       error={error ? !!error : false}
       helperText={error}
       onChange={onChange}
       onBlur={onBlur}
       value={value}
       variant="filled"
+      size="small"
     />
   );
 };

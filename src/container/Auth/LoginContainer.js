@@ -20,9 +20,9 @@ const loginContainer = (Login) => () => {
     password: Yup.string().required("Password is required."),
   });
 
-  const loginHandler = (values, { resetForm }) => {
-    dispatch(login(values));
-    resetForm(initialValues);
+  const loginHandler = (values, actions) => {
+    dispatch(login({values, formikActions: actions}));
+    actions.setSubmitting(false);
   };
 
   return (

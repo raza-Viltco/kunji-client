@@ -8,9 +8,10 @@ import { saveToPersistance } from "../../../utils/functions";
 
 export function* handleRegisterOtp(action) {
   function* api() {
-    const { data } = yield call(registerOtpApi, action.payload);
+    const { data } = yield call(registerOtpApi, action.payload.values);
     yield put(setRegisterOtp(data));
     yield put(push("/login"));
+    yield put(action.payload.formikActions.resetForm());
   }
 
   yield call(() => localApiStateHandler(api));
@@ -18,11 +19,12 @@ export function* handleRegisterOtp(action) {
 
 export function* handleForgotPasswordOtp(action) {
   function* api() {
-    const { data } = yield call(forgotPasswordOtpApi, action.payload);
+    const { data } = yield call(forgotPasswordOtpApi, action.payload.values);
     console.log(data);
     saveToPersistance("recovery_token", data.data.token);
     yield put(setForgotPasswordOtp(data));
     yield put(push("/recover_password"));
+    yield put(action.payload.formikActions.resetForm());
   }
 
   yield call(() => localApiStateHandler(api));

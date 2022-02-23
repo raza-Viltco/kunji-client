@@ -20,14 +20,15 @@ const otpContainer = (OtpVerification) => () => {
     otp: Yup.string().required("Otp is required."),
   });
 
-  const otpHandler = (values) => {
+  const otpHandler = (values, actions) => {
     console.log(values);
     if (params === ":register") {
-      dispatch(registerOtp(values));
+      dispatch(registerOtp({ values, formikActions: actions }));
     } else {
       values.email = getFromPersistance("forgot_email");
-      dispatch(forgotPasswordOtp(values));
+      dispatch(forgotPasswordOtp({ values, formikActions: actions }));
     }
+    actions.setSubmitting(false);
   };
 
   return (

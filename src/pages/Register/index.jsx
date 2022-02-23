@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 
-import Button from "../../components/Button"
+import Button from "../../components/Button";
 import Input from "../../components/Form/Input";
 import AuthView from "../../components/AuthView/AuthView";
 import registerContainer from "../../container/Auth/RegisterContainer";
@@ -92,18 +92,21 @@ const Register = ({
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, borderRadius: "1rem" }}
               isLoading={stateLoading}
+              size="small"
             >
               Sign Up
             </Button>
 
             <div className="form_bottom__line"></div>
-            <Link to="/login">
-              <p className="text-center m-0 form_signup__link">
-                Already have an account? Sign in
-              </p>
-            </Link>
+            <div className="form_signup__link">
+              <Link to="/login">
+                <p className="text-center m-0 ">
+                  Already have an account? Sign in
+                </p>
+              </Link>
+            </div>
           </Form>
         )}
       </Formik>

@@ -3,15 +3,16 @@
   margin-bottom: 8px;
 }
 
-.forgot_text__link {
+.forgot_text__link a {
   color: #ffffff;
   cursor: pointer;
   font-size: 15px;
+  text-decoration: none;
 }
 
-
-.form_signup__link {
+.form_signup__link a {
   color: #292929;
   font-size: 15px;
   cursor: pointer;
+  text-decoration: none;
 }

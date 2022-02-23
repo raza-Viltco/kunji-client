@@ -22,10 +22,11 @@ const recoverPasswordContainer = (RecoverPassword) => () => {
     ),
   });
 
-  const recoverPasswordHandler = (values) => {
+  const recoverPasswordHandler = (values, actions) => {
     console.log(values);
     values.token = getFromPersistance("recovery_token");
-    dispatch(recoverPassword(values));
+    dispatch(recoverPassword({ values, formikActions: actions }));
+    actions.setSubmitting(false);
   };
 
   return (

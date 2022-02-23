@@ -29,10 +29,10 @@ const registerContainer = (Register) => () => {
     mobile: Yup.string().required("Contact is required."),
   });
 
-  const registerHandler = (values, { resetForm }) => {
+  const registerHandler = (values, actions) => {
     console.log(values);
-    dispatch(register(values));
-    resetForm(values);
+    dispatch(register({ values, formikActions: actions }));
+    actions.setSubmitting(false);
   };
 
   return (
