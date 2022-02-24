@@ -1,5 +1,5 @@
-import API from "../../../utils/httpClient";
-import { getFromPersistance } from "../../../utils/functions";
+import API from "../../../../utils/httpClient";
+import { getFromPersistance } from "../../../../utils/functions";
 
 export const registerOtpApi = async (data) => {
   const token = getFromPersistance("Bearer_Otp_Token");

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
-import { login } from "../../redux/actions/user";
+import { login } from "../../redux/actions/Auth/user";
 
 const loginContainer = (Login) => () => {
   const dispatch = useDispatch();
@@ -20,9 +20,8 @@ const loginContainer = (Login) => () => {
     password: Yup.string().required("Password is required."),
   });
 
-  const loginHandler = (values, actions) => {
-    dispatch(login({values, formikActions: actions}));
-    actions.setSubmitting(false);
+  const loginHandler = (values) => {
+    dispatch(login(values));
   };
 
   return (

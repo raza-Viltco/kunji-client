@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 
-import { forgotPassword } from "../../redux/actions/password";
+import { forgotPassword } from "../../redux/actions/Auth/password";
 
 const forgotPasswordContainer = (ForgotPassword) => () => {
   const dispatch = useDispatch();
@@ -18,10 +18,9 @@ const forgotPasswordContainer = (ForgotPassword) => () => {
       .required("Email is required."),
   });
 
-  const forgotPasswordHandler = (values, actions) => {
+  const forgotPasswordHandler = (values) => {
     console.log(values);
-    dispatch(forgotPassword({values, formikActions: actions}));
-    actions.setSubmitting(false);
+    dispatch(forgotPassword(values));
   };
 
   return (

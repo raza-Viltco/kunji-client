@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 
-import { register } from "../../redux/actions/user";
+import { register } from "../../redux/actions/Auth/user";
 
 const registerContainer = (Register) => () => {
   const dispatch = useDispatch();
@@ -29,10 +29,9 @@ const registerContainer = (Register) => () => {
     mobile: Yup.string().required("Contact is required."),
   });
 
-  const registerHandler = (values, actions) => {
+  const registerHandler = (values) => {
     console.log(values);
-    dispatch(register({ values, formikActions: actions }));
-    actions.setSubmitting(false);
+    dispatch(register(values));
   };
 
   return (

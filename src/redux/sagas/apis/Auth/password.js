@@ -1,4 +1,4 @@
-import API from "../../../utils/httpClient";
+import API from "../../../../utils/httpClient";
 
 export const forgotPasswordApi = async (data) => {
   return API.request({

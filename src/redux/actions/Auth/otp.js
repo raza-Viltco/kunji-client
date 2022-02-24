@@ -1,4 +1,4 @@
-import { actionTypes } from "./action-types";
+import { actionTypes } from "../action-types";
 
 export const registerOtp = (payload) => ({
   type: actionTypes.REGISTER_OTP,

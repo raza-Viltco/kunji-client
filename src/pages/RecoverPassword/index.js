@@ -51,8 +51,9 @@ const RecoverPassword = ({
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 2, mb: 2, borderRadius: "1rem" }}
               isLoading={stateLoading}
+              size="small"
             >
               Sign Up
             </Button>

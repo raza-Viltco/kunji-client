@@ -1,4 +1,4 @@
-import API from "../../../utils/httpClient";
+import API from "../../../../utils/httpClient";
 
 export const loginApi = async (data) => {
   console.log(data);

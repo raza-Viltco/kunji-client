@@ -1,11 +1,14 @@
 import { takeLatest } from "redux-saga/effects";
 import { actionTypes } from "../actions/action-types";
-import { handleLogin, handleRegister } from "./handlers/user";
-import { handleRegisterOtp, handleForgotPasswordOtp } from "./handlers/otp";
+import { handleLogin, handleRegister } from "./handlers/Auth/user";
 import {
   handleForgotPassword,
   handleRecoverPassword,
-} from "./handlers/password";
+} from "./handlers/Auth/password";
+import {
+  handleForgotPasswordOtp,
+  handleRegisterOtp,
+} from "./handlers/Auth/otp";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);

@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { registerOtp, forgotPasswordOtp } from "../../redux/actions/otp";
+import { registerOtp, forgotPasswordOtp } from "../../redux/actions/Auth/otp";
 import { getFromPersistance } from "../../utils/functions";
 
 const otpContainer = (OtpVerification) => () => {
@@ -20,15 +20,13 @@ const otpContainer = (OtpVerification) => () => {
     otp: Yup.string().required("Otp is required."),
   });
 
-  const otpHandler = (values, actions) => {
-    console.log(values);
-    if (params === ":register") {
-      dispatch(registerOtp({ values, formikActions: actions }));
+  const otpHandler = (values) => {
+    if (params.register === ":register") {
+      dispatch(registerOtp(values));
     } else {
       values.email = getFromPersistance("forgot_email");
-      dispatch(forgotPasswordOtp({ values, formikActions: actions }));
+      dispatch(forgotPasswordOtp(values));
     }
-    actions.setSubmitting(false);
   };
 
   return (

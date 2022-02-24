@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setUserData } from "../redux/actions/user";
+import { setUserData } from "../redux/actions/Auth/user";
 
 import { getFromPersistance } from "../utils/functions";
 

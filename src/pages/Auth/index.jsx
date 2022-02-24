@@ -19,9 +19,10 @@ const Auth = ({
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={loginHandler}
+      enableReinitialize={true}
     >
       {(props) => (
-        <Form onSubmit={props.handleSubmit}>
+        <Form>
           <Input
             margin="normal"
             fullWidth

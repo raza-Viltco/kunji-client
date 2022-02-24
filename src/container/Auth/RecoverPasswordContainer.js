@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
 import { getFromPersistance } from "../../utils/functions";
-import { recoverPassword } from "../../redux/actions/password";
+import { recoverPassword } from "../../redux/actions/Auth/password";
 
 const recoverPasswordContainer = (RecoverPassword) => () => {
   const dispatch = useDispatch();
@@ -22,11 +22,10 @@ const recoverPasswordContainer = (RecoverPassword) => () => {
     ),
   });
 
-  const recoverPasswordHandler = (values, actions) => {
+  const recoverPasswordHandler = (values) => {
     console.log(values);
     values.token = getFromPersistance("recovery_token");
-    dispatch(recoverPassword({ values, formikActions: actions }));
-    actions.setSubmitting(false);
+    dispatch(recoverPassword(values));
   };
 
   return (
