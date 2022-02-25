@@ -1,13 +1,17 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { getFromPersistance } from "../utils/functions";
+// import { getFromPersistance } from "../utils/functions";
 
 const PrivateRoute = (props) => {
-  const state = getFromPersistance("kunji_auth_data");
+  // const state = getFromPersistance("kunji_auth_data");
+  const state = useSelector((state) => state.user.data);
+  console.log(state);
 
-  if (state?.data?.token) return <Route {...props}>{props.children}</Route>;
+  if (state?.data?.token) {
+    return <Route {...props}>{props.children}</Route>;
+  }
   return <Redirect to="/login" />;
 };
 

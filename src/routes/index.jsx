@@ -41,7 +41,7 @@ const AppRouter = () => (
       <PrivateRoute path="/">
         <Home />
       </PrivateRoute>
-      <Redirect to="/login" />
+      <Redirect to="/login" exact/>
     </Switch>
   </ConnectedRouter>
 );

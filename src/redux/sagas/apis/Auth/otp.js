@@ -11,8 +11,17 @@ export const registerOtpApi = async (data) => {
   });
 };
 
+export const resendRegisterOtpApi = async () => {
+  const token = getFromPersistance("Bearer_Otp_Token");
+  return API.request({
+    headers: { Authorization: `Bearer ${token}` },
+    method: "GET",
+    url: "user/get-new-otp",
+  });
+};
+
 export const forgotPasswordOtpApi = async (data) => {
-  console.log(data)
+  console.log(data);
   return API.request({
     method: "POST",
     url: "user/forgot-password-otp-submit",

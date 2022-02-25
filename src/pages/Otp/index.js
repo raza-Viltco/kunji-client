@@ -11,6 +11,7 @@ const OtpVerification = ({
   validationSchema,
   otpHandler,
   stateLoading,
+  resendOtpHandler,
 }) => {
   return (
     <AuthView heading="OTP Verification" subject="Enter the otp">
@@ -34,6 +35,9 @@ const OtpVerification = ({
               error={props.errors.otp}
               helperText
             />
+            <p className="text-end m-0" onClick={resendOtpHandler}>
+              Resend Otp
+            </p>
             <Button
               type="submit"
               fullWidth

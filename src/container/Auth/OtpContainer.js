@@ -3,7 +3,11 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { registerOtp, forgotPasswordOtp } from "../../redux/actions/Auth/otp";
+import {
+  registerOtp,
+  forgotPasswordOtp,
+  resendRegisterOtp,
+} from "../../redux/actions/Auth/otp";
 import { getFromPersistance } from "../../utils/functions";
 
 const otpContainer = (OtpVerification) => () => {
@@ -29,12 +33,17 @@ const otpContainer = (OtpVerification) => () => {
     }
   };
 
+  const resendOtpHandler = () => {
+    dispatch(resendRegisterOtp());
+  };
+
   return (
     <OtpVerification
       initialValues={initialValues}
       validationSchema={validationSchema}
-      otpHandler={otpHandler}
       stateLoading={stateLoading}
+      otpHandler={otpHandler}
+      resendOtpHandler={resendOtpHandler}
     />
   );
 };

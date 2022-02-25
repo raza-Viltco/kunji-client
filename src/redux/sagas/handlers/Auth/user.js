@@ -1,7 +1,10 @@
 import { call, put } from "redux-saga/effects";
 import { push } from "connected-react-router";
 
-import { saveToPersistance } from "../../../../utils/functions";
+import {
+  saveToPersistance,
+  deleteFromPersistance,
+} from "../../../../utils/functions";
 import { setUserData, userRegisterData } from "../../../actions/Auth/user";
 import { loginApi, registerApi } from "../../apis/Auth/user";
 import { localApiStateHandler } from "../localApiStateHandler";
@@ -53,6 +56,15 @@ export function* handleRegister(action) {
       })
     );
     yield put(push("/otp_verification/:register"));
+  }
+
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handlerLogout() {
+  function* api() {
+    deleteFromPersistance("kunji_auth_data");
+    yield put(push("/login"))
   }
 
   yield call(() => localApiStateHandler(api));

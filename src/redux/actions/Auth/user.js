@@ -10,6 +10,10 @@ export const setUserData = (payload) => ({
   payload,
 });
 
+export const logout = () => ({
+  type: actionTypes.LOGOUT
+})
+
 export const register = (payload) => ({
   type: actionTypes.REGISTER,
   payload,

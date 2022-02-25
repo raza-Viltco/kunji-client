@@ -9,6 +9,8 @@ const otpReducer = (state = initialState, action) => {
   switch (type) {
     case actionTypes.SET_REGISTER_OTP:
       return { ...state, data: payload };
+    case actionTypes.SET_RESEND_REGISTER_OTP:
+      return { ...state, data: payload };
     case actionTypes.SET_FORGOT_PASSWORD_OTP:
       return { ...state, data: payload };
     default:

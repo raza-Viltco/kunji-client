@@ -4,8 +4,13 @@ import { call, put } from "redux-saga/effects";
 import {
   setRegisterOtp,
   setForgotPasswordOtp,
+  setResendRegisterOtp,
 } from "../../../actions/Auth/otp";
-import { registerOtpApi, forgotPasswordOtpApi } from "../../apis/Auth/otp";
+import {
+  registerOtpApi,
+  forgotPasswordOtpApi,
+  resendRegisterOtpApi,
+} from "../../apis/Auth/otp";
 import { localApiStateHandler } from "../localApiStateHandler";
 import { saveToPersistance } from "../../../../utils/functions";
 import { setError } from "../../../actions/local";
@@ -23,7 +28,16 @@ export function* handleRegisterOtp(action) {
     );
     yield put(push("/login"));
   }
+  yield call(() => localApiStateHandler(api));
+}
 
+export function* handleResendRegisterOtp() {
+  function* api() {
+    const { data } = yield call(resendRegisterOtpApi);
+    console.log(data);
+    yield put(setResendRegisterOtp(data));
+    yield put(setError({ type: "success", message: data.message }));
+  }
   yield call(() => localApiStateHandler(api));
 }
 
@@ -41,6 +55,5 @@ export function* handleForgotPasswordOtp(action) {
     );
     yield put(push("/recover_password"));
   }
-
   yield call(() => localApiStateHandler(api));
 }
