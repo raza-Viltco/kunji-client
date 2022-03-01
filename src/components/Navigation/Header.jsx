@@ -1,23 +1,12 @@
 import React from "react";
 import MuiAppBar from "@mui/material/AppBar";
-import MuiDrawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
-import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import {useDispatch} from "react-redux";
 
-import {logout} from '../../redux/actions/Auth/user'
 
 const Header = ({ styled, drawerWidth, openSidebar, handleDrawerOpen }) => {
-	const dispatch = useDispatch();
-
-
-    const logoutHandler = () => {
-		dispatch(logout());
-	}
-
 
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== "open",
@@ -39,7 +28,11 @@ const Header = ({ styled, drawerWidth, openSidebar, handleDrawerOpen }) => {
 
   return (
     <AppBar position="fixed" open={openSidebar}>
-      <Toolbar>
+      <Toolbar
+        sx={{
+          justifyContent: "space-between",
+        }}
+      >
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -55,10 +48,10 @@ const Header = ({ styled, drawerWidth, openSidebar, handleDrawerOpen }) => {
         <Typography variant="h6" noWrap component="div">
           Kunji
         </Typography>
-		<div className="d-flex justify-content-center">
-		<button className="btn btn-success" onClick={logoutHandler}>logout</button>
-		</div>
-        
+
+        <button className="btn btn-light">
+          Profile
+        </button>
       </Toolbar>
     </AppBar>
   );

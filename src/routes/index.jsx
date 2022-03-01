@@ -1,18 +1,16 @@
 import React from "react";
-import { Switch, Redirect } from "react-router-dom";
+import { Switch, Redirect } from "react-router";
 import { ConnectedRouter } from "connected-react-router";
 
 import { localhistory } from "../redux/store";
-import Auth from "../pages/Auth";
-// import Dashboard from "../pages/Dashboard";
-import Home from "../pages/Home";
-import Register from "../pages/Register";
-import ForgotPassword from "../pages/ForgotPassword";
-import OtpVerification from "../pages/Otp";
-import ForgotPasswordOtp from "../pages/ForgotPasswordOtp";
-import RecoverPassword from "../pages/RecoverPassword";
-// import Visitor from "../pages/Visitor";
-// import VisitorDetail from "../pages/Visitor/Detail";
+import Auth from "../pages/PublicPages/Auth";
+import Register from "../pages/PublicPages/Register";
+import ForgotPassword from "../pages/PublicPages/ForgotPassword";
+import OtpVerification from "../pages/PublicPages/Otp";
+import ForgotPasswordOtp from "../pages/PublicPages/ForgotPasswordOtp";
+import RecoverPassword from "../pages/PublicPages/RecoverPassword";
+import Home from "../pages/PrivatePages/Home";
+import Dashboard from "../pages/PrivatePages/Dashboard";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 
@@ -41,7 +39,10 @@ const AppRouter = () => (
       <PrivateRoute path="/">
         <Home />
       </PrivateRoute>
-      <Redirect to="/login" exact/>
+      <PrivateRoute path="/dashboard">
+        <Dashboard />
+      </PrivateRoute>
+      <Redirect to="/login" exact />
     </Switch>
   </ConnectedRouter>
 );

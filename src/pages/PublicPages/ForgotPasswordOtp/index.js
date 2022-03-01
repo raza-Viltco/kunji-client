@@ -1,17 +1,16 @@
 import React from "react";
 import { Formik, Form } from "formik";
 
-import AuthView from "../../components/AuthView/AuthView";
-import Input from "../../components/Form/Input";
-import Button from "../../components/Button";
-import otpContainer from "../../container/Auth/OtpContainer";
+import Input from "../../../components/Form/Input";
+import Button from "../../../components/Button";
+import AuthView from "../../../components/AuthView/AuthView";
+import otpContainer from "../../../container/Auth/OtpContainer";
 
-const OtpVerification = ({
+const ForgotPasswordOtp = ({
   initialValues,
   validationSchema,
   otpHandler,
   stateLoading,
-  resendOtpHandler,
 }) => {
   return (
     <AuthView heading="OTP Verification" subject="Enter the otp">
@@ -35,9 +34,6 @@ const OtpVerification = ({
               error={props.errors.otp}
               helperText
             />
-            <p className="text-end m-0" onClick={resendOtpHandler}>
-              Resend Otp
-            </p>
             <Button
               type="submit"
               fullWidth
@@ -56,4 +52,4 @@ const OtpVerification = ({
   );
 };
 
-export default otpContainer(OtpVerification);
+export default otpContainer(ForgotPasswordOtp);

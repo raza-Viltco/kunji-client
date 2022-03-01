@@ -1,10 +1,10 @@
 import React from "react";
 import { Formik, Form } from "formik";
 
-import Button from "../../components/Button";
-import Input from "../../components/Form/Input";
-import AuthView from "../../components/AuthView/AuthView";
-import recoverPasswordContainer from "../../container/Auth/RecoverPasswordContainer";
+import Button from "../../../components/Button";
+import Input from "../../../components/Form/Input";
+import AuthView from "../../../components/AuthView/AuthView";
+import recoverPasswordContainer from "../../../container/Auth/RecoverPasswordContainer";
 
 const RecoverPassword = ({
   initialValues,
