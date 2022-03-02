@@ -16,6 +16,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import MailIcon from "@mui/icons-material/Mail";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { logout } from "../../redux/actions/Auth/user";
 
@@ -92,12 +93,14 @@ const Sidebar = ({
 
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-          </ListItemButton>
+          <Link to="/dashboard">
+            <ListItemButton>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItemButton>
+          </Link>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton>

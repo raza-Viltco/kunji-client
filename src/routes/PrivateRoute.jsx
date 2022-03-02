@@ -10,7 +10,7 @@ const PrivateRoute = (props) => {
   console.log(state?.data?.token);
 
   if (state?.data?.token) {
-    return ( <Route {...props}>{props.children}</Route>);
+    return (<Route {...props}>{props.children}</Route>);
   }
   return <Redirect to="/login" />;
 };
