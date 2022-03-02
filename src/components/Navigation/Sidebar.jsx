@@ -16,7 +16,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import MailIcon from "@mui/icons-material/Mail";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { logout } from "../../redux/actions/Auth/user";
 
@@ -93,22 +93,24 @@ const Sidebar = ({
 
       <List>
         <ListItem disablePadding>
-          <Link to="/dashboard">
+          <NavLink to="/">
             <ListItemButton>
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItemButton>
-          </Link>
+          </NavLink>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Tickets" />
-          </ListItemButton>
+          <NavLink to="/add_society">
+            <ListItemButton>
+              <ListItemIcon>
+                <DraftsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Society" />
+            </ListItemButton>
+          </NavLink>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton>
@@ -118,40 +120,7 @@ const Sidebar = ({
             <ListItemText primary="Contacts" />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Agents" />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Articles" />
-          </ListItemButton>
-        </ListItem>
-      </List>
 
-      <List
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "end",
-          height: "40vh",
-        }}
-      >
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Setting" />
-          </ListItemButton>
-        </ListItem>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>

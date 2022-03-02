@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import Sidebar from "../../../components/Navigation/Sidebar";
 import Header from "../../../components/Navigation/Header";
 import Dashboard from "../Dashboard";
+import AddSociety from "../Society";
 
 const drawerWidth = 240;
 
@@ -52,8 +53,7 @@ const MiniDrawer = () => {
       />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {location.pathname === "/" && <p>Welcome to kunji</p>}
-        {location.pathname === "/dashboard" && <Dashboard />}
+        {location.pathname === "/add_society" ? <AddSociety /> : <Dashboard />}
       </Box>
     </Box>
   );

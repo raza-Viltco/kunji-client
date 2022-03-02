@@ -27,7 +27,7 @@ const Toast = () => {
       <Snackbar
         open={!!error}
         onClose={clearError}
-        autoHideDuration={3000}
+        autoHideDuration={6000}
         TransitionComponent={transitionRight}
         key="TransitionLeft"
       >

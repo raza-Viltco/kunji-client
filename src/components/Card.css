@@ -1,0 +1,11 @@
+.custom_card__wrapper {
+  background-color: #ffffff;
+  padding: 15px 20px 20px;
+  margin: 20px 0px 0px 0px;
+  border-radius: 0.3rem;
+  /* border: 0.06rem solid #00000035; */
+}
+
+.custom_card__wrapper.max {
+  width: 100%;
+}
