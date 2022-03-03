@@ -1,14 +1,11 @@
 import * as React from "react";
-
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import { useLocation } from "react-router-dom";
 
 import Sidebar from "../../../components/Navigation/Sidebar";
 import Header from "../../../components/Navigation/Header";
-import Dashboard from "../Dashboard";
-import AddSociety from "../Society/AddSociety";
+import DashboardItems from "./DashboardItems";
 
 const drawerWidth = 240;
 
@@ -22,7 +19,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 const MiniDrawer = () => {
-  const location = useLocation();
   const theme = useTheme();
   const [openSidebar, setOpenSidebar] = React.useState(false);
 
@@ -55,7 +51,7 @@ const MiniDrawer = () => {
         sx={{ flexGrow: 1, p: 3, backgroundColor: "#edf0f340" }}
       >
         <DrawerHeader />
-        {location.pathname === "/add_society" ? <AddSociety /> : <Dashboard />}
+        <DashboardItems />
       </Box>
     </Box>
   );

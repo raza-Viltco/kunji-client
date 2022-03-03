@@ -11,6 +11,7 @@ import ForgotPasswordOtp from "../pages/PublicPages/ForgotPasswordOtp";
 import RecoverPassword from "../pages/PublicPages/RecoverPassword";
 import Home from "../pages/PrivatePages/Home";
 import AddSociety from "../pages/PrivatePages/Society/AddSociety";
+import SocietyListing from "../pages/PrivatePages/Society/SocietyListing";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 
@@ -41,6 +42,9 @@ const AppRouter = () => (
       </PrivateRoute>
       <PrivateRoute path="/add_society">
         <AddSociety />
+      </PrivateRoute>
+      <PrivateRoute path="/society_list">
+        <SocietyListing />
       </PrivateRoute>
       <Redirect to="/login" exact />
     </Switch>
