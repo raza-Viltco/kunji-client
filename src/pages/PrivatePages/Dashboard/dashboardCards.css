@@ -1,0 +1,45 @@
+#background-color-main{
+    background-color: #E7ECEF;
+}
+
+#background-color-cards{
+    background-color: white;
+    border-radius: 15px;
+}
+.align-card{
+    text-align: right;
+    padding-right: 2%;
+}
+.image-set{
+    margin-top: -10%;
+}
+.text-color-card{
+    color: gray;
+}
+#align-card-s{
+    text-align: right;
+    
+}
+.btn-style{
+    background-image: linear-gradient(#814EF1,#6918F2 );
+    border-radius: 20px;
+    margin-right: 10px;
+    border:none;
+}
+.btn-style1{
+    background-image: linear-gradient(#34E580,#149F8D );
+    border-radius: 20px;
+    margin-right: 10px;
+    border:none;
+}
+.btn-style3{
+    background-image: linear-gradient(#00F7F7,#00D2D5 );
+    border-radius: 20px;
+    margin-right: 10px;
+    border:none;
+}
+
+#back-color-chart{
+    background-color: red;
+    border-radius: 20px;
+}
