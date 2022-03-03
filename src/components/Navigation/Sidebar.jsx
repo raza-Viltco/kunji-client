@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   IconButton,
   Divider,
@@ -17,6 +17,10 @@ import DraftsIcon from "@mui/icons-material/Drafts";
 import MailIcon from "@mui/icons-material/Mail";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import Collapse from "@mui/material/Collapse";
+import StarBorder from "@mui/icons-material/StarBorder";
 
 import { logout } from "../../redux/actions/Auth/user";
 
@@ -27,7 +31,13 @@ const Sidebar = ({
   handleDrawerClose,
   openSidebar,
 }) => {
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+
+  const nestedListHandler = () => {
+    setOpen((prev) => !prev);
+  };
+
   const Drawer = styled(MuiDrawer, {
     shouldForwardProp: (prop) => prop !== "open",
   })(({ theme, open }) => ({
@@ -102,24 +112,34 @@ const Sidebar = ({
             </ListItemButton>
           </ListItem>
         </NavLink>
-        <NavLink to="/add_society">
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Add Society" />
-            </ListItemButton>
-          </ListItem>
-        </NavLink>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Society Listing" />
-          </ListItemButton>
-        </ListItem>
+
+        <ListItemButton onClick={nestedListHandler}>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Society" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <NavLink to="/add_society">
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <DraftsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Add Society" />
+              </ListItemButton>
+            </NavLink>
+            <NavLink to="/society_list">
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <DraftsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Society Listing" />
+              </ListItemButton>
+            </NavLink>
+          </List>
+        </Collapse>
 
         <ListItem disablePadding>
           <ListItemButton>

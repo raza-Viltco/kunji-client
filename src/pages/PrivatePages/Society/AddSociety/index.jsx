@@ -3,6 +3,7 @@ import React from "react";
 import Input from "../../../../components/Form/Input";
 import Card from "../../../../components/Card";
 import Button from "../../../../components/Button";
+import "./AddSociety.css";
 
 const AddSociety = () => {
   return (
@@ -114,16 +115,18 @@ const AddSociety = () => {
           />
         </div>
       </div>
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        sx={{ mt: 3, mb: 2, borderRadius: "1rem" }}
-        // isLoading={stateLoading}
-        size="small"
-      >
-        Sign Up
-      </Button>
+      <div className="society_btn__wrapper">
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2, borderRadius: "1rem" }}
+          // isLoading={stateLoading}
+          size="small"
+        >
+          Sign Up
+        </Button>
+      </div>
     </Card>
   );
 };
