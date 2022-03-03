@@ -8,21 +8,23 @@ import "./App.css";
 import Toast from "./components/Toast";
 
 const App = () => {
-	usePersistance();
+  usePersistance();
 
-	const theme = createTheme({
-		palette: {
-			primary: deepPurple,
-			secondary: grey,
-		},
-	});
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#00AEAE",
+      },
+      secondary: grey,
+    },
+  });
 
-	return (
-		<ThemeProvider theme={theme}>
-			<Toast />
-			<AppRouter />
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={theme}>
+      <Toast />
+      <AppRouter />
+    </ThemeProvider>
+  );
 };
 
 export default App;

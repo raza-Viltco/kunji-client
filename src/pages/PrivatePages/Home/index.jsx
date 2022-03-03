@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 import Sidebar from "../../../components/Navigation/Sidebar";
 import Header from "../../../components/Navigation/Header";
 import Dashboard from "../Dashboard";
-import AddSociety from "../Society";
+import AddSociety from "../Society/AddSociety";
 
 const drawerWidth = 240;
 
@@ -23,7 +23,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 const MiniDrawer = () => {
   const location = useLocation();
-  console.log(location.pathname);
   const theme = useTheme();
   const [openSidebar, setOpenSidebar] = React.useState(false);
 
@@ -51,7 +50,10 @@ const MiniDrawer = () => {
         handleDrawerClose={handleDrawerClose}
         openSidebar={openSidebar}
       />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 3, backgroundColor: "#edf0f340" }}
+      >
         <DrawerHeader />
         {location.pathname === "/add_society" ? <AddSociety /> : <Dashboard />}
       </Box>

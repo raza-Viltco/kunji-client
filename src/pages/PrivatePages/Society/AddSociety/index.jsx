@@ -1,8 +1,8 @@
 import React from "react";
 
-import Input from "../../../components/Form/Input";
-import Card from "../../../components/Card";
-import Button from "../../../components/Button";
+import Input from "../../../../components/Form/Input";
+import Card from "../../../../components/Card";
+import Button from "../../../../components/Button";
 
 const AddSociety = () => {
   return (
@@ -35,16 +35,6 @@ const AddSociety = () => {
             fullWidth
             id="name"
             label="Longitude"
-            name="name"
-            type="text"
-          />
-        </div>
-        <div className="col-md-4">
-          <Input
-            margin="normal"
-            fullWidth
-            id="name"
-            label="Latitude"
             name="name"
             type="text"
           />

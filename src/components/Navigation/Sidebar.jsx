@@ -92,32 +92,32 @@ const Sidebar = ({
       </DrawerHeader>
 
       <List>
-        <ListItem disablePadding>
-          <NavLink to="/">
+        <NavLink to="/">
+          <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItemButton>
-          </NavLink>
-        </ListItem>
-        <ListItem disablePadding>
-          <NavLink to="/add_society">
+          </ListItem>
+        </NavLink>
+        <NavLink to="/add_society">
+          <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <DraftsIcon />
               </ListItemIcon>
               <ListItemText primary="Add Society" />
             </ListItemButton>
-          </NavLink>
-        </ListItem>
+          </ListItem>
+        </NavLink>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
               <DraftsIcon />
             </ListItemIcon>
-            <ListItemText primary="Contacts" />
+            <ListItemText primary="Society Listing" />
           </ListItemButton>
         </ListItem>
 

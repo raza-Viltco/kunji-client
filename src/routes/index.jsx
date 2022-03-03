@@ -10,8 +10,7 @@ import OtpVerification from "../pages/PublicPages/Otp";
 import ForgotPasswordOtp from "../pages/PublicPages/ForgotPasswordOtp";
 import RecoverPassword from "../pages/PublicPages/RecoverPassword";
 import Home from "../pages/PrivatePages/Home";
-import Dashboard from "../pages/PrivatePages/Dashboard";
-import AddSociety from "../pages/PrivatePages/Society";
+import AddSociety from "../pages/PrivatePages/Society/AddSociety";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 
@@ -40,9 +39,6 @@ const AppRouter = () => (
       <PrivateRoute path="/">
         <Home />
       </PrivateRoute>
-      {/* <PrivateRoute path="/dashboard">
-        <Dashboard />
-      </PrivateRoute> */}
       <PrivateRoute path="/add_society">
         <AddSociety />
       </PrivateRoute>
