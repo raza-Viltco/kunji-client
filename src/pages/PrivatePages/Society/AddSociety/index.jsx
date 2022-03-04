@@ -124,7 +124,7 @@ const AddSociety = () => {
           // isLoading={stateLoading}
           size="small"
         >
-          Sign Up
+         Add
         </Button>
       </div>
     </Card>

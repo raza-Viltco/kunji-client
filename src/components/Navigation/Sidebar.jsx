@@ -11,18 +11,24 @@ import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import ListItemButton from "@mui/material/ListItemButton";
-import DraftsIcon from "@mui/icons-material/Drafts";
-import MailIcon from "@mui/icons-material/Mail";
+
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
 import StarBorder from "@mui/icons-material/StarBorder";
+import {
+  MdDashboard,
+  MdAddBusiness,
+  MdOutlineFormatListBulleted,
+} from "react-icons/md";
+import { SiHomeassistantcommunitystore } from "react-icons/si";
+import { BiLogOut } from "react-icons/bi";
 
 import { logout } from "../../redux/actions/Auth/user";
+import "./sidebar.css";
 
 const Sidebar = ({
   styled,
@@ -101,12 +107,12 @@ const Sidebar = ({
         </IconButton>
       </DrawerHeader>
 
-      <List>
+      <List className="sidebar-anchor-outer">
         <NavLink to="/">
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <MdDashboard size={25} />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItemButton>
@@ -115,7 +121,7 @@ const Sidebar = ({
 
         <ListItemButton onClick={nestedListHandler}>
           <ListItemIcon>
-            <InboxIcon />
+            <SiHomeassistantcommunitystore size={20} />
           </ListItemIcon>
           <ListItemText primary="Society" />
           {open ? <ExpandLess /> : <ExpandMore />}
@@ -125,7 +131,7 @@ const Sidebar = ({
             <NavLink to="/add_society">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
-                  <DraftsIcon />
+                  <MdAddBusiness size={25} />
                 </ListItemIcon>
                 <ListItemText primary="Add Society" />
               </ListItemButton>
@@ -133,7 +139,7 @@ const Sidebar = ({
             <NavLink to="/society_list">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
-                  <DraftsIcon />
+                  <MdOutlineFormatListBulleted size={25} />
                 </ListItemIcon>
                 <ListItemText primary="Society Listing" />
               </ListItemButton>
@@ -144,7 +150,7 @@ const Sidebar = ({
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <DraftsIcon />
+              <BiLogOut size={25} />
             </ListItemIcon>
             <ListItemText primary="Logout" onClick={logoutHandler} />
           </ListItemButton>

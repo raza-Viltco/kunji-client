@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
-
 import Button from "../../../components/Button";
 import Input from "../../../components/Form/Input";
 import AuthView from "../../../components/AuthView/AuthView";

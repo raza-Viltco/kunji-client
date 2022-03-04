@@ -14,6 +14,7 @@ import AddSociety from "../pages/PrivatePages/Society/AddSociety";
 import SocietyListing from "../pages/PrivatePages/Society/SocietyListing";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
+import Profile from "../pages/PrivatePages/Profile";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -46,6 +47,9 @@ const AppRouter = () => (
       <PrivateRoute path="/society_list">
         <SocietyListing />
       </PrivateRoute>
+      {/* <PrivateRoute path="/user_profile">
+        <Profile />
+      </PrivateRoute> */}
       <Redirect to="/login" exact />
     </Switch>
   </ConnectedRouter>
