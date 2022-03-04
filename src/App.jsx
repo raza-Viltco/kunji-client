@@ -13,7 +13,7 @@ const App = () => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#00AEAE",
+        main: "#91059D",
       },
       secondary: grey,
     },
