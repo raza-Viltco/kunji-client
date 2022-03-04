@@ -50,7 +50,7 @@ const Auth = ({
           />
           <div className="forgot_text__link">
             <Link to="/forgot_password">
-              <p className="text-end m-0 ">forgot password!</p>
+              <p className="text-end m-0 ">Forgot Password</p>
             </Link>
           </div>
 

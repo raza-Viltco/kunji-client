@@ -18,14 +18,20 @@ const registerContainer = (Register) => () => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required."),
+
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required."),
-    password: Yup.string().required("Password is required."),
-    password_confirmation: Yup.string().oneOf(
-      [Yup.ref("password"), null],
-      "Passwords must match"
-    ),
+    password: Yup.string()
+      .required("Password is required.")
+      .matches(
+        /^(?=.*\d)(?=.*[~`!@#$%^&*()--+={}:;"'<>,.?/|\_₹])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+        "Enter Pasword with Format. "
+      ),
+
+    password_confirmation: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Password is required."),
     mobile: Yup.string().required("Contact is required."),
   });
 
