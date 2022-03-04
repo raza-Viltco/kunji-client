@@ -46,10 +46,7 @@ const MiniDrawer = () => {
         handleDrawerClose={handleDrawerClose}
         openSidebar={openSidebar}
       />
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, p: 3, backgroundColor: "#edf0f340" }}
-      >
+      <Box component="main" sx={{ flexGrow: 1, p: 3, background: "#d6dbdf82" }}>
         <DrawerHeader />
         <DashboardItems />
       </Box>

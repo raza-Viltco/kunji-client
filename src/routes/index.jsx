@@ -47,9 +47,9 @@ const AppRouter = () => (
       <PrivateRoute path="/society_list">
         <SocietyListing />
       </PrivateRoute>
-      {/* <PrivateRoute path="/user_profile">
+      <PrivateRoute path="/user_profile">
         <Profile />
-      </PrivateRoute> */}
+      </PrivateRoute>
       <Redirect to="/login" exact />
     </Switch>
   </ConnectedRouter>

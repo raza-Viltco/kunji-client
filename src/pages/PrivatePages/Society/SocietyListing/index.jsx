@@ -150,7 +150,7 @@ const SocietyListing = () => {
     },
   ];
   return (
-    <div style={{ height: "80vh", width: "100%" }}>
+    <div style={{ height: 520, width: "100%", background: "white" }}>
       <DataGrid
         rows={rows}
         columns={columns}
