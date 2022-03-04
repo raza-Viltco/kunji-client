@@ -6,9 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
-
 const Header = ({ styled, drawerWidth, openSidebar, handleDrawerOpen }) => {
-
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== "open",
   })(({ theme, open }) => ({
@@ -50,15 +48,9 @@ const Header = ({ styled, drawerWidth, openSidebar, handleDrawerOpen }) => {
           Kunji
         </Typography>
 
-     <button className="btn btn-light">
-     {/* <Link to="/user_profile">    */}
-     
-       Profile 
-     
-        {/* </Link> */}
-        
+        <button className="btn btn-light">
+          <Link to="/user_profile">Profile</Link>
         </button>
-    
       </Toolbar>
     </AppBar>
   );
