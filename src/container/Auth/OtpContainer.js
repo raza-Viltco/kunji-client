@@ -21,7 +21,9 @@ const otpContainer = (OtpVerification) => () => {
   };
 
   const validationSchema = Yup.object().shape({
-    otp: Yup.string().required("Otp is required."),
+    otp: Yup.string()
+      .required("Otp is required.")
+      .matches(/^[0-9]+$/, "Only Numbers are allowed for Otp."),
   });
 
   const otpHandler = (values) => {
