@@ -1,0 +1,10 @@
+.profileForm-background{
+    background-color: white;
+    padding: 30px;
+}
+.form-button-outer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
