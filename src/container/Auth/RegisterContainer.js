@@ -18,7 +18,6 @@ const registerContainer = (Register) => () => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required."),
-
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required."),
@@ -26,9 +25,8 @@ const registerContainer = (Register) => () => {
       .required("Password is required.")
       .matches(
         /^(?=.*\d)(?=.*[~`!@#$%^&*()--+={}:;"'<>,.?/|\_₹])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-        "Enter Pasword with Format. "
+        "Password should be min 8 letter, with a symbol, upper and lower case letters and a number!"
       ),
-
     password_confirmation: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Password is required."),
