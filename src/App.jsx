@@ -12,17 +12,19 @@ const App = () => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#91059D",
+        main: "#2F5351",
       },
       secondary: grey,
     },
   });
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
+     <ThemeProvider theme={theme}>
       <Toast />
       <AppRouter />
-    </ThemeProvider>
+   </ThemeProvider>
+    </>
   );
 };
 

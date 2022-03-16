@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import "./profileForm.css";
 import Input from "../../../components/Form/Input";
 import Button from "../../../components/Button";
-
+import Card from "../../../components/Card";
 const ProfileForm = () => {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(true);
@@ -27,7 +27,7 @@ const ProfileForm = () => {
   };
   return (
     <>
-      <div className="profileForm-background">
+       <Card>
         <h3>General Information</h3>
         <div className="row">
           <div className="col-md-6">
@@ -162,7 +162,7 @@ const ProfileForm = () => {
             </div>
           </div>
         </div>
-      </div>
+        </Card>
     </>
   );
 };

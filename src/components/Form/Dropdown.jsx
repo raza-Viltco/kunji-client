@@ -3,6 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Sidebar from "../Navigation/Sidebar";
 
 const Dropdown = ({
   error,
@@ -25,6 +26,7 @@ const Dropdown = ({
     >
       <InputLabel id="demo-simple-select-error-label">{inputLabel}</InputLabel>
       <Select
+     
         labelId="demo-simple-select-error-label"
         id={id}
         value={value}
@@ -34,6 +36,7 @@ const Dropdown = ({
         name={name}
         onClick={onClick}
       >
+        
         {children}
       </Select>
       {error && <FormHelperText>{error}</FormHelperText>}
@@ -42,3 +45,6 @@ const Dropdown = ({
 };
 
 export default Dropdown;
+
+
+// css of drop down in Sidebar.css

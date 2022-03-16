@@ -21,6 +21,7 @@ const LoadingButton = ({
       sx={sx}
       size={size}
       onClick={click}
+      
     >
       {isLoading ? <CircularProgress color="secondary" size={25} /> : children}
     </Button>

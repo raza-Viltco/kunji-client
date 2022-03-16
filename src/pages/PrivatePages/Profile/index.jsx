@@ -6,7 +6,7 @@ import "./profile.css";
 const Profile = () => {
   return (
     <>
-      <div className="col-md-12 main-profile">
+      <div className="row main-profile">
         <div className="col-md-8">
           <ProfileForm />
         </div>

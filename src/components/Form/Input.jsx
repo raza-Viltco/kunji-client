@@ -14,6 +14,7 @@ const Input = ({
   value,
   type,
   helperText,
+  disabled,
 }) => {
   return (
     <TextField
