@@ -1,5 +1,11 @@
-import { call, put } from "redux-saga/effects";
+import { call, put} from "redux-saga/effects";
 import { setError, setLoading } from "../../actions/local";
+
+function sleep(seconds) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, seconds * 1000);
+  });
+}
 
 export function* localApiStateHandler(apiHandler) {
   try {
@@ -9,8 +15,9 @@ export function* localApiStateHandler(apiHandler) {
     let errors = error?.response?.data?.errors;
     if (errors) {
       for (let key of Object.keys(errors)) {
-        console.log(key ,errors[key])
-         yield put(setError({type: "error", message: errors[key] }))
+        console.log(key, errors[key]);
+        yield put(setError({ type: "error", message: [errors[key]] }));
+        yield call(sleep, 1);
       }
     } else {
       yield put(

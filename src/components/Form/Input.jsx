@@ -34,6 +34,10 @@ const Input = ({
       value={value}
       variant="filled"
       size="small"
+      inputProps={{
+        multiple: true,
+        accept: "image/png, image/jpeg, .pdf, .xls, .xlsx, .csv",
+      }}
     />
   );
 };

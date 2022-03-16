@@ -14,7 +14,12 @@ import {
   handleRegisterOtp,
   handleResendRegisterOtp,
 } from "./handlers/Auth/otp";
-import { handleCountries, handleCities } from "./handlers/Society/AddSociety";
+import {
+  handleCountries,
+  handleCities,
+  handleAddSociety,
+} from "./handlers/Society/AddSociety";
+import { handleSocieties } from "./handlers/Society/SocietyListing";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -27,4 +32,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.RECOVER_PASSWORD, handleRecoverPassword);
   yield takeLatest(actionTypes.COUNTRIES_DATA, handleCountries);
   yield takeLatest(actionTypes.CITY_DATA, handleCities);
+  yield takeLatest(actionTypes.SOCIETY_LIST, handleSocieties);
+  yield takeLatest(actionTypes.ADD_SOCIETY, handleAddSociety);
 }

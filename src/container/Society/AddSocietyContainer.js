@@ -5,10 +5,12 @@ import * as Yup from "yup";
 import {
   countriesData,
   citiesData,
+  addSociety,
 } from "../../redux/actions/Society/AddSociety";
 
 const addSocietyContainer = (AddSociety) => () => {
   const dispatch = useDispatch();
+  const stateLoading = useSelector((state) => state.local.isLoading);
   const countryData = useSelector((state) => state.addSociety.countryData);
   const cityData = useSelector((state) => state.addSociety.cityData);
   const cityId = useSelector((state) => state.addSociety.cityId);
@@ -26,6 +28,7 @@ const addSocietyContainer = (AddSociety) => () => {
       email: "",
       mobile: "",
     },
+    documents: [],
   };
 
   const validationSchema = Yup.object().shape({
@@ -45,8 +48,9 @@ const addSocietyContainer = (AddSociety) => () => {
     }),
   });
 
-  const addSocietyHandler = (values) => {
+  const addSocietyHandler = (values, formikActions) => {
     console.log(values);
+    dispatch(addSociety({values, formikActions}));
   };
 
   useEffect(() => {
@@ -63,6 +67,7 @@ const addSocietyContainer = (AddSociety) => () => {
       validationSchema={validationSchema}
       countryData={countryData}
       cityData={cityData}
+      stateLoading={stateLoading}
       addSocietyHandler={addSocietyHandler}
     />
   );
