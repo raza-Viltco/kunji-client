@@ -23,3 +23,13 @@ export const setCityId = (payload) => ({
   type: actionTypes.SET_CITY_ID,
   payload,
 });
+
+export const addSociety = (payload) => ({
+  type: actionTypes.ADD_SOCIETY,
+  payload,
+});
+
+export const setAddSociety = (payload) => ({
+  type: actionTypes.SET_ADD_SOCIETY,
+  payload,
+});
