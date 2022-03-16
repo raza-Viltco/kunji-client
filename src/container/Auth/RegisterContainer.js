@@ -1,7 +1,6 @@
 import React from "react";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-
 import { register } from "../../redux/actions/Auth/user";
 
 const registerContainer = (Register) => () => {
@@ -19,7 +18,7 @@ const registerContainer = (Register) => () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required."),
     email: Yup.string()
-      .email("Invalid email address")
+          .email("Invalid email address")
       .required("Email is required."),
     password: Yup.string()
       .required("Password is required.")

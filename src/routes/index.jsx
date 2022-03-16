@@ -15,6 +15,13 @@ import SocietyListing from "../pages/PrivatePages/Society/SocietyListing";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/PrivatePages/Profile";
+import BuilderRegisterUser from "../pages/PrivatePages/BuilderSociety/RegisterUser";
+import RegisterStaff from "../pages/PrivatePages/BuilderSociety/StaffManagement/registerStaff";
+import StaffListing from "../pages/PrivatePages/BuilderSociety/StaffManagement/staffListing";
+import RegisterFlat from "../pages/PrivatePages/BuilderSociety/FlatManagemet/registerFlat";
+import FlatListing from "../pages/PrivatePages/BuilderSociety/FlatManagemet/flatListing";
+import RegisterAsset from "../pages/PrivatePages/BuilderSociety/AssetManagement/registerAsset";
+import AssetListing from "../pages/PrivatePages/BuilderSociety/AssetManagement/assetListing";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -47,6 +54,29 @@ const AppRouter = () => (
       <PrivateRoute path="/society_list">
         <SocietyListing />
       </PrivateRoute>
+      <PrivateRoute path="/add_asset">
+        <RegisterAsset />
+      </PrivateRoute>
+      <PrivateRoute path="/asset_list">
+        <AssetListing />
+      </PrivateRoute>
+
+      <PrivateRoute path="/builder_society_register">
+        <BuilderRegisterUser />
+      </PrivateRoute>
+      <PrivateRoute path="/builder_staff_management">
+        <RegisterStaff />
+      </PrivateRoute>
+      <PrivateRoute path="/staff_list">
+        <StaffListing />
+      </PrivateRoute>
+      <PrivateRoute path="/register_flat">
+        <RegisterFlat />
+      </PrivateRoute>
+      <PrivateRoute path="/flat_listing">
+        <FlatListing />
+      </PrivateRoute>
+
       <PrivateRoute path="/user_profile">
         <Profile />
       </PrivateRoute>

@@ -29,12 +29,14 @@ const AddSociety = ({
       >
         {(props) => (
           <Form>
-            {/* {console.log(props)} */}
+            {console.log(props)}
             <h4 className="text-center m-0">Add Society</h4>
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-4 pt-2 ">
                 <Input
-                  margin="normal"
+                 
+                  
+                  margin="noraml"
                   fullWidth
                   label="Society Name"
                   name="society.name"
@@ -45,6 +47,7 @@ const AddSociety = ({
                   error={props?.errors?.society?.name}
                   helperText
                 />
+                
               </div>
               <div className="col-md-4">
                 <Dropdown
@@ -173,7 +176,7 @@ const AddSociety = ({
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius: "1rem" }}
+                sx={{ mt: 3, mb: 2 }}
                 // isLoading={stateLoading}
                 size="small"
               >

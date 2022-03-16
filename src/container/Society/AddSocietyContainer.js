@@ -39,8 +39,8 @@ const addSocietyContainer = (AddSociety) => () => {
       full_name: Yup.string().required("Full name is required!"),
       address: Yup.string().required("Address is required!"),
       email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required."),
+        .email("Invalid email address!")
+        .required("Email is required!"),
       mobile: Yup.string().required("Contact is required!"),
     }),
   });
