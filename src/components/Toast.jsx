@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Alert, Snackbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import Slide from "@mui/material/Slide";
 
 import { setError } from "../redux/actions/local";
 
 const Toast = () => {
+  const [state, setState] = useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+
+  const { vertical, horizontal, open } = state;
   const error = useSelector((state) => state.local.error);
   const dispatch = useDispatch();
 
-  const transitionRight = (props) => {
-    return <Slide {...props} direction="left" />;
+  const handleClick = (newState) => () => {
+    if (!!error) {
+      setState({ open: true, ...newState });
+    }
   };
 
   const clearError = () => {
@@ -25,11 +33,14 @@ const Toast = () => {
     error?.type &&
     error?.message && (
       <Snackbar
-        open={!!error}
+        anchorOrigin={{ vertical, horizontal }}
+        open={handleClick({
+          vertical: "top",
+          horizontal: "center",
+        })}
         onClose={clearError}
         autoHideDuration={8000}
-        TransitionComponent={transitionRight}
-        key="TransitionLeft"
+        key={vertical + horizontal}
       >
         <Alert onClose={clearError} severity={error?.type} variant="filled">
           {error?.message}

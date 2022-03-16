@@ -4,6 +4,7 @@ const initialState = {
   countryData: [],
   cityData: [],
   cityId: "",
+  societyData: null,
 };
 
 const addSocietyReducer = (state = initialState, action) => {
@@ -15,6 +16,8 @@ const addSocietyReducer = (state = initialState, action) => {
       return { ...state, cityData: payload };
     case actionTypes.SET_CITY_ID:
       return { ...state, cityId: payload };
+    case actionTypes.SET_ADD_SOCIETY:
+      return { ...state, societyData: payload };
     default:
       return state;
   }

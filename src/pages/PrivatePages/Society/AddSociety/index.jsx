@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
 import MenuItem from "@mui/material/MenuItem";
 import { useDispatch } from "react-redux";
@@ -16,6 +16,7 @@ const AddSociety = ({
   validationSchema,
   countryData,
   cityData,
+  stateLoading,
   addSocietyHandler,
 }) => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const AddSociety = ({
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
+        enableReinitialize={true}
         onSubmit={addSocietyHandler}
       >
         {(props) => (
@@ -102,9 +104,12 @@ const AddSociety = ({
                 <Input
                   margin="normal"
                   fullWidth
-                  // label="Upload File"
                   type="file"
-                  accept="image/*"
+                  name="documents"
+                  onChange={(e) =>
+                    props.setFieldValue("documents", [...e.currentTarget.files])
+                  }
+                  onBlur={props.handleBlur}
                 />
               </div>
             </div>
@@ -174,7 +179,7 @@ const AddSociety = ({
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, borderRadius: "1rem" }}
-                // isLoading={stateLoading}
+                isLoading={stateLoading}
                 size="small"
               >
                 Add

@@ -25,7 +25,7 @@ const Input = ({
       name={name}
       type={type}
       autoComplete={autoComplete}
-      sx={{ backgroundColor: 'white'}}
+      sx={{ backgroundColor: "white" }}
       error={error ? !!error : false}
       helperText={error}
       onChange={onChange}
@@ -33,6 +33,10 @@ const Input = ({
       value={value}
       variant="filled"
       size="small"
+      inputProps={{
+        multiple: true,
+        accept: "image/png, image/jpeg, .pdf, .xls, .xlsx, .csv",
+      }}
     />
   );
 };
