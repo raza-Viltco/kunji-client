@@ -8,6 +8,7 @@ import {
 import {
   handleForgotPassword,
   handleRecoverPassword,
+  handleUpdatePassword,
 } from "./handlers/Auth/password";
 import {
   handleForgotPasswordOtp,
@@ -20,6 +21,7 @@ import {
   handleAddSociety,
 } from "./handlers/Society/AddSociety";
 import { handleSocieties } from "./handlers/Society/SocietyListing";
+import { viewProfileData } from "./handlers/Profile/profile";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -34,4 +36,8 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.CITY_DATA, handleCities);
   yield takeLatest(actionTypes.SOCIETY_LIST, handleSocieties);
   yield takeLatest(actionTypes.ADD_SOCIETY, handleAddSociety);
+  yield takeLatest(actionTypes.UPDATE_PASSWORD,handleUpdatePassword);
+  yield takeLatest(actionTypes.SET_UPDATE_PASSWORD,handleUpdatePassword);
+  yield takeLatest(actionTypes.VIEW_PROFILE,viewProfileData);
+  yield takeLatest(actionTypes.SET_VIEW_PROFILE,viewProfileData);
 }

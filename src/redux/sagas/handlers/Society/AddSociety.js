@@ -12,6 +12,7 @@ import {
 } from "../../../actions/Society/AddSociety";
 import { localApiStateHandler } from "../localApiStateHandler";
 import { setError } from "../../../actions/local";
+import { viewProfileApi } from "../../apis/Profile/profile";
 
 export function* handleCountries() {
   function* api() {

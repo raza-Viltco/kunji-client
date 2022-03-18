@@ -32,6 +32,7 @@ const Input = ({
       onChange={onChange}
       onBlur={onBlur}
       value={value}
+      disabled={disabled}
       variant="filled"
       size="small"
       inputProps={{

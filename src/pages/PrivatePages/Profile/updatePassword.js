@@ -1,11 +1,11 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Formik, Form } from "formik";
 
 import Input from "../../../components/Form/Input";
 import Button from "../../../components/Button";
 import Card from "../../../components/Card";
-import UpdatePasswordContainer from "../../../container/Auth/UpdatePasswordContainer";
-import "./updatePassword.css";
+import updatePasswordContainer from "../../../container/Auth/UpdatePasswordContainer";
+
 
 const UpdatePassword = ({
   initialValues,
@@ -22,14 +22,13 @@ const UpdatePassword = ({
         >
           {(props) => (
             <Form>
-              {console.log(props)}
               <Input
                 margin="normal"
                 fullWidth
                 id="old_password"
                 label="Old Password"
                 name="old_password"
-                type="text"
+                type="password"
                 value={props.values.old_password}
                 onChange={props.handleChange}
                 error={props.errors.old_password}
@@ -62,7 +61,7 @@ const UpdatePassword = ({
                 error={props.errors.password_confirmation}
                 helperText
               />
-              <div className="pt-3">
+          <div className="society_btn__wrapper pt-4">
                 <Button
                   type="submit"
                   fullWidth
@@ -80,4 +79,4 @@ const UpdatePassword = ({
   );
 };
 
-export default UpdatePasswordContainer(UpdatePassword);
+export default updatePasswordContainer(UpdatePassword);

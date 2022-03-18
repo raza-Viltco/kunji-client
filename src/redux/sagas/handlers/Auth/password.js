@@ -4,6 +4,7 @@ import { push } from "connected-react-router";
 import {
   forgotPasswordApi,
   recoverPasswordApi,
+  updatePasswordApi,
 } from "../../apis/Auth/password";
 import { localApiStateHandler } from "../localApiStateHandler";
 import { saveToPersistance } from "../../../../utils/functions";
@@ -43,5 +44,19 @@ export function* handleRecoverPassword(action) {
     yield put(push("/login"));
   }
 
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleUpdatePassword(action) {
+  function* api() {
+    const { data } = yield call(updatePasswordApi, action.payload);
+
+    yield put(
+      setError({
+        type: "success",
+        message: data.message,
+      })
+    );
+  }
   yield call(() => localApiStateHandler(api));
 }

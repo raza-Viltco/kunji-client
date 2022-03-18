@@ -19,3 +19,13 @@ export const setRecoverPassword = (payload) => ({
   type: actionTypes.SET_RECOVER_PASSWORD,
   payload,
 });
+
+export const updatePassword = (payload) => ({
+  type: actionTypes.UPDATE_PASSWORD,
+  payload,
+});
+
+export const setUpdatePassword = (payload) => ({
+  type: actionTypes.SET_UPDATE_PASSWORD,
+  payload,
+});

@@ -50,7 +50,7 @@ const addSocietyContainer = (AddSociety) => () => {
 
   const addSocietyHandler = (values, formikActions) => {
     console.log(values);
-    dispatch(addSociety({values, formikActions}));
+    dispatch(addSociety({ values, formikActions }));
   };
 
   useEffect(() => {

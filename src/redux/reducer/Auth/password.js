@@ -11,6 +11,8 @@ const passwordReducer = (state = initialState, action) => {
       return { ...state, data: payload };
     case actionTypes.SET_RECOVER_PASSWORD:
       return { ...state, data: payload };
+    case actionTypes.UPDATE_PASSWORD:
+      return { ...state, data: payload };
     default:
       return state;
   }
