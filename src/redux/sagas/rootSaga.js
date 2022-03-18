@@ -20,6 +20,7 @@ import {
   handleAddSociety,
 } from "./handlers/Society/AddSociety";
 import { handleSocieties } from "./handlers/Society/SocietyListing";
+import { handleAddAsset, handleAssetList } from "./handlers/Asset/AddAsset";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -34,4 +35,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.CITY_DATA, handleCities);
   yield takeLatest(actionTypes.SOCIETY_LIST, handleSocieties);
   yield takeLatest(actionTypes.ADD_SOCIETY, handleAddSociety);
+  yield takeLatest(actionTypes.ASSETS, handleAddAsset);
+  yield takeLatest(actionTypes.ASSET_LIST, handleAssetList);
 }

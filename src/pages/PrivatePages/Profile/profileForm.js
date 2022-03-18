@@ -52,17 +52,6 @@ const ProfileForm = () => {
               helperText
             />
           </div>
-          {/* <div className="col-md-6">
-            <Input
-              margin="normal"
-              fullWidth
-              id="password"
-              label="Password"
-              name="passowrd"
-              type="password"
-              helperText
-            />
-          </div> */}
           <div className="col-md-6">
             <Input
               margin="normal"
