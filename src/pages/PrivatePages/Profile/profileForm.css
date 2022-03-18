@@ -1,10 +1,43 @@
-.profileForm-background{
-    background-color: white;
-    padding: 30px;
+.form-button-outer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 20px;
 }
-.form-button-outer{
+
+.userProfile-background {
+  background-color: white;
+  padding: 12px;
+  margin-left: 20px;
+  text-align: center;
+}
+.society-profile-inner {
+  border-radius: 100px;
+  /* margin-top: -91px; */
+}
+.society-cover-photo {
+  background-image: url("../../../assets/Society_cover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 900px) {
+  .userProfile-background {
+    background-color: white;
+    padding: 12px;
+    margin-top: 20px;
+    text-align: center;
+    margin-left: 0px;
+  }
+}
+.main-profile {
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 900px) {
+  .main-profile {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-top: 20px;
+    flex-direction: column;
+  }
 }
