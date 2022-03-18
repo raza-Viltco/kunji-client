@@ -18,10 +18,10 @@ import Profile from "../pages/PrivatePages/Profile";
 import BuilderRegisterUser from "../pages/PrivatePages/BuilderSociety/RegisterUser";
 import RegisterStaff from "../pages/PrivatePages/BuilderSociety/StaffManagement/registerStaff";
 import StaffListing from "../pages/PrivatePages/BuilderSociety/StaffManagement/staffListing";
-import RegisterFlat from "../pages/PrivatePages/BuilderSociety/FlatManagemet/registerFlat";
-import FlatListing from "../pages/PrivatePages/BuilderSociety/FlatManagemet/flatListing";
-import RegisterAsset from "../pages/PrivatePages/BuilderSociety/AssetManagement/registerAsset";
-import AssetListing from "../pages/PrivatePages/BuilderSociety/AssetManagement/assetListing";
+import RegisterFlat from "../pages/PrivatePages/BuilderSociety/FlatManagemet/RegistFlat";
+import FlatListing from "../pages/PrivatePages/BuilderSociety/FlatManagemet/FlatListing";
+import RegisterAsset from "../pages/PrivatePages/BuilderSociety/AssetManagement/AddAsset";
+import AssetListing from "../pages/PrivatePages/BuilderSociety/AssetManagement/AssetListing";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>

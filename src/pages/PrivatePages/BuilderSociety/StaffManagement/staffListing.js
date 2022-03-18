@@ -48,7 +48,7 @@ const StaffListing = () => {
     {
       id: 2,
       fullName: "Aristotle",
-      designation: "Owner",
+      designation: "Maid",
       number: "+92 3453875435",
       email: "user3221@gmail.com",
     },

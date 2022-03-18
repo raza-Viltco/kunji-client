@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Dashboard from "../Dashboard";
 import AddSociety from "../Society/AddSociety";
@@ -8,13 +9,14 @@ import Profile from "../Profile/index";
 import BuilderRegisterUser from "../BuilderSociety/RegisterUser";
 import RegisterStaff from "../BuilderSociety/StaffManagement/registerStaff";
 import StaffListing from "../BuilderSociety/StaffManagement/staffListing";
-import RegisterFlat from "../BuilderSociety/FlatManagemet/registerFlat";
-import FlatListing from "../BuilderSociety/FlatManagemet/flatListing";
-import RegisterAsset from "../BuilderSociety/AssetManagement/registerAsset";
-import AssetListing from "../BuilderSociety/AssetManagement/assetListing";
+import RegisterFlat from "../BuilderSociety/FlatManagemet/RegistFlat";
+import FlatListing from "../BuilderSociety/FlatManagemet/FlatListing";
+import RegisterAsset from "../BuilderSociety/AssetManagement/AddAsset";
+import AssetListing from "../BuilderSociety/AssetManagement/AssetListing";
 
 const DashboardItems = () => {
   const location = useLocation();
+  const userData = useSelector((state) => state.user.data);
   return (
     <>
       {location.pathname === "/add_society" ? (

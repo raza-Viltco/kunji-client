@@ -26,7 +26,6 @@ const AddSociety = ({
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        enableReinitialize={true}
         onSubmit={addSocietyHandler}
       >
         {(props) => (
@@ -36,8 +35,6 @@ const AddSociety = ({
             <div className="row">
               <div className="col-md-4 pt-2 ">
                 <Input
-                 
-                  
                   margin="noraml"
                   fullWidth
                   label="Society Name"
@@ -49,7 +46,6 @@ const AddSociety = ({
                   error={props?.errors?.society?.name}
                   helperText
                 />
-                
               </div>
               <div className="col-md-4">
                 <Dropdown
@@ -182,8 +178,6 @@ const AddSociety = ({
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                // isLoading={stateLoading}
-                sx={{ mt: 3, mb: 2, borderRadius: "1rem" }}
                 isLoading={stateLoading}
                 size="small"
               >
