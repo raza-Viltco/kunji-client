@@ -8,6 +8,8 @@ import passwordReducer from "./reducer/Auth/password";
 import addSocietyReducer from "./reducer/Society/AddSociety";
 import societyListReducer from "./reducer/Society/SocietyListing";
 import profileReducer from "./reducer/Profile/profile";
+import addAssetReducer from "./reducer/Asset/AddAsset";
+
 
 const reducers = (history) =>
   combineReducers({
@@ -18,6 +20,7 @@ const reducers = (history) =>
     addSociety: addSocietyReducer,
     societyListing: societyListReducer,
     profile:profileReducer,
+    asset: addAssetReducer,
     router: connectRouter(history),
   });
 

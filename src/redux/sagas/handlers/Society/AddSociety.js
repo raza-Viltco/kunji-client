@@ -35,7 +35,7 @@ export function* handleCities(action) {
 
 export function* handleAddSociety(action) {
   console.log(action);
-  const { resetForm, setFieldValue } = action.payload.formikActions;
+  const { resetForm } = action.payload.formikActions;
   const { society, society_admin_user, documents } = action.payload.values;
   const form = new FormData();
   form.append("society[name]", society.name);

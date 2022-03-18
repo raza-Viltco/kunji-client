@@ -1,9 +1,10 @@
 import React from "react";
-import "./registerStaff.css";
 import Input from "../../../../components/Form/Input";
 import Dropdown from "../../../../components/Form/Dropdown";
 import Card from "../../../../components/Card";
+import Button from "../../../../components/Button";
 
+import "./registerStaff.css";
 const RegisterStaff = () => {
   return (
     <>
@@ -63,6 +64,18 @@ const RegisterStaff = () => {
             <Dropdown inputLabel="Roles" name="roles"></Dropdown>
           </div>
         </div>
+        <div className="society_btn__wrapper">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                // isLoading={stateLoading}
+                size="small"
+              >
+              Register
+              </Button>
+            </div>
       </Card>
     </>
   );

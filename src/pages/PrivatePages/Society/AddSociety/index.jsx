@@ -26,7 +26,6 @@ const AddSociety = ({
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        enableReinitialize={true}
         onSubmit={addSocietyHandler}
       >
         {(props) => (
@@ -179,8 +178,6 @@ const AddSociety = ({
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                // isLoading={stateLoading}
-
                 isLoading={stateLoading}
                 size="small"
               >

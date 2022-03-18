@@ -108,7 +108,6 @@ const ProfileForm = ({
                       />
                     </div>
                   </div>
-
                   <div className="form-button-outer">
                     <div className="">
                       {editButton && (

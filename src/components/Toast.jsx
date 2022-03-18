@@ -11,7 +11,7 @@ const Toast = () => {
     horizontal: "center",
   });
 
-  const { vertical, horizontal, open } = state;
+  const { vertical, horizontal} = state;
   const error = useSelector((state) => state.local.error);
   const dispatch = useDispatch();
 
