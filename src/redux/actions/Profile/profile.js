@@ -1,6 +1,6 @@
 import { actionTypes } from "../action-types";
 
-export const viewProfile = (payload) => ({
+export const viewProfile = () => ({
   type: actionTypes.VIEW_PROFILE,
 });
 

@@ -22,6 +22,7 @@ import RegisterFlat from "../pages/PrivatePages/BuilderSociety/FlatManagemet/Reg
 import FlatListing from "../pages/PrivatePages/BuilderSociety/FlatManagemet/FlatListing";
 import RegisterAsset from "../pages/PrivatePages/BuilderSociety/AssetManagement/AddAsset";
 import AssetListing from "../pages/PrivatePages/BuilderSociety/AssetManagement/AssetListing";
+import FacilitiesListing from "../pages/PrivatePages/BuilderSociety/FacilitiesManagement/FacilitiesListing";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -75,6 +76,9 @@ const AppRouter = () => (
       </PrivateRoute>
       <PrivateRoute path="/flat_listing">
         <FlatListing />
+      </PrivateRoute>
+      <PrivateRoute path="/facility_listing">
+        <FacilitiesListing />
       </PrivateRoute>
 
       <PrivateRoute path="/user_profile">

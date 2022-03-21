@@ -7,7 +7,7 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case actionTypes.VIEW_PROFILE:
+    case actionTypes.SET_VIEW_PROFILE:
       return { ...state, profileData: payload };
     default:
       return state;

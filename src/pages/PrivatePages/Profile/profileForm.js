@@ -4,12 +4,10 @@ import { Formik, Form } from "formik";
 import Input from "../../../components/Form/Input";
 import Button from "../../../components/Button";
 import Card from "../../../components/Card";
-import { Society_profile } from "../../../constants/AssetsConstants";
+import { Profile_Img } from "../../../constants/AssetsConstants";
 import UpdatePassword from "./updatePassword";
 import { BiEditAlt } from "react-icons/bi";
 import profileContainer from "../../../container/Profile/ProfileContainer";
-
-import { useThemeProps } from "@mui/system";
 import "./profileForm.css";
 
 const ProfileForm = ({
@@ -41,18 +39,20 @@ const ProfileForm = ({
     setSaveButton(false);
     setCancelButton(false);
     setEditButton(true);
-    setEnableField(false);
+    setEnableField(true);
   };
 
   return (
     <>
       <Formik
-        initialValues={initialValues}
+        initialValues={viewProfileData || initialValues}
         validationSchema={validationSchema}
-        // onSubmit={viewProfileHandler}
+        enableReinitialize
+        onSubmit={viewProfileHandler}
       >
         {(props) => (
           <Form>
+            {/* {console.log(props)} */}
             <div className="row main-profile">
               <div className="col-md-8">
                 <Card>
@@ -67,7 +67,7 @@ const ProfileForm = ({
                         name="name"
                         type="text"
                         disabled={enableField}
-                        // value={props.value.name}
+                        value={props.values.name}
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         error={props.errors.name}
@@ -82,10 +82,10 @@ const ProfileForm = ({
                         label="Email"
                         name="email"
                         type="email"
-                        // value={props.value.email}
-                        // onChange={props.handleChange}
-                        // onBlur={props.handleBlur}
-                        // error={props.errors.email}
+                        value={props.values.email}
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        error={props.errors.email}
                         disabled={true}
                         helperText
                       />
@@ -97,13 +97,13 @@ const ProfileForm = ({
                         fullWidth
                         id="number"
                         label="Contact Number"
-                        name="number"
+                        name="mobile"
                         type="text"
-                        // value={props.mobile}
-                        // error={props.errors.mobile}
-                        // onChange={props.handleChange}
-                        // onBlur={props.handleBlur}
+                        value={props.values.mobile}
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
                         disabled={enableField}
+                        error={props.errors.mobile}
                         helperText
                       />
                     </div>
@@ -124,11 +124,11 @@ const ProfileForm = ({
                       <div className="d-flex">
                         {saveButton && (
                           <Button
-                            type="button"
+                            type="submit"
                             fullWidth
                             variant="contained"
                             size="small"
-                            click={handleSave}
+                            // click={handleSave}
                           >
                             Save
                           </Button>
@@ -136,7 +136,7 @@ const ProfileForm = ({
                         &nbsp;
                         {cancelButton && (
                           <Button
-                            type="submit"
+                            type="button"
                             fullWidth
                             variant="contained"
                             size="small"
@@ -155,12 +155,30 @@ const ProfileForm = ({
                   <div style={{ textAlign: "center" }}>
                     <img
                       className="society-profile-inner"
-                      src={Society_profile}
-                      alt=""
+                      name="profile_picture"
+                      src={
+                        props?.values?.profile_picture
+                          ? props?.values?.profile_picture
+                          : Profile_Img
+                      }
+                      alt="profile_img"
                       width="150px"
                       height="150px"
                     />
-                    {/* <input type="file"></input> */}
+                    <Input
+                      margin="normal"
+                      fullWidth
+                      type="file"
+                      name="profile_picture"
+                      onChange={(e) =>
+                        props.setFieldValue(
+                          "profile_picture",
+                          URL.createObjectURL(e.target.files[0])
+                        )
+                      }
+                      click={console.log("hello")}
+                      onBlur={props.handleBlur}
+                    />
                     <h3>Smith</h3>
                     <p>Description</p>
                   </div>

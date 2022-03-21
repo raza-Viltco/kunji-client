@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { Link } from "react-router-dom";
-import { Society_profile } from "../../constants/AssetsConstants";
+import { Profile_Img } from "../../constants/AssetsConstants";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 
@@ -19,7 +19,7 @@ export default function BasicMenu() {
           aria-expanded="false"
         >
           <img
-            src={Society_profile}
+            src={Profile_Img}
             alt="profile"
             height="40px"
             width="40px"
