@@ -28,6 +28,7 @@ import {
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { BiLogOut, BiLogIn } from "react-icons/bi";
+import { MdOutlineTaskAlt } from "react-icons/md";
 import { logout } from "../../redux/actions/Auth/user";
 import "./sidebar.css";
 import { shouldForwardProp } from "@mui/styled-engine";
@@ -242,6 +243,12 @@ const Sidebar = ({
           </>
         )}
 
+
+        {userData?.data?.roles[0].name === "Super Admin" && (
+          <NavLink to="/user_roles">
+            <ListItem disablePadding>
+              <ListItemButton>
+
         {userData?.data?.roles[0].name === "Society Admin" && (
           <>
             <ListItemButton onClick={facilityOpenHandler}>
@@ -270,25 +277,13 @@ const Sidebar = ({
             <NavLink to="/">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
-                  <MdAddBusiness size={25} />
+                  <MdOutlineTaskAlt size={25} />
                 </ListItemIcon>
                 <ListItemText primary="Staff Roles" />
               </ListItemButton>
-            </NavLink>
-          </List>
-          <Collapse in={staffOpen} timeout="auto" unmountOnExit>
-
-          <List component="div" disablePadding>
-            <NavLink to="/">
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <MdAddBusiness size={25} />
-                </ListItemIcon>
-                <ListItemText primary="Staff List" />
-              </ListItemButton>
-            </NavLink>
-          </List>
-        </Collapse> */}
+            </ListItem>
+          </NavLink>
+        )}
 
         {userData?.data?.roles[0].name === "Society Admin" && (
           <>
