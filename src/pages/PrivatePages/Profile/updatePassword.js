@@ -52,7 +52,7 @@ const UpdatePassword = ({
                 margin="normal"
                 fullWidth
                 id="password_confirmation"
-                label="Confirm Password"
+                label="Confirm PassworFd"
                 name="password_confirmation"
                 type="password"
                 value={props.values.password_confirmation}

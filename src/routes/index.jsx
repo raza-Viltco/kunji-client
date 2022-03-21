@@ -22,6 +22,7 @@ import RegisterFlat from "../pages/PrivatePages/BuilderSociety/FlatManagemet/Reg
 import FlatListing from "../pages/PrivatePages/BuilderSociety/FlatManagemet/FlatListing";
 import RegisterAsset from "../pages/PrivatePages/BuilderSociety/AssetManagement/AddAsset";
 import AssetListing from "../pages/PrivatePages/BuilderSociety/AssetManagement/AssetListing";
+import Role from "../pages/PrivatePages/Roles";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -80,6 +81,10 @@ const AppRouter = () => (
       <PrivateRoute path="/user_profile">
         <Profile />
       </PrivateRoute>
+      <PrivateRoute path="/user_roles">
+        <Role/>
+      </PrivateRoute>
+
       <Redirect to="/login" exact />
     </Switch>
   </ConnectedRouter>

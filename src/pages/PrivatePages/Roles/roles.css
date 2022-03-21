@@ -1,0 +1,32 @@
+.permissions_outer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.permissions_inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 12px;
+}
+.permissions_inner p {
+  padding: 0px;
+  margin: 0px;
+}
+.roles_heading_style {
+  padding-top: 12px;
+  text-align: center;
+}
+.permissions_heading_style {
+  padding-top: 12px;
+  text-align: center;
+}
+@media screen and (max-width: 900px) {
+  .permissions_outer {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-around;
+  }
+}

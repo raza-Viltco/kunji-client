@@ -13,6 +13,7 @@ import RegisterFlat from "../BuilderSociety/FlatManagemet/RegistFlat";
 import FlatListing from "../BuilderSociety/FlatManagemet/FlatListing";
 import RegisterAsset from "../BuilderSociety/AssetManagement/AddAsset";
 import AssetListing from "../BuilderSociety/AssetManagement/AssetListing";
+import Role from "../Roles/index";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -39,6 +40,8 @@ const DashboardItems = () => {
         <RegisterAsset />
       ) : location.pathname === "/asset_list" ? (
         <AssetListing />
+      ) : location.pathname === "/user_roles" ? (
+        <Role />
       ) : (
         <Dashboard />
       )}
