@@ -9,7 +9,7 @@ import addSocietyReducer from "./reducer/Society/AddSociety";
 import societyListReducer from "./reducer/Society/SocietyListing";
 import profileReducer from "./reducer/Profile/profile";
 import addAssetReducer from "./reducer/Asset/AddAsset";
-
+import addFacilityReducer from "./reducer/Facilities/AddFacilities";
 
 const reducers = (history) =>
   combineReducers({
@@ -19,8 +19,9 @@ const reducers = (history) =>
     password: passwordReducer,
     addSociety: addSocietyReducer,
     societyListing: societyListReducer,
-    profile:profileReducer,
+    profile: profileReducer,
     asset: addAssetReducer,
+    facility: addFacilityReducer,
     router: connectRouter(history),
   });
 

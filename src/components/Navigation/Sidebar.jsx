@@ -47,6 +47,7 @@ const Sidebar = ({
   const [flatsOpen, setFlatsOpen] = useState(false);
   const [assetOpen, setAssetOpen] = useState(false);
   const [eventOpen, setEventOpen] = useState(false);
+  const [facilityOpen, setFacilityOpen] = useState(false);
 
   const dispatch = useDispatch();
   const nestedListHandler = () => {
@@ -66,6 +67,9 @@ const Sidebar = ({
   };
   const eventOpenHandler = () => {
     setEventOpen((prev) => !prev);
+  };
+  const facilityOpenHandler = () => {
+    setFacilityOpen((prev) => !prev);
   };
 
   const Drawer = styled(MuiDrawer, {
@@ -239,10 +243,39 @@ const Sidebar = ({
           </>
         )}
 
+
         {userData?.data?.roles[0].name === "Super Admin" && (
           <NavLink to="/user_roles">
             <ListItem disablePadding>
               <ListItemButton>
+
+        {userData?.data?.roles[0].name === "Society Admin" && (
+          <>
+            <ListItemButton onClick={facilityOpenHandler}>
+              <ListItemIcon>
+                <SiHomeassistantcommunitystore size={20} />
+              </ListItemIcon>
+              <ListItemText primary="Facility Management" />
+              {facilityOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={facilityOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <NavLink to="/facility_listing">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <MdAddBusiness size={25} />
+                    </ListItemIcon>
+                    <ListItemText primary="Facility Listing" />
+                  </ListItemButton>
+                </NavLink>
+              </List>
+            </Collapse>
+          </>
+        )}
+
+        {/* <List component="div" disablePadding>
+            <NavLink to="/">
+              <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
                   <MdOutlineTaskAlt size={25} />
                 </ListItemIcon>

@@ -6,7 +6,6 @@ import Button from "../../../components/Button";
 import Card from "../../../components/Card";
 import updatePasswordContainer from "../../../container/Auth/UpdatePasswordContainer";
 
-
 const UpdatePassword = ({
   initialValues,
   validationSchema,
@@ -61,7 +60,7 @@ const UpdatePassword = ({
                 error={props.errors.password_confirmation}
                 helperText
               />
-          <div className="society_btn__wrapper pt-4">
+              <div className="society_btn__wrapper pt-4">
                 <Button
                   type="submit"
                   fullWidth

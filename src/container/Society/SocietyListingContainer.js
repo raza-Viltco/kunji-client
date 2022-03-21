@@ -13,8 +13,6 @@ const societyListingContainer = (SocietyListing) => () => {
     dispatch(societyList());
   }, []);
 
-  
-
   return <SocietyListing societiesList={societiesList} />;
 };
 
