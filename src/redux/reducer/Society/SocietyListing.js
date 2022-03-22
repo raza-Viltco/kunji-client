@@ -3,6 +3,7 @@ import { actionTypes } from "../../actions/action-types";
 const initialState = {
   societyList: [],
   societyEditId: "",
+  societyEditList: "",
 };
 
 const societyListReducer = (state = initialState, action) => {
@@ -12,6 +13,8 @@ const societyListReducer = (state = initialState, action) => {
       return { ...state, societyList: payload };
     case actionTypes.SET_EDIT_SOCIETY_ID:
       return { ...state, societyEditId: payload };
+    case actionTypes.SET_EDIT_SOCIETY_LIST:
+      return { ...state, societyEditList: payload };
     default:
       return state;
   }

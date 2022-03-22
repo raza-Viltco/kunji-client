@@ -48,9 +48,12 @@ export function* handleRecoverPassword(action) {
 }
 
 export function* handleUpdatePassword(action) {
+  console.log(action);
+  const { values } = action.payload;
+  const { resetForm } = action.payload.formikActions;
   function* api() {
-    const { data } = yield call(updatePasswordApi, action.payload);
-
+    const { data } = yield call(updatePasswordApi, values);
+    yield call(resetForm);
     yield put(
       setError({
         type: "success",

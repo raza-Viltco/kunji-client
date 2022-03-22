@@ -1,13 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
-import { viewProfile } from "../../redux/actions/Profile/profile";
+import {
+  viewProfile,
+  profileUpdate,
+} from "../../redux/actions/Profile/profile";
 
 const profileContainer = (ProfileForm) => () => {
   const dispatch = useDispatch();
   const stateLoading = useSelector((state) => state.local.isLoading);
   const viewProfileData = useSelector((state) => state.profile.profileData);
+  const [enableField, setEnableField] = useState(true);
+  const [saveButton, setSaveButton] = useState(false);
+  const [editButton, setEditButton] = useState(true);
+  const [cancelButton, setCancelButton] = useState(false);
+
+  const handleEdit = () => {
+    setSaveButton(true);
+    setCancelButton(true);
+    setEditButton(false);
+    setEnableField(false);
+  };
+
+  const handleSave = () => {
+    setSaveButton(false);
+    setCancelButton(false);
+    setEditButton(true);
+    setEnableField(false);
+  };
+
+  const handleCancel = () => {
+    setSaveButton(false);
+    setCancelButton(false);
+    setEditButton(true);
+    setEnableField(true);
+  };
 
   const initialValues = {
     name: "",
@@ -23,8 +51,9 @@ const profileContainer = (ProfileForm) => () => {
     profile_picture: Yup.string().required("image is required"),
   });
 
-  const viewProfileHandler = (values) => {
-    console.log(values);
+  const viewProfileHandler = (values, customParam) => {
+    console.log(values, customParam);
+    dispatch(profileUpdate({ values, customParam }));
   };
 
   useEffect(() => {
@@ -35,8 +64,15 @@ const profileContainer = (ProfileForm) => () => {
     <ProfileForm
       initialValues={initialValues}
       validationSchema={validationSchema}
-      viewProfileData={viewProfileData}      
+      viewProfileData={viewProfileData}
       stateLoading={stateLoading}
+      enableField={enableField}
+      saveButton={saveButton}
+      editButton={editButton}
+      cancelButton={cancelButton}
+      handleSave={handleSave}
+      handleEdit={handleEdit}
+      handleCancel={handleCancel}
       viewProfileHandler={viewProfileHandler}
     />
   );

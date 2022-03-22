@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   DataGrid,
   GridActionsCellItem,
@@ -8,12 +8,14 @@ import {
   GridToolbarDensitySelector,
 } from "@mui/x-data-grid";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux";
+import { Formik, Form } from "formik";
+import MenuItem from "@mui/material/MenuItem";
 
 import Modal from "../../../../components/Modal";
 import Button from "../../../../components/Button";
+import Input from "../../../../components/Form/Input";
+import Dropdown from "../../../../components/Form/Dropdown";
 import societyListingContainer from "../../../../container/Society/SocietyListingContainer";
-import { setSocietyEditId } from "../../../../redux/actions/Society/SocietyListing";
 
 function CustomToolbar() {
   return (
@@ -25,29 +27,27 @@ function CustomToolbar() {
   );
 }
 
-const SocietyListing = ({ societiesList }) => {
-  const dispatch = useDispatch();
-
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = (id) => {
-    setOpen((prev) => !prev);
-    console.log(id);
-    dispatch(setSocietyEditId(id));
-  };
-
+const SocietyListing = ({
+  societiesList,
+  open,
+  editData,
+  handleClickOpen,
+  handleClickClose,
+}) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Society Name", width: 180 },
     {
-      field: "country_id",
+      field: "country",
       headerName: "Country",
       width: 180,
+      valueGetter: (params) => params.row.country.name,
     },
     {
-      field: "city_id",
+      field: "city",
       headerName: "City",
       width: 180,
+      valueGetter: (params) => params.row.city.name,
     },
     {
       field: "zip_code",
@@ -78,6 +78,7 @@ const SocietyListing = ({ societiesList }) => {
     },
   ];
 
+
   return (
     <>
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
@@ -102,7 +103,7 @@ const SocietyListing = ({ societiesList }) => {
             variant="contained"
             sx={{ mt: 2, mb: 2 }}
             size="small"
-            click={handleClickOpen}
+            click={handleClickClose}
           >
             Cancel
           </Button>
@@ -118,15 +119,77 @@ const SocietyListing = ({ societiesList }) => {
           </Button>
         }
       >
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
+        <Formik initialValues={editData}>
+          {(props) => (
+            <Form>
+              {/* {console.log(props)} */}
+              <div className="row">
+                <div className="col-md-12">
+                  <Input
+                    margin="noraml"
+                    fullWidth
+                    label="Society Name"
+                    name="name"
+                    type="text"
+                    value={props.values.name}
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    error={props?.errors?.name}
+                    helperText
+                  />
+                </div>
+                <div className="col-md-12">
+                  <Dropdown
+                    inputLabel="Country"
+                    name="country.id"
+                    value={props?.values?.country?.id}
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    error={props?.errors?.country_id}
+                  >
+                    <MenuItem value={editData?.country?.id}>
+                      {editData?.country?.name}
+                    </MenuItem>
+                  </Dropdown>
+                </div>
+                <div className="col-md-12">
+                  <Dropdown
+                    inputLabel="City"
+                    name="city.id"
+                    value={editData?.cities?.map(
+                      (item) => item.checked === true
+                    )}
+                    onChange={props.handleChange}
+                    // onBlur={props.handleBlur}
+                    // error={props?.errors?.city_id}
+                  >
+                    {editData?.cities?.map((item, index) => {
+                      return (
+                        <MenuItem value={item.id} key={index}>
+                          {item.name}
+                        </MenuItem>
+                      );
+                    })}
+                  </Dropdown>
+                </div>
+                <div className="col-md-12">
+                  <Input
+                    margin="normal"
+                    fullWidth
+                    label="Zipcode"
+                    name="zip_code"
+                    type="text"
+                    value={props.values.zip_code}
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    error={props?.errors?.zip_code}
+                    helperText
+                  />
+                </div>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </Modal>
     </>
   );

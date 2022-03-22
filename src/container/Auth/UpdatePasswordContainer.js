@@ -26,9 +26,9 @@ const updatePasswordContainer = (UpdatePassword) => () => {
       .required("Password is required."),
   });
 
-  const updatePasswordHandler = (values) => {
+  const updatePasswordHandler = (values, formikActions) => {
     console.log(values);
-    dispatch(updatePassword(values));
+    dispatch(updatePassword({ values, formikActions }));
   };
 
   return (

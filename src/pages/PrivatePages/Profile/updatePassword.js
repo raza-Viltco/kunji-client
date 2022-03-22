@@ -9,6 +9,7 @@ import updatePasswordContainer from "../../../container/Auth/UpdatePasswordConta
 const UpdatePassword = ({
   initialValues,
   validationSchema,
+  stateLoading,
   updatePasswordHandler,
 }) => {
   return (
@@ -51,7 +52,7 @@ const UpdatePassword = ({
                 margin="normal"
                 fullWidth
                 id="password_confirmation"
-                label="Confirm PassworFd"
+                label="Confirm Password"
                 name="password_confirmation"
                 type="password"
                 value={props.values.password_confirmation}
@@ -66,6 +67,7 @@ const UpdatePassword = ({
                   fullWidth
                   variant="contained"
                   size="small"
+                  isLoading={stateLoading}
                 >
                   Update Password
                 </Button>

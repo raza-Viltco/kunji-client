@@ -243,12 +243,6 @@ const Sidebar = ({
           </>
         )}
 
-
-        {userData?.data?.roles[0].name === "Super Admin" && (
-          <NavLink to="/user_roles">
-            <ListItem disablePadding>
-              <ListItemButton>
-
         {userData?.data?.roles[0].name === "Society Admin" && (
           <>
             <ListItemButton onClick={facilityOpenHandler}>
