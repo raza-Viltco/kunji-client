@@ -1,5 +1,6 @@
 import React from "react";
 import Checkbox from "@mui/material/Checkbox";
+import MenuItem from "@mui/material/MenuItem";
 
 import Card from "../../../components/Card";
 import Dropdown from "../../../components/Form/Dropdown";
@@ -9,11 +10,26 @@ import "./roles.css";
 const Role = () => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
+  const roles = [
+    { id: 1, role: "Super Admin" },
+    { id: 2, role: "Society Admin" },
+    { id: 3, role: "Security Guard" },
+    { id: 4, role: "Tenant" },
+  ];
+
   return (
     <Card>
       <h3 className="roles_heading_style">Roles </h3>
       <div className="col-md-12">
-        <Dropdown inputLabel="Roles" name="roles"></Dropdown>
+        <Dropdown inputLabel="Roles" name="roles">
+          {roles.map((item, index) => {
+            return (
+              <MenuItem value={item.id} key={index}>
+                {item.role}
+              </MenuItem>
+            );
+          })}
+        </Dropdown>
       </div>
       <h3 className="permissions_heading_style">Permissions</h3>
       <div className="col-md-12 permissions_outer">
