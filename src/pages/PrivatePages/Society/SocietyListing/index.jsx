@@ -122,7 +122,7 @@ const SocietyListing = ({
         <Formik initialValues={editData}>
           {(props) => (
             <Form>
-              {/* {console.log(props)} */}
+              {console.log(props)}
               <div className="row">
                 <div className="col-md-12">
                   <Input
@@ -155,10 +155,8 @@ const SocietyListing = ({
                 <div className="col-md-12">
                   <Dropdown
                     inputLabel="City"
-                    name="city.id"
-                    value={editData?.cities?.map(
-                      (item) => item.checked === true
-                    )}
+                    name="city_id"
+                    value={props.values.city_id}
                     onChange={props.handleChange}
                     // onBlur={props.handleBlur}
                     // error={props?.errors?.city_id}
