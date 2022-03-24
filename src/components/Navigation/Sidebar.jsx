@@ -288,6 +288,31 @@ const Sidebar = ({
           )}
 
           {/* <List component="div" disablePadding>
+        {userData?.data?.roles[0].name === "Society Admin" && (
+          <>
+            <ListItemButton onClick={facilityOpenHandler}>
+              <ListItemIcon>
+                <SiHomeassistantcommunitystore size={20} />
+              </ListItemIcon>
+              <ListItemText primary="Facility Management" />
+              {facilityOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={facilityOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <NavLink to="/facility_listing">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <MdAddBusiness size={25} />
+                    </ListItemIcon>
+                    <ListItemText primary="Facility Listing" />
+                  </ListItemButton>
+                </NavLink>
+              </List>
+            </Collapse>
+          </>
+        )}
+
+         {/* <List component="div" disablePadding>
             <NavLink to="/">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
@@ -297,7 +322,7 @@ const Sidebar = ({
               </ListItemButton>
             </ListItem>
           </NavLink>
-        )}
+        )} */}
 
         {userData?.data?.roles[0].name === "Society Admin" && (
           <>
@@ -367,7 +392,7 @@ const Sidebar = ({
           </>
         )}
 
-        {/* <ListItemButton onClick={eventOpenHandler}>
+         {/* <ListItemButton onClick={eventOpenHandler}>
           <ListItemIcon>
             <SiHomeassistantcommunitystore size={20} />
           </ListItemIcon>
@@ -385,7 +410,7 @@ const Sidebar = ({
               </ListItemButton>
             </NavLink>
           </List>
-        </Collapse> */}
+        </Collapse>  */}
 
           <ListItem disablePadding>
             <ListItemButton>

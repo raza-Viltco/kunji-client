@@ -1,5 +1,6 @@
-import { React, useState } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
+import { useDispatch } from "react-redux";
 
 import Input from "../../../components/Form/Input";
 import Button from "../../../components/Button";
@@ -8,39 +9,24 @@ import { Profile_Img } from "../../../constants/AssetsConstants";
 import UpdatePassword from "./updatePassword";
 import { BiEditAlt } from "react-icons/bi";
 import profileContainer from "../../../container/Profile/ProfileContainer";
+import { setAppbarImg } from "../../../redux/actions/Profile/profile";
 import "./profileForm.css";
 
 const ProfileForm = ({
   initialValues,
   validationSchema,
   viewProfileData,
+  stateLoading,
+  enableField,
+  saveButton,
+  editButton,
+  cancelButton,
+  handleSave,
+  handleEdit,
+  handleCancel,
   viewProfileHandler,
 }) => {
-  const [enableField, setEnableField] = useState(true);
-  const [saveButton, setSaveButton] = useState(false);
-  const [editButton, setEditButton] = useState(true);
-  const [cancelButton, setCancelButton] = useState(false);
-
-  const handleEdit = () => {
-    setSaveButton(true);
-    setCancelButton(true);
-    setEditButton(false);
-    setEnableField(false);
-  };
-
-  const handleSave = () => {
-    setSaveButton(false);
-    setCancelButton(false);
-    setEditButton(true);
-    setEnableField(false);
-  };
-
-  const handleCancel = () => {
-    setSaveButton(false);
-    setCancelButton(false);
-    setEditButton(true);
-    setEnableField(true);
-  };
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -48,7 +34,7 @@ const ProfileForm = ({
         initialValues={viewProfileData || initialValues}
         validationSchema={validationSchema}
         enableReinitialize
-        onSubmit={viewProfileHandler}
+        onSubmit={(values) => viewProfileHandler(values, handleSave)}
       >
         {(props) => (
           <Form>
@@ -128,7 +114,7 @@ const ProfileForm = ({
                             fullWidth
                             variant="contained"
                             size="small"
-                            // click={handleSave}
+                            isLoading={stateLoading}
                           >
                             Save
                           </Button>
@@ -176,11 +162,14 @@ const ProfileForm = ({
                           URL.createObjectURL(e.target.files[0])
                         )
                       }
-                      click={console.log("hello")}
+                      click={
+                        props.values.profile_picture
+                          ? dispatch(setAppbarImg(props.values.profile_picture))
+                          : dispatch(setAppbarImg(Profile_Img))
+                      }
                       onBlur={props.handleBlur}
                     />
-                    <h3>Smith</h3>
-                    <p>Description</p>
+                    <h3>{props.values.name}</h3>
                   </div>
                 </Card>
               </div>
