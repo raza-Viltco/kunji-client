@@ -193,7 +193,7 @@ const Sidebar = ({
               <ListItemIcon>
                 <BiLogIn size={25} />
               </ListItemIcon>
-              <ListItemText primary="Register User" />
+              <ListItemText primary="Register Resident" />
               {registerOpen ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={registerOpen} timeout="auto" unmountOnExit>
@@ -203,7 +203,7 @@ const Sidebar = ({
                     <ListItemIcon>
                       <MdOutlineFormatListBulleted size={23} />
                     </ListItemIcon>
-                    <ListItemText primary="User Listing" />
+                    <ListItemText primary="Resident Listing" />
                   </ListItemButton>
                 </NavLink>
               </List>
