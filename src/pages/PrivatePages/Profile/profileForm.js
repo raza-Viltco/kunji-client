@@ -10,6 +10,7 @@ import UpdatePassword from "./updatePassword";
 import { BiEditAlt } from "react-icons/bi";
 import profileContainer from "../../../container/Profile/ProfileContainer";
 import { setAppbarImg } from "../../../redux/actions/Profile/profile";
+
 import "./profileForm.css";
 
 const ProfileForm = ({
@@ -136,9 +137,9 @@ const ProfileForm = ({
                   </div>
                 </Card>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4 profile-picture-outer">
                 <Card>
-                  <div style={{ textAlign: "center" }}>
+                  <div>
                     <img
                       className="society-profile-inner"
                       name="profile_picture"
@@ -151,11 +152,16 @@ const ProfileForm = ({
                       width="150px"
                       height="150px"
                     />
+                  </div>
+                  
+                  <div>
                     <Input
                       margin="normal"
                       fullWidth
                       type="file"
                       name="profile_picture"
+                      id="profile-picture"
+                      hidden
                       onChange={(e) =>
                         props.setFieldValue(
                           "profile_picture",
@@ -169,6 +175,16 @@ const ProfileForm = ({
                       }
                       onBlur={props.handleBlur}
                     />
+                    <label
+                      type="button"
+                      for="profile-picture"
+                      className="profile-picture-icon"
+                    >
+                      <BiEditAlt size={40} />
+                    </label>
+                  </div>
+
+                  <div>
                     <h3>{props.values.name}</h3>
                   </div>
                 </Card>

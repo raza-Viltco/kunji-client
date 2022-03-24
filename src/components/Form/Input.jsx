@@ -15,6 +15,7 @@ const Input = ({
   type,
   helperText,
   disabled,
+  hidden,
 }) => {
   return (
     <TextField
@@ -33,6 +34,7 @@ const Input = ({
       onBlur={onBlur}
       value={value}
       disabled={disabled}
+      hidden={hidden}
       variant="filled"
       size="small"
       inputProps={{
