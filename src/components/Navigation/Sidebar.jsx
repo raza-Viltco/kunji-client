@@ -243,37 +243,51 @@ const Sidebar = ({
           </>
         )}
 
+        <List className="sidebar-anchor-outer">
+          {userData?.data?.roles[0].name === "Super Admin" && (
+            <NavLink to="/user_roles">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <MdOutlineTaskAlt size={25} />
+                  </ListItemIcon>
+                  <ListItemText primary="Roles" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          )}
 
-        {userData?.data?.roles[0].name === "Super Admin" && (
+          {/* 
+      {userData?.data?.roles[0].name === "Super Admin" && (
           <NavLink to="/user_roles">
             <ListItem disablePadding>
-              <ListItemButton>
+              <ListItemButton>  */}
 
-        {userData?.data?.roles[0].name === "Society Admin" && (
-          <>
-            <ListItemButton onClick={facilityOpenHandler}>
-              <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
-              </ListItemIcon>
-              <ListItemText primary="Facility Management" />
-              {facilityOpen ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={facilityOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/facility_listing">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdAddBusiness size={25} />
-                    </ListItemIcon>
-                    <ListItemText primary="Facility Listing" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          </>
-        )}
+          {userData?.data?.roles[0].name === "Society Admin" && (
+            <>
+              <ListItemButton onClick={facilityOpenHandler}>
+                <ListItemIcon>
+                  <SiHomeassistantcommunitystore size={20} />
+                </ListItemIcon>
+                <ListItemText primary="Facility Management" />
+                {facilityOpen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Collapse in={facilityOpen} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <NavLink to="/facility_listing">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <MdAddBusiness size={25} />
+                      </ListItemIcon>
+                      <ListItemText primary="Facility Listing" />
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              </Collapse>
+            </>
+          )}
 
-        {/* <List component="div" disablePadding>
+          {/* <List component="div" disablePadding>
             <NavLink to="/">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
@@ -373,14 +387,15 @@ const Sidebar = ({
           </List>
         </Collapse> */}
 
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <BiLogOut size={25} />
-            </ListItemIcon>
-            <ListItemText primary="Logout" onClick={logoutHandler} />
-          </ListItemButton>
-        </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <BiLogOut size={25} />
+              </ListItemIcon>
+              <ListItemText primary="Logout" onClick={logoutHandler} />
+            </ListItemButton>
+          </ListItem>
+        </List>
       </List>
     </Drawer>
   );
