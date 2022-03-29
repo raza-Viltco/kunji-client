@@ -36,7 +36,7 @@ const AddSociety = ({
             <div className="row">
               <div className="col-md-6 pt-2 ">
                 <Input
-                  margin="noraml"
+                  margin="normal"
                   fullWidth
                   label="Society Name"
                   name="society.name"
@@ -44,8 +44,14 @@ const AddSociety = ({
                   value={props.values.society.name}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={props?.errors?.society?.name}
-                  helperText
+                  error={
+                    props?.touched?.society?.name &&
+                    Boolean(props?.errors?.society?.name)
+                  }
+                  helperText={
+                    props?.touched?.society?.name &&
+                    props?.errors?.society?.name
+                  }
                 />
               </div>
               <div className="col-md-6">
@@ -56,7 +62,14 @@ const AddSociety = ({
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
                   onClick={dispatch(setCityId(props.values.society.country_id))}
-                  error={props?.errors?.society?.country_id}
+                  error={
+                    props?.touched?.society?.country_id &&
+                    Boolean(props?.errors?.society?.country_id)
+                  }
+                  errorText={
+                    props?.touched?.society?.country_id &&
+                    props?.errors?.society?.country_id
+                  }
                 >
                   {countryData.map((item, index) => {
                     return (
@@ -75,7 +88,14 @@ const AddSociety = ({
                   value={props.values.society.city_id}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={props?.errors?.society?.city_id}
+                  error={
+                    props?.touched?.society?.city_id &&
+                    Boolean(props?.errors?.society?.city_id)
+                  }
+                  errorText={
+                    props?.touched?.society?.city_id &&
+                    props?.errors?.society?.city_id
+                  }
                 >
                   {cityData.map((item, index) => {
                     return (
@@ -96,8 +116,14 @@ const AddSociety = ({
                   value={props.values.society.zip_code}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={props?.errors?.society?.zip_code}
-                  helperText
+                  error={
+                    props?.touched?.society?.zip_code &&
+                    Boolean(props?.errors?.society?.zip_code)
+                  }
+                  helperText={
+                    props?.touched?.society?.zip_code &&
+                    props?.errors?.society?.zip_code
+                  }
                 />
               </div>
               <div className="col-md-6">
@@ -137,11 +163,18 @@ const AddSociety = ({
                   value={props.values.society_admin_user.full_name}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={props?.errors?.society_admin_user?.full_name}
-                  helperText
+                  error={
+                    props?.touched?.society_admin_user?.full_name &&
+                    Boolean(props?.errors?.society_admin_user?.full_name)
+                  }
+                  helperText={
+                    props?.touched?.society_admin_user?.full_name &&
+                    props?.errors?.society_admin_user?.full_name
+                  }
                 />
               </div>
               <div className="col-md-6">
+
                 <Input
                   margin="normal"
                   fullWidth
@@ -151,8 +184,14 @@ const AddSociety = ({
                   value={props.values.society_admin_user.email}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={props?.errors?.society_admin_user?.email}
-                  helperText
+                  error={
+                    props?.touched?.society_admin_user?.email &&
+                    Boolean(props?.errors?.society_admin_user?.email)
+                  }
+                  helperText={
+                    props?.touched?.society_admin_user?.email &&
+                    props?.errors?.society_admin_user?.email
+                  }
                 />
               </div>
               <div className="col-md-6">
@@ -165,8 +204,14 @@ const AddSociety = ({
                   value={props.values.society_admin_user.mobile}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={props?.errors?.society_admin_user?.mobile}
-                  helperText
+                  error={
+                    props?.touched?.society_admin_user?.mobile &&
+                    Boolean(props?.errors?.society_admin_user?.mobile)
+                  }
+                  helperText={
+                    props?.touched?.society_admin_user?.mobile &&
+                    props?.errors?.society_admin_user?.mobile
+                  }
                 />
               </div>
               <div className="col-md-6">

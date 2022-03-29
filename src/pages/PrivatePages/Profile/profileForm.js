@@ -170,11 +170,9 @@ const ProfileForm = ({
                           URL.createObjectURL(e.target.files[0])
                         )
                       }
-                      click={
-                        props.values.profile_picture
-                          ? dispatch(setAppbarImg(props.values.profile_picture))
-                          : dispatch(setAppbarImg(Profile_Img))
-                      }
+                      click={dispatch(
+                        setAppbarImg(props.values.profile_picture)
+                      )}
                       onBlur={props.handleBlur}
                     />
                     <label
