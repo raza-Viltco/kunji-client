@@ -30,6 +30,7 @@ import {
 } from "./handlers/Profile/profile";
 import { handleAddAsset, handleAssetList } from "./handlers/Asset/AddAsset";
 import { handleFacilityList } from "./handlers/Facilities/AddFacilities";
+import {handleViewRoles} from "./handlers/Roles/roles"
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -52,4 +53,5 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.FACILITIES_LIST, handleFacilityList);
   yield takeLatest(actionTypes.PROFILE_UPDATE, handleUpdateProfile);
   yield takeLatest(actionTypes.EDIT_SOCIETY_LIST, handleEditSociety);
+  yield takeLatest(actionTypes.VIEW_ROLES,handleViewRoles);
 }

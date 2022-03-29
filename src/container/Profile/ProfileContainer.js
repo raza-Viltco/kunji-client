@@ -27,7 +27,7 @@ const profileContainer = (ProfileForm) => () => {
     setSaveButton(false);
     setCancelButton(false);
     setEditButton(true);
-    setEnableField(false);
+    setEnableField(true);
   };
 
   const handleCancel = () => {

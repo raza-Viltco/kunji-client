@@ -7,6 +7,7 @@ import Input from "../../../../components/Form/Input";
 import Dropdown from "../../../../components/Form/Dropdown";
 import Card from "../../../../components/Card";
 import Button from "../../../../components/Button";
+import RadioButtons from "../../../../components/Form/RadioButton";
 import addSocietyContainer from "../../../../container/Society/AddSocietyContainer";
 import { setCityId } from "../../../../redux/actions/Society/AddSociety";
 import "./AddSociety.css";
@@ -33,7 +34,7 @@ const AddSociety = ({
             {console.log(props)}
             <h4 className="text-center m-0">Add Society</h4>
             <div className="row">
-              <div className="col-md-4 pt-2 ">
+              <div className="col-md-6 pt-2 ">
                 <Input
                   margin="normal"
                   fullWidth
@@ -53,7 +54,7 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <Dropdown
                   inputLabel="Country"
                   name="society.country_id"
@@ -80,7 +81,7 @@ const AddSociety = ({
                 </Dropdown>
               </div>
 
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <Dropdown
                   inputLabel="City"
                   name="society.city_id"
@@ -105,7 +106,7 @@ const AddSociety = ({
                   })}
                 </Dropdown>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <Input
                   margin="normal"
                   fullWidth
@@ -125,7 +126,7 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <Input
                   margin="normal"
                   fullWidth
@@ -137,15 +138,26 @@ const AddSociety = ({
                   onBlur={props.handleBlur}
                 />
               </div>
+              <div className="col-md-6 society-radio-outer">
+                <h6>Society Type</h6>
+                <div className="society-radio-inner">
+                  <p>Vertical</p>
+                  <RadioButtons />
+                </div>
+                <div className="society-radio-inner">
+                  <p>Horizontal</p>
+                  <RadioButtons />
+                </div>
+              </div>
             </div>
             <hr />
-            <h4 className="text-center">Assign Admin</h4>
+            {/* <h4 className="text-center">Assign Admin</h4> */}
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <Input
                   margin="normal"
                   fullWidth
-                  label="Full Name"
+                  label="Admin Name"
                   type="text"
                   name="society_admin_user.full_name"
                   value={props.values.society_admin_user.full_name}
@@ -161,31 +173,12 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-4">
+              <div className="col-md-6">
+
                 <Input
                   margin="normal"
                   fullWidth
-                  label="Address"
-                  type="text"
-                  name="society_admin_user.address"
-                  value={props.values.society_admin_user.address}
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  error={
-                    props?.touched?.society_admin_user?.address &&
-                    Boolean(props?.errors?.society_admin_user?.address)
-                  }
-                  helperText={
-                    props?.touched?.society_admin_user?.address &&
-                    props?.errors?.society_admin_user?.address
-                  }
-                />
-              </div>
-              <div className="col-md-4">
-                <Input
-                  margin="normal"
-                  fullWidth
-                  label="Email Address"
+                  label="Email"
                   name="society_admin_user.email"
                   type="email"
                   value={props.values.society_admin_user.email}
@@ -201,7 +194,7 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <Input
                   margin="normal"
                   fullWidth
@@ -219,6 +212,20 @@ const AddSociety = ({
                     props?.touched?.society_admin_user?.mobile &&
                     props?.errors?.society_admin_user?.mobile
                   }
+                />
+              </div>
+              <div className="col-md-6">
+                <Input
+                  margin="normal"
+                  fullWidth
+                  label="Address"
+                  type="text"
+                  name="society_admin_user.address"
+                  value={props.values.society_admin_user.address}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                  error={props?.errors?.society_admin_user?.address}
+                  helperText
                 />
               </div>
             </div>

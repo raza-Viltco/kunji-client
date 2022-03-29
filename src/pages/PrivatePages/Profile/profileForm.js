@@ -12,6 +12,7 @@ import profileContainer from "../../../container/Profile/ProfileContainer";
 import { setAppbarImg } from "../../../redux/actions/Profile/profile";
 
 import "./profileForm.css";
+import { borderRadius } from "@mui/system";
 
 const ProfileForm = ({
   initialValues,
@@ -53,6 +54,7 @@ const ProfileForm = ({
                         label="Name"
                         name="name"
                         type="text"
+                      
                         disabled={enableField}
                         value={props.values.name}
                         onChange={props.handleChange}
