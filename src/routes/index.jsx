@@ -22,8 +22,13 @@ import RegisterFlat from "../pages/PrivatePages/BuilderSociety/FlatManagemet/Reg
 import FlatListing from "../pages/PrivatePages/BuilderSociety/FlatManagemet/FlatListing";
 import RegisterAsset from "../pages/PrivatePages/BuilderSociety/AssetManagement/AddAsset";
 import AssetListing from "../pages/PrivatePages/BuilderSociety/AssetManagement/AssetListing";
-import Role from "../pages/PrivatePages/Roles";
+// import Role from "../pages/PrivatePages/Roles";
 import FacilitiesListing from "../pages/PrivatePages/BuilderSociety/FacilitiesManagement/FacilitiesListing";
+import AddUser from "../pages/PrivatePages/UserManagement/AddUser";
+import UserListing from "../pages/PrivatePages/UserManagement/UserListing";
+import AddSector from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addSector";
+import AddStreet from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addStreet";
+import AddPlots from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addPlots";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -85,8 +90,26 @@ const AppRouter = () => (
       <PrivateRoute path="/user_profile">
         <Profile />
       </PrivateRoute>
-      <PrivateRoute path="/user_roles">
+
+      {/* <PrivateRoute path="/user_roles">
         <Role/>
+      </PrivateRoute> */}
+
+      <PrivateRoute path="/add_user">
+        <AddUser />
+      </PrivateRoute>
+      <PrivateRoute path="/user_listing">
+        <UserListing />
+      </PrivateRoute>
+
+      <PrivateRoute path="/add_sector">
+        <AddSector/>
+      </PrivateRoute>
+      <PrivateRoute path="/add_street">
+        <AddStreet />
+      </PrivateRoute>
+      <PrivateRoute path="/add_plots">
+        <AddPlots />
       </PrivateRoute>
 
       <Redirect to="/login" exact />

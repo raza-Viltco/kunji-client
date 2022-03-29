@@ -5,9 +5,10 @@ import MenuItem from "@mui/material/MenuItem";
 import Card from "../../../components/Card";
 import Dropdown from "../../../components/Form/Dropdown";
 import Button from "../../../components/Button";
+import rolesContainer from "../../../container/Roles/RolesContainer";
 import "./roles.css";
 
-const Role = () => {
+const Roles = ({RolesList}) => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const roles = [
@@ -69,4 +70,4 @@ const Role = () => {
   );
 };
 
-export default Role;
+export default rolesContainer(Roles);

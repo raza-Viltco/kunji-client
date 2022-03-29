@@ -2,5 +2,21 @@
   width: 50%;
   margin: 0 auto;
 }
+.society-radio-outer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 12px;
 
-
+}
+.society-radio-inner {
+  display: flex;
+}
+.society-radio-inner p {
+  margin-top: 20px;
+}
+.society-radio-outer h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

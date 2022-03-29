@@ -15,7 +15,12 @@ import RegisterAsset from "../BuilderSociety/AssetManagement/AddAsset";
 import AssetListing from "../BuilderSociety/AssetManagement/AssetListing";
 import Role from "../Roles/index";
 import FacilitiesListing from "../BuilderSociety/FacilitiesManagement/FacilitiesListing";
-
+import SocietyDashboard from "../SocietyDashboard";
+import AddUser from "../UserManagement/AddUser";
+import UserListing from "../UserManagement/UserListing";
+import AddSector from "../SocietyConfigration/HorizontalSociety/addSector";
+import AddStreet from "../SocietyConfigration/HorizontalSociety/addStreet";
+import AddPlots from "../SocietyConfigration/HorizontalSociety/addPlots";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -45,9 +50,32 @@ const DashboardItems = () => {
       ) : location.pathname === "/user_roles" ? (
         <Role />
       ) : location.pathname === "/facility_listing" ? (
-        <FacilitiesListing /> 
-      ) : (
+        <FacilitiesListing />
+      ) 
+      : location.pathname === "/add_user" ? (
+        <AddUser/>
+      )
+      : location.pathname === "/user_listing" ? (
+        <UserListing/>
+      ) :
+      location.pathname==="/add_sector"?(
+        <AddSector/>
+      )
+      :
+      location.pathname==="/add_street"?(
+        <AddStreet/>
+      )
+      :
+      location.pathname==="/add_plots"?(
+        <AddPlots/>
+      )
+      : userData?.data?.roles[0].name === "Super Admin" ? (
         <Dashboard />
+      ) : userData?.data?.roles[0].name === "Society Admin" ? (
+        <SocietyDashboard />
+      ) 
+     : (
+        ""
       )}
     </>
   );

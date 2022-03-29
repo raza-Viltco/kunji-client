@@ -10,6 +10,7 @@ import societyListReducer from "./reducer/Society/SocietyListing";
 import profileReducer from "./reducer/Profile/profile";
 import addAssetReducer from "./reducer/Asset/AddAsset";
 import addFacilityReducer from "./reducer/Facilities/AddFacilities";
+import viewRolesReducer from "./reducer/Roles/roles";
 
 const reducers = (history) =>
   combineReducers({
@@ -22,6 +23,7 @@ const reducers = (history) =>
     profile: profileReducer,
     asset: addAssetReducer,
     facility: addFacilityReducer,
+    roles:viewRolesReducer,
     router: connectRouter(history),
   });
 
