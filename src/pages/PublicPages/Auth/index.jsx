@@ -31,8 +31,8 @@ const Auth = ({
             value={props.values.email}
             onChange={props.handleChange}
             onBlur={props.handleBlur}
-            error={props.errors.email}
-            helperText
+            error={props.touched.email && Boolean(props.errors.email)}
+            helperText={props.touched.email && props.errors.email}
           />
           <Input
             margin="normal"
@@ -44,8 +44,8 @@ const Auth = ({
             value={props.values.password}
             onChange={props.handleChange}
             onBlur={props.handleBlur}
-            error={props.errors.password}
-            helperText
+            error={props.touched.password && Boolean(props.errors.password)}
+            helperText={props.touched.password && props.errors.password}
           />
           <div className="forgot_text__link">
             <Link to="/forgot_password">

@@ -1,31 +1,15 @@
 import React from "react";
-import {
-  DataGrid,
-  GridActionsCellItem,
-  GridToolbarContainer,
-  GridToolbarColumnsButton,
-  GridToolbarFilterButton,
-  GridToolbarDensitySelector,
-} from "@mui/x-data-grid";
+import { GridActionsCellItem } from "@mui/x-data-grid";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { Formik, Form } from "formik";
 import MenuItem from "@mui/material/MenuItem";
 
+import Table from "../../../../components/Table";
 import Modal from "../../../../components/Modal";
 import Button from "../../../../components/Button";
 import Input from "../../../../components/Form/Input";
 import Dropdown from "../../../../components/Form/Dropdown";
 import societyListingContainer from "../../../../container/Society/SocietyListingContainer";
-
-function CustomToolbar() {
-  return (
-    <GridToolbarContainer>
-      <GridToolbarColumnsButton />
-      <GridToolbarFilterButton />
-      <GridToolbarDensitySelector />
-    </GridToolbarContainer>
-  );
-}
 
 const SocietyListing = ({
   societiesList,
@@ -78,19 +62,13 @@ const SocietyListing = ({
     },
   ];
 
-
   return (
     <>
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
-        <DataGrid
+        <Table
           rows={societiesList}
           columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
-          components={{
-            Toolbar: CustomToolbar,
-          }}
+          loading={!societiesList.length}
         />
       </div>
 

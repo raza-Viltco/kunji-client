@@ -137,7 +137,7 @@ const ProfileForm = ({
                   </div>
                 </Card>
               </div>
-              <div className="col-md-4 profile-picture-outer">
+              <div className="col-md-4 text-center">
                 <Card>
                   <div>
                     <img
@@ -153,7 +153,7 @@ const ProfileForm = ({
                       height="150px"
                     />
                   </div>
-                  
+
                   <div>
                     <Input
                       margin="normal"
@@ -168,11 +168,9 @@ const ProfileForm = ({
                           URL.createObjectURL(e.target.files[0])
                         )
                       }
-                      click={
-                        props.values.profile_picture
-                          ? dispatch(setAppbarImg(props.values.profile_picture))
-                          : dispatch(setAppbarImg(Profile_Img))
-                      }
+                      click={dispatch(
+                        setAppbarImg(props.values.profile_picture)
+                      )}
                       onBlur={props.handleBlur}
                     />
                     <label
