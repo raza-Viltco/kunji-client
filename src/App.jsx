@@ -20,10 +20,10 @@ const App = () => {
 
   return (
     <>
-     <ThemeProvider theme={theme}>
-      <Toast />
-      <AppRouter />
-   </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Toast />
+        <AppRouter />
+      </ThemeProvider>
     </>
   );
 };

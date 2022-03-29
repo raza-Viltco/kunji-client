@@ -45,7 +45,9 @@ const Header = ({ styled, drawerWidth, openSidebar, handleDrawerOpen }) => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div">
-          Kunji
+
+          {/* Kunji */}
+          Society 
         </Typography>
 
         <div>

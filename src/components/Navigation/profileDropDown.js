@@ -1,14 +1,14 @@
 import * as React from "react";
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
-
+import { Profile_Img } from "../../constants/AssetsConstants";
 import "./profileDropDown.css";
 
 export default function BasicMenu() {
-  const appbarImg = useSelector(state => state.profile.appbarImg)
+  const appbarImg = useSelector((state) => state.profile.appbarImg);
   return (
     <div>
       <div class="dropdown">
@@ -20,7 +20,7 @@ export default function BasicMenu() {
           aria-expanded="false"
         >
           <img
-            src={appbarImg}
+            src={appbarImg ? appbarImg : Profile_Img}
             alt="profile"
             height="40px"
             width="40px"
