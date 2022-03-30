@@ -1,0 +1,14 @@
+.role-radio-outer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 12px;
+  
+}
+.role-radio-inner{
+    display: flex;
+}
+.role-radio-inner p {
+    margin-top: 20px;
+  }

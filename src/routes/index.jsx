@@ -22,15 +22,19 @@ import RegisterFlat from "../pages/PrivatePages/BuilderSociety/FlatManagemet/Reg
 import FlatListing from "../pages/PrivatePages/BuilderSociety/FlatManagemet/FlatListing";
 import RegisterAsset from "../pages/PrivatePages/BuilderSociety/AssetManagement/AddAsset";
 import AssetListing from "../pages/PrivatePages/BuilderSociety/AssetManagement/AssetListing";
-// import Role from "../pages/PrivatePages/Roles";
 import FacilitiesListing from "../pages/PrivatePages/BuilderSociety/FacilitiesManagement/FacilitiesListing";
-import AddUser from "../pages/PrivatePages/UserManagement/AddUser";
-import UserListing from "../pages/PrivatePages/UserManagement/UserListing";
 import AddSector from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addSector";
 import AddStreet from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addStreet";
 import AddPlots from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addPlots";
 import AddApartment from "../pages/PrivatePages/SocietyConfigration/VerticalSociety/addApartment";
 import DefineBuilding from "../pages/PrivatePages/SocietyConfigration/VerticalSociety/defineBuilding";
+import KunjiRole from "../pages/PrivatePages/UserManagement/Kunji/Role";
+import UserKunjiCreation from "../pages/PrivatePages/UserManagement/Kunji/UserCreation";
+import UserKunjiApproval from "../pages/PrivatePages/UserManagement/Kunji/UserApproval";
+import AddKunjiStaff from "../pages/PrivatePages/StaffManagement/Kunji/AddStaff";
+import StaffKunjiMember from "../pages/PrivatePages/StaffManagement/Kunji/StaffMember";
+import AddKunjiDepartment from "../pages/PrivatePages/Department/Kunji";
+import VisitorList from "../pages/PrivatePages/SecurityManagement/Society/VisitorList";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -93,19 +97,8 @@ const AppRouter = () => (
         <Profile />
       </PrivateRoute>
 
-      {/* <PrivateRoute path="/user_roles">
-        <Role/>
-      </PrivateRoute> */}
-
-      <PrivateRoute path="/add_user">
-        <AddUser />
-      </PrivateRoute>
-      <PrivateRoute path="/user_listing">
-        <UserListing />
-      </PrivateRoute>
-
       <PrivateRoute path="/add_sector">
-        <AddSector/>
+        <AddSector />
       </PrivateRoute>
       <PrivateRoute path="/add_street">
         <AddStreet />
@@ -118,7 +111,35 @@ const AppRouter = () => (
         <AddApartment />
       </PrivateRoute>
       <PrivateRoute path="/define_building">
-        <DefineBuilding/>
+        <DefineBuilding />
+      </PrivateRoute>
+
+      <PrivateRoute path="/kunji_Role">
+        <KunjiRole />
+      </PrivateRoute>
+
+      <PrivateRoute path="/user_kunji_creation">
+        <UserKunjiCreation />
+      </PrivateRoute>
+
+      <PrivateRoute path="/user_kunji_approval">
+        <UserKunjiApproval />
+      </PrivateRoute>
+
+      <PrivateRoute path="/add_kunji_staff">
+        <AddKunjiStaff />
+      </PrivateRoute>
+
+      <PrivateRoute path="/list_kunji_staff">
+        <StaffKunjiMember />
+      </PrivateRoute>
+
+      <PrivateRoute path="/add_kunji_department">
+        <AddKunjiDepartment />
+      </PrivateRoute>
+
+      <PrivateRoute path="/society_visitor_list">
+        <VisitorList />
       </PrivateRoute>
 
       <Redirect to="/login" exact />
