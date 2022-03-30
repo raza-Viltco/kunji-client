@@ -469,6 +469,26 @@ const Sidebar = ({
                   </ListItemButton>
                 </NavLink>
               </List>
+              <List component="div" disablePadding>
+                <NavLink to="/define_building">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <MdOutlineFormatListBulleted size={25} />
+                    </ListItemIcon>
+                    <ListItemText primary="Define Building" />
+                  </ListItemButton>
+                </NavLink>
+              </List>
+              <List component="div" disablePadding>
+                <NavLink to="/add_apartment">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <MdOutlineFormatListBulleted size={25} />
+                    </ListItemIcon>
+                    <ListItemText primary="Apartment" />
+                  </ListItemButton>
+                </NavLink>
+              </List>
             </Collapse>
 
 
