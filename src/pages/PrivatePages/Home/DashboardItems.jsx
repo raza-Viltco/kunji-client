@@ -13,16 +13,20 @@ import RegisterFlat from "../BuilderSociety/FlatManagemet/RegistFlat";
 import FlatListing from "../BuilderSociety/FlatManagemet/FlatListing";
 import RegisterAsset from "../BuilderSociety/AssetManagement/AddAsset";
 import AssetListing from "../BuilderSociety/AssetManagement/AssetListing";
-import Role from "../Roles/index";
 import FacilitiesListing from "../BuilderSociety/FacilitiesManagement/FacilitiesListing";
 import SocietyDashboard from "../SocietyDashboard";
-import AddUser from "../UserManagement/AddUser";
-import UserListing from "../UserManagement/UserListing";
 import AddSector from "../SocietyConfigration/HorizontalSociety/addSector";
 import AddStreet from "../SocietyConfigration/HorizontalSociety/addStreet";
 import AddPlots from "../SocietyConfigration/HorizontalSociety/addPlots";
 import AddApartment from "../SocietyConfigration/VerticalSociety/addApartment";
 import DefineBuilding from "../SocietyConfigration/VerticalSociety/defineBuilding";
+import KunjiRole from "../UserManagement/Kunji/Role";
+import UserKunjiCreation from "../UserManagement/Kunji/UserCreation";
+import UserKunjiApproval from "../UserManagement/Kunji/UserApproval";
+import AddKunjiStaff from "../StaffManagement/Kunji/AddStaff";
+import StaffKunjiMember from "../StaffManagement/Kunji/StaffMember";
+import AddKunjiDepartment from "../Department/Kunji";
+import VisitorList from "../SecurityManagement/Society/VisitorList";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -49,40 +53,41 @@ const DashboardItems = () => {
         <RegisterAsset />
       ) : location.pathname === "/asset_list" ? (
         <AssetListing />
-      ) : location.pathname === "/user_roles" ? (
-        <Role />
       ) : location.pathname === "/facility_listing" ? (
         <FacilitiesListing />
+      ) : location.pathname === "/add_sector" ? (
+        <AddSector />
+      ) : location.pathname === "/add_street" ? (
+        <AddStreet />
+      ) : location.pathname === "/add_plots" ? (
+        <AddPlots />
+      ) : location.pathname === "/add_apartment" ? (
+        <AddApartment />
+      ) : location.pathname === "/define_building" ? (
+        <DefineBuilding />
+      ) : location.pathname === "/kunji_Role" ? (
+        <KunjiRole />
+      ) : location.pathname === "/user_kunji_creation" ? (
+        <UserKunjiCreation />
+      ) : location.pathname === "/user_kunji_approval" ? (
+        <UserKunjiApproval />
+      ): location.pathname === "/add_kunji_staff" ? (
+        <AddKunjiStaff />
       ) 
-      : location.pathname === "/add_user" ? (
-        <AddUser/>
-      )
-      : location.pathname === "/user_listing" ? (
-        <UserListing/>
-      ) :
-      location.pathname==="/add_sector"?(
-        <AddSector/>
-      )
-      :
-      location.pathname==="/add_street"?(
-        <AddStreet/>
-      )
-      :
-      location.pathname==="/add_plots"?(
-        <AddPlots/>
-      ) :
-      location.pathname==="/add_apartment"?(
-        <AddApartment/>
-      ) :
-      location.pathname==="/define_building"?(
-        <DefineBuilding/>
-      )
+      : location.pathname === "/list_kunji_staff" ? (
+        <StaffKunjiMember />
+      ) 
+      : location.pathname === "/add_kunji_department" ? (
+        <AddKunjiDepartment />
+      ) 
+      : location.pathname === "/society_visitor_list" ? (
+        <VisitorList />
+      ) 
       : userData?.data?.roles[0].name === "Super Admin" ? (
         <Dashboard />
       ) : userData?.data?.roles[0].name === "Society Admin" ? (
         <SocietyDashboard />
-      ) 
-     : (
+      ) : (
         ""
       )}
     </>
