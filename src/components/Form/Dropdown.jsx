@@ -3,6 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import "./Input.css";
 
 const Dropdown = ({
   error,
@@ -20,9 +21,12 @@ const Dropdown = ({
   return (
     <FormControl
       variant="filled"
-      sx={{ m: 1, width: "100%" }}
-      error={error ? !!error : false}
       size="small"
+        label="Small select"
+      sx={{  width: "100%" }}
+      error={error ? !!error : false}
+      
+
     >
       <InputLabel id="demo-simple-select-error-label">{inputLabel}</InputLabel>
       <Select
@@ -34,6 +38,7 @@ const Dropdown = ({
         onBlur={onBlur}
         name={name}
         onClick={onClick}
+        sx={{height:"50px", fontSize:"10px", paddingTop:"1%", backgroundColor:"grey"}}
       >
         {children}
       </Select>

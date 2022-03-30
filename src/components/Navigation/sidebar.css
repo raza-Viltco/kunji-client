@@ -26,6 +26,10 @@
   margin-left: 0px !important;
 }
 
+.font-dashboard{
+  font-size: 80%;
+}
+
 /* ----css for dropdown optiions- */
 .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
   background-color: #fff;
