@@ -21,6 +21,8 @@ import UserListing from "../UserManagement/UserListing";
 import AddSector from "../SocietyConfigration/HorizontalSociety/addSector";
 import AddStreet from "../SocietyConfigration/HorizontalSociety/addStreet";
 import AddPlots from "../SocietyConfigration/HorizontalSociety/addPlots";
+import AddApartment from "../SocietyConfigration/VerticalSociety/addApartment";
+import DefineBuilding from "../SocietyConfigration/VerticalSociety/defineBuilding";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -68,6 +70,12 @@ const DashboardItems = () => {
       :
       location.pathname==="/add_plots"?(
         <AddPlots/>
+      ) :
+      location.pathname==="/add_apartment"?(
+        <AddApartment/>
+      ) :
+      location.pathname==="/define_building"?(
+        <DefineBuilding/>
       )
       : userData?.data?.roles[0].name === "Super Admin" ? (
         <Dashboard />

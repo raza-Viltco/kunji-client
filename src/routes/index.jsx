@@ -29,6 +29,8 @@ import UserListing from "../pages/PrivatePages/UserManagement/UserListing";
 import AddSector from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addSector";
 import AddStreet from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addStreet";
 import AddPlots from "../pages/PrivatePages/SocietyConfigration/HorizontalSociety/addPlots";
+import AddApartment from "../pages/PrivatePages/SocietyConfigration/VerticalSociety/addApartment";
+import DefineBuilding from "../pages/PrivatePages/SocietyConfigration/VerticalSociety/defineBuilding";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -110,6 +112,13 @@ const AppRouter = () => (
       </PrivateRoute>
       <PrivateRoute path="/add_plots">
         <AddPlots />
+      </PrivateRoute>
+
+      <PrivateRoute path="/add_apartment">
+        <AddApartment />
+      </PrivateRoute>
+      <PrivateRoute path="/define_building">
+        <DefineBuilding/>
       </PrivateRoute>
 
       <Redirect to="/login" exact />
