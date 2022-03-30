@@ -647,7 +647,10 @@ const Sidebar = ({
             </ListItem>
           </NavLink>
 
-          <ListItemButton onClick={OpenSecurityHandler}>
+
+{/* ---------security-management---- */}
+
+          {/* <ListItemButton onClick={OpenSecurityHandler}>
             <ListItemIcon>
               <SiHomeassistantcommunitystore size={20} />
             </ListItemIcon>
@@ -716,10 +719,12 @@ const Sidebar = ({
                 </ListItemButton>
               </NavLink>
             </List>
-          </Collapse>
+          </Collapse> */}
 
           {/* --------------society-Administrator--------- */}
-          <ListItemButton onClick={OpenSocietyAdminHandler}>
+
+          
+          {/* <ListItemButton onClick={OpenSocietyAdminHandler}>
             <ListItemIcon>
               <SiHomeassistantcommunitystore size={20} />
             </ListItemIcon>
@@ -747,10 +752,11 @@ const Sidebar = ({
                 </ListItemButton>
               </NavLink>
             </List>
-          </Collapse>
+          </Collapse> */}
 
           {/* --------notices--------------- */}
-          <NavLink activeClassName="selected" to="/">
+          
+          {/* <NavLink activeClassName="selected" to="/">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -759,7 +765,7 @@ const Sidebar = ({
                 <ListItemText primary="Notices" />
               </ListItemButton>
             </ListItem>
-          </NavLink>
+          </NavLink> */}
 
           {/* <ListItemButton onClick={eventOpenHandler}>
           <ListItemIcon>
