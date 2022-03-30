@@ -54,7 +54,7 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 margin-index ">
                 <Dropdown
                   inputLabel="Country"
                   name="society.country_id"
@@ -81,7 +81,7 @@ const AddSociety = ({
                 </Dropdown>
               </div>
 
-              <div className="col-md-6">
+              <div className="col-md-6 margin-index-1">
                 <Dropdown
                   inputLabel="City"
                   name="society.city_id"
@@ -106,7 +106,7 @@ const AddSociety = ({
                   })}
                 </Dropdown>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 margin-index-2">
                 <Input
                   margin="normal"
                   fullWidth
@@ -126,8 +126,9 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-6">
-                <Input
+
+              <div className="col-md-6 m-auto">
+                {/* <Input
                   margin="normal"
                   fullWidth
                   type="file"
@@ -136,7 +137,24 @@ const AddSociety = ({
                     props.setFieldValue("documents", [...e.currentTarget.files])
                   }
                   onBlur={props.handleBlur}
-                />
+                /> */}
+
+                <div className="col-sm-12">
+                 
+                  <input
+                    className="form-control form-control-md"
+                    id="formFileSm"
+                    type="file"
+                    multiple="multiple"
+                    name="documents"
+                    onChange={(e) =>
+                      props.setFieldValue("documents", [...e.currentTarget.files])
+                    }
+                    onBlur={props.handleBlur}
+                  />
+                </div>
+
+
               </div>
               <div className="col-md-6 society-radio-outer">
                 <h6>Society Type</h6>
@@ -173,8 +191,7 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-6">
-
+              <div className="col-md-6 margin-index-4">
                 <Input
                   margin="normal"
                   fullWidth
@@ -194,7 +211,7 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 margin-index-3">
                 <Input
                   margin="normal"
                   fullWidth
@@ -214,7 +231,7 @@ const AddSociety = ({
                   }
                 />
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 margin-index-3">
                 <Input
                   margin="normal"
                   fullWidth
@@ -229,17 +246,21 @@ const AddSociety = ({
                 />
               </div>
             </div>
-            <div className="society_btn__wrapper">
+           
+            <div className="row">
+              <div className="col-sm-9"></div>
+              <div className="col-sm-3">
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 isLoading={stateLoading}
-                size="small"
+                size="normal"
               >
                 Add
               </Button>
+              </div>
             </div>
           </Form>
         )}

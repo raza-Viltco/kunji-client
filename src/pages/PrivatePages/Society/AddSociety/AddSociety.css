@@ -20,3 +20,35 @@
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+
+.margin-index
+{
+  margin-top: 2%;
+}
+
+.margin-index-1{
+  margin-top: 1.4%;
+}
+
+.margin-index-3{
+  margin-top: 0%;
+}
+
+
+@media screen and (max-width: 800px) {
+  .margin-index
+  {
+    margin-top: 0%;
+  }
+  
+  .margin-index-2{
+    margin-top: -2%;
+  }
+  .margin-index-3{
+    margin-top: -2%;
+  }
+  .margin-index-4{
+    margin-top: -2%;
+  }
+}
