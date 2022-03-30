@@ -1,0 +1,21 @@
+/* .css-1rqmsgh-MuiInputBase-root-MuiOutlinedInput-root{
+    height: 3vh !important;
+}
+
+.css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input{
+    border: 2px solid #2F5351 !important;
+    padding: 12px !important;
+    border-radius: 5px !important;
+    
+} */
+
+.MuiInputBase-formControl{
+    height: 43px !important;
+    font-size:15px !important;
+    padding-top: 1% !important;
+}
+
+.css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input:focus{
+    border: 2px solid #2F5351 !important;
+    padding: 12px !important;
+}
