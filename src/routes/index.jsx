@@ -35,6 +35,13 @@ import AddKunjiStaff from "../pages/PrivatePages/StaffManagement/Kunji/AddStaff"
 import StaffKunjiMember from "../pages/PrivatePages/StaffManagement/Kunji/StaffMember";
 import AddKunjiDepartment from "../pages/PrivatePages/Department/Kunji";
 import VisitorList from "../pages/PrivatePages/SecurityManagement/Society/VisitorList";
+import ServantApproval from "../pages/PrivatePages/SecurityManagement/Society/ServantApproval";
+import GatePassApproval from "../pages/PrivatePages/SecurityManagement/Society/GatePassApproval";
+import DeliveryBooking from "../pages/PrivatePages/SecurityManagement/Society/DeliveryBooking/deliveryBooking";
+import PanicAlert from "../pages/PrivatePages/SecurityManagement/Society/PanicAlert";
+import ChargesType from "../pages/PrivatePages/SocietyAdministration/ChargesType";
+import GenerateBill from "../pages/PrivatePages/SocietyAdministration/GenerateBill";
+import Notices from "../pages/PrivatePages/Notices/Society/Notices";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -141,6 +148,36 @@ const AppRouter = () => (
       <PrivateRoute path="/society_visitor_list">
         <VisitorList />
       </PrivateRoute>
+
+      <PrivateRoute path="/servant_visitor_list">
+        <ServantApproval/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/gate_pass_approval">
+        <GatePassApproval/>
+      </PrivateRoute>
+
+      
+      <PrivateRoute path="/society_delivery_booking">
+        <DeliveryBooking/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/society_panic_alert">
+        <PanicAlert/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/society_charges_type">
+        <ChargesType/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/society_generate_bill">
+        <GenerateBill/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/society_notices">
+        <Notices/>
+      </PrivateRoute>
+
 
       <Redirect to="/login" exact />
     </Switch>

@@ -1,12 +1,8 @@
 import React from "react";
-import "./panicAlert.css"
 
+import PanicAlertList from "./panicAlert";
 
-const PanicAlert=()=>{
-    return(
-        <>
-        
-        </>
-    );
-}
+const PanicAlert = () => {
+  return <PanicAlertList />;
+};
 export default PanicAlert;

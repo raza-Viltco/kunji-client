@@ -67,7 +67,7 @@ const AddPlots = () => {
           // isLoading={stateLoading}
           size="small"
         >
-          Done Sector
+         Add Plots
         </Button>
       </div>
       <div

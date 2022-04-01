@@ -62,7 +62,7 @@ const AddStreet = () => {
           // isLoading={stateLoading}
           size="small"
         >
-          Add Plots
+          Add Street
         </Button>
       </div>
 
