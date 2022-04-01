@@ -1,13 +1,15 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import MenuItem from "@mui/material/MenuItem";
+import Radio from "@mui/material/Radio";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import { useDispatch } from "react-redux";
 
 import Input from "../../../../components/Form/Input";
 import Dropdown from "../../../../components/Form/Dropdown";
 import Card from "../../../../components/Card";
 import Button from "../../../../components/Button";
-import RadioButtons from "../../../../components/Form/RadioButton";
+import RadioButton from "../../../../components/Form/RadioButton";
 import addSocietyContainer from "../../../../container/Society/AddSocietyContainer";
 import { setCityId } from "../../../../redux/actions/Society/AddSociety";
 import "./AddSociety.css";
@@ -140,7 +142,6 @@ const AddSociety = ({
                 /> */}
 
                 <div className="col-sm-12">
-                 
                   <input
                     className="form-control form-control-md"
                     id="formFileSm"
@@ -148,24 +149,27 @@ const AddSociety = ({
                     multiple="multiple"
                     name="documents"
                     onChange={(e) =>
-                      props.setFieldValue("documents", [...e.currentTarget.files])
+                      props.setFieldValue("documents", [
+                        ...e.currentTarget.files,
+                      ])
                     }
                     onBlur={props.handleBlur}
                   />
                 </div>
-
-
               </div>
-              <div className="col-md-6 society-radio-outer">
-                <h6>Society Type</h6>
-                <div className="society-radio-inner">
-                  <p>Vertical</p>
-                  <RadioButtons />
-                </div>
-                <div className="society-radio-inner">
-                  <p>Horizontal</p>
-                  <RadioButtons />
-                </div>
+              <div className="col-md-6">
+                <RadioButton label="Type" row flexAlign>
+                  <FormControlLabel
+                    value="horizontal"
+                    control={<Radio size="small" />}
+                    label="Horizontal"
+                  />
+                  <FormControlLabel
+                    value="verticle"
+                    control={<Radio size="small" />}
+                    label="Verticle"
+                  />
+                </RadioButton>
               </div>
             </div>
             <hr />
@@ -246,20 +250,20 @@ const AddSociety = ({
                 />
               </div>
             </div>
-           
+
             <div className="row">
               <div className="col-sm-9"></div>
               <div className="col-sm-3">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                isLoading={stateLoading}
-                size="normal"
-              >
-                Add
-              </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  isLoading={stateLoading}
+                  size="normal"
+                >
+                  Add
+                </Button>
               </div>
             </div>
           </Form>

@@ -6,6 +6,7 @@ import {
   GridToolbarFilterButton,
   GridToolbarDensitySelector,
 } from "@mui/x-data-grid";
+import "./Table.css";
 
 function CustomToolbar() {
   return (
@@ -17,12 +18,7 @@ function CustomToolbar() {
   );
 }
 
-const Table = ({
-  rows,
-  columns,
-  checkboxSelection,
-  loading,
-}) => {
+const Table = ({ rows, columns, checkboxSelection, loading }) => {
   const [pageSize, setPageSize] = useState(10);
 
   return (

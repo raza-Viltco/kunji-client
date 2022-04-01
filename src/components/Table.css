@@ -1,0 +1,16 @@
+.css-11bfvty-MuiToolbar-root-MuiTablePagination-toolbar {
+  align-items: baseline !important;
+}
+
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  height: 149px !important;
+}
+
+.css-1qsp5ul-MuiDataGrid-root .MuiDataGrid-cell:focus,
+.css-1qsp5ul-MuiDataGrid-root .MuiDataGrid-cell:focus-within,
+.css-1qsp5ul-MuiDataGrid-root .MuiDataGrid-columnHeader--sortable:focus,
+.css-1qsp5ul-MuiDataGrid-root .MuiDataGrid-columnHeader--sortable:focus-within{
+  outline: none !important;
+}
+
+
