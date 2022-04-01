@@ -1,12 +1,8 @@
 import React from "react";
-import "./deliveryBooking.css"
 
+import DeliveryBookingList from "./deliverBooking";
 
-const DeliveryBooking=()=>{
-    return(
-        <>
-        
-        </>
-    );
-}
+const DeliveryBooking = () => {
+  return <DeliveryBookingList />;
+};
 export default DeliveryBooking;

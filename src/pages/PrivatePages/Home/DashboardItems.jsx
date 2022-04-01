@@ -27,6 +27,13 @@ import AddKunjiStaff from "../StaffManagement/Kunji/AddStaff";
 import StaffKunjiMember from "../StaffManagement/Kunji/StaffMember";
 import AddKunjiDepartment from "../Department/Kunji";
 import VisitorList from "../SecurityManagement/Society/VisitorList";
+import ServantApproval from "../SecurityManagement/Society/ServantApproval";
+import GatePassApproval from "../SecurityManagement/Society/GatePassApproval";
+import DeliveryBooking from "../SecurityManagement/Society/DeliveryBooking/deliveryBooking";
+import PanicAlert from "../SecurityManagement/Society/PanicAlert";
+import ChargesType from "../SocietyAdministration/ChargesType";
+import GenerateBill from "../SocietyAdministration/GenerateBill";
+import Notices from "../Notices/Society/Notices";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -83,6 +90,27 @@ const DashboardItems = () => {
       : location.pathname === "/society_visitor_list" ? (
         <VisitorList />
       ) 
+      : location.pathname === "/servant_visitor_list" ? (
+        <ServantApproval />
+      )
+      : location.pathname === "/gate_pass_approval" ? (
+        <GatePassApproval />
+      )
+      : location.pathname === "/society_delivery_booking" ? (
+        <DeliveryBooking />
+      )
+      : location.pathname === "/society_panic_alert" ? (
+        <PanicAlert />
+      )
+      : location.pathname === "/society_charges_type" ? (
+        <ChargesType />
+      )
+      : location.pathname === "/society_generate_bill" ? (
+        <GenerateBill />
+      )
+      : location.pathname === "/society_notices" ? (
+        <Notices />
+      )
       : userData?.data?.roles[0].name === "Super Admin" ? (
         <Dashboard />
       ) : userData?.data?.roles[0].name === "Society Admin" ? (

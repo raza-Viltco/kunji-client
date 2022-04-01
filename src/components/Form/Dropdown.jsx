@@ -22,8 +22,8 @@ const Dropdown = ({
     <FormControl
       variant="filled"
       size="small"
-        label="Small select"
-      sx={{  width: "100%" }}
+      label="Small select"
+      sx={{ width: "100%" }}
       error={error ? !!error : false}
     >
       <InputLabel id="demo-simple-select-error-label">{inputLabel}</InputLabel>
@@ -36,7 +36,12 @@ const Dropdown = ({
         onBlur={onBlur}
         name={name}
         onClick={onClick}
-        sx={{height:"50px", fontSize:"10px", paddingTop:"1%", backgroundColor:"grey"}}
+        sx={{
+          height: "50px",
+          fontSize: "10px",
+          paddingTop: "1%",
+          backgroundColor: "grey",
+        }}
       >
         {children}
       </Select>
