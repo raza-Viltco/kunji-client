@@ -31,8 +31,7 @@ const Auth = ({
             value={props.values.email}
             onChange={props.handleChange}
             onBlur={props.handleBlur}
-            error={props.touched.email && Boolean(props.errors.email)}
-            helperText={props.touched.email && props.errors.email}
+         
           />
           <Input
             margin="normal"

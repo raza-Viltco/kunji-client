@@ -63,7 +63,7 @@ const DefineBuilding = () => {
           sx={{ mt: 3, mb: 2 }}
           size="small"
         >
-          Add Apartments
+          Add Building
         </Button>
       </div>
 

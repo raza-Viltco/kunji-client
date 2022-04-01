@@ -1,12 +1,8 @@
 import React from "react";
-import "./gatePassApproval.css"
 
+import GatePassApprovalList from "./gatePassApproval";
 
-const GatePassApproval=()=>{
-    return(
-        <>
-        
-        </>
-    );
-}
+const GatePassApproval = () => {
+  return <GatePassApprovalList />;
+};
 export default GatePassApproval;

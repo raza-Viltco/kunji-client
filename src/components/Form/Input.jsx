@@ -16,6 +16,8 @@ const Input = ({
   helperText,
   disabled,
   hidden,
+  multiline,
+  rows,
 }) => {
   return (
     <TextField
@@ -35,6 +37,8 @@ const Input = ({
       value={value}
       disabled={disabled}
       hidden={hidden}
+      multiline={multiline}
+      rows={rows}
       variant="filled"
       size="small"
       inputProps={{

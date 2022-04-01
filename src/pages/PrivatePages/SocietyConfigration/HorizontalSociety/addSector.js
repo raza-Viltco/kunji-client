@@ -58,7 +58,7 @@ const AddSector = () => {
           // isLoading={stateLoading}
           size="small"
         >
-          Add Street
+          Add Sector
         </Button>
       </div>
       <div>

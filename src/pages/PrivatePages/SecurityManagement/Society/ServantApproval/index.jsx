@@ -1,12 +1,8 @@
 import React from "react";
-import "./servantApproval.css"
 
+import ServantApprovalList from "./servantApproval";
 
-const ServantApproval=()=>{
-    return(
-        <>
-        
-        </>
-    );
-}
+const ServantApproval = () => {
+  return <ServantApprovalList />;
+};
 export default ServantApproval;
