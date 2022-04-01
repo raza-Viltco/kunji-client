@@ -35,7 +35,7 @@ const Input = ({
       value={value}
       disabled={disabled}
       hidden={hidden}
-      variant="filled"
+      variant="outlined"
       size="small"
       inputProps={{
         multiple: true,

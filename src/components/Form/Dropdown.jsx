@@ -25,8 +25,6 @@ const Dropdown = ({
         label="Small select"
       sx={{  width: "100%" }}
       error={error ? !!error : false}
-      
-
     >
       <InputLabel id="demo-simple-select-error-label">{inputLabel}</InputLabel>
       <Select
