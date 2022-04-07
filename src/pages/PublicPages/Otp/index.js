@@ -42,7 +42,7 @@ const OtpVerification = ({
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 2, mb: 2 }}
+              sx={{ mt: 2, mb: 2, borderRadius:20 }}
               isLoading={stateLoading}
               size="small"
             >
