@@ -53,7 +53,7 @@ const AddSociety = ({
                   helperText={
                     props?.touched?.society?.name &&
                     props?.errors?.society?.name
-                  }
+                  } 
                 />
               </div>
               <div className="col-md-6 margin-index ">
