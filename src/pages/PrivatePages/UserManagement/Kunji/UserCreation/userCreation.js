@@ -24,28 +24,28 @@ const UserCreationForm = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-md-6">
-          <Input label="Name" margin="normal" />
+        <div className="col-md-6 mt-4">
+          <Input label="Name" margin="normal" placeholder="Name" />
         </div>
-        <div className="col-md-6">
-          <Input label="Email" margin="normal" />
+        <div className="col-md-6 mt-4">
+          <Input label="Email" margin="normal" placeholder="Email" />
         </div>
-        <div className="col-md-6">
-          <Input label="Password" margin="normal" />
+        <div className="col-md-6 mt-4">
+          <Input label="Password" margin="normal" placeholder="Password" />
         </div>
-        <div className="col-md-6">
-          <Input label="CNIC" margin="normal" />
+        <div className="col-md-6 mt-4">
+          <Input label="CNIC" margin="normal" placeholder="Cnic"  />
         </div>
-        <div className="col-md-6">
-          <Input label="Mobile" margin="normal" />
+        <div className="col-md-6 mt-4">
+          <Input label="Mobile" margin="normal" placeholder="Mobile" />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mt-4">
           <Dropdown
             inputLabel="Department"
             name="society.country_id"
           ></Dropdown>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mt-4">
           <Dropdown inputLabel="Roles" name="society.country_id"></Dropdown>
         </div>
       </div>

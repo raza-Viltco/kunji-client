@@ -39,7 +39,7 @@ const ForgotPassword = ({
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, borderRadius:20 }}
               isLoading={stateLoading}
               size="small"
             >
