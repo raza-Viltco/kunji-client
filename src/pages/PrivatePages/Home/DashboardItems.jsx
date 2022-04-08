@@ -34,6 +34,13 @@ import PanicAlert from "../SecurityManagement/Society/PanicAlert";
 import ChargesType from "../SocietyAdministration/ChargesType";
 import GenerateBill from "../SocietyAdministration/GenerateBill";
 import Notices from "../Notices/Society/Notices";
+import TermsAndConditions from "../TermsAndConditions/Kunji";
+import SocietyProfile from "../Profile/SocietyProfile"
+import PropertyOwnerShip from "../PropertyOwnserShip";
+import AssignOwnership from "../PropertyOwnserShip/assignOwnership";
+import Complaints from "../SecurityManagement/Society/Complaints";
+import ViewBill from "../SocietyAdministration/ViewBill";
+import Assets from "../Assets/Society";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -110,7 +117,29 @@ const DashboardItems = () => {
       )
       : location.pathname === "/society_notices" ? (
         <Notices />
-      ) : <Dashboard />
+      ) 
+      : location.pathname === "/terms_condition" ? (
+        <TermsAndConditions />
+      )
+      : location.pathname === "/society_profile" ? (
+        <SocietyProfile />
+      )
+      : location.pathname === "/property_ownership" ? (
+        <PropertyOwnerShip />
+      )
+      : location.pathname === "/assign_ownership" ? (
+        <AssignOwnership/>
+      )
+      : location.pathname === "/complaints" ? (
+        <Complaints/>
+      )
+      : location.pathname === "/view_bill" ? (
+        <ViewBill/>
+      )
+      : location.pathname === "/assets" ? (
+        <Assets/>
+      )
+      : <Dashboard />
       // : userData?.data?.roles[0].name === "Super Admin" ? (
       //   <Dashboard />
       // ) : userData?.data?.roles[0].name === "Society Admin" ? (
