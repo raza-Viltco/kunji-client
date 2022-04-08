@@ -42,6 +42,13 @@ import PanicAlert from "../pages/PrivatePages/SecurityManagement/Society/PanicAl
 import ChargesType from "../pages/PrivatePages/SocietyAdministration/ChargesType";
 import GenerateBill from "../pages/PrivatePages/SocietyAdministration/GenerateBill";
 import Notices from "../pages/PrivatePages/Notices/Society/Notices";
+import TermsAndConditions from "../pages/PrivatePages/TermsAndConditions/Kunji";
+import SocietyProfile from "../pages/PrivatePages/Profile/SocietyProfile"
+import PropertyOwnerShip from "../pages/PrivatePages/PropertyOwnserShip";
+import AssignOwnership from "../pages/PrivatePages/PropertyOwnserShip/assignOwnership";
+import Complaints from "../pages/PrivatePages/SecurityManagement/Society/Complaints";
+import ViewBill from "../pages/PrivatePages/SocietyAdministration/ViewBill";
+import Assets from "../pages/PrivatePages/Assets/Society";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -178,6 +185,33 @@ const AppRouter = () => (
         <Notices/>
       </PrivateRoute>
 
+      <PrivateRoute path="/terms_condition">
+        <TermsAndConditions/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/society_profile">
+        <SocietyProfile/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/property_ownership">
+        <PropertyOwnerShip/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/assign_ownership">
+        <AssignOwnership/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/complaints">
+        <Complaints/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/view_bill">
+        <ViewBill/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/assets">
+        <Assets/>
+      </PrivateRoute>
 
       <Redirect to="/login" exact />
     </Switch>

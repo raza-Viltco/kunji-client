@@ -304,6 +304,20 @@ const Sidebar = ({
           </>
         )}
 
+{/* ----------society Profile---- */}
+<NavLink  to="/society_profile">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MdDashboard size={25} />
+              </ListItemIcon>
+              <ListItemText>
+                <span className="font-dashboard">Society Profile</span>
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
         {userData?.data?.roles.name === "Society Admin" && (
           <>
             <ListItemButton onClick={openSocietyConfigHandler}>
@@ -388,10 +402,38 @@ const Sidebar = ({
             </Collapse>
           </>
         )}
+{/* ---------------------------property ownership-------------- */}
+<NavLink  to="/property_ownership">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MdDashboard size={25} />
+              </ListItemIcon>
+              <ListItemText>
+                <span className="font-dashboard">Property Ownership</span>
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+{/* ----------assets---------- */}
+<NavLink  to="/assets">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MdDashboard size={25} />
+              </ListItemIcon>
+              <ListItemText>
+                <span className="font-dashboard">Assets</span>
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+
 
         {/* --------------society-Administrator--------- */}
-        {userData?.data?.roles.name === "Society Admin" && (
-        <>
+        {/* {userData?.data?.roles.name === "Society Admin" && (
+        <> */}
           <ListItemButton onClick={OpenSocietyAdminHandler}>
             <ListItemIcon>
               <SiHomeassistantcommunitystore size={20} />
@@ -420,9 +462,19 @@ const Sidebar = ({
                 </ListItemButton>
               </NavLink>
             </List>
+            <List component="div" disablePadding>
+              <NavLink to="/view_bill">
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <MdOutlineFormatListBulleted size={25} />
+                  </ListItemIcon>
+                  <ListItemText primary="View  Bill" />
+                </ListItemButton>
+              </NavLink>
+            </List>
           </Collapse>
-        </>
-        )} 
+        {/* </>
+        )}  */}
         {/* {userData?.data?.roles[0].name === "Super Admin" && (
           <>
             <ListItemButton onClick={OpenStaffHandler}>
@@ -668,8 +720,8 @@ const Sidebar = ({
 
           {/* ---------security-management---- */}
 
-          {userData?.data?.roles.name === "Society Admin" && (
-          <>
+          {/* {userData?.data?.roles.name === "Society Admin" && (
+          <> */}
             <ListItemButton onClick={OpenSecurityHandler}>
               <ListItemIcon>
                 <SiHomeassistantcommunitystore size={20} />
@@ -730,9 +782,20 @@ const Sidebar = ({
                   </ListItemButton>
                 </NavLink>
               </List>
+
+              <List component="div" disablePadding>
+                <NavLink to="/complaints">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <MdOutlineFormatListBulleted size={25} />
+                    </ListItemIcon>
+                    <ListItemText primary="Complaints" />
+                  </ListItemButton>
+                </NavLink>
+              </List>
             </Collapse>
-          </>
-         )} 
+          {/* </>
+         )}  */}
 
           {/* -----------------------department--------------- */}
           <NavLink activeClassName="selected" to="/add_kunji_department">
@@ -762,6 +825,20 @@ const Sidebar = ({
           </>
           )} 
 
+
+{/* ------------------------terms and conditions------------- */}
+<NavLink  to="/terms_condition">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MdDashboard size={25} />
+              </ListItemIcon>
+              <ListItemText>
+                <span className="font-dashboard">Terms and Conditions</span>
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
           {/* <ListItemButton onClick={eventOpenHandler}>
           <ListItemIcon>
             <SiHomeassistantcommunitystore size={20} />
