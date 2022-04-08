@@ -110,14 +110,16 @@ const DashboardItems = () => {
       )
       : location.pathname === "/society_notices" ? (
         <Notices />
-      )
-      : userData?.data?.roles[0].name === "Super Admin" ? (
-        <Dashboard />
-      ) : userData?.data?.roles[0].name === "Society Admin" ? (
-        <SocietyDashboard />
-      ) : (
-        ""
-      )}
+      ) : <Dashboard />
+      // : userData?.data?.roles[0].name === "Super Admin" ? (
+      //   <Dashboard />
+      // ) : userData?.data?.roles[0].name === "Society Admin" ? (
+      //   <SocietyDashboard />
+      // ) : (
+      //   ""
+      // )
+      
+      }
     </>
   );
 };
