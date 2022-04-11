@@ -23,31 +23,13 @@ const Auth = ({
     >
       {(props) => (
         <Form>
-          <div className="col-md-12  mt-3">
+          {/* <div className="col-md-12  mt-3">
             <Dropdown
               label="City"
               name="society.city_id"
-              // value={props.values.society.city_id}
-              // onChange={props.handleChange}
-              // onBlur={props.handleBlur}
-              // error={
-              //   props?.touched?.society?.city_id &&
-              //   Boolean(props?.errors?.society?.city_id)
-              // }
-              // errorText={
-              //   props?.touched?.society?.city_id &&
-              //   props?.errors?.society?.city_id
-              // }
             >
-              {/* {cityData.map((item, index) => {
-                return (
-                  <MenuItem value={item.id} key={index}>
-                    {item.name}
-                  </MenuItem>
-                );
-              })} */}
             </Dropdown>
-          </div>
+          </div> */}
 
 
           <div className="col-sm-12 mt-3 p-0">
