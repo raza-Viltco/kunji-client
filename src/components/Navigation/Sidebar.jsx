@@ -41,6 +41,7 @@ const Sidebar = ({
   openSidebar,
 }) => {
   const userData = useSelector((state) => state.user.data);
+  console.log(userData?.data?.role.name);
   const [open, setOpen] = useState(false);
   const [registerOpen, setRegisterOpen] = useState(false);
   const [staffOpen, setStaffOpen] = useState(false);
@@ -222,7 +223,7 @@ const Sidebar = ({
           </>
         )} */}
 
-        {userData?.data?.roles.name === "Super admin" && (
+        {userData?.data?.role.name === "kunji admin" && (
           <>
             <ListItemButton onClick={nestedListHandler}>
               <ListItemIcon>
@@ -260,7 +261,7 @@ const Sidebar = ({
           </>
         )}
 
-        {userData?.data?.roles.name === "Super admin" && (
+        {userData?.data?.role.name === "kunji admin" && (
           <>
             <ListItemButton onClick={openUserManagementHander}>
               <ListItemIcon>
@@ -304,21 +305,25 @@ const Sidebar = ({
           </>
         )}
 
-{/* ----------society Profile---- */}
-<NavLink  to="/society_profile">
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <MdDashboard size={25} />
-              </ListItemIcon>
-              <ListItemText>
-                <span className="font-dashboard">Society Profile</span>
-              </ListItemText>
-            </ListItemButton>
-          </ListItem>
-        </NavLink>
+        {/* ----------society Profile---- */}
+        {userData?.data?.role.name === "Society Admin" && (
+          <>
+            <NavLink to="/society_profile">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <MdDashboard size={25} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard">Society Profile</span>
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </>
+        )}
 
-        {userData?.data?.roles.name === "Society Admin" && (
+        {userData?.data?.role.name === "Society Admin" && (
           <>
             <ListItemButton onClick={openSocietyConfigHandler}>
               <ListItemIcon>
@@ -363,7 +368,7 @@ const Sidebar = ({
         )}
         {/* ------vertical-society------- */}
 
-        {userData?.data?.roles.name === "Society Admin" && (
+        {userData?.data?.role.name === "Society Admin" && (
           <>
             <ListItemButton onClick={OpenVerticalConfigHandler}>
               <ListItemIcon>
@@ -402,79 +407,87 @@ const Sidebar = ({
             </Collapse>
           </>
         )}
-{/* ---------------------------property ownership-------------- */}
-<NavLink  to="/property_ownership">
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <MdDashboard size={25} />
-              </ListItemIcon>
-              <ListItemText>
-                <span className="font-dashboard">Property Ownership</span>
-              </ListItemText>
-            </ListItemButton>
-          </ListItem>
-        </NavLink>
-{/* ----------assets---------- */}
-<NavLink  to="/assets">
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <MdDashboard size={25} />
-              </ListItemIcon>
-              <ListItemText>
-                <span className="font-dashboard">Assets</span>
-              </ListItemText>
-            </ListItemButton>
-          </ListItem>
-        </NavLink>
+        {/* ---------------------------property ownership-------------- */}
+        {userData?.data?.role.name === "Society Admin" && (
+          <>
+            <NavLink to="/property_ownership">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <MdDashboard size={25} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard">Property Ownership</span>
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </>
+        )}
 
+        {/* ----------assets---------- */}
 
+        {userData?.data?.role.name === "Society Admin" && (
+          <>
+            <NavLink to="/assets">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <MdDashboard size={25} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard">Assets</span>
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </>
+        )}
 
         {/* --------------society-Administrator--------- */}
-        {/* {userData?.data?.roles.name === "Society Admin" && (
-        <> */}
-          <ListItemButton onClick={OpenSocietyAdminHandler}>
-            <ListItemIcon>
-              <SiHomeassistantcommunitystore size={20} />
-            </ListItemIcon>
-            <ListItemText primary="Society Administration" />
-            {openSocietyAdmin ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
-          <Collapse in={openSocietyAdmin} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <NavLink to="/society_charges_type">
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <AiOutlineUserAdd size={23} />
-                  </ListItemIcon>
-                  <ListItemText primary="Charges Type" />
-                </ListItemButton>
-              </NavLink>
-            </List>
-            <List component="div" disablePadding>
-              <NavLink to="/society_generate_bill">
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <MdOutlineFormatListBulleted size={25} />
-                  </ListItemIcon>
-                  <ListItemText primary="Generate Bill" />
-                </ListItemButton>
-              </NavLink>
-            </List>
-            <List component="div" disablePadding>
-              <NavLink to="/view_bill">
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <MdOutlineFormatListBulleted size={25} />
-                  </ListItemIcon>
-                  <ListItemText primary="View  Bill" />
-                </ListItemButton>
-              </NavLink>
-            </List>
-          </Collapse>
-        {/* </>
-        )}  */}
+        {userData?.data?.role.name === "Society Admin" && (
+          <>
+            <ListItemButton onClick={OpenSocietyAdminHandler}>
+              <ListItemIcon>
+                <SiHomeassistantcommunitystore size={20} />
+              </ListItemIcon>
+              <ListItemText primary="Society Administration" />
+              {openSocietyAdmin ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={openSocietyAdmin} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <NavLink to="/society_charges_type">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <AiOutlineUserAdd size={23} />
+                    </ListItemIcon>
+                    <ListItemText primary="Charges Type" />
+                  </ListItemButton>
+                </NavLink>
+              </List>
+              <List component="div" disablePadding>
+                <NavLink to="/society_generate_bill">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <MdOutlineFormatListBulleted size={25} />
+                    </ListItemIcon>
+                    <ListItemText primary="Generate Bill" />
+                  </ListItemButton>
+                </NavLink>
+              </List>
+              <List component="div" disablePadding>
+                <NavLink to="/view_bill">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <MdOutlineFormatListBulleted size={25} />
+                    </ListItemIcon>
+                    <ListItemText primary="View  Bill" />
+                  </ListItemButton>
+                </NavLink>
+              </List>
+            </Collapse>
+          </>
+        )}
         {/* {userData?.data?.roles[0].name === "Super Admin" && (
           <>
             <ListItemButton onClick={OpenStaffHandler}>
@@ -720,82 +733,82 @@ const Sidebar = ({
 
           {/* ---------security-management---- */}
 
-          {/* {userData?.data?.roles.name === "Society Admin" && (
-          <> */}
-            <ListItemButton onClick={OpenSecurityHandler}>
-              <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
-              </ListItemIcon>
-              <ListItemText primary="Security Management" />
-              {openSecurity ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={openSecurity} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/society_visitor_list">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <AiOutlineUserAdd size={23} />
-                    </ListItemIcon>
-                    <ListItemText primary="Visitor List" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              <List component="div" disablePadding>
-                <NavLink to="/servant_visitor_list">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
-                    </ListItemIcon>
-                    <ListItemText primary="Servant Approval" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
+          {userData?.data?.role.name === "Society Admin" && (
+            <>
+              <ListItemButton onClick={OpenSecurityHandler}>
+                <ListItemIcon>
+                  <SiHomeassistantcommunitystore size={20} />
+                </ListItemIcon>
+                <ListItemText primary="Security Management" />
+                {openSecurity ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Collapse in={openSecurity} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <NavLink to="/society_visitor_list">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <AiOutlineUserAdd size={23} />
+                      </ListItemIcon>
+                      <ListItemText primary="Visitor List" />
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+                <List component="div" disablePadding>
+                  <NavLink to="/servant_visitor_list">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <MdOutlineFormatListBulleted size={25} />
+                      </ListItemIcon>
+                      <ListItemText primary="Servant Approval" />
+                    </ListItemButton>
+                  </NavLink>
+                </List>
 
-              <List component="div" disablePadding>
-                <NavLink to="/gate_pass_approval">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
-                    </ListItemIcon>
-                    <ListItemText primary="Gate Pass Approval" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
+                <List component="div" disablePadding>
+                  <NavLink to="/gate_pass_approval">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <MdOutlineFormatListBulleted size={25} />
+                      </ListItemIcon>
+                      <ListItemText primary="Gate Pass Approval" />
+                    </ListItemButton>
+                  </NavLink>
+                </List>
 
-              <List component="div" disablePadding>
-                <NavLink to="/society_delivery_booking">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
-                    </ListItemIcon>
-                    <ListItemText primary="Delivery Booking" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              <List component="div" disablePadding>
-                <NavLink to="/society_panic_alert">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
-                    </ListItemIcon>
-                    <ListItemText primary="Panic Alert" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
+                <List component="div" disablePadding>
+                  <NavLink to="/society_delivery_booking">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <MdOutlineFormatListBulleted size={25} />
+                      </ListItemIcon>
+                      <ListItemText primary="Delivery Booking" />
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+                <List component="div" disablePadding>
+                  <NavLink to="/society_panic_alert">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <MdOutlineFormatListBulleted size={25} />
+                      </ListItemIcon>
+                      <ListItemText primary="Panic Alert" />
+                    </ListItemButton>
+                  </NavLink>
+                </List>
 
-              <List component="div" disablePadding>
-                <NavLink to="/complaints">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
-                    </ListItemIcon>
-                    <ListItemText primary="Complaints" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          {/* </>
-         )}  */}
+                <List component="div" disablePadding>
+                  <NavLink to="/complaints">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <MdOutlineFormatListBulleted size={25} />
+                      </ListItemIcon>
+                      <ListItemText primary="Complaints" />
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              </Collapse>
+            </>
+          )}
 
           {/* -----------------------department--------------- */}
           <NavLink activeClassName="selected" to="/add_kunji_department">
@@ -810,35 +823,34 @@ const Sidebar = ({
           </NavLink>
 
           {/* --------notices--------------- */}
-          {userData?.data?.roles.name === "Society Admin" && (
-          <>
-            <NavLink to="/society_notices">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <MdDashboard size={25} />
-                  </ListItemIcon>
-                  <ListItemText primary="Notices" />
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
-          </>
-          )} 
+          {userData?.data?.role.name === "Society Admin" && (
+            <>
+              <NavLink to="/society_notices">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MdDashboard size={25} />
+                    </ListItemIcon>
+                    <ListItemText primary="Notices" />
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            </>
+          )}
 
-
-{/* ------------------------terms and conditions------------- */}
-<NavLink  to="/terms_condition">
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <MdDashboard size={25} />
-              </ListItemIcon>
-              <ListItemText>
-                <span className="font-dashboard">Terms and Conditions</span>
-              </ListItemText>
-            </ListItemButton>
-          </ListItem>
-        </NavLink>
+          {/* ------------------------terms and conditions------------- */}
+          <NavLink to="/terms_condition">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <MdDashboard size={25} />
+                </ListItemIcon>
+                <ListItemText>
+                  <span className="font-dashboard">Terms and Conditions</span>
+                </ListItemText>
+              </ListItemButton>
+            </ListItem>
+          </NavLink>
           {/* <ListItemButton onClick={eventOpenHandler}>
           <ListItemIcon>
             <SiHomeassistantcommunitystore size={20} />

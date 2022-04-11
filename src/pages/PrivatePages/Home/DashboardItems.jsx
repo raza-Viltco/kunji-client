@@ -35,7 +35,7 @@ import ChargesType from "../SocietyAdministration/ChargesType";
 import GenerateBill from "../SocietyAdministration/GenerateBill";
 import Notices from "../Notices/Society/Notices";
 import TermsAndConditions from "../TermsAndConditions/Kunji";
-import SocietyProfile from "../Profile/SocietyProfile"
+import SocietyProfile from "../Profile/SocietyProfile";
 import PropertyOwnerShip from "../PropertyOwnserShip";
 import AssignOwnership from "../PropertyOwnserShip/assignOwnership";
 import Complaints from "../SecurityManagement/Society/Complaints";
@@ -47,107 +47,91 @@ const DashboardItems = () => {
   const userData = useSelector((state) => state.user.data);
   return (
     <>
-      {location.pathname === "/add_society" ? (
-        <AddSociety />
-      ) : location.pathname === "/society_list" ? (
-        <SocietyListing />
-      ) : location.pathname === "/user_profile" ? (
-        <Profile />
-      ) : location.pathname === "/builder_society_register" ? (
-        <BuilderRegisterUser />
-      ) : location.pathname === "/builder_staff_management" ? (
-        <RegisterStaff />
-      ) : location.pathname === "/staff_list" ? (
-        <StaffListing />
-      ) : location.pathname === "/register_flat" ? (
-        <RegisterFlat />
-      ) : location.pathname === "/flat_listing" ? (
-        <FlatListing />
-      ) : location.pathname === "/add_asset" ? (
-        <RegisterAsset />
-      ) : location.pathname === "/asset_list" ? (
-        <AssetListing />
-      ) : location.pathname === "/facility_listing" ? (
-        <FacilitiesListing />
-      ) : location.pathname === "/add_sector" ? (
-        <AddSector />
-      ) : location.pathname === "/add_street" ? (
-        <AddStreet />
-      ) : location.pathname === "/add_plots" ? (
-        <AddPlots />
-      ) : location.pathname === "/add_apartment" ? (
-        <AddApartment />
-      ) : location.pathname === "/define_building" ? (
-        <DefineBuilding />
-      ) : location.pathname === "/kunji_Role" ? (
-        <KunjiRole />
-      ) : location.pathname === "/user_kunji_creation" ? (
-        <UserKunjiCreation />
-      ) : location.pathname === "/user_kunji_approval" ? (
-        <UserKunjiApproval />
-      ): location.pathname === "/add_kunji_staff" ? (
-        <AddKunjiStaff />
-      ) 
-      : location.pathname === "/list_kunji_staff" ? (
-        <StaffKunjiMember />
-      ) 
-      : location.pathname === "/add_kunji_department" ? (
-        <AddKunjiDepartment />
-      ) 
-      : location.pathname === "/society_visitor_list" ? (
-        <VisitorList />
-      ) 
-      : location.pathname === "/servant_visitor_list" ? (
-        <ServantApproval />
-      )
-      : location.pathname === "/gate_pass_approval" ? (
-        <GatePassApproval />
-      )
-      : location.pathname === "/society_delivery_booking" ? (
-        <DeliveryBooking />
-      )
-      : location.pathname === "/society_panic_alert" ? (
-        <PanicAlert />
-      )
-      : location.pathname === "/society_charges_type" ? (
-        <ChargesType />
-      )
-      : location.pathname === "/society_generate_bill" ? (
-        <GenerateBill />
-      )
-      : location.pathname === "/society_notices" ? (
-        <Notices />
-      ) 
-      : location.pathname === "/terms_condition" ? (
-        <TermsAndConditions />
-      )
-      : location.pathname === "/society_profile" ? (
-        <SocietyProfile />
-      )
-      : location.pathname === "/property_ownership" ? (
-        <PropertyOwnerShip />
-      )
-      : location.pathname === "/assign_ownership" ? (
-        <AssignOwnership/>
-      )
-      : location.pathname === "/complaints" ? (
-        <Complaints/>
-      )
-      : location.pathname === "/view_bill" ? (
-        <ViewBill/>
-      )
-      : location.pathname === "/assets" ? (
-        <Assets/>
-      )
-      : <Dashboard />
-      // : userData?.data?.roles[0].name === "Super Admin" ? (
-      //   <Dashboard />
-      // ) : userData?.data?.roles[0].name === "Society Admin" ? (
-      //   <SocietyDashboard />
-      // ) : (
-      //   ""
-      // )
-      
+      {
+        location.pathname === "/add_society" ? (
+          <AddSociety />
+        ) : location.pathname === "/society_list" ? (
+          <SocietyListing />
+        ) : location.pathname === "/user_profile" ? (
+          <Profile />
+        ) : location.pathname === "/builder_society_register" ? (
+          <BuilderRegisterUser />
+        ) : location.pathname === "/builder_staff_management" ? (
+          <RegisterStaff />
+        ) : location.pathname === "/staff_list" ? (
+          <StaffListing />
+        ) : location.pathname === "/register_flat" ? (
+          <RegisterFlat />
+        ) : location.pathname === "/flat_listing" ? (
+          <FlatListing />
+        ) : location.pathname === "/add_asset" ? (
+          <RegisterAsset />
+        ) : location.pathname === "/asset_list" ? (
+          <AssetListing />
+        ) : location.pathname === "/facility_listing" ? (
+          <FacilitiesListing />
+        ) : location.pathname === "/add_sector" ? (
+          <AddSector />
+        ) : location.pathname === "/add_street" ? (
+          <AddStreet />
+        ) : location.pathname === "/add_plots" ? (
+          <AddPlots />
+        ) : location.pathname === "/add_apartment" ? (
+          <AddApartment />
+        ) : location.pathname === "/define_building" ? (
+          <DefineBuilding />
+        ) : location.pathname === "/kunji_Role" ? (
+          <KunjiRole />
+        ) : location.pathname === "/user_kunji_creation" ? (
+          <UserKunjiCreation />
+        ) : location.pathname === "/user_kunji_approval" ? (
+          <UserKunjiApproval />
+        ) : location.pathname === "/add_kunji_staff" ? (
+          <AddKunjiStaff />
+        ) : location.pathname === "/list_kunji_staff" ? (
+          <StaffKunjiMember />
+        ) : location.pathname === "/add_kunji_department" ? (
+          <AddKunjiDepartment />
+        ) : location.pathname === "/society_visitor_list" ? (
+          <VisitorList />
+        ) : location.pathname === "/servant_visitor_list" ? (
+          <ServantApproval />
+        ) : location.pathname === "/gate_pass_approval" ? (
+          <GatePassApproval />
+        ) : location.pathname === "/society_delivery_booking" ? (
+          <DeliveryBooking />
+        ) : location.pathname === "/society_panic_alert" ? (
+          <PanicAlert />
+        ) : location.pathname === "/society_charges_type" ? (
+          <ChargesType />
+        ) : location.pathname === "/society_generate_bill" ? (
+          <GenerateBill />
+        ) : location.pathname === "/society_notices" ? (
+          <Notices />
+        ) : location.pathname === "/terms_condition" ? (
+          <TermsAndConditions />
+        ) : location.pathname === "/society_profile" ? (
+          <SocietyProfile />
+        ) : location.pathname === "/property_ownership" ? (
+          <PropertyOwnerShip />
+        ) : location.pathname === "/assign_ownership" ? (
+          <AssignOwnership />
+        ) : location.pathname === "/complaints" ? (
+          <Complaints />
+        ) : location.pathname === "/view_bill" ? (
+          <ViewBill />
+        ) : location.pathname === "/assets" ? (
+          <Assets />
+        ) : (
+          <Dashboard />
+        )
+        // : userData?.data?.roles[0].name === "Super Admin" ? (
+        //   <Dashboard />
+        // ) : userData?.data?.roles[0].name === "Society Admin" ? (
+        //   <SocietyDashboard />
+        // ) : (
+        //   ""
+        // )
       }
     </>
   );
