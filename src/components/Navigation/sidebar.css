@@ -1,3 +1,6 @@
+/* sidebar icon spacing  */
+
+
 .sidebar-anchor-outer a {
   text-decoration: none;
   color: black;
@@ -28,6 +31,11 @@
 
 .font-dashboard{
   font-size: 80%;
+}
+
+#iconstyle{
+  font-size: 150% !important;
+  color: #2f5351;
 }
 
 /* ----css for dropdown optiions- */
