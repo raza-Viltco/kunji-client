@@ -1,9 +1,19 @@
 import React from "react";
 // import { TextField } from "@mui/material";
 import { Button, Form } from "react-bootstrap";
-import "./Input.css"
+import "./Input.css";
 
-const Input = ({ id, name, type, onChange, onBlur, value, disabled, placeholder }) => {
+const Input = ({
+  id,
+  name,
+  type,
+  onChange,
+  onBlur,
+  value,
+  disabled,
+  placeholder,
+  className
+}) => {
   return (
     <Form.Group className="col-sm-12">
       <Form.Control
@@ -15,7 +25,8 @@ const Input = ({ id, name, type, onChange, onBlur, value, disabled, placeholder 
         onBlur={onBlur}
         value={value}
         disabled={disabled}
-        className="bootstyle"
+        className={className}
+        // className="bootstyle"
       />
     </Form.Group>
 
