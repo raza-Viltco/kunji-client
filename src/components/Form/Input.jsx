@@ -13,6 +13,7 @@ const Input = ({
   disabled,
   placeholder,
   multiple,
+  className
 }) => {
   return (
     <Form.Group className="col-sm-12">
@@ -25,8 +26,8 @@ const Input = ({
         onBlur={onBlur}
         value={value}
         disabled={disabled}
-        className="bootstyle"
         multiple={multiple}
+        className={className}
       />
     </Form.Group>
   );

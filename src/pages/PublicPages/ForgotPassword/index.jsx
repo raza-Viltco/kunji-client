@@ -6,6 +6,7 @@ import Input from "../../../components/Form/Input";
 import Button from "../../../components/Button";
 import AuthView from "../../../components/AuthView/AuthView";
 import forgotPasswordContainer from "../../../container/Auth/ForgotPasswordContainer";
+import InputError from "../../../components/Form/InputError";
 
 const ForgotPassword = ({
   initialValues,
@@ -32,9 +33,15 @@ const ForgotPassword = ({
               value={props.values.email}
               onChange={props.handleChange}
               onBlur={props.handleBlur}
-              error={props.errors.email}
+              // error={props.errors.email}
               helperText
+              className={props.errors.email && props.touched.email?
+                "input-outline" :"bootstyle"
+                }
             />
+                    {props.touched.email && props.errors.email && (
+              <InputError>{props.errors.email}</InputError>
+            )}
             <Button
               type="submit"
               fullWidth

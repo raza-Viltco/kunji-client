@@ -25,9 +25,11 @@ import {
   MdOutlineFormatListBulleted,
   MdOutlineManageAccounts,
 } from "react-icons/md";
+
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
-import { BiLogOut, BiLogIn } from "react-icons/bi";
+import { BiBuildingHouse, BiLogOut, BiLogIn } from "react-icons/bi";
+import {BsBuilding} from "react-icons/bs"; 
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { logout } from "../../redux/actions/Auth/user";
 import "./sidebar.css";
@@ -175,7 +177,9 @@ const Sidebar = ({
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <MdDashboard size={25} />
+                {/* <MdDashboard size={25} /> */}
+                {/* <i class="fi fi-rr-user"></i> */}
+                <i class="fad fa-columns" id="iconstyle"></i>
               </ListItemIcon>
               <ListItemText>
                 <span className="font-dashboard">Dashboard</span>
@@ -189,7 +193,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={userOpenHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
+                <SiHomeassistantcommunitystore size={25} />
               </ListItemIcon>
               <ListItemText>
               <span className="font-dashboard" >User Management </span>
@@ -227,7 +231,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={nestedListHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
+                <SiHomeassistantcommunitystore size={25} />
               </ListItemIcon>
               <ListItemText>
                 <span className="font-dashboard">Society</span>
@@ -265,7 +269,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={openUserManagementHander}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
+                <SiHomeassistantcommunitystore size={25} />
               </ListItemIcon>
               <ListItemText primary="User Management" />
               {openUserManagement ? <ExpandLess /> : <ExpandMore />}
@@ -312,7 +316,8 @@ const Sidebar = ({
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    <MdDashboard size={25} />
+                    {/* <BsBuilding size={25} /> */}
+                    <i class="fas fa-city" id="iconstyle"></i>
                   </ListItemIcon>
                   <ListItemText>
                     <span className="font-dashboard">Society Profile</span>
@@ -327,9 +332,12 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={openSocietyConfigHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
+                <SiHomeassistantcommunitystore size={25} />
               </ListItemIcon>
-              <ListItemText primary="Society Configuration" />
+              <ListItemText> 
+                <span className="font-dashboard"> Society Configuration </span>
+                </ListItemText> 
+              {/* className="font-dashboard" */}
               {openSocietyConfi ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={openSocietyConfi} timeout="auto" unmountOnExit>
@@ -372,7 +380,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={OpenVerticalConfigHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
+                <SiHomeassistantcommunitystore size={25} />
               </ListItemIcon>
               <ListItemText>
                 <span className="font-dashboard">Society Configuration B</span>
@@ -449,9 +457,14 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={OpenSocietyAdminHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
+                <SiHomeassistantcommunitystore size={25} />
               </ListItemIcon>
-              <ListItemText primary="Society Administration" />
+              <ListItemText>
+                <span className="font-dashboard" >
+                Society Administration
+                </span>
+                </ListItemText>
+              {/* className="font-dashboard" */}
               {openSocietyAdmin ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={openSocietyAdmin} timeout="auto" unmountOnExit>
@@ -492,7 +505,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={OpenStaffHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
+                <SiHomeassistantcommunitystore size={25} />
               </ListItemIcon>
               <ListItemText primary="Staff Management" />
               {openStaff ? <ExpandLess /> : <ExpandMore />}
@@ -604,7 +617,7 @@ const Sidebar = ({
             <>
               <ListItemButton onClick={facilityOpenHandler}>
                 <ListItemIcon>
-                  <SiHomeassistantcommunitystore size={20} />
+                  <SiHomeassistantcommunitystore size={25} />
                 </ListItemIcon>
                 <ListItemText primary="Facility Management" />
                 {facilityOpen ? <ExpandLess /> : <ExpandMore />}
@@ -629,7 +642,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={facilityOpenHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
+                <SiHomeassistantcommunitystore size={25} />
               </ListItemIcon>
               <ListItemText primary="Facility Management" />
               {facilityOpen ? <ExpandLess /> : <ExpandMore />}
@@ -665,7 +678,7 @@ const Sidebar = ({
             <>
               <ListItemButton onClick={flatOpenHandler}>
                 <ListItemIcon>
-                  <SiHomeassistantcommunitystore size={20} />
+                  <SiHomeassistantcommunitystore size={25} />
                 </ListItemIcon>
                 <ListItemText primary="Flats Management" />
                 {flatsOpen ? <ExpandLess /> : <ExpandMore />}
@@ -737,9 +750,12 @@ const Sidebar = ({
             <>
               <ListItemButton onClick={OpenSecurityHandler}>
                 <ListItemIcon>
-                  <SiHomeassistantcommunitystore size={20} />
+                  <SiHomeassistantcommunitystore size={25} />
                 </ListItemIcon>
-                <ListItemText primary="Security Management" />
+                <ListItemText>
+                  <span className="font-dashboard" >Security Management</span>
+                  </ListItemText>
+                {/* className="font-dashboard"  */}
                 {openSecurity ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={openSecurity} timeout="auto" unmountOnExit>
@@ -817,7 +833,10 @@ const Sidebar = ({
                 <ListItemIcon>
                   <MdDashboard size={25} />
                 </ListItemIcon>
-                <ListItemText primary="Department" />
+                <ListItemText >
+                  <span className="font-dashboard"  >Department</span>
+                  </ListItemText>
+                {/* className="font-dashboard"  */}
               </ListItemButton>
             </ListItem>
           </NavLink>
@@ -831,7 +850,10 @@ const Sidebar = ({
                     <ListItemIcon>
                       <MdDashboard size={25} />
                     </ListItemIcon>
-                    <ListItemText primary="Notices" />
+                    <ListItemText >
+                    <span className="font-dashboard">Notices</span>
+                      </ListItemText>
+                    {/* className="font-dashboard"   */}
                   </ListItemButton>
                 </ListItem>
               </NavLink>
@@ -853,7 +875,7 @@ const Sidebar = ({
           </NavLink>
           {/* <ListItemButton onClick={eventOpenHandler}>
           <ListItemIcon>
-            <SiHomeassistantcommunitystore size={20} />
+            <SiHomeassistantcommunitystore size={25} />
           </ListItemIcon>
           <ListItemText primary="Event Management" />
           {eventOpen ? <ExpandLess /> : <ExpandMore />}
