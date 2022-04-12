@@ -6,6 +6,7 @@ import Button from "../../../../../components/Button";
 import "./deliveryBooking.css";
 
 const DeliveryBookingList = () => {
+  
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Resident Name", width: 160 },

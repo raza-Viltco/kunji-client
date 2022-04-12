@@ -1,30 +1,28 @@
-
-
 /* react bootstrap css */
 
-.bootstyle
-{
+.bootstyle {
   box-shadow: none;
- outline: none;
- border-radius: 50px !important;
-
-
+  outline: none;
+  border-radius: 50px !important;
 }
 
-
-.bootstyle:hover
-{
+.bootstyle:hover {
   /* box-shadow: 1px 1px 5px 6px #247242; */
- outline: none;
- border-radius: 50px;
-
+  outline: none;
+  border-radius: 50px;
 }
 
-.bootstyle:focus
-{
-  
- border-color: #247242 !important;
- box-shadow: 1px 1px 5px 6px #24724217 !important;
- transform: -10px;
-
+.bootstyle:focus {
+  border-color: #247242 !important;
+  box-shadow: 1px 1px 5px 6px #24724217 !important;
+  transform: -10px;
+}
+.input-outline {
+  border: 1px solid red !important;
+  background-color: green;
+  box-sizing: border-box;
+  box-shadow: none;
+  outline: none;
+  border-radius: 50px !important;
+  outline: none !important;
 }

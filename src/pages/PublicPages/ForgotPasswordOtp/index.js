@@ -5,6 +5,7 @@ import Input from "../../../components/Form/Input";
 import Button from "../../../components/Button";
 import AuthView from "../../../components/AuthView/AuthView";
 import otpContainer from "../../../container/Auth/OtpContainer";
+import InputError from "../../../components/Form/InputError";
 
 const ForgotPasswordOtp = ({
   initialValues,
@@ -28,12 +29,21 @@ const ForgotPasswordOtp = ({
               label="Otp Code"
               type="text"
               id="otp"
+              placeholder="Enter Email"
               value={props.values.otp}
               onChange={props.handleChange}
               onBlur={props.handleBlur}
-              error={props.errors.otp}
-              helperText
+              // error={props.errors.otp}
+              // helperText
+              className={
+                props.errors.otp && props.touched.otp
+                  ? "input-outline"
+                  : "bootstyle"
+              }
             />
+            {props.touched.otp && Boolean(props.errors.otp) && (
+              <InputError>{props.errors.otp}</InputError>
+            )}
             <Button
               type="submit"
               fullWidth

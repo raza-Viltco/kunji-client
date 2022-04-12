@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
+
 import Button from "../../../components/Button";
 import Input from "../../../components/Form/Input";
 import AuthView from "../../../components/AuthView/AuthView";
 import loginContainer from "../../../container/Auth/LoginContainer";
-import "./Auth.css";
+import InputError from "../../../components/Form/InputError";
 import Dropdown from "../../../components/Form/Dropdown";
 import MenuItem from "@mui/material/MenuItem";
+import "./Auth.css";
 
 const Auth = ({
   initialValues,
@@ -31,10 +33,9 @@ const Auth = ({
             </Dropdown>
           </div> */}
 
-
           <div className="col-sm-12 mt-3 p-0">
             <Input
-              placeholder="Enter Username"
+              placeholder="Enter Email"
               margin="normal"
               fullWidth
               id="email"
@@ -44,7 +45,15 @@ const Auth = ({
               value={props.values.email}
               onChange={props.handleChange}
               onBlur={props.handleBlur}
+              className={
+                props.errors.email && props.touched.email
+                  ? "input-outline"
+                  : "bootstyle"
+              }
             />
+            {props.touched.email && Boolean(props.errors.email) && (
+              <InputError>{props.errors.email}</InputError>
+            )}
           </div>
 
           <div className="col-sm-12 mt-3 p-0">
@@ -59,9 +68,17 @@ const Auth = ({
               value={props.values.password}
               onChange={props.handleChange}
               onBlur={props.handleBlur}
-              error={props.touched.password && Boolean(props.errors.password)}
-              helperText={props.touched.password && props.errors.password}
+              // error={props.touched.password && Boolean(props.errors.password)}
+              // helperText={props.touched.password && props.errors.password}
+              className={
+                props.errors.password && props.touched.password
+                  ? "input-outline"
+                  : "bootstyle"
+              }
             />
+            {props.touched.password && Boolean(props.errors.password) && (
+              <InputError>{props.errors.password}</InputError>
+            )}
           </div>
           <div className="col-sm-12 forgot_text__link ">
             <Link to="/forgot_password">
@@ -80,13 +97,13 @@ const Auth = ({
             Sign In
           </Button>
           <div className="form_bottom__line"></div>
-          <div className="form_signup__link">
+          {/* <div className="form_signup__link">
             <Link to="/register">
               <p className="text-center m-0 ">
                 Do you have account? <b> Sign up </b>
               </p>
             </Link>
-          </div>
+          </div> */}
         </Form>
       )}
     </Formik>
