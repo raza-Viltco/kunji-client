@@ -12,6 +12,7 @@ import Button from "../../../../components/Button";
 import RadioButton from "../../../../components/Form/RadioButton";
 import addSocietyContainer from "../../../../container/Society/AddSocietyContainer";
 import { setCityId } from "../../../../redux/actions/Society/AddSociety";
+import InputError from "../../../../components/Form/InputError";
 import "./AddSociety.css";
 
 const AddSociety = ({
@@ -33,7 +34,8 @@ const AddSociety = ({
       >
         {(props) => (
           <Form>
-            {console.log(props)}
+            {/* {console.log(props)} */}
+            {/* {console.log(props)} */}
             <h4 className="text-center m-0">Add Society</h4>
             <div className="row">
               <div className="col-md-6  mt-4">
@@ -44,15 +46,17 @@ const AddSociety = ({
                   value={props.values.society.name}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  // error={
-                  //   props?.touched?.society?.name &&
-                  //   Boolean(props?.errors?.society?.name)
-                  // }
-                  // helperText={
-                  //   props?.touched?.society?.name &&
-                  //   props?.errors?.society?.name
-                  // }
+                  className={
+                    props?.errors?.society?.name &&
+                    props?.touched?.society?.name
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
                 />
+                {props?.touched?.society?.name &&
+                  props?.errors?.society?.name && (
+                    <InputError>{props?.errors?.society?.name}</InputError>
+                  )}
               </div>
               <div className="col-md-6  mt-4">
                 <Dropdown
@@ -64,14 +68,12 @@ const AddSociety = ({
                     dispatch(setCityId(e.target.value));
                   }}
                   onBlur={props.handleBlur}
-                  // error={
-                  //   props?.touched?.society?.country_id &&
-                  //   Boolean(props?.errors?.society?.country_id)
-                  // }
-                  // errorText={
-                  //   props?.touched?.society?.country_id &&
-                  //   props?.errors?.society?.country_id
-                  // }
+                  className={
+                    props?.errors?.society?.country_id &&
+                    props?.touched?.society?.country_id
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
                 >
                   <option>Select Country</option>
                   {countryData.map((item, index) => {
@@ -82,6 +84,12 @@ const AddSociety = ({
                     );
                   })}
                 </Dropdown>
+                {props?.touched?.society?.country_id &&
+                  props?.errors?.society?.country_id && (
+                    <InputError>
+                      {props?.errors?.society?.country_id}
+                    </InputError>
+                  )}
               </div>
 
               <div className="col-md-6  mt-4">
@@ -91,14 +99,12 @@ const AddSociety = ({
                   value={props.values.society.city_id}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  // error={
-                  //   props?.touched?.society?.city_id &&
-                  //   Boolean(props?.errors?.society?.city_id)
-                  // }
-                  // errorText={
-                  //   props?.touched?.society?.city_id &&
-                  //   props?.errors?.society?.city_id
-                  // }
+                  className={
+                    props?.errors?.society?.city_id &&
+                    props?.touched?.society?.city_id
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
                 >
                   <option>Select City</option>
                   {cityData.map((item, index) => {
@@ -109,6 +115,10 @@ const AddSociety = ({
                     );
                   })}
                 </Dropdown>
+                {props?.touched?.society?.city_id &&
+                  props?.errors?.society?.city_id && (
+                    <InputError>{props?.errors?.society?.city_id}</InputError>
+                  )}
               </div>
               <div className="col-md-6  mt-4">
                 <Input
@@ -120,15 +130,17 @@ const AddSociety = ({
                   value={props.values.society.zip_code}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={
-                    props?.touched?.society?.zip_code &&
-                    Boolean(props?.errors?.society?.zip_code)
-                  }
-                  helperText={
-                    props?.touched?.society?.zip_code &&
-                    props?.errors?.society?.zip_code
+                  className={
+                    props?.errors?.society?.zip_code &&
+                    props?.touched?.society?.zip_code
+                      ? "input-outline"
+                      : "bootstyle"
                   }
                 />
+                {props?.touched?.society?.zip_code &&
+                  props?.errors?.society?.zip_code && (
+                    <InputError>{props?.errors?.society?.zip_code}</InputError>
+                  )}
               </div>
 
               <div className="col-md-6  mt-4">
@@ -145,7 +157,19 @@ const AddSociety = ({
                       ])
                     }
                     onBlur={props.handleBlur}
+                    className={
+                      props?.errors?.society?.documents &&
+                      props?.touched?.society?.documents
+                        ? "input-outline"
+                        : "bootstyle"
+                    }
                   />
+                  {props?.touched?.society?.documents &&
+                    props?.errors?.society?.documents && (
+                      <InputError>
+                        {props?.errors?.society?.documents}
+                      </InputError>
+                    )}
                 </div>
               </div>
               <div className="col-md-6 ">
@@ -182,15 +206,19 @@ const AddSociety = ({
                   value={props.values.society_admin_user.full_name}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={
-                    props?.touched?.society_admin_user?.full_name &&
-                    Boolean(props?.errors?.society_admin_user?.full_name)
-                  }
-                  helperText={
-                    props?.touched?.society_admin_user?.full_name &&
-                    props?.errors?.society_admin_user?.full_name
+                  className={
+                    props?.errors?.society_admin_user?.full_name &&
+                    props?.touched?.society_admin_user?.full_name
+                      ? "input-outline"
+                      : "bootstyle"
                   }
                 />
+                {props?.touched?.society_admin_user?.full_name &&
+                  props?.errors?.society_admin_user?.full_name && (
+                    <InputError>
+                      {props?.errors?.society_admin_user?.full_name}
+                    </InputError>
+                  )}
               </div>
               <div className="col-md-6 mt-4">
                 <Input
@@ -202,15 +230,19 @@ const AddSociety = ({
                   value={props.values.society_admin_user.email}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={
-                    props?.touched?.society_admin_user?.email &&
-                    Boolean(props?.errors?.society_admin_user?.email)
-                  }
-                  helperText={
-                    props?.touched?.society_admin_user?.email &&
-                    props?.errors?.society_admin_user?.email
+                  className={
+                    props?.errors?.society_admin_user?.email &&
+                    props?.touched?.society_admin_user?.email
+                      ? "input-outline"
+                      : "bootstyle"
                   }
                 />
+                {props?.touched?.society_admin_user?.email &&
+                  props?.errors?.society_admin_user?.email && (
+                    <InputError>
+                      {props?.errors?.society_admin_user?.email}
+                    </InputError>
+                  )}
               </div>
               <div className="col-md-6 mt-4">
                 <Input
@@ -222,15 +254,19 @@ const AddSociety = ({
                   value={props.values.society_admin_user.mobile}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={
-                    props?.touched?.society_admin_user?.mobile &&
-                    Boolean(props?.errors?.society_admin_user?.mobile)
-                  }
-                  helperText={
-                    props?.touched?.society_admin_user?.mobile &&
-                    props?.errors?.society_admin_user?.mobile
+                  className={
+                    props?.errors?.society_admin_user?.mobile &&
+                    props?.touched?.society_admin_user?.mobile
+                      ? "input-outline"
+                      : "bootstyle"
                   }
                 />
+                {props?.touched?.society_admin_user?.mobile &&
+                  props?.errors?.society_admin_user?.mobile && (
+                    <InputError>
+                      {props?.errors?.society_admin_user?.mobile}
+                    </InputError>
+                  )}
               </div>
               <div className="col-md-6 mt-4">
                 <Input
@@ -242,9 +278,19 @@ const AddSociety = ({
                   value={props.values.society_admin_user.address}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={props?.errors?.society_admin_user?.address}
-                  helperText
+                  className={
+                    props?.errors?.society_admin_user?.address &&
+                    props?.touched?.society_admin_user?.address
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
                 />
+                {props?.touched?.society_admin_user?.address &&
+                  props?.errors?.society_admin_user?.address && (
+                    <InputError>
+                      {props?.errors?.society_admin_user?.address}
+                    </InputError>
+                  )}
               </div>
             </div>
 

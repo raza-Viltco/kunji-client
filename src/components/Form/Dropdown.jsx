@@ -6,11 +6,11 @@ import Select from "@mui/material/Select";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Dropdown = ({ value, onChange, onBlur, onClick, children, id, name }) => {
+const Dropdown = ({ value, onChange, onBlur,className, onClick, children, id, name }) => {
   return (
     <Form.Select
       aria-label="Default select example"
-      className="bootstyle "
+      className={className}
       name={name}
       value={value}
       onChange={onChange}
@@ -21,36 +21,9 @@ const Dropdown = ({ value, onChange, onBlur, onClick, children, id, name }) => {
       {children}
     </Form.Select>
 
-    // <FormControl
-    //   variant="filled"
-    //   size="small"
-    //   label="Small select"
-    //   sx={{ width: "100%" }}
-    //   error={error ? !!error : false}
-    // >
-    //   <InputLabel id="demo-simple-select-error-label">{inputLabel}</InputLabel>
-    //   <Select
-    //     labelId="demo-simple-select-error-label"
-    //     id={id}
-    //     value={value}
-    //     label={label}
-    //     onChange={onChange}
-    //     onBlur={onBlur}
-    //     name={name}
-    //     onClick={onClick}
-    //     sx={{
-    //       height: "50px",
-    //       fontSize: "10px",
-    //       paddingTop: "1%",
-    //       backgroundColor: "grey",
-    //     }}
-    //   >
-    //     {children}
-    //   </Select>
-    //   {error && <FormHelperText>{errorText}</FormHelperText>}
-  );
+     );
 };
 
 export default Dropdown;
 
-// css of drop down in Sidebar.css
+
