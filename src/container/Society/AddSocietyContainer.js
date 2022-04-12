@@ -21,6 +21,7 @@ const addSocietyContainer = (AddSociety) => () => {
       country_id: "",
       city_id: "",
       zip_code: "",
+      society_type: ""
     },
     society_admin_user: {
       full_name: "",

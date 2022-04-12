@@ -1,22 +1,22 @@
 import React from "react";
-import { GridActionsCellItem } from "@mui/x-data-grid";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { Formik, Form } from "formik";
-import MenuItem from "@mui/material/MenuItem";
+// import { GridActionsCellItem } from "@mui/x-data-grid";
+// import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+// import { Formik, Form } from "formik";
+// import MenuItem from "@mui/material/MenuItem";
 
 import Table from "../../../../components/Table";
-import Modal from "../../../../components/Modal";
-import Button from "../../../../components/Button";
-import Input from "../../../../components/Form/Input";
-import Dropdown from "../../../../components/Form/Dropdown";
+// import Modal from "../../../../components/Modal";
+// import Button from "../../../../components/Button";
+// import Input from "../../../../components/Form/Input";
+// import Dropdown from "../../../../components/Form/Dropdown";
 import societyListingContainer from "../../../../container/Society/SocietyListingContainer";
 
 const SocietyListing = ({
   societiesList,
-  open,
-  editData,
-  handleClickOpen,
-  handleClickClose,
+  // open,
+  // editData,
+  // handleClickOpen,
+  // handleClickClose,
 }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -39,27 +39,33 @@ const SocietyListing = ({
       width: 180,
     },
     {
+      field: "society_type",
+      headerName: "Type",
+      width: 180,
+      valueGetter: ({value}) => (value === 1 ? "Horizontal" : "Vertical")
+    },
+    {
       field: "status",
       headerName: "Status",
       width: 180,
       valueGetter: ({ value }) => (value === 1 ? "Active" : "Inactive"),
     },
-    {
-      field: "actions",
-      type: "actions",
-      width: 80,
-      getActions: (params) => [
-        <GridActionsCellItem
-          icon={<AiFillDelete size={20} />}
-          label="Delete"
-        />,
-        <GridActionsCellItem
-          icon={<AiFillEdit size={20} />}
-          label="Edit"
-          onClick={() => handleClickOpen(params.id)}
-        />,
-      ],
-    },
+    // {
+    //   field: "actions",
+    //   type: "actions",
+    //   width: 80,
+    //   getActions: (params) => [
+    //     <GridActionsCellItem
+    //       icon={<AiFillDelete size={20} />}
+    //       label="Delete"
+    //     />,
+    //     <GridActionsCellItem
+    //       icon={<AiFillEdit size={20} />}
+    //       label="Edit"
+    //       onClick={() => handleClickOpen(params.id)}
+    //     />,
+    //   ],
+    // },
   ];
 
   return (
@@ -72,7 +78,7 @@ const SocietyListing = ({
         />
       </div>
 
-      <Modal
+      {/* <Modal
         open={open}
         title="Edit Society"
         cancelButton={
@@ -166,7 +172,7 @@ const SocietyListing = ({
             </Form>
           )}
         </Formik>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

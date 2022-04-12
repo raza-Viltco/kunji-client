@@ -2,7 +2,16 @@ import * as React from "react";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
 
-const RadioButton = ({ label, row, children, flexAlign }) => {
+const RadioButton = ({
+  label,
+  row,
+  children,
+  name,
+  value,
+  onChange,
+  onBlur,
+  flexAlign,
+}) => {
   return (
     <div
       className={`${
@@ -13,7 +22,10 @@ const RadioButton = ({ label, row, children, flexAlign }) => {
       <RadioGroup
         row={row}
         aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group"
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
       >
         {children}
       </RadioGroup>

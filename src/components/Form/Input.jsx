@@ -12,6 +12,7 @@ const Input = ({
   value,
   disabled,
   placeholder,
+  multiple,
   className
 }) => {
   return (
@@ -25,35 +26,10 @@ const Input = ({
         onBlur={onBlur}
         value={value}
         disabled={disabled}
+        multiple={multiple}
         className={className}
-        // className="bootstyle"
       />
     </Form.Group>
-
-    // <TextField
-    //   margin={margin}
-    //   required={required}
-    //   fullWidth
-    //   id={id}
-    //   label={label}
-    //   name={name}
-    //   type={type}
-    //   autoComplete={autoComplete}
-    //   sx={{ backgroundColor: "white", fontSize:"5px" }}
-    //   error={error ? !!error : false}
-    //   helperText={helperText}
-    //   onChange={onChange}
-    //   onBlur={onBlur}
-    //   value={value}
-    //   disabled={disabled}
-    //   hidden={hidden}
-    //   variant="filled"
-    //   size="small"
-    //   inputProps={{
-    //     multiple: true,
-    //     accept: "image/png, image/jpeg, .pdf, .xls, .xlsx, .csv",
-    //   }}
-    // />
   );
 };
 

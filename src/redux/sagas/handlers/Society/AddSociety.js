@@ -41,6 +41,7 @@ export function* handleAddSociety(action) {
   form.append("society[country_id]", society.country_id);
   form.append("society[city_id]", society.city_id);
   form.append("society[zip_code]", society.zip_code);
+  form.append("society[society_type]", society.society_type)
   form.append("society_admin_user[full_name]", society_admin_user.full_name);
   form.append("society_admin_user[address]", society_admin_user.address);
   form.append("society_admin_user[email]", society_admin_user.email);

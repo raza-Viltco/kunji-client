@@ -59,23 +59,26 @@ const AddSociety = ({
                   inputLabel="Country"
                   name="society.country_id"
                   value={props.values.society.country_id}
-                  onChange={props.handleChange}
+                  onChange={(e) => {
+                    props.handleChange(e);
+                    dispatch(setCityId(e.target.value));
+                  }}
                   onBlur={props.handleBlur}
-                  onClick={dispatch(setCityId(props.values.society.country_id))}
-                  error={
-                    props?.touched?.society?.country_id &&
-                    Boolean(props?.errors?.society?.country_id)
-                  }
-                  errorText={
-                    props?.touched?.society?.country_id &&
-                    props?.errors?.society?.country_id
-                  }
+                  // error={
+                  //   props?.touched?.society?.country_id &&
+                  //   Boolean(props?.errors?.society?.country_id)
+                  // }
+                  // errorText={
+                  //   props?.touched?.society?.country_id &&
+                  //   props?.errors?.society?.country_id
+                  // }
                 >
+                  <option>Select Country</option>
                   {countryData.map((item, index) => {
                     return (
-                      <MenuItem value={item.id} key={index}>
+                      <option value={item.id} key={index}>
                         {item.name}
-                      </MenuItem>
+                      </option>
                     );
                   })}
                 </Dropdown>
@@ -88,20 +91,21 @@ const AddSociety = ({
                   value={props.values.society.city_id}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
-                  error={
-                    props?.touched?.society?.city_id &&
-                    Boolean(props?.errors?.society?.city_id)
-                  }
-                  errorText={
-                    props?.touched?.society?.city_id &&
-                    props?.errors?.society?.city_id
-                  }
+                  // error={
+                  //   props?.touched?.society?.city_id &&
+                  //   Boolean(props?.errors?.society?.city_id)
+                  // }
+                  // errorText={
+                  //   props?.touched?.society?.city_id &&
+                  //   props?.errors?.society?.city_id
+                  // }
                 >
+                  <option>Select City</option>
                   {cityData.map((item, index) => {
                     return (
-                      <MenuItem value={item.id} key={index}>
+                      <option value={item.id} key={index}>
                         {item.name}
-                      </MenuItem>
+                      </option>
                     );
                   })}
                 </Dropdown>
@@ -129,23 +133,11 @@ const AddSociety = ({
 
               <div className="col-md-6  mt-4">
                 <div className="col-sm-12 mt-3">
-                  {/* <Input
-                    className="form-control form-control-md from-bootstrap-add-society"
-                    id="formFileSm"
-                    type="file"
-                    multiple="multiple"
-                    name="documents"
-                    onChange={(e) =>
-                      props.setFieldValue("documents", [
-                        ...e.currentTarget.files,
-                      ])
-                    }
-                    onBlur={props.handleBlur}
-                  /> */}
                   <Input
                     margin="normal"
                     fullWidth
                     type="file"
+                    multiple
                     name="documents"
                     onChange={(e) =>
                       props.setFieldValue("documents", [
@@ -160,14 +152,18 @@ const AddSociety = ({
                 <div className="col-md-12 mt-5 ">
                   <RadioButton label="Type" row flexAlign>
                     <FormControlLabel
-                      value="horizontal"
+                      value={1}
                       control={<Radio size="small" />}
                       label="Horizontal"
+                      name="society.society_type"
+                      onChange={props.handleChange}
                     />
                     <FormControlLabel
-                      value="verticle"
+                      value={0}
                       control={<Radio size="small" />}
-                      label="Verticle"
+                      label="Vertical"
+                      name="society.society_type"
+                      onChange={props.handleChange}
                     />
                   </RadioButton>
                 </div>
@@ -259,7 +255,7 @@ const AddSociety = ({
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2, borderRadius:20 }}
+                  sx={{ mt: 3, mb: 2, borderRadius: 20 }}
                   isLoading={stateLoading}
                   size="normal"
                 >
