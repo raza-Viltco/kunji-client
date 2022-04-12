@@ -1,7 +1,8 @@
 import React from "react";
 
-import { DataGrid } from "@mui/x-data-grid";
+import Table from "../../../../../components/Table";
 import Button from "../../../../../components/Button";
+import roleListingContainer from "../../../../../container/KunjiRole/RoleListingContainer";
 
 const RoleListing = () => {
   const columns = [
@@ -35,12 +36,9 @@ const RoleListing = () => {
           marginTop: "20px",
         }}
       >
-        <DataGrid
+        <Table
           rows={rows}
           columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
         />
       </div>
       <div className="society_btn__wrapper">
@@ -58,4 +56,4 @@ const RoleListing = () => {
     </>
   );
 };
-export default RoleListing;
+export default roleListingContainer(RoleListing);

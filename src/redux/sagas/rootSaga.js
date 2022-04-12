@@ -30,7 +30,7 @@ import {
 } from "./handlers/Profile/profile";
 import { handleAddAsset, handleAssetList } from "./handlers/Asset/AddAsset";
 import { handleFacilityList } from "./handlers/Facilities/AddFacilities";
-import {handleViewRoles} from "./handlers/Roles/roles"
+import { handleAddRole, handleRoleListing } from "./handlers/KunjiRole/AddRole";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -46,12 +46,12 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.SOCIETY_LIST, handleSocieties);
   yield takeLatest(actionTypes.ADD_SOCIETY, handleAddSociety);
   yield takeLatest(actionTypes.UPDATE_PASSWORD, handleUpdatePassword);
-  // yield takeLatest(actionTypes.SET_UPDATE_PASSWORD, handleUpdatePassword);
   yield takeLatest(actionTypes.VIEW_PROFILE, viewProfileData);
   yield takeLatest(actionTypes.ASSETS, handleAddAsset);
   yield takeLatest(actionTypes.ASSET_LIST, handleAssetList);
   yield takeLatest(actionTypes.FACILITIES_LIST, handleFacilityList);
   yield takeLatest(actionTypes.PROFILE_UPDATE, handleUpdateProfile);
   yield takeLatest(actionTypes.EDIT_SOCIETY_LIST, handleEditSociety);
-  yield takeLatest(actionTypes.VIEW_ROLES,handleViewRoles);
+  yield takeLatest(actionTypes.KUNJI_ROLE, handleAddRole);
+  yield takeLatest(actionTypes.KUNJI_ROLE_LISTING, handleRoleListing);
 }
