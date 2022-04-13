@@ -49,6 +49,7 @@ import AssignOwnership from "../pages/PrivatePages/PropertyOwnserShip/assignOwne
 import Complaints from "../pages/PrivatePages/SecurityManagement/Society/Complaints";
 import ViewBill from "../pages/PrivatePages/SocietyAdministration/ViewBill";
 import Assets from "../pages/PrivatePages/Assets/Society";
+import SocietyListingView from "../pages/PrivatePages/Society/SocietyListingView";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -211,6 +212,10 @@ const AppRouter = () => (
 
       <PrivateRoute path="/assets">
         <Assets/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/society_listing_view">
+        <SocietyListingView/>
       </PrivateRoute>
 
       <Redirect to="/login" exact />

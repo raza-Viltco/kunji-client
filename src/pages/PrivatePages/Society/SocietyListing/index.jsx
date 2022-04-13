@@ -10,6 +10,7 @@ import Button from "../../../../components/Button";
 // import Input from "../../../../components/Form/Input";
 // import Dropdown from "../../../../components/Form/Dropdown";
 import societyListingContainer from "../../../../container/Society/SocietyListingContainer";
+import { Link } from "react-router-dom";
 
 const SocietyListing = ({
   societiesList,

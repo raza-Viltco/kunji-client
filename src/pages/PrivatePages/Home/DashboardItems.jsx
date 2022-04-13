@@ -41,6 +41,7 @@ import AssignOwnership from "../PropertyOwnserShip/assignOwnership";
 import Complaints from "../SecurityManagement/Society/Complaints";
 import ViewBill from "../SocietyAdministration/ViewBill";
 import Assets from "../Assets/Society";
+import SocietyListingView from "../Society/SocietyListingView";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -122,7 +123,11 @@ const DashboardItems = () => {
           <ViewBill />
         ) : location.pathname === "/assets" ? (
           <Assets />
-        ) : (
+        ) 
+        : location.pathname === "/society_listing_view" ? (
+          <SocietyListingView />
+        )
+        : (
           <Dashboard />
         )
         // : userData?.data?.roles[0].name === "Super Admin" ? (

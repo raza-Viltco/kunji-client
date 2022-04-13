@@ -1,0 +1,15 @@
+.card-background{
+    background-color: #e8ecda;
+    padding: 14px;
+}
+.define-roles-inner-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+.roles-permission-inner{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
