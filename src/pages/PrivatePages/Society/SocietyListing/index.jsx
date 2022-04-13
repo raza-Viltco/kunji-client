@@ -6,7 +6,7 @@ import React from "react";
 
 import Table from "../../../../components/Table";
 // import Modal from "../../../../components/Modal";
-// import Button from "../../../../components/Button";
+import Button from "../../../../components/Button";
 // import Input from "../../../../components/Form/Input";
 // import Dropdown from "../../../../components/Form/Dropdown";
 import societyListingContainer from "../../../../container/Society/SocietyListingContainer";
@@ -24,48 +24,56 @@ const SocietyListing = ({
     {
       field: "country",
       headerName: "Country",
-      width: 180,
+      width: 120,
       valueGetter: (params) => params.row.country.name,
     },
     {
       field: "city",
       headerName: "City",
-      width: 180,
+      width: 120,
       valueGetter: (params) => params.row.city.name,
     },
     {
       field: "zip_code",
       headerName: "Zipcode",
-      width: 180,
+      width: 120,
     },
     {
       field: "society_type",
       headerName: "Type",
-      width: 180,
-      valueGetter: ({value}) => (value === 1 ? "Horizontal" : "Vertical")
+      width: 120,
+      valueGetter: ({ value }) => (value === 1 ? "Horizontal" : "Vertical"),
     },
     {
       field: "status",
       headerName: "Status",
-      width: 180,
+      width: 120,
       valueGetter: ({ value }) => (value === 1 ? "Active" : "Inactive"),
     },
-    // {
-    //   field: "actions",
-    //   type: "actions",
-    //   width: 80,
-    //   getActions: (params) => [
-    //     <GridActionsCellItem
-    //       icon={<AiFillDelete size={20} />}
-    //       label="Delete"
-    //     />,
-    //     <GridActionsCellItem
-    //       icon={<AiFillEdit size={20} />}
-    //       label="Edit"
-    //       onClick={() => handleClickOpen(params.id)}
-    //     />,
-    //   ],
-    // },
+    {
+      field: "actions",
+      type: "actions",
+      width: 80,
+      getActions: (params) => [
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2, borderRadius: 20 , textTransform: "Capitalize" }}
+          size="normal"
+        >
+          View
+        </Button>,
+        // <GridActionsCellItem
+        //   icon={<AiFillDelete size={20} />}
+        //   label="Delete"
+        // />,
+        // <GridActionsCellItem
+        //   icon={<AiFillEdit size={20} />}
+        //   label="Edit"
+        //   onClick={() => handleClickOpen(params.id)}
+        // />,
+      ],
+    },
   ];
 
   return (
