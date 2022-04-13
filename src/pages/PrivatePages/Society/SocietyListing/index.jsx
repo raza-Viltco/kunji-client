@@ -10,6 +10,7 @@ import Table from "../../../../components/Table";
 // import Input from "../../../../components/Form/Input";
 // import Dropdown from "../../../../components/Form/Dropdown";
 import societyListingContainer from "../../../../container/Society/SocietyListingContainer";
+import { Link } from "react-router-dom";
 
 const SocietyListing = ({
   societiesList,
@@ -42,7 +43,7 @@ const SocietyListing = ({
       field: "society_type",
       headerName: "Type",
       width: 180,
-      valueGetter: ({value}) => (value === 1 ? "Horizontal" : "Vertical")
+      valueGetter: ({ value }) => (value === 1 ? "Horizontal" : "Vertical"),
     },
     {
       field: "status",

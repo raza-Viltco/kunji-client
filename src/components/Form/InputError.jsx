@@ -1,12 +1,11 @@
 import React from "react";
-
-import "./InputError.css";
+import { Badge } from "react-bootstrap";
 
 const InputError = ({ children }) => {
   return (
-    <div className="input-error-background">
+    <Badge bg="danger">
       <div>{children}</div>
-    </div>
+    </Badge>
   );
 };
 export default InputError;
