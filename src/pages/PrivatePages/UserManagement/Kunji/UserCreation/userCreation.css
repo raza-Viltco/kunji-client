@@ -4,3 +4,8 @@
     align-items: center;
     justify-content: space-between;
 }
+.lower-button-style{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
