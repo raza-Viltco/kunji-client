@@ -30,7 +30,8 @@ import {
 } from "./handlers/Profile/profile";
 import { handleAddAsset, handleAssetList } from "./handlers/Asset/AddAsset";
 import { handleFacilityList } from "./handlers/Facilities/AddFacilities";
-import { handleAddRole, handleRoleListing, handlePermissions } from "./handlers/KunjiRole/AddRole";
+import { handleAddRole, handleRoleListing } from "./handlers/KunjiRole/AddRole";
+import { handleUserCreation, handleUserDepartment } from "./handlers/KunjiRole/UserCreation";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -55,4 +56,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.KUNJI_ROLE, handleAddRole);
   yield takeLatest(actionTypes.KUNJI_ROLE_LISTING, handleRoleListing);
   yield takeLatest(actionTypes.ASSIGN_PERMISSION, handlePermissions)
+  yield takeLatest(actionTypes.USER_DEPARTMENT,handleUserDepartment);
+  yield takeLatest(actionTypes.USER_CREATION,handleUserCreation);
 }

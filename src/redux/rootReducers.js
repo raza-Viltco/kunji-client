@@ -11,6 +11,7 @@ import profileReducer from "./reducer/Profile/profile";
 import addAssetReducer from "./reducer/Asset/AddAsset";
 import addFacilityReducer from "./reducer/Facilities/AddFacilities";
 import kunjiRoleReducer from "./reducer/KunjiRole/KunjiRole";
+import userDepartmentReducer from "./reducer/KunjiRole/UserCreation";
 
 const reducers = (history) =>
   combineReducers({
@@ -24,6 +25,7 @@ const reducers = (history) =>
     asset: addAssetReducer,
     facility: addFacilityReducer,
     kunjiRole: kunjiRoleReducer,
+    userDepartment: userDepartmentReducer,
     router: connectRouter(history),
   });
 
