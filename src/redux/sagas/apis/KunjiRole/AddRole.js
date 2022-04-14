@@ -20,3 +20,13 @@ export const roleListingApi = async () => {
     url: "user/roles-permissions",
   });
 };
+
+export const assignPermissionApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
+  return API.request({
+    headers: {Authorization: `Bearer ${state.data.token}`},
+    method: "POST",
+    url: "user/assign_permission_to_roles",
+    data
+  })
+}
