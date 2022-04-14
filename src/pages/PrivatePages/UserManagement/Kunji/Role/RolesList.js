@@ -17,13 +17,13 @@ const RoleList = ({
         <h3>Defined Roles</h3>
         {Object.entries(permissionList).map(([item, value], index) => {
           return (
-            <div className="card-background col-md-4" key={index}>
-              <div className="col-sm-12">
+            <div className="col-sm-4" key={index}>
+             <div className="col-sm-12 cardheight pl-2 pr-2 pt-0">
                 <div className="row background-color-header">
                   <div className="col-sm-6 m-auto pt-2">
-                    <h5>
-                      <b>{item}</b>
-                    </h5>
+                    <h6 >
+                      <b className="paddingcard">{item}</b>
+                    </h6>
                   </div>
                   <div className="col-sm-6">
                     <div className="row">
@@ -44,7 +44,7 @@ const RoleList = ({
                     return (
                       <>
                         <div className="col-sm-6">
-                          <h5 className="pt-2">{el.name}</h5>
+                          <h6 className="paddingcard">{el.name}</h6>
                         </div>
                         <div className="col-sm-6 ">
                           <div className="col-sm-12 text-end">
@@ -55,13 +55,19 @@ const RoleList = ({
                     );
                   })}
                 </div>
-              </div>
+                </div>
+              
             </div>
           );
         })}
       </div>
 
-      <Button
+      <div className="row">
+        <div className="col-sm-4"></div>
+        <div className="col-sm-4"></div>
+        <div className="col-sm-4">
+          <div className="col-sm-12">
+          <Button
         type="submit"
         fullWidth
         variant="contained"
@@ -72,6 +78,11 @@ const RoleList = ({
       >
         Save
       </Button>
+          </div>
+        </div>
+      </div>
+
+     
     </>
   );
 };
