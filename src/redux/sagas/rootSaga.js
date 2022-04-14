@@ -55,6 +55,7 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.EDIT_SOCIETY_LIST, handleEditSociety);
   yield takeLatest(actionTypes.KUNJI_ROLE, handleAddRole);
   yield takeLatest(actionTypes.KUNJI_ROLE_LISTING, handleRoleListing);
+  yield takeLatest(actionTypes.ASSIGN_PERMISSION, handlePermissions)
   yield takeLatest(actionTypes.USER_DEPARTMENT,handleUserDepartment);
   yield takeLatest(actionTypes.USER_CREATION,handleUserCreation);
 }

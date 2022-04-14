@@ -2,7 +2,7 @@ import React from "react";
 
 import Table from "../../../../../components/Table";
 import Button from "../../../../../components/Button";
-import roleListingContainer from "../../../../../container/KunjiRole/RoleListingContainer";
+// import roleListingContainer from "../../../../../container/KunjiRole/RoleListingContainer";
 
 const RoleListing = () => {
   const columns = [
@@ -56,4 +56,4 @@ const RoleListing = () => {
     </>
   );
 };
-export default roleListingContainer(RoleListing);
+export default RoleListing;
