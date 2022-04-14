@@ -30,7 +30,7 @@ import {
 } from "./handlers/Profile/profile";
 import { handleAddAsset, handleAssetList } from "./handlers/Asset/AddAsset";
 import { handleFacilityList } from "./handlers/Facilities/AddFacilities";
-import { handleAddRole, handleRoleListing } from "./handlers/KunjiRole/AddRole";
+import { handleAddRole, handleRoleListing, handlePermissions } from "./handlers/KunjiRole/AddRole";
 import { handleUserCreation, handleUserDepartment } from "./handlers/KunjiRole/UserCreation";
 
 export function* watcherSaga() {
