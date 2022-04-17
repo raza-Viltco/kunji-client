@@ -18,11 +18,11 @@ const RoleList = ({
         {Object.entries(permissionList).map(([item, value], index) => {
           return (
             <div className="col-sm-4" key={index}>
-             <div className="col-sm-12 cardheight pl-2 pr-2 pt-0">
-                <div className="row background-color-header">
-                  <div className="col-sm-6 m-auto pt-2">
-                    <h6 >
-                      <b className="paddingcard">{item}</b>
+              <div className="col-sm-12 cardheight1 pl-2 pr-2 pt-0">
+              <div className="row background-color-header">
+                  <div className="col-sm-6 m-auto pt-2 ">
+                    <h6>
+                      <b className="paddingcard ">{item}</b>
                     </h6>
                   </div>
                   <div className="col-sm-6">
@@ -38,13 +38,16 @@ const RoleList = ({
                     </div>
                   </div>
                 </div>
+                </div>
+              <div className="col-sm-12 cardheight pl-2 pr-2 pt-0">
+              
 
                 <div className="row background-color-header1">
                   {value.map((el) => {
                     return (
                       <>
                         <div className="col-sm-6">
-                          <h6 className="paddingcard">{el.name}</h6>
+                          <h6 className="paddingcard1">{el.name}</h6>
                         </div>
                         <div className="col-sm-6 ">
                           <div className="col-sm-12 text-end">
@@ -55,8 +58,7 @@ const RoleList = ({
                     );
                   })}
                 </div>
-                </div>
-              
+              </div>
             </div>
           );
         })}
@@ -67,22 +69,20 @@ const RoleList = ({
         <div className="col-sm-4"></div>
         <div className="col-sm-4">
           <div className="col-sm-12">
-          <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        sx={{ mt: 3, mb: 2 }}
-        isLoading={stateLoading}
-        size="small"
-        click={handlePermissions}
-      >
-        Save
-      </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              isLoading={stateLoading}
+              size="small"
+              click={handlePermissions}
+            >
+              Save
+            </Button>
           </div>
         </div>
       </div>
-
-     
     </>
   );
 };
