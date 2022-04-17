@@ -351,7 +351,7 @@ const Sidebar = ({
                   </ListItemButton>
                 </NavLink>
               </List>
-              <List component="div" disablePadding>
+              {/* <List component="div" disablePadding>
                 <NavLink to="/add_street">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
@@ -360,7 +360,7 @@ const Sidebar = ({
                     <ListItemText primary="Street" />
                   </ListItemButton>
                 </NavLink>
-              </List>
+              </List> */}
               <List component="div" disablePadding>
                 <NavLink to="/add_plots">
                   <ListItemButton sx={{ pl: 4 }}>

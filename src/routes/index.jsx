@@ -54,7 +54,7 @@ import SocietyListingView from "../pages/PrivatePages/Society/SocietyListingView
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
     <Switch>
-      <PublicRoute path="/login" exact>
+      <PublicRoute path="/manage/login" exact>
         <Auth />
       </PublicRoute>
       <PublicRoute path="/register">

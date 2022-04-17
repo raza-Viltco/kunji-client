@@ -5,6 +5,7 @@ import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
 import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "../../../../components/Form/Dropdown";
+import appartmentContainer from "../../../../container/SocietyConfigration/AppartmentContainer";
 
 const AddApartment = () => {
   const columns = [
@@ -52,16 +53,24 @@ const AddApartment = () => {
       <h3> Apartment</h3>
       <div className="row">
         <div className="col-md-6">
-          <Dropdown inputLabel="Building" name="society.country_id"></Dropdown>
+          <Dropdown inputLabel="Building" name="society.country_id" className="bootstyle">
+            <option>Building</option>
+          </Dropdown>
         </div>
         <div className="col-md-6">
-          <Dropdown inputLabel="Floor No" name="society.country_id"></Dropdown>
+          <Dropdown inputLabel="Floor No" name="society.country_id" className="bootstyle">
+            <option>Floor No</option>
+          </Dropdown>
         </div>
         <div className="col-md-6">
-          <Input label="Apartment No" margin="normal" />
+          <Input placeholder="Apartment No" margin="normal" className="bootstyle" />
         </div>
         <div className="col-md-6">
-          <Input label="Allocated Parking" margin="normal" />
+          <Input
+            placeholder="Allocated Parking"
+            margin="normal"
+            className="bootstyle"
+          />
         </div>
       </div>
 
@@ -97,4 +106,4 @@ const AddApartment = () => {
     </Card>
   );
 };
-export default AddApartment;
+export default appartmentContainer(AddApartment);

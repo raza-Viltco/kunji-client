@@ -5,6 +5,7 @@ import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
 import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "../../../../components/Form/Dropdown";
+import plotContainer from "../../../../container/SocietyConfigration/PlotContainer";
 import "./addPlots.css";
 
 const AddPlots = () => {
@@ -49,13 +50,18 @@ const AddPlots = () => {
           <Dropdown
             inputLabel="Select Sector/Block No"
             name="society.country_id"
-          ></Dropdown>
+            className="bootstyle"
+          >
+            <option>Select Sector/Block No</option>
+          </Dropdown>
         </div>
         <div className="col-md-6">
-          <Dropdown inputLabel="Street" name="society.country_id"></Dropdown>
+          <Dropdown inputLabel="Street" name="society.country_id" className="bootstyle">
+            <option>Select Street</option>
+          </Dropdown>
         </div>
         <div className="col-md-6">
-          <Input label="Plot/House No" />
+          <Input placeholder="Plot/House No" className="bootstyle"/>
         </div>
       </div>
       <div className="society_btn__wrapper">
@@ -67,7 +73,7 @@ const AddPlots = () => {
           // isLoading={stateLoading}
           size="small"
         >
-         Add Plots
+          Add Plots
         </Button>
       </div>
       <div
@@ -90,4 +96,4 @@ const AddPlots = () => {
     </Card>
   );
 };
-export default AddPlots;
+export default plotContainer(AddPlots);

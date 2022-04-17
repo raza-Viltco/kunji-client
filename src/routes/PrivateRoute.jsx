@@ -12,7 +12,7 @@ const PrivateRoute = (props) => {
   if (state?.data?.token) {
     return (<Route {...props}>{props.children}</Route>);
   }
-  return <Redirect to="/login" />;
+  return <Redirect to="/manage/login" />;
 };
 
 export default PrivateRoute;
