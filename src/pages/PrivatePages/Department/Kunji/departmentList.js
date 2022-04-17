@@ -1,72 +1,140 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import Switch from "@mui/material/Switch";
 import { DataGrid } from "@mui/x-data-grid";
-import Button from "../../../../components/Button"
+
+import Button from "../../../../components/Button";
+import departmentListingContainer from "../../../../container/Department/Kunji/DepartmentListingContainer";
 import "./department.css";
 
-const DepartmentList = () => {
-    
+const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
+  // const[checked,setChecked]=useState()
+
+  // const handleDepartmentStatusHere = (e,dptId,status) => {
+  //   console.log(e.target.checked);
+  //   // console.log("status",status,dptId)
+  //   // dispatch(departmentStatus(dptId,status));
+  // };
+
+  const dataSet = (status) => {
+    console.log(status, "params");
+  };
+
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "code", headerName: "Code", width: 160 },
-    { field: "name", headerName: "Department Name", width: 160 },
-   
-    {
-      field: "status",
-      headerName: "Status",
-      width: 200,
-      renderCell: (params) => (
-        <div style={{ display: "flex" }}>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            // isLoading={stateLoading}
-            size="small"
-          >
-            Active
-          </Button>
-          &nbsp;
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            // isLoading={stateLoading}
-            size="small"
-          >
-            In Active
-          </Button>
-        </div>
-      ),
-    },
-  ];
+    { field: "code", headerName: "Code", width: 200 },
+    { field: "name", headerName: "Department Name", width: 200 },
+    { field: "status", headerName: "Status", width: 70 },
+ 
+    // {
+    //   field: "actions",
+    //   headerName: "Status",
+    //   width: 200,
+    //   getActions: (params) => [
+    //     <button
 
-  const rows = [
+    //     >
+    //       View
+    //     </button>,
+    // <GridActionsCellItem
+    //   icon={<AiFillDelete size={20} />}
+    //   label="Delete"
+    // />,
+    // <GridActionsCellItem
+    //   icon={<AiFillEdit size={20} />}
+    //   label="Edit"
+    //   onClick={() => handleClickOpen(params.id)}
+    // />,
+    // ],
+    // renderCell: (params) => (
+    //   <div style={{ display: "flex" }}>
+    //     {/* <Switch
+
+    //     /> */}
+    //     <button
+    //     onClick={dataSet(params)}
+    //     >Test</button>
+
+    //     {/* <Button
+    //       type="submit"
+    //       fullWidth
+    //       variant="contained"
+    //       sx={{ mt: 3, mb: 2 }}
+    //       // isLoading={stateLoading}
+    //       size="small"
+    //     >
+    //       Active
+    //     </Button>
+    //     &nbsp;
+    //     <Button
+    //       type="submit"
+    //       fullWidth
+    //       variant="contained"
+    //       sx={{ mt: 3, mb: 2 }}
+    //       // isLoading={stateLoading}
+    //       size="small"
+    //     >
+    //       In Active
+    //     </Button> */}
+    //   </div>
+    // ),
+    // },
+
     {
-      id: 1,
-      code: "0001",
-      name: "Finance",
-      status: "Active ",
-    },
-    {
-      id: 2,
-      code: "0002",
-      name: "Store",
-      status: "Inactive ",
-    },
-    {
-      id: 3,
-      code: "0003",
-      name: "Human Resources",
-      status: "Active ",
-    },
-    {
-      id: 4,
-      code: "0004",
-      name: "Security",
-      status: "Active ",
+      field: "actions",
+      type: "actions",
+      headerName: "Action",
+      width: 200,
+      getActions: (params) => [
+        // <Switch
+        //   // checked={params.row.status === 1 ? true : false}
+        //   onChange={(e) =>
+        //     handleDepartmentStatus(
+        //       e,
+        //       params.id,
+        //       params.row.status === 1 ? 0 : 1
+        //     )
+        //   }
+        // />,
+        <div>
+          {params.row.status === 1 ? (
+            <button
+              // onClick={() =>
+              //   handleDepartmentStatus(params.id, params.row.status)
+              // }
+              onClick={()=>dataSet(params.row.status)}
+            >
+              Inactive
+            </button>
+          ) : (
+            <button
+              onClick={() =>
+                handleDepartmentStatus(params.id, params.row.status)
+              }
+            >
+              Active
+            </button>
+          )}
+        </div>,
+
+        // <button
+        //   fullWidth
+        //   variant="contained"
+        //   sx={{ mt: 3, mb: 2, borderRadius: 20, textTransform: "Capitalize" }}
+        //   size="normal"
+        //   onClick={() => dataSet(params.id)}
+        // >
+        //   View
+        // </button>,
+        // <GridActionsCellItem
+        //   icon={<AiFillDelete size={20} />}
+        //   label="Delete"
+        // />,
+        // <GridActionsCellItem
+        //   icon={<AiFillEdit size={20} />}
+        //   label="Edit"
+        //   onClick={() => handleClickOpen(params.id)}
+        // />,
+      ],
     },
   ];
 
@@ -80,7 +148,7 @@ const DepartmentList = () => {
       }}
     >
       <DataGrid
-        rows={rows}
+        rows={departmentList}
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[5]}
@@ -89,4 +157,4 @@ const DepartmentList = () => {
     </div>
   );
 };
-export default DepartmentList;
+export default departmentListingContainer(DepartmentList);
