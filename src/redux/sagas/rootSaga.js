@@ -44,6 +44,10 @@ import {
   handleHorizontalBuilding,
   handleBuildingData,
 } from "./handlers/SocietyConfiguration/SocietyConfig";
+  handleAddDepartment,
+  handleDepartmentListing,
+  handleDepartmentStatus,
+} from "./handlers/Department/Kunji/department";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -67,10 +71,13 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.EDIT_SOCIETY_LIST, handleEditSociety);
   yield takeLatest(actionTypes.KUNJI_ROLE, handleAddRole);
   yield takeLatest(actionTypes.KUNJI_ROLE_LISTING, handleRoleListing);
-  yield takeLatest(actionTypes.ASSIGN_PERMISSION, handlePermissions);
-  yield takeLatest(actionTypes.USER_DEPARTMENT, handleUserDepartment);
-  yield takeLatest(actionTypes.USER_CREATION, handleUserCreation);
   yield takeLatest(actionTypes.VERTICAL_BUILDING, handleBuilding);
   yield takeLatest(actionTypes.HORIZONTAL_BUILDING, handleHorizontalBuilding);
   yield takeLatest(actionTypes.BUILDING_DATA, handleBuildingData);
+  yield takeLatest(actionTypes.USER_DEPARTMENT, handleUserDepartment);
+  yield takeLatest(actionTypes.USER_CREATION, handleUserCreation);
+  yield takeLatest(actionTypes.ADD_DEPARTMENT, handleAddDepartment);
+  yield takeLatest(actionTypes.DEPARTMENT_LISTING, handleDepartmentListing);
+  yield takeLatest(actionTypes.DEPARTMENT_STATUS,handleDepartmentStatus);
+  yield takeLatest(actionTypes.ASSIGN_PERMISSION, handlePermissions)
 }

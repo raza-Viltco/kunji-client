@@ -31,19 +31,19 @@ const userCreationContainer = (UserCreationForm) => () => {
   };
 
   const validationSchema = Yup.object().shape({
-    first_name: Yup.string().required("field  is required"),
-    last_name: Yup.string().required("field  is required"),
-    email: Yup.string().email().required("field is required"),
-    password: Yup.string().required("field is required"),
-    mobile: Yup.string().required("field  is required"),
-    cnic: Yup.string().required("field is required"),
-    department_id: Yup.string().required("field is required"),
-    role_id: Yup.string().required("field is required"),
+    first_name: Yup.string().required("First name  is required"),
+    last_name: Yup.string().required("Last name is required"),
+    email: Yup.string().email().required("Email is required"),
+    password: Yup.string().required("Password is required"),
+    mobile: Yup.string().required("Mobile no  is required"),
+    cnic: Yup.string().required("Cnic is required"),
+    department_id: Yup.string().required("Department is required"),
+    role_id: Yup.string().required("Role is required"),
   });
 
-  const userCreationHandler = (values,formikActions) => {
+  const userCreationHandler = (values, formikActions) => {
     // console.log("user creation handler",values);
-    dispatch(userCreation({values,formikActions}));
+    dispatch(userCreation({ values, formikActions }));
   };
 
   return (
