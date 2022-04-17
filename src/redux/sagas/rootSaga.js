@@ -44,6 +44,7 @@ import {
   handleHorizontalBuilding,
   handleBuildingData,
 } from "./handlers/SocietyConfiguration/SocietyConfig";
+import {
   handleAddDepartment,
   handleDepartmentListing,
   handleDepartmentStatus,
@@ -78,6 +79,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.USER_CREATION, handleUserCreation);
   yield takeLatest(actionTypes.ADD_DEPARTMENT, handleAddDepartment);
   yield takeLatest(actionTypes.DEPARTMENT_LISTING, handleDepartmentListing);
-  yield takeLatest(actionTypes.DEPARTMENT_STATUS,handleDepartmentStatus);
-  yield takeLatest(actionTypes.ASSIGN_PERMISSION, handlePermissions)
+  yield takeLatest(actionTypes.DEPARTMENT_STATUS, handleDepartmentStatus);
+  yield takeLatest(actionTypes.ASSIGN_PERMISSION, handlePermissions);
 }
