@@ -7,11 +7,40 @@
 
 .background-color-header {
   background-color: #2f5351;
+  
   color: white;
 }
 
 .background-color-header1 {
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   padding-top: 1%;
   padding-bottom: 1%;
+
+}
+
+.cardheight{
+  height: 40vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 1px solid rgb(102, 102, 102);
+}
+
+.cardheight1{
+  padding-left: 3%;
+  padding-right: 3%;
+  border: 1px solid rgb(102, 102, 102);
+}
+.cardheight::-webkit-scrollbar{
+display: none;
+}
+
+
+.paddingcard{
+  padding-left: 1% !important;
+  font-size: 95%;
+}
+
+.paddingcard1{
+  padding-left: 8% !important;
+  font-size: 95%;
 }

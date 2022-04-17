@@ -1,8 +1,9 @@
 import { actionTypes } from "../../actions/action-types";
 
 const initialState = {
-  kunjiRole: "",
+  kunjiRole: null,
   kunjiRoleListing: [],
+  kunjiPermissons: "",
 };
 
 const kunjiRoleReducer = (state = initialState, action) => {
@@ -12,6 +13,8 @@ const kunjiRoleReducer = (state = initialState, action) => {
       return { ...state, kunjiRole: payload };
     case actionTypes.SET_KUNJI_ROLE_LISTING:
       return { ...state, kunjiRoleListing: payload };
+    case actionTypes.SET_ASSIGN_PERMISSION:
+      return { ...state, kunjiPermissons: payload };
     default:
       return state;
   }
