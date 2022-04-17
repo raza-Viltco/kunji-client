@@ -1,11 +1,20 @@
 import React from "react";
+import { Formik, Form } from "formik";
 
 import Card from "../../../../components/Card";
 import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
+import InputError from "../../../../components/Form/InputError";
 import { DataGrid } from "@mui/x-data-grid";
 
-const DefineBuilding = () => {
+import buildingContainer from "../../../../container/SocietyConfigration/BuildingContainer";
+
+const DefineBuilding = ({
+  initialValues,
+  stateLoading,
+  validationSchema,
+  handleAddBuilding,
+}) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "buildingcode", headerName: "Building Code", width: 160 },
@@ -43,29 +52,92 @@ const DefineBuilding = () => {
   return (
     <Card>
       <h3>Define Building</h3>
-      <div className="row">
-        <div className="col-md-6">
-          <Input label="Building Code" margin="normal" />
-        </div>
-        <div className="col-md-6">
-          <Input label="Building Name" margin="normal" />
-        </div>
-        <div className="col-md-6">
-          <Input label="Number of Floors" margin="normal" />
-        </div>
-      </div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleAddBuilding}
+      >
+        {(props) => (
+          <Form>
+            {/* {console.log(props)} */}
+            <div className="row">
+              <div className="col-md-6">
+                <Input
+                  placeholder="Building Code"
+                  name="building_code"
+                  type="text"
+                  value={props.values.building_code}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                  className={
+                    props?.errors?.building_code &&
+                    props?.touched?.building_code
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
+                />
+                {props?.touched?.building_code &&
+                  props?.errors?.building_code && (
+                    <InputError>{props?.errors?.building_code}</InputError>
+                  )}
+              </div>
+              <div className="col-md-6">
+                <Input
+                  placeholder="Building Name"
+                  name="building_name"
+                  type="text"
+                  value={props.values.building_name}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                  className={
+                    props?.errors?.building_name &&
+                    props?.touched?.building_name
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
+                />
+                {props?.touched?.building_name &&
+                  props?.errors?.building_name && (
+                    <InputError>{props?.errors?.building_name}</InputError>
+                  )}
+              </div>
+              <div className="col-md-6">
+                <Input
+                  placeholder="Number of Floors"
+                  name="floor_streets"
+                  type="text"
+                  value={props.values.floor_streets}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                  className={
+                    props?.errors?.floor_streets &&
+                    props?.touched?.floor_streets
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
+                />
+                {props?.touched?.floor_streets &&
+                  props?.errors?.floor_streets && (
+                    <InputError>{props?.errors?.floor_streets}</InputError>
+                  )}
+              </div>
+            </div>
 
-      <div className="society_btn__wrapper">
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-          size="small"
-        >
-          Add Building
-        </Button>
-      </div>
+            <div className="society_btn__wrapper">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                isLoading={stateLoading}
+                size="small"
+              >
+                Add Building
+              </Button>
+            </div>
+          </Form>
+        )}
+      </Formik>
 
       <div
         style={{
@@ -87,4 +159,4 @@ const DefineBuilding = () => {
     </Card>
   );
 };
-export default DefineBuilding;
+export default buildingContainer(DefineBuilding);
