@@ -3,6 +3,7 @@ import { call, put } from "redux-saga/effects";
 import {
   setAddDepartment,
   setDepartmentListing,
+  setDepartmentStatus
 } from "../../../../actions/Department/Kunji/department";
 import {
   addDepartmentApi,
@@ -44,17 +45,15 @@ export function* handleDepartmentListing() {
 }
 
 export function* handleDepartmentStatus(action) {
-  const  dptId  = action.payload.dptId;
-  const  status  = action.payload.status;
-
-  console.log(action,"action")
+  const dptId = action.payload.dptId;
+  const status = action.payload.status;
+  console.log(dptId, status);
   const form = new FormData();
   form.append("department_id", dptId);
   form.append("status", status);
-console.log(form,"form");
   function* api() {
     const { data } = yield call(departmentStatusApi, form);
-
+    yield put(setDepartmentStatus(data))
     yield put(
       setError({
         type: "success",

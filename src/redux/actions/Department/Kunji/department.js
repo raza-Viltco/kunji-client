@@ -11,7 +11,7 @@ export const setAddDepartment = (payload) => ({
 });
 
 export const departmentListing = () => ({
-  type: actionTypes.DEPARTMENT_LISTING
+  type: actionTypes.DEPARTMENT_LISTING,
 });
 
 export const setDepartmentListing = (payload) => ({
@@ -19,15 +19,12 @@ export const setDepartmentListing = (payload) => ({
   payload,
 });
 
-
-export const departmentStatus=(payload)=>(
-  {
-  type:actionTypes.DEPARTMENT_STATUS,
+export const departmentStatus = (payload) => ({
+  type: actionTypes.DEPARTMENT_STATUS,
   payload,
-})
+});
 
-
-export const setDepartmentStatus=(payload)=>({
-  type:actionTypes.SET_DEPARTMENT_STATUS,
+export const setDepartmentStatus = (payload) => ({
+  type: actionTypes.SET_DEPARTMENT_STATUS,
   payload,
-})
+});

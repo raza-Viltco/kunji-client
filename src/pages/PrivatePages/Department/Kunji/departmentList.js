@@ -23,7 +23,12 @@ const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
     { field: "id", headerName: "ID", width: 70 },
     { field: "code", headerName: "Code", width: 200 },
     { field: "name", headerName: "Department Name", width: 200 },
-    { field: "status", headerName: "Status", width: 70 },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 120,
+      valueGetter: ({ value }) => (value === 1 ? "Active" : "Inactive"),
+    },
  
     // {
     //   field: "actions",
@@ -85,23 +90,12 @@ const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
       headerName: "Action",
       width: 200,
       getActions: (params) => [
-        // <Switch
-        //   // checked={params.row.status === 1 ? true : false}
-        //   onChange={(e) =>
-        //     handleDepartmentStatus(
-        //       e,
-        //       params.id,
-        //       params.row.status === 1 ? 0 : 1
-        //     )
-        //   }
-        // />,
         <div>
           {params.row.status === 1 ? (
             <button
-              // onClick={() =>
-              //   handleDepartmentStatus(params.id, params.row.status)
-              // }
-              onClick={()=>dataSet(params.row.status)}
+              onClick={() =>
+                handleDepartmentStatus(params.id, params.row.status)
+              }
             >
               Inactive
             </button>
