@@ -1,0 +1,11 @@
+.property-outer-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px;
+}
+.view-button-outer a {
+  text-decoration: none;
+  color: white;
+}

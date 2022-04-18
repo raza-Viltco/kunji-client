@@ -11,7 +11,7 @@ const departmentListingContainer = (DepartmentList) => () => {
   const alldepartmentList = useSelector((state) => state.userDepart.data);
   const depStatus = useSelector((state) => state.userDepart.depStatus);
   const departmentList = alldepartmentList.data;
-  console.log(departmentList, "depart");
+  // console.log(departmentList, "depart");
 
   const handleDepartmentStatus = (dptId, status) => {
     // console.log(dptId, status);

@@ -1,24 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Switch from "@mui/material/Switch";
 import { DataGrid } from "@mui/x-data-grid";
 
+import Table from "../../../../components/Table";
 import Button from "../../../../components/Button";
 import departmentListingContainer from "../../../../container/Department/Kunji/DepartmentListingContainer";
 import "./department.css";
 
 const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
-  // const[checked,setChecked]=useState()
-
-  // const handleDepartmentStatusHere = (e,dptId,status) => {
-  //   console.log(e.target.checked);
-  //   // console.log("status",status,dptId)
-  //   // dispatch(departmentStatus(dptId,status));
-  // };
-
-  const dataSet = (status) => {
-    console.log(status, "params");
-  };
-
+  console.log("departmentList",departmentList)
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "code", headerName: "Code", width: 200 },
@@ -29,61 +18,6 @@ const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
       width: 120,
       valueGetter: ({ value }) => (value === 1 ? "Active" : "Inactive"),
     },
- 
-    // {
-    //   field: "actions",
-    //   headerName: "Status",
-    //   width: 200,
-    //   getActions: (params) => [
-    //     <button
-
-    //     >
-    //       View
-    //     </button>,
-    // <GridActionsCellItem
-    //   icon={<AiFillDelete size={20} />}
-    //   label="Delete"
-    // />,
-    // <GridActionsCellItem
-    //   icon={<AiFillEdit size={20} />}
-    //   label="Edit"
-    //   onClick={() => handleClickOpen(params.id)}
-    // />,
-    // ],
-    // renderCell: (params) => (
-    //   <div style={{ display: "flex" }}>
-    //     {/* <Switch
-
-    //     /> */}
-    //     <button
-    //     onClick={dataSet(params)}
-    //     >Test</button>
-
-    //     {/* <Button
-    //       type="submit"
-    //       fullWidth
-    //       variant="contained"
-    //       sx={{ mt: 3, mb: 2 }}
-    //       // isLoading={stateLoading}
-    //       size="small"
-    //     >
-    //       Active
-    //     </Button>
-    //     &nbsp;
-    //     <Button
-    //       type="submit"
-    //       fullWidth
-    //       variant="contained"
-    //       sx={{ mt: 3, mb: 2 }}
-    //       // isLoading={stateLoading}
-    //       size="small"
-    //     >
-    //       In Active
-    //     </Button> */}
-    //   </div>
-    // ),
-    // },
-
     {
       field: "actions",
       type: "actions",
@@ -92,63 +26,52 @@ const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
       getActions: (params) => [
         <div>
           {params.row.status === 1 ? (
-            <button
-              onClick={() =>
-                handleDepartmentStatus(params.id, params.row.status)
+            <Button
+              className={
+                params.row.status === 0 ? "active-Button" : "inactive-button"
               }
+              click={() => handleDepartmentStatus(params.id, params.row.status)}
             >
               Inactive
-            </button>
+            </Button>
           ) : (
-            <button
-              onClick={() =>
-                handleDepartmentStatus(params.id, params.row.status)
+            <Button
+              className={
+                params.row.status === 0 ? "active-Button" : "inactive-button"
               }
+              click={() => handleDepartmentStatus(params.id, params.row.status)}
             >
               Active
-            </button>
+            </Button>
           )}
         </div>,
-
-        // <button
-        //   fullWidth
-        //   variant="contained"
-        //   sx={{ mt: 3, mb: 2, borderRadius: 20, textTransform: "Capitalize" }}
-        //   size="normal"
-        //   onClick={() => dataSet(params.id)}
-        // >
-        //   View
-        // </button>,
-        // <GridActionsCellItem
-        //   icon={<AiFillDelete size={20} />}
-        //   label="Delete"
-        // />,
-        // <GridActionsCellItem
-        //   icon={<AiFillEdit size={20} />}
-        //   label="Edit"
-        //   onClick={() => handleClickOpen(params.id)}
-        // />,
       ],
     },
   ];
 
   return (
-    <div
-      style={{
-        height: 420,
-        width: "100%",
-        background: "white",
-        textAlign: "center",
-      }}
-    >
-      <DataGrid
-        rows={departmentList}
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[5]}
-        // checkboxSelection
-      />
-    </div>
+    <div style={{ height: "100vh", width: "100%", background: "white" }}>
+    <Table
+      rows={departmentList}
+      columns={columns}
+   
+    />
+  </div>
+    // <div
+    //   style={{
+    //     height: 420,
+    //     width: "100%",
+    //     background: "white",
+    //     textAlign: "center",
+    //   }}
+    // >
+    //   <DataGrid
+    //     rows={departmentList}
+    //     columns={columns}
+    //     pageSize={10}
+    //     rowsPerPageOptions={[5]}
+    //   />
+    // </div>
   );
 };
 export default departmentListingContainer(DepartmentList);

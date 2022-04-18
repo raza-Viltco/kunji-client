@@ -13,6 +13,7 @@ import addFacilityReducer from "./reducer/Facilities/AddFacilities";
 import kunjiRoleReducer from "./reducer/KunjiRole/KunjiRole";
 import userDepartmentReducer from "./reducer/KunjiRole/UserCreation";
 import departmentListingReducer from "./reducer/Department/Kunji/department";
+import userApprovalReducer from "./reducer/KunjiRole/UserApproval";
 
 const reducers = (history) =>
   combineReducers({
@@ -28,6 +29,7 @@ const reducers = (history) =>
     kunjiRole: kunjiRoleReducer,
     userDepartment: userDepartmentReducer,
     userDepart: departmentListingReducer,
+    userApproval: userApprovalReducer,
     router: connectRouter(history),
   });
 

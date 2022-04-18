@@ -49,6 +49,7 @@ import {
   handleDepartmentListing,
   handleDepartmentStatus,
 } from "./handlers/Department/Kunji/department";
+import { handleApprovalListing } from "./handlers/KunjiRole/UserApproval";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -81,4 +82,5 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.DEPARTMENT_LISTING, handleDepartmentListing);
   yield takeLatest(actionTypes.DEPARTMENT_STATUS, handleDepartmentStatus);
   yield takeLatest(actionTypes.ASSIGN_PERMISSION, handlePermissions);
+  yield takeLatest(actionTypes.APPROVAL_LISTING, handleApprovalListing);
 }
