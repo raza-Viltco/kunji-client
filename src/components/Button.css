@@ -1,0 +1,8 @@
+.inactive-button {
+  background: rgb(196, 81, 81);
+  color: white;
+}
+.active-Button {
+  background: rgb(54, 54, 209);
+  color: white;
+}

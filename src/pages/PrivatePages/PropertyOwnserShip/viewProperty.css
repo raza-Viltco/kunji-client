@@ -1,0 +1,20 @@
+.view-property-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(227, 233, 227);
+}
+.head-property {
+  font-weight: bold;
+}
+.view-prop-btn-outer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.view-property-card {
+  padding: 20px;
+}

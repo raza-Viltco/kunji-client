@@ -47,7 +47,7 @@ export function* handleDepartmentListing() {
 export function* handleDepartmentStatus(action) {
   const dptId = action.payload.dptId;
   const status = action.payload.status;
-  console.log(dptId, status);
+  // console.log(dptId, status);
   const form = new FormData();
   form.append("department_id", dptId);
   form.append("status", status);

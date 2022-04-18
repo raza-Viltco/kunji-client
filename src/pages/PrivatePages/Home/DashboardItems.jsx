@@ -35,13 +35,14 @@ import ChargesType from "../SocietyAdministration/ChargesType";
 import GenerateBill from "../SocietyAdministration/GenerateBill";
 import Notices from "../Notices/Society/Notices";
 import TermsAndConditions from "../TermsAndConditions/Kunji";
-import SocietyProfile from "../Profile/SocietyProfile";
 import PropertyOwnerShip from "../PropertyOwnserShip";
 import AssignOwnership from "../PropertyOwnserShip/assignOwnership";
 import Complaints from "../SecurityManagement/Society/Complaints";
 import ViewBill from "../SocietyAdministration/ViewBill";
 import Assets from "../Assets/Society";
 import SocietyListingView from "../Society/SocietyListingView";
+import ViewProperty from "../PropertyOwnserShip/viewProperty";
+import SocietyProfile from "../SocietyProfile";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -123,11 +124,11 @@ const DashboardItems = () => {
           <ViewBill />
         ) : location.pathname === "/assets" ? (
           <Assets />
-        ) 
-        : location.pathname === "/society_listing_view" ? (
+        ) : location.pathname === "/society_listing_view" ? (
           <SocietyListingView />
-        )
-        : (
+        ) : location.pathname === "/view_property" ? (
+          <ViewProperty />
+        ) : (
           <Dashboard />
         )
         // : userData?.data?.roles[0].name === "Super Admin" ? (

@@ -9,7 +9,6 @@ const departmentContainer = (DepartmentForm) => () => {
   const initialValues = {
     name: "",
     code: "",
-    // status: "",
   };
 
   const validationSchema = Yup.object().shape({

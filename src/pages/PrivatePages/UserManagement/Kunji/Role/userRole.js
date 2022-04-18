@@ -4,6 +4,7 @@ import { Formik, Form } from "formik";
 import Input from "../../../../../components/Form/Input";
 import Button from "../../../../../components/Button";
 import userRoleContainer from "../../../../../container/KunjiRole/UserRoleContainer";
+import InputError from "../../../../../components/Form/InputError"
 import "./role.css";
 
 const UserRole = ({
@@ -36,7 +37,15 @@ const UserRole = ({
                   value={props.values.name}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
+                  className={
+                    props?.errors?.name && props?.touched?.name
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
                 />
+   {props?.touched?.name && props?.errors?.name && (
+                  <InputError>{props?.errors?.name}</InputError>
+                )}
               </div>
 
               <div className="col-md-6 "></div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, CircularProgress } from "@mui/material";
 
+import "./Button.css";
+
 const LoadingButton = ({
   children,
   isLoading,
@@ -11,6 +13,7 @@ const LoadingButton = ({
   sx,
   size,
   click,
+  className,
 }) => {
   return (
     <Button
@@ -21,7 +24,7 @@ const LoadingButton = ({
       sx={sx}
       size={size}
       onClick={click}
-      
+      className={className}
     >
       {isLoading ? <CircularProgress color="secondary" size={25} /> : children}
     </Button>
