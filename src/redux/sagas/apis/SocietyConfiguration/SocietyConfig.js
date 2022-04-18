@@ -21,3 +21,24 @@ export const getBuildingApi = async () => {
     params: { society_id: society_id },
   });
 };
+
+export const getFloorApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
+  const { society_id } = state.data.role;
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "GET",
+    url: "society/mapping-two",
+    params: { society_id: society_id, mapping_one_id: data },
+  });
+};
+
+export const areaMappingApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "POST",
+    url: "society-admin/mapping/add-two",
+    data,
+  });
+};

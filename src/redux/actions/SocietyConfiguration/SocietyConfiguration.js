@@ -28,3 +28,38 @@ export const setBuildingData = (payload) => ({
   type: actionTypes.SET_BUILDING_DATA,
   payload,
 });
+
+export const floorData = (payload) => ({
+  type: actionTypes.FLOOR_DATA,
+  payload,
+});
+
+export const setFloorData = (payload) => ({
+  type: actionTypes.SET_FLOOR_DATA,
+  payload,
+});
+
+export const setMappingId = (payload) => ({
+  type: actionTypes.SET_MAPPING_ID,
+  payload,
+});
+
+export const areaMapping = (payload) => ({
+  type: actionTypes.AREA_MAPPING,
+  payload,
+});
+
+export const setAreaMapping = (payload) => ({
+  type: actionTypes.SET_AREA_MAPPING,
+  payload,
+});
+
+export const verticalMapping = (payload) => ({
+  type: actionTypes.VERTICAL_MAPPING,
+  payload,
+});
+
+export const setVerticalMapping = (payload) => ({
+  type: actionTypes.SET_VERTICAL_MAPPING,
+  payload,
+});
