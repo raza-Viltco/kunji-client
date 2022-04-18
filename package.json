@@ -1,4 +1,5 @@
 {
+  "homepage": "/manage",
   "name": "kunji-client-new",
   "version": "0.1.0",
   "private": true,
