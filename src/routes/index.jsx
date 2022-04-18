@@ -43,13 +43,14 @@ import ChargesType from "../pages/PrivatePages/SocietyAdministration/ChargesType
 import GenerateBill from "../pages/PrivatePages/SocietyAdministration/GenerateBill";
 import Notices from "../pages/PrivatePages/Notices/Society/Notices";
 import TermsAndConditions from "../pages/PrivatePages/TermsAndConditions/Kunji";
-import SocietyProfile from "../pages/PrivatePages/Profile/SocietyProfile"
 import PropertyOwnerShip from "../pages/PrivatePages/PropertyOwnserShip";
 import AssignOwnership from "../pages/PrivatePages/PropertyOwnserShip/assignOwnership";
 import Complaints from "../pages/PrivatePages/SecurityManagement/Society/Complaints";
 import ViewBill from "../pages/PrivatePages/SocietyAdministration/ViewBill";
 import Assets from "../pages/PrivatePages/Assets/Society";
 import SocietyListingView from "../pages/PrivatePages/Society/SocietyListingView";
+import ViewProperty from "../pages/PrivatePages/PropertyOwnserShip/viewProperty";
+import SocietyProfile from "../pages/PrivatePages/SocietyProfile";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -216,6 +217,10 @@ const AppRouter = () => (
 
       <PrivateRoute path="/society_listing_view">
         <SocietyListingView/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/view_property">
+        <ViewProperty/>
       </PrivateRoute>
 
       <Redirect to="/login" exact />

@@ -21,7 +21,7 @@ export const departmentListingApi = async () => {
 };
 
 export const departmentStatusApi = async (data) => {
-  console.log(data,"here");
+  // console.log(data,"here");
   const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
