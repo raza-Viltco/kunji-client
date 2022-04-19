@@ -123,7 +123,7 @@ const AddApartment = ({
                   <InputError>{props?.errors?.floor}</InputError>
                 )}
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 mt-3">
                 <Input
                   placeholder="Apartment No"
                   name="plot"
@@ -139,7 +139,7 @@ const AddApartment = ({
                   <InputError>{props?.errors?.plot}</InputError>
                 )}
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 mt-3">
                 <Input
                   placeholder="Allocated Parking"
                   name="parking"
@@ -157,17 +157,22 @@ const AddApartment = ({
               </div>
             </div>
 
-            <div className="society_btn__wrapper">
+            <div className="row">
+              <div className="col-sm-9"></div>
+              <div className="col-sm-3">
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, borderRadius: 20 }}
                 size="small"
               >
                 Add Apartment
               </Button>
+              </div>
             </div>
+
+          
           </Form>
         )}
       </Formik>

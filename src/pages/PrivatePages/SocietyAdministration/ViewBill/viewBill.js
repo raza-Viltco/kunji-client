@@ -82,7 +82,7 @@ const ViewBillData = () => {
   return (
     <Card>
       <h3>View Bill</h3>
-      <Input placeholder="search" />
+      <Input placeholder="search" className="bootstyle mb-4 mt-2" />
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
         <Table
           rows={rows}

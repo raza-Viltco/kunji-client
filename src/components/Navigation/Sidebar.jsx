@@ -177,7 +177,7 @@ const Sidebar = ({
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {/* <MdDashboard size={25} /> */}
+                {/* <MdDashboard size={20} /> */}
                 {/* <i class="fi fi-rr-user"></i> */}
                 <i class="fad fa-columns" id="iconstyle"></i>
               </ListItemIcon>
@@ -231,7 +231,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={nestedListHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={25} />
+                <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText>
                 <span className="font-dashboard">Society</span>
@@ -243,7 +243,7 @@ const Sidebar = ({
                 <NavLink to="/add_society">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdAddBusiness size={25} />
+                      <MdAddBusiness size={20} />
                     </ListItemIcon>
                     <ListItemText>
                       <span className="font-dashboard">Add Society</span>
@@ -253,7 +253,7 @@ const Sidebar = ({
                 <NavLink to="/society_list">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText>
                       <span className="font-dashboard">Society Listing</span>
@@ -269,7 +269,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={openUserManagementHander}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={25} />
+                <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText primary="User Management" />
               {openUserManagement ? <ExpandLess /> : <ExpandMore />}
@@ -289,7 +289,7 @@ const Sidebar = ({
                 <NavLink to="/user_kunji_creation">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText primary="User Creation" />
                   </ListItemButton>
@@ -299,7 +299,7 @@ const Sidebar = ({
                 <NavLink to="/user_kunji_approval">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText primary="User Approvals" />
                   </ListItemButton>
@@ -316,7 +316,7 @@ const Sidebar = ({
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    {/* <BsBuilding size={25} /> */}
+                    {/* <BsBuilding size={20} /> */}
                     <i class="fas fa-city" id="iconstyle"></i>
                   </ListItemIcon>
                   <ListItemText>
@@ -332,7 +332,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={openSocietyConfigHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={25} />
+                <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText> 
                 <span className="font-dashboard"> Society Configuration </span>
@@ -347,7 +347,11 @@ const Sidebar = ({
                     <ListItemIcon>
                       <AiOutlineUserAdd size={23} />
                     </ListItemIcon>
-                    <ListItemText primary="Add Sector/ Block No" />
+                    <ListItemText >
+                    <span className="font-dashboard">  Add Sector/ Block No </span>
+                   
+                      </ListItemText>
+                    
                   </ListItemButton>
                 </NavLink>
               </List>
@@ -355,7 +359,7 @@ const Sidebar = ({
                 <NavLink to="/add_street">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText primary="Street" />
                   </ListItemButton>
@@ -365,9 +369,12 @@ const Sidebar = ({
                 <NavLink to="/add_plots">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
-                    <ListItemText primary="Plots" />
+                    <ListItemText >
+                    <span className="font-dashboard"> Plots </span>
+                   
+                   </ListItemText>
                   </ListItemButton>
                 </NavLink>
               </List>
@@ -380,7 +387,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={OpenVerticalConfigHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={25} />
+                <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText>
                 <span className="font-dashboard">Society Configuration B</span>
@@ -392,7 +399,7 @@ const Sidebar = ({
                 <NavLink to="/define_building">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText>
                       <span className="font-dashboard"> Building</span>
@@ -404,7 +411,7 @@ const Sidebar = ({
                 <NavLink to="/add_apartment">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText>
                       <span className="font-dashboard">Apartment</span>
@@ -422,7 +429,7 @@ const Sidebar = ({
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    <MdDashboard size={25} />
+                    <MdDashboard size={20} />
                   </ListItemIcon>
                   <ListItemText>
                     <span className="font-dashboard">Property Ownership</span>
@@ -441,7 +448,7 @@ const Sidebar = ({
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    <MdDashboard size={25} />
+                    <MdDashboard size={20} />
                   </ListItemIcon>
                   <ListItemText>
                     <span className="font-dashboard">Assets</span>
@@ -457,7 +464,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={OpenSocietyAdminHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={25} />
+                <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText>
                 <span className="font-dashboard" >
@@ -474,7 +481,10 @@ const Sidebar = ({
                     <ListItemIcon>
                       <AiOutlineUserAdd size={23} />
                     </ListItemIcon>
-                    <ListItemText primary="Charges Type" />
+                    <ListItemText >
+                    <span className="font-dashboard"> Charges Type </span>
+                   
+                   </ListItemText>
                   </ListItemButton>
                 </NavLink>
               </List>
@@ -482,9 +492,12 @@ const Sidebar = ({
                 <NavLink to="/society_generate_bill">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
-                    <ListItemText primary="Generate Bill" />
+                    <ListItemText>
+                    <span className="font-dashboard"> Generate Bill </span>
+                   
+                   </ListItemText>
                   </ListItemButton>
                 </NavLink>
               </List>
@@ -492,9 +505,12 @@ const Sidebar = ({
                 <NavLink to="/view_bill">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
-                    <ListItemText primary="View  Bill" />
+                    <ListItemText>
+                    <span className="font-dashboard">View  Bill </span>
+                   
+                   </ListItemText>
                   </ListItemButton>
                 </NavLink>
               </List>
@@ -505,7 +521,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={OpenStaffHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={25} />
+                <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText primary="Staff Management" />
               {openStaff ? <ExpandLess /> : <ExpandMore />}
@@ -525,7 +541,7 @@ const Sidebar = ({
                 <NavLink to="/list_kunji_staff">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText primary="Staff Listing" />
                   </ListItemButton>
@@ -541,7 +557,7 @@ const Sidebar = ({
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    <MdDashboard size={25} />
+                    <MdDashboard size={20} />
                   </ListItemIcon>
                   <ListItemText primary="Department" />
                 </ListItemButton>
@@ -554,7 +570,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={registerOpenHandler}>
               <ListItemIcon>
-                <BiLogIn size={25} />
+                <BiLogIn size={20} />
               </ListItemIcon>
               <ListItemText>
               Register Resident
@@ -582,7 +598,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={staffOpenHandler}>
               <ListItemIcon>
-                <MdOutlineManageAccounts size={25} />
+                <MdOutlineManageAccounts size={20} />
               </ListItemIcon>
               <ListItemText>
               Staff Management
@@ -602,7 +618,7 @@ const Sidebar = ({
                 <NavLink to="/staff_list">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
+                      <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText primary="Staff Listing" />
                   </ListItemButton>
@@ -617,7 +633,7 @@ const Sidebar = ({
             <>
               <ListItemButton onClick={facilityOpenHandler}>
                 <ListItemIcon>
-                  <SiHomeassistantcommunitystore size={25} />
+                  <SiHomeassistantcommunitystore size={20} />
                 </ListItemIcon>
                 <ListItemText primary="Facility Management" />
                 {facilityOpen ? <ExpandLess /> : <ExpandMore />}
@@ -627,7 +643,7 @@ const Sidebar = ({
                   <NavLink to="/facility_listing">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <MdAddBusiness size={25} />
+                        <MdAddBusiness size={20} />
                       </ListItemIcon>
                       <ListItemText primary="Facility Listing" />
                     </ListItemButton>
@@ -642,7 +658,7 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={facilityOpenHandler}>
               <ListItemIcon>
-                <SiHomeassistantcommunitystore size={25} />
+                <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText primary="Facility Management" />
               {facilityOpen ? <ExpandLess /> : <ExpandMore />}
@@ -652,7 +668,7 @@ const Sidebar = ({
                 <NavLink to="/facility_listing">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdAddBusiness size={25} />
+                      <MdAddBusiness size={20} />
                     </ListItemIcon>
                     <ListItemText primary="Facility Listing" />
                   </ListItemButton>
@@ -666,7 +682,7 @@ const Sidebar = ({
             <NavLink to="/">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
-                  <MdOutlineTaskAlt size={25} />
+                  <MdOutlineTaskAlt size={20} />
                 </ListItemIcon>
                 <ListItemText primary="Staff Roles" />
               </ListItemButton>
@@ -678,7 +694,7 @@ const Sidebar = ({
             <>
               <ListItemButton onClick={flatOpenHandler}>
                 <ListItemIcon>
-                  <SiHomeassistantcommunitystore size={25} />
+                  <SiHomeassistantcommunitystore size={20} />
                 </ListItemIcon>
                 <ListItemText primary="Flats Management" />
                 {flatsOpen ? <ExpandLess /> : <ExpandMore />}
@@ -698,7 +714,7 @@ const Sidebar = ({
                   <NavLink to="/flat_listing">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={25} />
+                        <MdOutlineFormatListBulleted size={20} />
                       </ListItemIcon>
                       <ListItemText primary="Flat List" />
                     </ListItemButton>
@@ -712,7 +728,7 @@ const Sidebar = ({
             <>
               <ListItemButton onClick={assetOpenHandler}>
                 <ListItemIcon>
-                  <MdOutlineManageAccounts size={25} />
+                  <MdOutlineManageAccounts size={20} />
                 </ListItemIcon>
                 <ListItemText primary="Asset Management" />
                 {assetOpen ? <ExpandLess /> : <ExpandMore />}
@@ -732,7 +748,7 @@ const Sidebar = ({
                   <NavLink to="/asset_list">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={25} />
+                        <MdOutlineFormatListBulleted size={20} />
                       </ListItemIcon>
                       <ListItemText primary="Asset List" />
                     </ListItemButton>
@@ -750,7 +766,7 @@ const Sidebar = ({
             <>
               <ListItemButton onClick={OpenSecurityHandler}>
                 <ListItemIcon>
-                  <SiHomeassistantcommunitystore size={25} />
+                  <SiHomeassistantcommunitystore size={20} />
                 </ListItemIcon>
                 <ListItemText>
                   <span className="font-dashboard" >Security Management</span>
@@ -765,7 +781,10 @@ const Sidebar = ({
                       <ListItemIcon>
                         <AiOutlineUserAdd size={23} />
                       </ListItemIcon>
-                      <ListItemText primary="Visitor List" />
+                      <ListItemText >
+                      <span className="font-dashboard"> Visitor List </span>
+                   
+                   </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -773,9 +792,12 @@ const Sidebar = ({
                   <NavLink to="/servant_visitor_list">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={25} />
+                        <MdOutlineFormatListBulleted size={20} />
                       </ListItemIcon>
-                      <ListItemText primary="Servant Approval" />
+                      <ListItemText >
+                      <span className="font-dashboard"> Servant Approval </span>
+                   
+                   </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -784,9 +806,12 @@ const Sidebar = ({
                   <NavLink to="/gate_pass_approval">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={25} />
+                        <MdOutlineFormatListBulleted size={20} />
                       </ListItemIcon>
-                      <ListItemText primary="Gate Pass Approval" />
+                      <ListItemText >
+                      <span className="font-dashboard"> Gate Pass Approval </span>
+                   
+                   </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -795,9 +820,12 @@ const Sidebar = ({
                   <NavLink to="/society_delivery_booking">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={25} />
+                        <MdOutlineFormatListBulleted size={20} />
                       </ListItemIcon>
-                      <ListItemText primary="Delivery Booking" />
+                      <ListItemText>
+                      <span className="font-dashboard"> Delivery Booking </span>
+                   
+                   </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -805,9 +833,12 @@ const Sidebar = ({
                   <NavLink to="/society_panic_alert">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={25} />
+                        <MdOutlineFormatListBulleted size={20} />
                       </ListItemIcon>
-                      <ListItemText primary="Panic Alert" />
+                      <ListItemText >
+                      <span className="font-dashboard"> Panic Alert </span>
+                   
+                   </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -816,9 +847,12 @@ const Sidebar = ({
                   <NavLink to="/complaints">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={25} />
+                        <MdOutlineFormatListBulleted size={20} />
                       </ListItemIcon>
-                      <ListItemText primary="Complaints" />
+                      <ListItemText >
+                      <span className="font-dashboard"> Complaints </span>
+                   
+                   </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -831,7 +865,7 @@ const Sidebar = ({
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <MdDashboard size={25} />
+                  <MdDashboard size={20} />
                 </ListItemIcon>
                 <ListItemText >
                   <span className="font-dashboard"  >Department</span>
@@ -848,7 +882,7 @@ const Sidebar = ({
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <MdDashboard size={25} />
+                      <MdDashboard size={20} />
                     </ListItemIcon>
                     <ListItemText >
                     <span className="font-dashboard">Notices</span>
@@ -865,7 +899,7 @@ const Sidebar = ({
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <MdDashboard size={25} />
+                  <MdDashboard size={20} />
                 </ListItemIcon>
                 <ListItemText>
                   <span className="font-dashboard">Terms and Conditions</span>
@@ -875,7 +909,7 @@ const Sidebar = ({
           </NavLink>
           {/* <ListItemButton onClick={eventOpenHandler}>
           <ListItemIcon>
-            <SiHomeassistantcommunitystore size={25} />
+            <SiHomeassistantcommunitystore size={20} />
           </ListItemIcon>
           <ListItemText primary="Event Management" />
           {eventOpen ? <ExpandLess /> : <ExpandMore />}
@@ -885,7 +919,7 @@ const Sidebar = ({
             <NavLink to="/">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
-                  <MdAddBusiness size={25} />
+                  <MdAddBusiness size={20} />
                 </ListItemIcon>
                 <ListItemText primary="Register" />
               </ListItemButton>
@@ -896,7 +930,7 @@ const Sidebar = ({
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <BiLogOut size={25} />
+                <BiLogOut size={20} />
               </ListItemIcon>
               <ListItemText onClick={logoutHandler}>
                 <span className="font-dashboard">Logout</span>

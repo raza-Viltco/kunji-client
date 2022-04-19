@@ -10,24 +10,29 @@ const GenerateBillForm = () => {
       <h3>Generate Society Bill</h3>
       <div className="row">
         <div className="col-md-6">
-          <Dropdown inputLabel="Select Resident " name="resident"></Dropdown>
+          <Dropdown inputLabel="Select Resident "  className="bootstyle" name="resident"></Dropdown>
         </div>
         <div className="col-md-6">
-          <Dropdown inputLabel="Select Charges " name="charges"></Dropdown>
+          <Dropdown inputLabel="Select Charges "  className="bootstyle" name="charges"></Dropdown>
         </div>
       </div>
-      <div className="society_btn__wrapper">
-        <Button
+
+      <div className="row">
+      <div className="col-sm-9"></div>
+      <div className="col-sm-3">
+      <Button
           type="submit"
           fullWidth
           variant="contained"
-          sx={{ mt: 3, mb: 2 }}
+          sx={{ mt: 3, mb: 2, borderRadius: 20 }}
           // isLoading={stateLoading}
           size="small"
         >
           Add Charges
         </Button>
       </div>
+      </div>
+     
     </>
   );
 };
