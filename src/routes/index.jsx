@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Redirect } from "react-router";
+import { Switch, Redirect } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 
 import { localhistory } from "../redux/store";
@@ -55,7 +55,7 @@ import SocietyProfile from "../pages/PrivatePages/SocietyProfile";
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
     <Switch>
-      <PublicRoute path="/manage/login" exact>
+      <PublicRoute path="/login" exact>
         <Auth />
       </PublicRoute>
       <PublicRoute path="/register">
@@ -159,68 +159,67 @@ const AppRouter = () => (
       </PrivateRoute>
 
       <PrivateRoute path="/servant_visitor_list">
-        <ServantApproval/>
+        <ServantApproval />
       </PrivateRoute>
 
       <PrivateRoute path="/gate_pass_approval">
-        <GatePassApproval/>
+        <GatePassApproval />
       </PrivateRoute>
 
-      
       <PrivateRoute path="/society_delivery_booking">
-        <DeliveryBooking/>
+        <DeliveryBooking />
       </PrivateRoute>
 
       <PrivateRoute path="/society_panic_alert">
-        <PanicAlert/>
+        <PanicAlert />
       </PrivateRoute>
 
       <PrivateRoute path="/society_charges_type">
-        <ChargesType/>
+        <ChargesType />
       </PrivateRoute>
 
       <PrivateRoute path="/society_generate_bill">
-        <GenerateBill/>
+        <GenerateBill />
       </PrivateRoute>
 
       <PrivateRoute path="/society_notices">
-        <Notices/>
+        <Notices />
       </PrivateRoute>
 
       <PrivateRoute path="/terms_condition">
-        <TermsAndConditions/>
+        <TermsAndConditions />
       </PrivateRoute>
 
       <PrivateRoute path="/society_profile">
-        <SocietyProfile/>
+        <SocietyProfile />
       </PrivateRoute>
 
       <PrivateRoute path="/property_ownership">
-        <PropertyOwnerShip/>
+        <PropertyOwnerShip />
       </PrivateRoute>
 
       <PrivateRoute path="/assign_ownership">
-        <AssignOwnership/>
+        <AssignOwnership />
       </PrivateRoute>
 
       <PrivateRoute path="/complaints">
-        <Complaints/>
+        <Complaints />
       </PrivateRoute>
 
       <PrivateRoute path="/view_bill">
-        <ViewBill/>
+        <ViewBill />
       </PrivateRoute>
 
       <PrivateRoute path="/assets">
-        <Assets/>
+        <Assets />
       </PrivateRoute>
 
       <PrivateRoute path="/society_listing_view">
-        <SocietyListingView/>
+        <SocietyListingView />
       </PrivateRoute>
 
       <PrivateRoute path="/view_property">
-        <ViewProperty/>
+        <ViewProperty />
       </PrivateRoute>
 
       <Redirect to="/login" exact />
