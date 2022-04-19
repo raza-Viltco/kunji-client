@@ -6,7 +6,7 @@ import { routerMiddleware } from "connected-react-router";
 
 import createRootReducer from "./rootReducers"
 
-export const localhistory = createBrowserHistory();
+export const localhistory = createBrowserHistory({ basename: "/manage" });
 
 const sagaMiddleware = createSagaMiddleware();
 const routingMiddleware = routerMiddleware(localhistory);
