@@ -54,6 +54,7 @@ const SocietyListing = ({
     {
       field: "actions",
       type: "actions",
+      headerName: "Action",
       width: 80,
       getActions: (params) => [
         <Button

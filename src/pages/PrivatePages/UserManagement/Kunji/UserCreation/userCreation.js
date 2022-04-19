@@ -28,18 +28,18 @@ const UserCreationForm = ({
             <div className="user-creation-upper-style ">
               <h3 className="col-md-6">User Creation</h3>
 
-              <div className="society_btn__wrapper ">
+              {/* <div className="society_btn__wrapper ">
                 <Button
                   type="button"
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2,borderRadius: 20 }}
-                  // isLoading={stateLoading}
+                  isLoading={stateLoading}
                   size="small"
                 >
                   Import CSV
                 </Button>
-              </div>
+              </div> */}
             </div>
 
             <div className="row">

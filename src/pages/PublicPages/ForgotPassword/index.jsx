@@ -27,7 +27,7 @@ const ForgotPassword = ({
               margin="normal"
               fullWidth
               id="email"
-              label="Email Address"
+              placeholder="Email Address"
               name="email"
               type="email"
               value={props.values.email}
@@ -35,18 +35,20 @@ const ForgotPassword = ({
               onBlur={props.handleBlur}
               // error={props.errors.email}
               helperText
-              className={props.errors.email && props.touched.email?
-                "input-outline" :"bootstyle"
-                }
+              className={
+                props.errors.email && props.touched.email
+                  ? "input-outline"
+                  : "bootstyle"
+              }
             />
-                    {props.touched.email && props.errors.email && (
+            {props.touched.email && props.errors.email && (
               <InputError>{props.errors.email}</InputError>
             )}
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2, borderRadius:20 }}
+              sx={{ mt: 3, mb: 2, borderRadius: 20 }}
               isLoading={stateLoading}
               size="small"
             >
