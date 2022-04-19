@@ -46,14 +46,16 @@ const ProfileForm = ({
                 <Card>
                   <h3>General Information</h3>
                   <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12  mt-2" >
+                      <label className="padding-profile"><b>Name</b></label>
                       <Input
                         margin="normal"
                         fullWidth
                         id="name"
-                        label="Name"
+                        placeholder="Name"
                         name="name"
                         type="text"
+                        className="bootstyle"
                       
                         disabled={enableField}
                         value={props.values.name}
@@ -63,12 +65,14 @@ const ProfileForm = ({
                         helperText
                       />
                     </div>
-                    <div className="col-md-12">
+                    <div className="col-md-12 mt-2">
+                    <label className="padding-profile"><b>Email</b></label>
                       <Input
+                        className="bootstyle"
                         margin="normal"
                         fullWidth
                         id="email"
-                        label="Email"
+                        placeholder="Email"
                         name="email"
                         type="email"
                         value={props.values.email}
@@ -80,12 +84,14 @@ const ProfileForm = ({
                       />
                     </div>
 
-                    <div className="col-md-12">
+                    <div className="col-md-12 mt-2">
+                    <label className="padding-profile"><b>Phone</b></label>
                       <Input
+                        className="bootstyle"
                         margin="normal"
                         fullWidth
                         id="number"
-                        label="Contact Number"
+                        placeholder="Contact Number"
                         name="mobile"
                         type="text"
                         value={props.values.mobile}
@@ -106,6 +112,7 @@ const ProfileForm = ({
                           variant="contained"
                           size="small"
                           click={handleEdit}
+                          sx={{borderRadius:20}}
                         >
                           Edit
                         </Button>
@@ -118,6 +125,7 @@ const ProfileForm = ({
                             variant="contained"
                             size="small"
                             isLoading={stateLoading}
+                            sx={{borderRadius:20}}
                           >
                             Save
                           </Button>
@@ -130,6 +138,7 @@ const ProfileForm = ({
                             variant="contained"
                             size="small"
                             click={handleCancel}
+                            sx={{borderRadius:20}}
                           >
                             Cancel
                           </Button>
@@ -188,6 +197,11 @@ const ProfileForm = ({
                     <h3>{props.values.name}</h3>
                   </div>
                 </Card>
+
+
+
+
+                
               </div>
             </div>
           </Form>

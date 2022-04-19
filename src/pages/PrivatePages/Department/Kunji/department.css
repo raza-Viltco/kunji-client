@@ -3,3 +3,16 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+.inactive-button {
+    background: rgb(196, 81, 81) !important;
+    color: white !important;
+    width: 110%;
+    border-radius: 20px !important;
+  }
+  .active-Button {
+    background: #203A38 !important;
+    color: white !important;
+    width: 120%;
+    border-radius: 20px !important;
+  }
+  

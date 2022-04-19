@@ -49,36 +49,36 @@ const UserApprovalListing = ({ approval }) => {
     { field: "mapping_level_two_name", headerName: "Floor", width: 160 },
     { field: "mapping_level_three_name", headerName: "Appartment", width: 160 },
 
-    // {
-    //   field: "status",
-    //   headerName: "Status",
-    //   width: 200,
-    //   renderCell: (params) => (
-    //     <div style={{ display: "flex" }}>
-    //       <Button
-    //         type="submit"
-    //         fullWidth
-    //         variant="contained"
-    //         sx={{ mt: 3, mb: 2 }}
-    //         // isLoading={stateLoading}
-    //         size="small"
-    //       >
-    //         Active
-    //       </Button>
-    //       &nbsp;
-    //       <Button
-    //         type="submit"
-    //         fullWidth
-    //         variant="contained"
-    //         sx={{ mt: 3, mb: 2 }}
-    //         // isLoading={stateLoading}
-    //         size="small"
-    //       >
-    //         In Active
-    //       </Button>
-    //     </div>
-    //   ),
-    // },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 200,
+      renderCell: (params) => (
+        <div style={{ display: "flex" }}>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+            // isLoading={stateLoading}
+            size="small"
+          >
+            Active
+          </Button>
+          &nbsp;
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2, borderRadius: 20  }}
+            // isLoading={stateLoading}
+            size="small"
+          >
+            In Active
+          </Button>
+        </div>
+      ),
+    },
   ];
 
   return (

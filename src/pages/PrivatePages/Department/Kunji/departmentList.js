@@ -24,7 +24,7 @@ const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
       headerName: "Action",
       width: 200,
       getActions: (params) => [
-        <div>
+        <div className="col-sm-12 text-center">
           {params.row.status === 1 ? (
             <Button
               className={
