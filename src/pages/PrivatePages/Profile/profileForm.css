@@ -1,3 +1,8 @@
+.padding-profile{
+  padding-left: 12px !important;
+}
+
+
 .form-button-outer {
   display: flex;
   flex-direction: row;
@@ -14,6 +19,7 @@
 .society-profile-inner {
   border-radius: 100px;
   /* margin-top: -91px; */
+  background-color: white;
 }
 .society-cover-photo {
   background-image: url("../../../assets/Society_cover.jpg");

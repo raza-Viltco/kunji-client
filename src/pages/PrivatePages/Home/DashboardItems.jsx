@@ -140,17 +140,15 @@ const DashboardItems = () => {
         )
         : location.pathname === "/assign_owner_hor" ? (
           <AssignOwneHor />
-        ): (
-          <Dashboard />
-        )
-        // : userData?.data?.roles[0].name === "Super Admin" ? (
-        //   <Dashboard />
-        // ) : userData?.data?.roles[0].name === "Society Admin" ? (
-        //   <SocietyDashboard />
-        // ) : (
-        //   ""
-        // )
+        ): userData?.data?.role.name === "kunji admin" ? (
+        <Dashboard />
+      ) : userData?.data?.role.name === "Society Admin" ? (
+        <SocietyDashboard />
+      ) : (
+        ""
+      )}
       }
+
     </>
   );
 };
