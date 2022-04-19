@@ -10,17 +10,20 @@ const ChargesTypeForm = () => {
       <h3>Society Charges</h3>
       <div className="row">
         <div className="col-md-6">
-          <Input label="Charges Code" margin="normal" />
+          <Input className="bootstyle" label="Charges Code" margin="normal"  />
         </div>
         <div className="col-md-6">
-          <Input label="Charges Title" margin="normal" />
+          <Input className="bootstyle" label="Charges Title" margin="normal" />
         </div>
-        <div className="col-md-6">
-          <Input label="Charges" margin="normal" />
+        <div className="col-md-6 mt-3">
+          <Input className="bootstyle" label="Charges" margin="normal" />
         </div>
       </div>
-      <div className="society_btn__wrapper">
-        <Button
+
+      <div className="row">
+      <div className="col-sm-9"></div>
+      <div className="col-sm-3">
+      <Button
           type="submit"
           fullWidth
           variant="contained"
@@ -31,6 +34,8 @@ const ChargesTypeForm = () => {
           Add Charges
         </Button>
       </div>
+      </div>
+      
     </>
   );
 };

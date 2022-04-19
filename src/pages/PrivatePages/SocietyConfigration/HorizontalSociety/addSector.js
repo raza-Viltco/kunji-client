@@ -75,7 +75,7 @@ const AddSector = ({
                     <InputError>{props?.errors?.building_code}</InputError>
                   )}
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 ">
                 <Input
                   placeholder="Sector Name"
                   name="building_name"
@@ -95,7 +95,7 @@ const AddSector = ({
                     <InputError>{props?.errors?.building_name}</InputError>
                   )}
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 mt-3">
                 <Input
                   placeholder="Number Of Streets"
                   name="floor_streets"
@@ -116,17 +116,20 @@ const AddSector = ({
                   )}
               </div>
             </div>
-            <div className="society_btn__wrapper">
+            <div className="row">
+            <div className="col-sm-9"></div>
+            <div className="col-sm-3">
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, borderRadius: 20 }}
                 isLoading={stateLoading}
                 size="small"
               >
                 Add Sector
               </Button>
+            </div>
             </div>
           </Form>
         )}

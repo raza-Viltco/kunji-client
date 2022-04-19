@@ -16,18 +16,24 @@ const TermsAndConditions = () => {
         id="terms"
         name="terms"
       ></TextArea>
-      <div className="society_btn__wrapper">
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-          // isLoading={stateLoading}
-          size="small"
-        >
-          Update
-        </Button>
+
+      <div className="row">
+        <div className="col-sm-9"></div>
+        <div className="col-sm-3">
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+            // isLoading={stateLoading}
+            size="small"
+          >
+            Update
+          </Button>
+        </div>
       </div>
+
+      <div className="society_btn__wrapper"></div>
     </Card>
   );
 };
