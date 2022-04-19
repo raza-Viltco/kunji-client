@@ -1,16 +1,15 @@
 import React from "react";
 import { Formik, Form } from "formik";
 
-import Card from "../../../components/Card";
-import Button from "../../../components/Button";
-import Input from "../../../components/Form/Input";
-import Dropdown from "../../../components/Form/Dropdown";
-import AssignOwnershipListing from "./assignOwnerShipListing";
-import assignOwnershipContainer from "../../../container/PropertyOwnership/PropertyOwnershipContainer";
-import InputError from "../../../components/Form/InputError";
-import "./assignOwnership.css";
+import Card from "../../../../components/Card";
+import Button from "../../../../components/Button";
+import Input from "../../../../components/Form/Input";
+import Dropdown from "../../../../components/Form/Dropdown";
+import AssignOwnerHorListing from "./assignOwnerHorList";
+import InputError from "../../../../components/Form/InputError";
+import assignOwnerHorContainer from "../../../../container/PropertyOwnership/PropertyOwnerHorContainer"
 
-const AssignOwnership = ({
+const AssignOwneHor = ({
   initialValues,
   validationSchema,
   handleAssignOwnership,
@@ -22,7 +21,7 @@ const AssignOwnership = ({
       <Formik initialValues={initialValues} validationSchema={validationSchema}>
         {(props) => (
           <Form>
-            <h3>Assign Ownership</h3>
+            <h3>Assign Ownership B</h3>
             <div className="row">
               <div className="col-md-6  mt-4">
                 <Dropdown
@@ -36,7 +35,7 @@ const AssignOwnership = ({
                       : "bootstyle"
                   }
                 >
-                  <option>Select Building</option>
+                  <option>Select Sector/Block</option>
                   {buildingArr?.map((item, index) => {
                     return (
                       <option value={item.id} key={index}>
@@ -45,8 +44,8 @@ const AssignOwnership = ({
                     );
                   })}
                 </Dropdown>
-                {props?.touched?.building && props?.errors?.building && (
-                  <InputError>{props?.errors?.building}</InputError>
+                {props?.touched?.sector_block_building && props?.errors?.sector_block_building && (
+                  <InputError>{props?.errors?.sector_block_building}</InputError>
                 )}
               </div>
               <div className="col-md-6  mt-4">
@@ -61,7 +60,7 @@ const AssignOwnership = ({
                       : "bootstyle"
                   }
                 >
-                  <option>Select Floor No</option>
+                  <option>Select Street</option>
                   {buildingArr?.map((item, index) => {
                     return (
                       <option value={item.id} key={index}>
@@ -87,7 +86,7 @@ const AssignOwnership = ({
                       : "bootstyle"
                   }
                 >
-                  <option>Select Appartment No</option>
+                  <option>Select House No</option>
                   {appartmentNo.map((item, index) => {
                     return (
                       <option value={item.id} key={index}>
@@ -197,8 +196,8 @@ const AssignOwnership = ({
           </Form>
         )}
       </Formik>
-      <AssignOwnershipListing />
+      <AssignOwnerHorListing />
     </Card>
   );
 };
-export default assignOwnershipContainer(AssignOwnership);
+export default assignOwnerHorContainer(AssignOwneHor);

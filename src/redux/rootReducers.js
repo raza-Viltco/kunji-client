@@ -15,6 +15,7 @@ import userDepartmentReducer from "./reducer/KunjiRole/UserCreation";
 import departmentListingReducer from "./reducer/Department/Kunji/department";
 import societyConfigReducer from "./reducer/SocietyConfiguation/SocietyConfig";
 import userApprovalReducer from "./reducer/KunjiRole/UserApproval";
+import assignOwnershipReducer from "./reducer/AssignOwnership/Vertical/assignOwnership";
 
 const reducers = (history) =>
   combineReducers({
@@ -32,6 +33,7 @@ const reducers = (history) =>
     userDepart: departmentListingReducer,
     societyConfig: societyConfigReducer,
     userApproval: userApprovalReducer,
+    assignOwnership: assignOwnershipReducer,
     router: connectRouter(history),
   });
 

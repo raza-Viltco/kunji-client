@@ -43,6 +43,9 @@ import Assets from "../Assets/Society";
 import SocietyListingView from "../Society/SocietyListingView";
 import ViewProperty from "../PropertyOwnserShip/viewProperty";
 import SocietyProfile from "../SocietyProfile";
+import PropertyOwnerHorizontal from "../PropertyOwnserShip/PropertyOwnerHorizontal";
+import ViewPropertyHor from "../PropertyOwnserShip/PropertyOwnerHorizontal/viewPropertyHor"
+import AssignOwneHor from "../PropertyOwnserShip/PropertyOwnerHorizontal/assignOwnerHor";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -128,7 +131,16 @@ const DashboardItems = () => {
           <SocietyListingView />
         ) : location.pathname === "/view_property" ? (
           <ViewProperty />
-        ) : (
+        ) 
+        : location.pathname === "/property_owner_hor" ? (
+          <PropertyOwnerHorizontal />
+        )
+        : location.pathname === "/view_property_hor" ? (
+          <ViewPropertyHor />
+        )
+        : location.pathname === "/assign_owner_hor" ? (
+          <AssignOwneHor />
+        ): (
           <Dashboard />
         )
         // : userData?.data?.roles[0].name === "Super Admin" ? (
