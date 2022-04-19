@@ -452,6 +452,25 @@ const Sidebar = ({
           </>
         )}
 
+           {/* ---------------------------property ownership- horizontal------------- */}
+           {userData?.data?.role.name === "Society Admin" && (
+          <>
+            <NavLink to="/property_owner_hor">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <MdDashboard size={25} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard">Property Ownership B</span>
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </>
+        )}
+
+
         {/* ----------assets---------- */}
 
         {userData?.data?.role.name === "Society Admin" && (

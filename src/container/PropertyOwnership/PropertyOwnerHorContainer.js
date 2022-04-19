@@ -8,7 +8,7 @@ import {
 } from "../../redux/actions/SocietyConfiguration/SocietyConfiguration";
 import { assignAppartmentData } from "../../redux/actions/AssignOwnership/Vertical/AssignOwnership";
 
-const assignOwnershipContainer = (AssignOwnership) => () => {
+const assignOwnerHorContainer = (AssignOwneHor) => () => {
   const dispatch = useDispatch();
   const buildingArr = useSelector((state) => state.societyConfig.verticalData);
   const floorArr = useSelector((state) => state.societyConfig.floorData);
@@ -41,9 +41,9 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
   };
 
   const validationSchema = Yup.object().shape({
-    sector_block_building: Yup.string().required("Building is required"),
-    floor_streets: Yup.string().required("Floor is required"),
-    plot_home_apartment: Yup.string().required("Appartment is required"),
+    sector_block_building: Yup.string().required("Sector/Block is required"),
+    floor_streets: Yup.string().required("Street is required"),
+    plot_home_apartment: Yup.string().required("House is required"),
     owner_name: Yup.string().required("Owner name is required"),
     cnic: Yup.string().required("Cnic is requires"),
     address: Yup.string().required("Adress is required"),
@@ -54,7 +54,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
   };
 
   return (
-    <AssignOwnership
+    <AssignOwneHor
       initialValues={initialValues}
       validationSchema={validationSchema}
       handleAssignOwnership={handleAssignOwnership}
@@ -63,4 +63,4 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     />
   );
 };
-export default assignOwnershipContainer;
+export default assignOwnerHorContainer;

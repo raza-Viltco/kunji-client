@@ -51,6 +51,9 @@ import Assets from "../pages/PrivatePages/Assets/Society";
 import SocietyListingView from "../pages/PrivatePages/Society/SocietyListingView";
 import ViewProperty from "../pages/PrivatePages/PropertyOwnserShip/viewProperty";
 import SocietyProfile from "../pages/PrivatePages/SocietyProfile";
+import PropertyOwnerHorizontal from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal";
+import ViewPropertyHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/viewPropertyHor"
+import AssignOwnerHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/assignOwnerHor"
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -220,6 +223,18 @@ const AppRouter = () => (
 
       <PrivateRoute path="/view_property">
         <ViewProperty />
+      </PrivateRoute>
+
+      <PrivateRoute path="/property_owner_hor">
+        <PropertyOwnerHorizontal/>
+      </PrivateRoute>
+      
+      <PrivateRoute path="/view_property_hor">
+        <ViewPropertyHor/>
+      </PrivateRoute>
+
+      <PrivateRoute path="/assign_owner_hor">
+        <AssignOwnerHor/>
       </PrivateRoute>
 
       <Redirect to="/login" exact />

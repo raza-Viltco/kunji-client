@@ -6,7 +6,7 @@ import userApprovalContainer from "../../../../../container/KunjiRole/UserApprov
 import { SettingsSystemDaydreamTwoTone } from "@mui/icons-material";
 
 const UserApprovalListing = ({ approval }) => {
-  // console.log(approval, "approval Data");
+  console.log(approval, "approval Data");
 
   const columns = [
     {
