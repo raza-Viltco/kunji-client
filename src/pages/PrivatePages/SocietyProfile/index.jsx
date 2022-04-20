@@ -7,10 +7,11 @@ import "./societyProfile.css";
 const SocietyProfile = () => {
   return (
     <Card>
-      <h3>Society Profile</h3>
+      <h4>Society Profile</h4>
       <div className="row">
         <div className="col-md-6  mt-4">
           <Input
+            className="bootstyle"
             margin="normal"
             fullWidth
             placeholder="Society Name"
@@ -21,6 +22,7 @@ const SocietyProfile = () => {
         </div>
         <div className="col-md-6  mt-4">
           <Input
+            className="bootstyle"
             margin="normal"
             fullWidth
             placeholder="Country"
@@ -31,6 +33,7 @@ const SocietyProfile = () => {
         </div>
         <div className="col-md-6  mt-4">
           <Input
+            className="bootstyle"
             margin="normal"
             fullWidth
             placeholder="City"
@@ -41,9 +44,21 @@ const SocietyProfile = () => {
         </div>
         <div className="col-md-6  mt-4">
           <Input
+            className="bootstyle"
             margin="normal"
             fullWidth
             placeholder="Zip Code"
+            name="zip_code"
+            id="zip_code"
+            type="text"
+          />
+        </div>
+        <div className="col-md-6  mt-4">
+          <Input
+            className="bootstyle"
+            margin="normal"
+            fullWidth
+            placeholder="Society type"
             name="zip_code"
             id="zip_code"
             type="text"

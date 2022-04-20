@@ -51,7 +51,7 @@ const DefineBuilding = ({
   ];
   return (
     <Card>
-      <h3>Define Building</h3>
+      <h4>Define Building</h4>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

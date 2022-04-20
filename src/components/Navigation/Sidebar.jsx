@@ -401,7 +401,7 @@ const Sidebar = ({
                 <i class="fas fa-gopuram" id="iconstyle"></i>
               </ListItemIcon>
               <ListItemText>
-                <span className="font-dashboard">Society Configuration B</span>
+                <span className="font-dashboard">Society Configuration </span>
               </ListItemText>
               {openVerticalConfig ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>

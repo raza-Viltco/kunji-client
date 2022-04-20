@@ -2,3 +2,8 @@
     text-align: center;
     padding-top: 20px;
 }
+
+.MuiDataGrid-columnHeaderTitle
+{
+    font-weight: bold !important;
+}

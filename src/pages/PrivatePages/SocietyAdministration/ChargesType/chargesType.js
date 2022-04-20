@@ -10,13 +10,13 @@ const ChargesTypeForm = () => {
       <h3>Society Charges</h3>
       <div className="row">
         <div className="col-md-6">
-          <Input className="bootstyle" label="Charges Code" margin="normal"  />
+          <Input className="bootstyle" label="Charges Code" margin="normal" placeholder="Charges Code"  />
         </div>
         <div className="col-md-6">
-          <Input className="bootstyle" label="Charges Title" margin="normal" />
+          <Input className="bootstyle" label="Charges Title" margin="normal" placeholder="Charges Title" />
         </div>
         <div className="col-md-6 mt-3">
-          <Input className="bootstyle" label="Charges" margin="normal" />
+          <Input className="bootstyle" label="Charges" margin="normal" placeholder="Charges" />
         </div>
       </div>
 
@@ -27,7 +27,7 @@ const ChargesTypeForm = () => {
           type="submit"
           fullWidth
           variant="contained"
-          sx={{ mt: 3, mb: 2 }}
+          sx={{ mt: 3, mb: 2, borderRadius: 20 }}
           // isLoading={stateLoading}
           size="small"
         >

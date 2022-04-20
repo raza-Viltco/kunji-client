@@ -1,6 +1,20 @@
 /* sidebar icon spacing  */
 
+.MuiListItemButton-gutters:focus
 
+{
+  background-color: #abb8b7;
+  color: black;
+  border-radius: 10px;
+ 
+}
+.MuiListItemButton-gutters:hover
+{
+  background-color: #abb8b7 !important;
+  color: black;
+  border-radius: 10px;
+  transition: 0.9s;
+}
 .sidebar-anchor-outer a {
   text-decoration: none;
   color: black;
@@ -30,12 +44,21 @@
 }
 
 .font-dashboard{
-  font-size: 70%;
+  font-size: 85%;
 }
 
 #iconstyle{
   font-size: 120% !important;
   color: #2f5351;
+}
+/* :hover{
+  font-size: 120% !important;
+  color: white;
+} */
+
+.MuiPaper-elevation::-webkit-scrollbar
+{
+  display: none !important;
 }
 
 /* ----css for dropdown optiions- */
