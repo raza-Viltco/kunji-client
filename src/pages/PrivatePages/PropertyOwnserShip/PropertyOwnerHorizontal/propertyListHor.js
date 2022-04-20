@@ -61,7 +61,7 @@ const PropertyListHor = () => {
     <Card>
       <div className="property-outer-flex">
         <div>
-          <h3>Property Ownership B</h3>
+          <h4>Property Ownership B</h4>
         </div>
 
         <div className="society_btn__wrapper">

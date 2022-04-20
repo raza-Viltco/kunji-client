@@ -4,12 +4,26 @@ import Table from "../../../../components/Table";
 
 const AssetListing = () => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 130 },
     { field: "code", headerName: "Code", width: 160 },
-    { field: "name", headerName: "Name", width: 70 },
-    { field: "status", headerName: "Status", width: 70 },
+    { field: "name", headerName: "Name", width: 130 },
+    { field: "status", headerName: "Status", width: 130 },
     { field: "location", headerName: "Location", width: 160 },
-    { field: "action", headerName: "Action", width: 200 },
+ 
+    {
+      field: "actions",
+      type: "actions",
+      headerName: "Action",
+      width: 200,
+      getActions: (params) => [
+        <div >
+          <button className="btn btn-success btn-sm "> Active </button> 
+          &nbsp;
+          <button className="btn btn-danger btn-sm "> InActive </button>
+
+        </div>,
+      ],
+    },
   ];
 
   const rows = [
