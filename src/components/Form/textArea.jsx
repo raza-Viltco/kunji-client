@@ -13,6 +13,8 @@ const TextArea = ({ id, name, rows, placeholder, onBlur, onChange, value }) => {
         name={name}
         onBlur={onBlur}
         value={value}
+        style={{borderRadius:"20px"}}
+        
       />
     </Form.Group>
   );

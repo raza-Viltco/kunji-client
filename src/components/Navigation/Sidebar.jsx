@@ -437,6 +437,7 @@ const Sidebar = ({
               </Collapse>
             </>
           )}
+
         {/* ---------------------------property ownership-------------- */}
         {userData?.data?.role.name === "Society Admin" && (
           <>

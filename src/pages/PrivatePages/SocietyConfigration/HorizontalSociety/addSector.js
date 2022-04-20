@@ -46,7 +46,7 @@ const AddSector = ({
   ];
   return (
     <Card>
-      <h3> Add Sector/Block No:</h3>
+      <h3> Add Sector/Block No</h3>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -136,7 +136,7 @@ const AddSector = ({
       </Formik>
 
       <div>
-        <h3 className="sector-list-heading">Add Sector/ Block Listing</h3>
+        <h4 className="sector-list-heading">Add Sector/ Block Listing</h4>
         <div
           style={{
             height: 420,
@@ -146,6 +146,7 @@ const AddSector = ({
           }}
         >
           <DataGrid
+          headerName={'bold'}
             rows={rows}
             columns={columns}
             pageSize={10}

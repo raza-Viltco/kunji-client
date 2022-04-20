@@ -1,6 +1,7 @@
 import React from "react";
 
 import Dropdown from "../../../../components/Form/Dropdown";
+import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
 import "./generateBill.css";
 
@@ -10,11 +11,15 @@ const GenerateBillForm = () => {
       <h3>Generate Society Bill</h3>
       <div className="row">
         <div className="col-md-6">
-          <Dropdown inputLabel="Select Resident "  className="bootstyle" name="resident"></Dropdown>
+          <Dropdown inputLabel="Select Resident "  className="bootstyle" name="resident" ></Dropdown>
         </div>
         <div className="col-md-6">
           <Dropdown inputLabel="Select Charges "  className="bootstyle" name="charges"></Dropdown>
         </div>
+        <div className="col-md-6 mt-3">
+          <Input className="bootstyle" label="Charges" margin="normal" placeholder="Charges" type="date" />
+        </div>
+     
       </div>
 
       <div className="row">
