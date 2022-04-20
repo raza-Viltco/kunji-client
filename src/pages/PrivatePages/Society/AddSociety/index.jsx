@@ -35,7 +35,6 @@ const AddSociety = ({
         {(props) => (
           <Form>
             {/* {console.log(props)} */}
-            {/* {console.log(props)} */}
             <h4 className="text-center m-0">Add Society</h4>
             <div className="row">
               <div className="col-md-6  mt-4">

@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/manage/static/css/main.9294f9b5.css",
-    "main.js": "/manage/static/js/main.21788e8f.js",
+    "main.js": "/manage/static/js/main.3f0c50f0.js",
     "static/media/auth-bg.jpg": "/manage/static/media/auth-bg.7e63c0ca10556be4ab71.jpg",
     "static/media/Society_cover.jpg": "/manage/static/media/Society_cover.c60ba627f482ee743b87.jpg",
     "static/media/logo.png": "/manage/static/media/logo.11d59fd50a88eda7aa76.png",
     "index.html": "/manage/index.html",
     "main.9294f9b5.css.map": "/manage/static/css/main.9294f9b5.css.map",
-    "main.21788e8f.js.map": "/manage/static/js/main.21788e8f.js.map"
+    "main.3f0c50f0.js.map": "/manage/static/js/main.3f0c50f0.js.map"
   },
   "entrypoints": [
     "static/css/main.9294f9b5.css",
-    "static/js/main.21788e8f.js"
+    "static/js/main.3f0c50f0.js"
   ]
 }
