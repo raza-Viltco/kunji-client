@@ -29,7 +29,7 @@ import {
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { BiBuildingHouse, BiLogOut, BiLogIn } from "react-icons/bi";
-import {BsBuilding} from "react-icons/bs"; 
+import { BsBuilding } from "react-icons/bs";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { logout } from "../../redux/actions/Auth/user";
 import "./sidebar.css";
@@ -272,8 +272,8 @@ const Sidebar = ({
                 <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText>
-              <span className="font-dashboard">User Management</span>
-                    </ListItemText>
+                <span className="font-dashboard">User Management</span>
+              </ListItemText>
               {openUserManagement ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={openUserManagement} timeout="auto" unmountOnExit>
@@ -284,7 +284,7 @@ const Sidebar = ({
                       <AiOutlineUserAdd size={23} />
                     </ListItemIcon>
                     <ListItemText>
-                    <span className="font-dashboard">Role</span>
+                      <span className="font-dashboard">Role</span>
                     </ListItemText>
                   </ListItemButton>
                 </NavLink>
@@ -295,8 +295,8 @@ const Sidebar = ({
                     <ListItemIcon>
                       <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
-                    <ListItemText >
-                    <span className="font-dashboard">User Creation</span>
+                    <ListItemText>
+                      <span className="font-dashboard">User Creation</span>
                     </ListItemText>
                   </ListItemButton>
                 </NavLink>
@@ -308,7 +308,7 @@ const Sidebar = ({
                       <MdOutlineFormatListBulleted size={20} />
                     </ListItemIcon>
                     <ListItemText>
-                    <span className="font-dashboard">User Approvals</span>
+                      <span className="font-dashboard">User Approvals</span>
                     </ListItemText>
                   </ListItemButton>
                 </NavLink>
@@ -336,35 +336,39 @@ const Sidebar = ({
           </>
         )}
 
-        {userData?.data?.role.name === "Society Admin" && (
-          <>
-            <ListItemButton onClick={openSocietyConfigHandler}>
-              <ListItemIcon>
-               
-                <i class="fas fa-building"  id="iconstyle"></i>
-              </ListItemIcon>
-              <ListItemText> 
-                <span className="font-dashboard"> Society Configuration </span>
-                </ListItemText> 
-              {/* className="font-dashboard" */}
-              {openSocietyConfi ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={openSocietyConfi} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/add_sector">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <AiOutlineUserAdd size={23} />
-                    </ListItemIcon>
-                    <ListItemText >
-                    <span className="font-dashboard">  Add Sector/ Block No </span>
-                   
+        {userData?.data?.role.name === "Society Admin" &&
+          userData?.data?.society?.society_type === 1 && (
+            <>
+              <ListItemButton onClick={openSocietyConfigHandler}>
+                <ListItemIcon>
+                  <i class="fas fa-building" id="iconstyle"></i>
+                </ListItemIcon>
+                <ListItemText>
+                  <span className="font-dashboard">
+                    {" "}
+                    Society Configuration{" "}
+                  </span>
+                </ListItemText>
+                {/* className="font-dashboard" */}
+                {openSocietyConfi ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Collapse in={openSocietyConfi} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <NavLink to="/add_sector">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <AiOutlineUserAdd size={23} />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">
+                          {" "}
+                          Add Sector/ Block No{" "}
+                        </span>
                       </ListItemText>
-                    
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              {/* <List component="div" disablePadding>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+                {/* <List component="div" disablePadding>
                 <NavLink to="/add_street">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
@@ -374,66 +378,66 @@ const Sidebar = ({
                   </ListItemButton>
                 </NavLink>
               </List> */}
-              <List component="div" disablePadding>
-                <NavLink to="/add_plots">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                     
-                      <i class="fas fa-layer-group" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText >
-                    <span className="font-dashboard"> Plots </span>
-                   
-                   </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          </>
-        )}
+                <List component="div" disablePadding>
+                  <NavLink to="/add_plots">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fas fa-layer-group" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard"> Plots </span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              </Collapse>
+            </>
+          )}
         {/* ------vertical-society------- */}
 
-        {userData?.data?.role.name === "Society Admin" && (
-          <>
-            <ListItemButton onClick={OpenVerticalConfigHandler}>
-              <ListItemIcon>
-              
-                <i class="fas fa-gopuram" id="iconstyle"></i>
-              </ListItemIcon>
-              <ListItemText>
-                <span className="font-dashboard">Society Configuration </span>
-              </ListItemText>
-              {openVerticalConfig ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={openVerticalConfig} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/define_building">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                       <i class="fas fa-building" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard"> Building</span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              <List component="div" disablePadding>
-                <NavLink to="/add_apartment">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                   
-                      <i class="fal fa-building" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">Apartment</span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          </>
-        )}
+        {userData?.data?.role.name === "Society Admin" &&
+          userData?.data?.society?.society_type === 0 && (
+            <>
+              <ListItemButton onClick={OpenVerticalConfigHandler}>
+                <ListItemIcon>
+                  <i class="fas fa-gopuram" id="iconstyle"></i>
+                </ListItemIcon>
+                <ListItemText>
+                  <span className="font-dashboard">
+                    Society Configuration
+                  </span>
+                </ListItemText>
+                {openVerticalConfig ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Collapse in={openVerticalConfig} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <NavLink to="/define_building">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fas fa-building" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard"> Building</span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+                <List component="div" disablePadding>
+                  <NavLink to="/add_apartment">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fal fa-building" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">Apartment</span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              </Collapse>
+            </>
+          )}
+
         {/* ---------------------------property ownership-------------- */}
         {userData?.data?.role.name === "Society Admin" && (
           <>
@@ -452,8 +456,8 @@ const Sidebar = ({
           </>
         )}
 
-           {/* ---------------------------property ownership- horizontal------------- */}
-           {userData?.data?.role.name === "Society Admin" && (
+        {/* ---------------------------property ownership- horizontal------------- */}
+        {userData?.data?.role.name === "Society Admin" && (
           <>
             <NavLink to="/property_owner_hor">
               <ListItem disablePadding>
@@ -470,7 +474,6 @@ const Sidebar = ({
           </>
         )}
 
-
         {/* ----------assets---------- */}
 
         {userData?.data?.role.name === "Society Admin" && (
@@ -479,7 +482,6 @@ const Sidebar = ({
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-
                     <i class="fad fa-ball-pile" id="iconstyle"></i>
                   </ListItemIcon>
                   <ListItemText>
@@ -496,14 +498,11 @@ const Sidebar = ({
           <>
             <ListItemButton onClick={OpenSocietyAdminHandler}>
               <ListItemIcon>
-                
                 <i class="fas fa-user-shield" id="iconstyle"></i>
               </ListItemIcon>
               <ListItemText>
-                <span className="font-dashboard" >
-                Society Administration
-                </span>
-                </ListItemText>
+                <span className="font-dashboard">Society Administration</span>
+              </ListItemText>
               {/* className="font-dashboard" */}
               {openSocietyAdmin ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
@@ -512,13 +511,11 @@ const Sidebar = ({
                 <NavLink to="/society_charges_type">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-            
                       <i class="fas fa-file-invoice-dollar" id="iconstyle"></i>
                     </ListItemIcon>
-                    <ListItemText >
-                    <span className="font-dashboard"> Charges Type </span>
-                   
-                   </ListItemText>
+                    <ListItemText>
+                      <span className="font-dashboard"> Charges Type </span>
+                    </ListItemText>
                   </ListItemButton>
                 </NavLink>
               </List>
@@ -526,13 +523,11 @@ const Sidebar = ({
                 <NavLink to="/society_generate_bill">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                    
                       <i class="fal fa-file-invoice-dollar" id="iconstyle"></i>
                     </ListItemIcon>
                     <ListItemText>
-                    <span className="font-dashboard"> Generate Bill </span>
-                   
-                   </ListItemText>
+                      <span className="font-dashboard"> Generate Bill </span>
+                    </ListItemText>
                   </ListItemButton>
                 </NavLink>
               </List>
@@ -540,13 +535,11 @@ const Sidebar = ({
                 <NavLink to="/view_bill">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      
                       <i class="fal fa-file-invoice" id="iconstyle"></i>
                     </ListItemIcon>
                     <ListItemText>
-                    <span className="font-dashboard">View  Bill </span>
-                   
-                   </ListItemText>
+                      <span className="font-dashboard">View Bill </span>
+                    </ListItemText>
                   </ListItemButton>
                 </NavLink>
               </List>
@@ -802,12 +795,11 @@ const Sidebar = ({
             <>
               <ListItemButton onClick={OpenSecurityHandler}>
                 <ListItemIcon>
-             
-                  <i class="far fa-shield-alt"  id="iconstyle"></i>
+                  <i class="far fa-shield-alt" id="iconstyle"></i>
                 </ListItemIcon>
                 <ListItemText>
-                  <span className="font-dashboard" >Security Management</span>
-                  </ListItemText>
+                  <span className="font-dashboard">Security Management</span>
+                </ListItemText>
                 {/* className="font-dashboard"  */}
                 {openSecurity ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
@@ -816,13 +808,11 @@ const Sidebar = ({
                   <NavLink to="/society_visitor_list">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                  
                         <i class="far fa-list" id="iconstyle"></i>
                       </ListItemIcon>
-                      <ListItemText >
-                      <span className="font-dashboard"> Visitor List </span>
-                   
-                   </ListItemText>
+                      <ListItemText>
+                        <span className="font-dashboard"> Visitor List </span>
+                      </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -830,13 +820,14 @@ const Sidebar = ({
                   <NavLink to="/servant_visitor_list">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-             
                         <i class="fas fa-thumbs-up" id="iconstyle"></i>
                       </ListItemIcon>
-                      <ListItemText >
-                      <span className="font-dashboard"> Servant Approval </span>
-                   
-                   </ListItemText>
+                      <ListItemText>
+                        <span className="font-dashboard">
+                          {" "}
+                          Servant Approval{" "}
+                        </span>
+                      </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -845,13 +836,14 @@ const Sidebar = ({
                   <NavLink to="/gate_pass_approval">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                       
                         <i class="fas fa-id-card" id="iconstyle"></i>
                       </ListItemIcon>
-                      <ListItemText >
-                      <span className="font-dashboard"> Gate Pass Approval </span>
-                   
-                   </ListItemText>
+                      <ListItemText>
+                        <span className="font-dashboard">
+                          {" "}
+                          Gate Pass Approval{" "}
+                        </span>
+                      </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -860,13 +852,14 @@ const Sidebar = ({
                   <NavLink to="/society_delivery_booking">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        
                         <i class="fas fa-truck" id="iconstyle"></i>
                       </ListItemIcon>
                       <ListItemText>
-                      <span className="font-dashboard"> Delivery Booking </span>
-                   
-                   </ListItemText>
+                        <span className="font-dashboard">
+                          {" "}
+                          Delivery Booking{" "}
+                        </span>
+                      </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -874,13 +867,11 @@ const Sidebar = ({
                   <NavLink to="/society_panic_alert">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                      
                         <i class="fas fa-cash-register" id="iconstyle"></i>
                       </ListItemIcon>
-                      <ListItemText >
-                      <span className="font-dashboard"> Panic Alert </span>
-                   
-                   </ListItemText>
+                      <ListItemText>
+                        <span className="font-dashboard"> Panic Alert </span>
+                      </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -889,13 +880,11 @@ const Sidebar = ({
                   <NavLink to="/complaints">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                     
                         <i class="fas fa-user-headset" id="iconstyle"></i>
                       </ListItemIcon>
-                      <ListItemText >
-                      <span className="font-dashboard"> Complaints </span>
-                   
-                   </ListItemText>
+                      <ListItemText>
+                        <span className="font-dashboard"> Complaints </span>
+                      </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
@@ -908,12 +897,11 @@ const Sidebar = ({
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-               
                   <i class="fas fa-atlas" id="iconstyle"></i>
                 </ListItemIcon>
-                <ListItemText >
-                  <span className="font-dashboard"  >Department</span>
-                  </ListItemText>
+                <ListItemText>
+                  <span className="font-dashboard">Department</span>
+                </ListItemText>
                 {/* className="font-dashboard"  */}
               </ListItemButton>
             </ListItem>
@@ -926,12 +914,11 @@ const Sidebar = ({
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                     
                       <i class="fas fa-newspaper" id="iconstyle"></i>
                     </ListItemIcon>
-                    <ListItemText >
-                    <span className="font-dashboard">Notices</span>
-                      </ListItemText>
+                    <ListItemText>
+                      <span className="font-dashboard">Notices</span>
+                    </ListItemText>
                     {/* className="font-dashboard"   */}
                   </ListItemButton>
                 </ListItem>
@@ -944,8 +931,6 @@ const Sidebar = ({
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-               
-                 
                   <i class="fas fa-exclamation-circle" id="iconstyle"></i>
                 </ListItemIcon>
                 <ListItemText>
