@@ -7,7 +7,7 @@ const ViewPropertyHor = () => {
   return (
     <Card>
       <div className="view-property-card">
-        <h4>Home Details</h4>
+        <h4>House Details</h4>
         <div className="col-md-6 view-property-flex">
           <div className="head-property">
             <p>Location</p>

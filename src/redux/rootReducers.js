@@ -16,6 +16,7 @@ import departmentListingReducer from "./reducer/Department/Kunji/department";
 import societyConfigReducer from "./reducer/SocietyConfiguation/SocietyConfig";
 import userApprovalReducer from "./reducer/KunjiRole/UserApproval";
 import assignOwnershipReducer from "./reducer/AssignOwnership/Vertical/assignOwnership";
+import societyProfileReducer from "./reducer/Society/SocietyProfile";
 
 const reducers = (history) =>
   combineReducers({
@@ -25,6 +26,7 @@ const reducers = (history) =>
     password: passwordReducer,
     addSociety: addSocietyReducer,
     societyListing: societyListReducer,
+    societyProfile: societyProfileReducer,
     profile: profileReducer,
     asset: addAssetReducer,
     facility: addFacilityReducer,

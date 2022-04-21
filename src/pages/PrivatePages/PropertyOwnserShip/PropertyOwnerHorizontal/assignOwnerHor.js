@@ -21,7 +21,7 @@ const AssignOwneHor = ({
       <Formik initialValues={initialValues} validationSchema={validationSchema}>
         {(props) => (
           <Form>
-            <h3>Assign Ownership B</h3>
+            <h3>Assign Ownership</h3>
             <div className="row">
               <div className="col-md-6  mt-4">
                 <Dropdown

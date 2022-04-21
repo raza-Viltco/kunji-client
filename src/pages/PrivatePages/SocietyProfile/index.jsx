@@ -1,71 +1,48 @@
 import React from "react";
 
 import Card from "../../../components/Card";
-import Input from "../../../components/Form/Input";
+import societyProfileContainer from "../../../container/Society/SocietyProfileContainer";
 import "./societyProfile.css";
 
-const SocietyProfile = () => {
+const SocietyProfile = ({ profileData }) => {
   return (
     <Card>
       <h4>Society Profile</h4>
       <div className="row">
         <div className="col-md-6  mt-4">
-          <Input
-            className="bootstyle"
-            margin="normal"
-            fullWidth
-            placeholder="Society Name"
-            name="society_name"
-            id="society_name"
-            type="text"
-          />
+          <label>
+            <h5>Society Name</h5>
+          </label>
+          <p className="text-color">{profileData.name}</p>
         </div>
         <div className="col-md-6  mt-4">
-          <Input
-            className="bootstyle"
-            margin="normal"
-            fullWidth
-            placeholder="Country"
-            name="country"
-            id="country"
-            type="text"
-          />
+          <label>
+            <h5>Country</h5>
+          </label>
+          <p className="text-color">{profileData.country_id}</p>
         </div>
         <div className="col-md-6  mt-4">
-          <Input
-            className="bootstyle"
-            margin="normal"
-            fullWidth
-            placeholder="City"
-            name="city"
-            id="city"
-            type="text"
-          />
+          <label>
+            <h5>City</h5>
+          </label>
+          <p className="text-color">{profileData.city_id}</p>
         </div>
         <div className="col-md-6  mt-4">
-          <Input
-            className="bootstyle"
-            margin="normal"
-            fullWidth
-            placeholder="Zip Code"
-            name="zip_code"
-            id="zip_code"
-            type="text"
-          />
+          <label>
+            <h5>Zip Code</h5>
+          </label>
+          <p className="text-color">{profileData.zip_code}</p>
         </div>
         <div className="col-md-6  mt-4">
-          <Input
-            className="bootstyle"
-            margin="normal"
-            fullWidth
-            placeholder="Society type"
-            name="zip_code"
-            id="zip_code"
-            type="text"
-          />
+          <label>
+            <h5>Society Type</h5>
+          </label>
+          <p className="text-color">
+            {profileData.society_type === 1 ? "Horizontal" : "Vertical"}
+          </p>
         </div>
       </div>
     </Card>
   );
 };
-export default SocietyProfile;
+export default societyProfileContainer(SocietyProfile);
