@@ -3,26 +3,19 @@ import { React, useEffect } from "react";
 import Table from "../../../../../components/Table";
 import Button from "../../../../../components/Button";
 import userApprovalContainer from "../../../../../container/KunjiRole/UserApprovalContainer";
-import { SettingsSystemDaydreamTwoTone } from "@mui/icons-material";
 
 const UserApprovalListing = ({
   approval,
   userApprovalHandler,
   userRejectionHandler,
 }) => {
-  console.log(approval, "approval Data");
-
-  const userData = (params) => {
-    console.log(params);
-  };
-
   const columns = [
     {
       field: "id",
       headerName: "ID",
       width: 70,
     },
-    // { field: "role", headerName: "Role", width: 160 },
+
     {
       field: "first_name",
       headerName: "First Name",
@@ -39,8 +32,7 @@ const UserApprovalListing = ({
       field: "dob",
       headerName: " Date of Birth",
       valueGetter: (params) => params.row.user?.dob,
-      // const date = new Date(resp.shipment.receivingDate);
-      // resp.shipment.receivingDate = date;
+
       width: 160,
     },
     {
@@ -60,33 +52,46 @@ const UserApprovalListing = ({
     { field: "mapping_level_three_name", headerName: "Appartment", width: 160 },
 
     {
+      field: "status",
+      headerName: "Status",
+      width: 160,
+      valueGetter: (params) =>
+        params.row?.approved_status === 1
+          ? "Accepted"
+          : params.row?.approved_status === 0
+          ? "Pending"
+          : "Rejected",
+    },
+    {
       field: "actions",
       type: "actions",
       headerName: "Action",
       width: 200,
       getActions: (params) => [
         <div>
-          {params.row.approved_status === 0 && (
+          {(params.row.approved_status === 0 ||
+            params.row.approved_status === 2) && (
             <button
+              className="btn btn-success btn-sm "
               onClick={() =>
                 userApprovalHandler(params.row.id, params.row.approved_status)
               }
-
-              // onClick={()=> userData(params)}
             >
               Accept
             </button>
           )}
           &nbsp;
-          {/* {params.row?.approved_status === 0 && ( */}
-          <button
-            onClick={() =>
-              userRejectionHandler(params.row.id, params.row.approved_status)
-            }
-          >
-            Reject
-          </button>
-           {/* )} */}
+          {(params.row?.approved_status === 0 ||
+            params.row?.approved_status === 1) && (
+            <button
+              className="btn btn-danger btn-sm "
+              onClick={() =>
+                userRejectionHandler(params.row.id, params.row.approved_status)
+              }
+            >
+              Reject
+            </button>
+          )}
         </div>,
       ],
     },
