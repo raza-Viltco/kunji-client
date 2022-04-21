@@ -52,7 +52,11 @@ import {
   handleDepartmentListing,
   handleDepartmentStatus,
 } from "./handlers/Department/Kunji/department";
-import { handleApprovalListing } from "./handlers/KunjiRole/UserApproval";
+import {
+  handleApprovalListing,
+  handlerUserApproval,
+  handleUserApproval,
+} from "./handlers/KunjiRole/UserApproval";
 import { handleAssignDepartmentData } from "./handlers/AssignOwnership/Vertical/assignOwnership";
 
 export function* watcherSaga() {
@@ -94,4 +98,5 @@ export function* watcherSaga() {
     actionTypes.ASSIGN_APPARTMENT_DATA,
     handleAssignDepartmentData
   );
+  yield takeLatest(actionTypes.USER_APPROVAL, handleUserApproval);
 }

@@ -1,7 +1,10 @@
-import {React,useEffect } from "react";
+import { React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { approvalListing } from "../../redux/actions/KunjiRole/UserApproval";
+import {
+  approvalListing,
+  userApproval,
+} from "../../redux/actions/KunjiRole/UserApproval";
 
 const userApprovalContainer = (UserApprovalListing) => () => {
   const dispatch = useDispatch();
@@ -14,8 +17,28 @@ const userApprovalContainer = (UserApprovalListing) => () => {
   // const approvalData = approval[0]?.user;
   console.log("userApprvalListing", approval);
 
-  return( <UserApprovalListing
-    approval={approval}
+  const userApprovalHandler = (aprId, status) => {
+    // console.log(aprId, status, "data");
+    if (status === 0) {
+      dispatch(userApproval({ aprId, status: 1 }));
+    }
+  };
+  const userRejectionHandler = (aprId, status) => {
+    console.log(aprId, status, "data");
+    if (status === 0 || 1) {
+      dispatch(userApproval({ aprId, status: 2 }));
+    }
+  };
+
+  useEffect(() => {
+    dispatch(approvalListing());
+  }, []);
+
+  return (
+    <UserApprovalListing
+      approval={approval}
+      userApprovalHandler={userApprovalHandler}
+      userRejectionHandler={userRejectionHandler}
     />
   );
 };

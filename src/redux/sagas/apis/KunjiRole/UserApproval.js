@@ -9,3 +9,13 @@ export const approvalListingApi = async () => {
     url: "society/app-user-list",
   });
 };
+
+export const userApprovalApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "POST",
+    url: "society/approve-app-user",
+    data,
+  });
+};
