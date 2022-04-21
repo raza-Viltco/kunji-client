@@ -52,8 +52,10 @@ import SocietyListingView from "../pages/PrivatePages/Society/SocietyListingView
 import ViewProperty from "../pages/PrivatePages/PropertyOwnserShip/viewProperty";
 import SocietyProfile from "../pages/PrivatePages/SocietyProfile";
 import PropertyOwnerHorizontal from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal";
-import ViewPropertyHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/viewPropertyHor"
-import AssignOwnerHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/assignOwnerHor"
+import ViewPropertyHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/viewPropertyHor";
+import AssignOwnerHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/assignOwnerHor";
+import ViewRole from "../pages/PrivatePages/UserManagement/Kunji/ViewRole";
+import RoleDetail from "../pages/PrivatePages/UserManagement/Kunji/RoleDetail";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -135,6 +137,14 @@ const AppRouter = () => (
 
       <PrivateRoute path="/kunji_Role">
         <KunjiRole />
+      </PrivateRoute>
+
+      <PrivateRoute path="/View_Role">
+        <ViewRole />
+      </PrivateRoute>
+
+      <PrivateRoute path="/Role_Detail">
+        <RoleDetail />
       </PrivateRoute>
 
       <PrivateRoute path="/user_kunji_creation">
@@ -226,15 +236,15 @@ const AppRouter = () => (
       </PrivateRoute>
 
       <PrivateRoute path="/property_owner_hor">
-        <PropertyOwnerHorizontal/>
+        <PropertyOwnerHorizontal />
       </PrivateRoute>
-      
+
       <PrivateRoute path="/view_property_hor">
-        <ViewPropertyHor/>
+        <ViewPropertyHor />
       </PrivateRoute>
 
       <PrivateRoute path="/assign_owner_hor">
-        <AssignOwnerHor/>
+        <AssignOwnerHor />
       </PrivateRoute>
 
       <Redirect to="/login" exact />
