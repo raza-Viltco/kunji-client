@@ -46,6 +46,7 @@ import SocietyProfile from "../SocietyProfile";
 import PropertyOwnerHorizontal from "../PropertyOwnserShip/PropertyOwnerHorizontal";
 import ViewPropertyHor from "../PropertyOwnserShip/PropertyOwnerHorizontal/viewPropertyHor";
 import AssignOwneHor from "../PropertyOwnserShip/PropertyOwnerHorizontal/assignOwnerHor";
+import ViewRole from "../UserManagement/Kunji/ViewRole";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -136,6 +137,8 @@ const DashboardItems = () => {
         <ViewPropertyHor />
       ) : location.pathname === "/assign_owner_hor" ? (
         <AssignOwneHor />
+      ) : location.pathname === "/View_Role" ? (
+        <ViewRole />
       ) : userData?.data?.role.name === "kunji admin" ? (
         <Dashboard />
       ) : userData?.data?.role.name === "Society Admin" ? (

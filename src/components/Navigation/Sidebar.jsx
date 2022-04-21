@@ -290,6 +290,18 @@ const Sidebar = ({
                 </NavLink>
               </List>
               <List component="div" disablePadding>
+                <NavLink to="/View_Role">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <AiOutlineUserAdd size={23} />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">View Roles</span>
+                    </ListItemText>
+                  </ListItemButton>
+                </NavLink>
+              </List>
+              <List component="div" disablePadding>
                 <NavLink to="/user_kunji_creation">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
@@ -403,9 +415,7 @@ const Sidebar = ({
                   <i class="fas fa-gopuram" id="iconstyle"></i>
                 </ListItemIcon>
                 <ListItemText>
-                  <span className="font-dashboard">
-                    Society Configuration
-                  </span>
+                  <span className="font-dashboard">Society Configuration</span>
                 </ListItemText>
                 {openVerticalConfig ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
@@ -439,40 +449,42 @@ const Sidebar = ({
           )}
 
         {/* ---------------------------property ownership-------------- */}
-        {userData?.data?.role.name === "Society Admin" && (
-          <>
-            <NavLink to="/property_ownership">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <MdDashboard size={20} />
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">Property Ownership</span>
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
-          </>
-        )}
+        {userData?.data?.role.name === "Society Admin" &&
+          userData?.data?.society?.society_type === 0 && (
+            <>
+              <NavLink to="/property_ownership">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MdDashboard size={20} />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">Property Ownership</span>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            </>
+          )}
 
         {/* ---------------------------property ownership- horizontal------------- */}
-        {userData?.data?.role.name === "Society Admin" && (
-          <>
-            <NavLink to="/property_owner_hor">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <MdDashboard size={25} />
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">Property Ownership B</span>
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
-          </>
-        )}
+        {userData?.data?.role.name === "Society Admin" &&
+          userData?.data?.society?.society_type === 1 && (
+            <>
+              <NavLink to="/property_owner_hor">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MdDashboard size={25} />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">Property Ownership</span>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            </>
+          )}
 
         {/* ----------assets---------- */}
 
