@@ -5,8 +5,16 @@ import Button from "../../../../../components/Button";
 import userApprovalContainer from "../../../../../container/KunjiRole/UserApprovalContainer";
 import { SettingsSystemDaydreamTwoTone } from "@mui/icons-material";
 
-const UserApprovalListing = ({ approval }) => {
+const UserApprovalListing = ({
+  approval,
+  userApprovalHandler,
+  userRejectionHandler,
+}) => {
   console.log(approval, "approval Data");
+
+  const userData = (params) => {
+    console.log(params);
+  };
 
   const columns = [
     {
@@ -19,66 +27,100 @@ const UserApprovalListing = ({ approval }) => {
       field: "first_name",
       headerName: "First Name",
       width: 160,
-      valueGetter: (params) => params.row.user.first_name,
+      valueGetter: (params) => params.row.user?.first_name,
     },
     {
       field: "last_name",
       headerName: "Last Name",
-      valueGetter: (params) => params.row.user.last_name,
+      valueGetter: (params) => params.row.user?.last_name,
       width: 160,
     },
     {
       field: "dob",
       headerName: " Date of Birth",
-      valueGetter: (params) => params.row.user.dob,
+      valueGetter: (params) => params.row.user?.dob,
+      // const date = new Date(resp.shipment.receivingDate);
+      // resp.shipment.receivingDate = date;
       width: 160,
     },
     {
       field: "cnic",
       headerName: " CNIC",
-      valueGetter: (params) => params.row.user.cnic,
+      valueGetter: (params) => params.row.user?.cnic,
       width: 160,
     },
     {
       field: "mobile",
       headerName: "Mobile No",
       width: 160,
-      valueGetter: (params) => params.row.user.mobile,
+      valueGetter: (params) => params.row.user?.mobile,
     },
     { field: "mapping_level_one_name", headerName: "Building ", width: 200 },
     { field: "mapping_level_two_name", headerName: "Floor", width: 160 },
     { field: "mapping_level_three_name", headerName: "Appartment", width: 160 },
 
     {
-      field: "status",
-      headerName: "Status",
+      field: "actions",
+      type: "actions",
+      headerName: "Action",
       width: 200,
-      renderCell: (params) => (
-        <div style={{ display: "flex" }}>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-            // isLoading={stateLoading}
-            size="small"
-          >
-            Active
-          </Button>
+      getActions: (params) => [
+        <div>
+          {params.row.approved_status === 0 && (
+            <button
+              onClick={() =>
+                userApprovalHandler(params.row.id, params.row.approved_status)
+              }
+
+              // onClick={()=> userData(params)}
+            >
+              Accept
+            </button>
+          )}
           &nbsp;
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2, borderRadius: 20  }}
-            // isLoading={stateLoading}
-            size="small"
+          {/* {params.row?.approved_status === 0 && ( */}
+          <button
+            onClick={() =>
+              userRejectionHandler(params.row.id, params.row.approved_status)
+            }
           >
-            In Active
-          </Button>
-        </div>
-      ),
+            Reject
+          </button>
+           {/* )} */}
+        </div>,
+      ],
     },
+
+    // {
+    //   field: "status",
+    //   headerName: "Status",
+    //   width: 200,
+    //   renderCell: (params) => (
+    //     <div style={{ display: "flex" }}>
+    //       <Button
+    //         type="submit"
+    //         fullWidth
+    //         variant="contained"
+    //         sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+    //         // isLoading={stateLoading}
+    //         size="small"
+    //       >
+    //         Active
+    //       </Button>
+    //       &nbsp;
+    //       <Button
+    //         type="submit"
+    //         fullWidth
+    //         variant="contained"
+    //         sx={{ mt: 3, mb: 2, borderRadius: 20  }}
+    //         // isLoading={stateLoading}
+    //         size="small"
+    //       >
+    //         In Active
+    //       </Button>
+    //     </div>
+    //   ),
+    // },
   ];
 
   return (
