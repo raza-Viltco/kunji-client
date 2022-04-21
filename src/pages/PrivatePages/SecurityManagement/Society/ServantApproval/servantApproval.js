@@ -1,11 +1,18 @@
-import React from "react";
+import { React, useState } from "react";
 
 import { DataGrid } from "@mui/x-data-grid";
 import Card from "../../../../../components/Card";
 import Button from "../../../../../components/Button";
+import Modals from "../../../../../components/Modal";
+import {Modal} from "react-bootstrap"
 import "./servantApproval.css";
 
 const ServantApprovalList = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Resident Name", width: 160 },
@@ -16,34 +23,30 @@ const ServantApprovalList = () => {
     { field: "adress", headerName: "Address", width: 160 },
     { field: "servantType", headerName: "Servant Type", width: 160 },
     {
-      field: "approval",
-      headerName: "Approval",
+      field: "attach",
+      type: "actions",
+      headerName: "Attachments",
       width: 200,
-      renderCell: (params) => (
-        <div style={{ display: "flex" }}>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            // isLoading={stateLoading}
-            size="small"
-          >
-            Approve
-          </Button>
+      getActions: (params) => [
+        <div>
+          <button className="btn btn-success btn-sm " onClick={handleShow}>
+            View
+          </button>
+        </div>,
+      ],
+    },
+    {
+      field: "actions",
+      type: "actions",
+      headerName: "Action",
+      width: 200,
+      getActions: (params) => [
+        <div>
+          <button className="btn btn-success btn-sm ">Approve</button>
           &nbsp;
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            // isLoading={stateLoading}
-            size="small"
-          >
-            Reject
-          </Button>
-        </div>
-      ),
+          <button className="btn btn-danger btn-sm ">Reject</button>
+        </div>,
+      ],
     },
   ];
 
@@ -126,6 +129,18 @@ const ServantApprovalList = () => {
           // checkboxSelection
         />
       </div>
+
+      {/* -------------modal code----- */}
+      <Modals open={show} close={handleClose}
+      
+      title="name"
+      closeButton="close"
+      >
+      <div>
+        <h3>modal bpdy</h3>
+      </div>
+      
+      </Modals>
     </Card>
   );
 };
