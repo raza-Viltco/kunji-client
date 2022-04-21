@@ -49,7 +49,7 @@ const RoleList = ({
                         <div className="col-sm-6">
                           <h6 className="paddingcard1">{el.name}</h6>
                         </div>
-                        <div className="col-sm-6 ">
+                        <div className="col-sm-6">
                           <div className="col-sm-12 text-end">
                             <Switch onChange={handleCheck} value={el.id} />
                           </div>

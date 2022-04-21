@@ -284,7 +284,7 @@ const Sidebar = ({
                       <AiOutlineUserAdd size={23} />
                     </ListItemIcon>
                     <ListItemText>
-                      <span className="font-dashboard">Role</span>
+                      <span className="font-dashboard">Create Role</span>
                     </ListItemText>
                   </ListItemButton>
                 </NavLink>

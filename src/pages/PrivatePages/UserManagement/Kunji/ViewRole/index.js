@@ -21,7 +21,7 @@ const ViewRole = ({ rolesDetail }) => {
           variant="contained"
           sx={{ mt: 3, mb: 2, borderRadius: 20, textTransform: "Capitalize" }}
           size="normal"
-        //   click={history.push("/Role_Detail")}
+          click={() => history.push("/Role_Detail")}
         >
           View Permissions
         </Button>,
