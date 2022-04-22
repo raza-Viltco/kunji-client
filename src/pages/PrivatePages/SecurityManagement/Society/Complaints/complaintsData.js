@@ -1,18 +1,23 @@
-import React from "react";
+import React from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
-import Card from "../../../../../components/Card";
+import { dummyData } from './dummyData';
+import Card from '../../../../../components/Card';
+import Cases from '../../../../../components/Cases';
 
 const ComplaintsData = () => {
   return (
     <Card>
-      <h3>Complaints</h3>
-      <div>
-        <h3>Open Cases</h3>
-      </div>
-      <div>
-        <h3>Close Cases</h3>
-      </div>
+      <Typography>
+        <Box sx={{ fontWeight: 'bold', fontSize: 'h6.fontSize' }}>
+          Complaints
+        </Box>
+      </Typography>
+      <Cases title={'Open Cases'} allRecords={dummyData} />
+      <Cases title={'Open Cases'} allRecords={dummyData} />
     </Card>
   );
 };
+
 export default ComplaintsData;
