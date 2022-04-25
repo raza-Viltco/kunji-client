@@ -41,9 +41,9 @@ const RoleList = ({
               </div>
               <div className="col-sm-12 cardheight pl-2 pr-2 pt-0">
                 <div className="row background-color-header1">
-                  {value.map((el) => {
+                  {value.map((el, index) => {
                     return (
-                      <>
+                      <div className="row" key={index}>
                         <div className="col-sm-6">
                           <h6 className="paddingcard1">{el.name}</h6>
                         </div>
@@ -56,7 +56,7 @@ const RoleList = ({
                             />
                           </div>
                         </div>
-                      </>
+                      </div>
                     );
                   })}
                 </div>

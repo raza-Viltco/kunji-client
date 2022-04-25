@@ -3,11 +3,13 @@ import { call, put } from "redux-saga/effects";
 import {
   saveToPersistance,
   getFromPersistance,
+  deleteFromPersistance
 } from "../../../../utils/functions";
 import {
   setKunjiRole,
   setKunjiRoleListing,
   setAssignPermission,
+  setPermissionIds,
 } from "../../../actions/KunjiRole/AddRole";
 import {
   addRoleApi,
@@ -41,6 +43,18 @@ export function* handleRoleListing() {
   function* api() {
     const { data } = yield call(roleListingApi);
     console.log(data);
+    function* filterItems() {
+      let arr = [];
+      const keys = Object.keys(data);
+      keys.forEach((key, index) => {
+        data[key].forEach((item) => {
+          arr.push(item.id);
+          // console.log(item.id)
+        });
+      });
+      yield put(setPermissionIds(arr));
+    }
+    yield call(filterItems);
     yield put(setKunjiRoleListing(data));
   }
 
@@ -60,6 +74,7 @@ export function* handlePermissions(action) {
     const { data } = yield call(assignPermissionApi, form);
     console.log(data);
     yield put(setAssignPermission(data));
+    // deleteFromPersistance("role_id");
     yield put(
       setError({
         type: "success",

@@ -1,11 +1,12 @@
 import React from "react";
 
-import { DataGrid } from "@mui/x-data-grid";
+import Table from "../../../../../components/Table";
 import Card from "../../../../../components/Card";
 import Button from "../../../../../components/Button";
+import gatePassContainer from "../../../../../container/Security Management/Society/GatePassContainer";
 import "./gatePassApproval.css";
 
-const GatePassApprovalList = () => {
+const GatePassApprovalList = ({ stateLoading }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Resident Name", width: 160 },
@@ -110,15 +111,9 @@ const GatePassApprovalList = () => {
           marginTop: "20px",
         }}
       >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
-        />
+        <Table rows={rows} columns={columns} loading={stateLoading} />
       </div>
     </Card>
   );
 };
-export default GatePassApprovalList;
+export default gatePassContainer(GatePassApprovalList);
