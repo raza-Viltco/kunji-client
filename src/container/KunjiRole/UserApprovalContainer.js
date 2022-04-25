@@ -14,13 +14,14 @@ const userApprovalContainer = (UserApprovalListing) => () => {
   }, []);
 
   const approval = useSelector((state) => state.userApproval.data);
-  const userApprovalData=useSelector((state)=>state.userApproval.user);
+  const userApprovalData = useSelector((state) => state.userApproval.user);
+  const stateLoading = useSelector((state) => state.local.isLoading);
 
   // console.log("userApprvalListing", approval);
 
   const userApprovalHandler = (aprId, status) => {
     // console.log(aprId, status, "data");
-    if (status === 0|| 2) {
+    if (status === 0 || 2) {
       dispatch(userApproval({ aprId, status: 1 }));
     }
   };
@@ -34,11 +35,11 @@ const userApprovalContainer = (UserApprovalListing) => () => {
   useEffect(() => {
     dispatch(approvalListing());
   }, [userApprovalData]);
- 
 
   return (
     <UserApprovalListing
       approval={approval}
+      stateLoading={stateLoading}
       userApprovalHandler={userApprovalHandler}
       userRejectionHandler={userRejectionHandler}
     />

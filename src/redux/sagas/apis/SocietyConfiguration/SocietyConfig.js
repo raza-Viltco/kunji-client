@@ -1,5 +1,6 @@
 import API from "../../../../utils/httpClient";
 import { getFromPersistance } from "../../../../utils/functions";
+import { Co2Sharp } from "@mui/icons-material";
 
 export const addBuildingApi = async (data) => {
   const state = getFromPersistance("kunji_auth_data");
@@ -13,23 +14,24 @@ export const addBuildingApi = async (data) => {
 
 export const getBuildingApi = async () => {
   const state = getFromPersistance("kunji_auth_data");
-  const { society_id } = state.data.role;
+  const { id } = state.data.society;
+  console.log(id)
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
     url: "society/mapping-one",
-    params: { society_id: society_id },
+    params: { society_id: id },
   });
 };
 
 export const getFloorApi = async (data) => {
   const state = getFromPersistance("kunji_auth_data");
-  const { society_id } = state.data.role;
+  const { id } = state.data.society;
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
     url: "society/mapping-two",
-    params: { society_id: society_id, mapping_one_id: data },
+    params: { society_id: id, mapping_one_id: data },
   });
 };
 

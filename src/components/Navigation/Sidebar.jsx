@@ -265,7 +265,7 @@ const Sidebar = ({
           </>
         )}
 
-        {userData?.data?.role.name === "kunji admin" && (
+        {/* {userData?.data?.role.name === "kunji admin" && ( */}
           <>
             <ListItemButton onClick={openUserManagementHander}>
               <ListItemIcon>
@@ -327,7 +327,7 @@ const Sidebar = ({
               </List>
             </Collapse>
           </>
-        )}
+        {/* )} */}
 
         {/* ----------society Profile---- */}
         {userData?.data?.role.name === "Society Admin" && (
