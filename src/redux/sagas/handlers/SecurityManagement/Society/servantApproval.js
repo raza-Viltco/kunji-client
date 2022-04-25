@@ -1,12 +1,13 @@
 import { call, put } from "redux-saga/effects";
 import { setServantApprovalList } from "../../../../actions/SecurityManagement/Society/servantApproval";
+import { setGateApprovalList } from "../../../../actions/SecurityManagement/Society/GatePassApproval";
 import {
   servantApprovalApi,
   servantListAPi,
+  gatePassApprovalApi,
 } from "../../../apis/SecurityManagement/Society/servantApproval";
 import { localApiStateHandler } from "../../localApiStateHandler";
 import { setError } from "../../../../actions/local";
-
 
 export function* handleServantApproval() {
   function* api() {
@@ -37,5 +38,15 @@ export function* handleServantApprove(action) {
       })
     );
   }
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleGatePassApproval() {
+  function* api() {
+    const { data } = yield call(gatePassApprovalApi);
+    console.log(data);
+    yield put(setGateApprovalList(data));
+  }
+
   yield call(() => localApiStateHandler(api));
 }
