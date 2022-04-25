@@ -13,22 +13,51 @@ const roleListingContainer = (RoleListing) => () => {
   );
   const local = useSelector((state) => state.kunjiRole.kunjiRole);
   const stateLoading = useSelector((state) => state.local.isLoading);
-  const [permissions, setPermissions] = useState([]);
+  const initialState = useSelector((state) => state.kunjiRole.permissionId);
+  const [permissions, setPermissions] = useState(initialState);
+
+  // const filterItems = () => {
+  //   let arr = [];
+  //   const keys = Object.keys(permissionList);
+  //   keys.forEach((key, index) => {
+  //     permissionList[key].forEach((item) => {
+  //       arr.push(item.id);
+  //       // console.log(item.id)
+  //     });
+  //   });
+  //   setPermissions(arr);
+  // };
 
   const handleCheck = (e) => {
-    if (e.target.checked === true) {
-      setPermissions([...permissions, e.target.value]);
+    console.log(e.target.value);
+    console.log(e.target.checked);
+    let permissionID = Number(e.target.value);
+    if (e.target.checked === false) {
+      setPermissions(permissions.filter((item) => item !== permissionID));
     } else {
-      setPermissions(permissions.filter((item) => item !== e.target.value));
+      setPermissions([...permissions, permissionID]);
     }
   };
+
+  console.log(permissions);
+
+  // const handleCheck = (e) => {
+  //   console.log(e.target.value);
+  //   // console.log(e.target.checked)
+  //   if (e.target.checked === true) {
+  //     setPermissions([...permissions, e.target.value]);
+  //   } else {
+  //     setPermissions(permissions.filter((item) => item !== e.target.value));
+  //   }
+  // };
+
+  // console.log(permissions);
 
   const handlePermissions = () => {
     dispatch(assignPermission(permissions));
   };
-
-  // console.log(permissions);
-  console.log(local?.data?.id);
+  // console.log(newPer)
+  // console.log(local?.data?.id);
 
   useEffect(() => {
     dispatch(kunjiRoleListing());

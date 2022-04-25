@@ -19,7 +19,7 @@ const RoleList = ({
           return (
             <div className="col-sm-4" key={index}>
               <div className="col-sm-12 cardheight1 pl-2 pr-2 pt-0">
-              <div className="row background-color-header">
+                <div className="row background-color-header">
                   <div className="col-sm-6 m-auto pt-2 ">
                     <h6>
                       <b className="paddingcard ">{item}</b>
@@ -38,10 +38,8 @@ const RoleList = ({
                     </div>
                   </div>
                 </div>
-                </div>
+              </div>
               <div className="col-sm-12 cardheight pl-2 pr-2 pt-0">
-              
-
                 <div className="row background-color-header1">
                   {value.map((el) => {
                     return (
@@ -51,7 +49,11 @@ const RoleList = ({
                         </div>
                         <div className="col-sm-6">
                           <div className="col-sm-12 text-end">
-                            <Switch onChange={handleCheck} value={el.id} />
+                            <Switch
+                              onChange={handleCheck}
+                              value={el.id}
+                              defaultChecked={true}
+                            />
                           </div>
                         </div>
                       </>

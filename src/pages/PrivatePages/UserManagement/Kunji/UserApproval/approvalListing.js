@@ -6,6 +6,7 @@ import userApprovalContainer from "../../../../../container/KunjiRole/UserApprov
 
 const UserApprovalListing = ({
   approval,
+  stateLoading,
   userApprovalHandler,
   userRejectionHandler,
 }) => {
@@ -133,7 +134,11 @@ const UserApprovalListing = ({
       <h3>User Approvals</h3>
 
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
-        <Table rows={approval} columns={columns} loading={!approval.length} />
+        <Table
+          rows={approval}
+          columns={columns}
+          loading={stateLoading}
+        />
       </div>
     </>
   );

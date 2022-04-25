@@ -21,10 +21,15 @@ export const setKunjiRoleListing = (payload) => ({
 
 export const assignPermission = (payload) => ({
   type: actionTypes.ASSIGN_PERMISSION,
-  payload
-})
+  payload,
+});
 
 export const setAssignPermission = (payload) => ({
   type: actionTypes.SET_ASSIGN_PERMISSION,
-  payload
-})
+  payload,
+});
+
+export const setPermissionIds = (payload) => ({
+  type: actionTypes.SET_PERMISSION_ID,
+  payload,
+});

@@ -6,6 +6,7 @@ import {
   GridToolbarFilterButton,
   GridToolbarDensitySelector,
 } from "@mui/x-data-grid";
+import Stack from '@mui/material/Stack';
 import "./Table.css";
 
 function CustomToolbar() {
@@ -15,6 +16,14 @@ function CustomToolbar() {
       <GridToolbarFilterButton />
       <GridToolbarDensitySelector />
     </GridToolbarContainer>
+  );
+}
+
+function NoRowsOverlay() {
+  return (
+    <Stack height="100%" alignItems="center" justifyContent="center">
+      No data found
+    </Stack>
   );
 }
 
@@ -33,6 +42,7 @@ const Table = ({ rows, columns, checkboxSelection, loading }) => {
       loading={loading}
       components={{
         Toolbar: CustomToolbar,
+        NoRowsOverlay
       }}
     />
   );
