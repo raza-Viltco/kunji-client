@@ -37,14 +37,14 @@ const Modals = ({ open, close, children, title, closeButton }) => {
   return (
     <div className="col-sm-12 " id="modalstyle"  >
       <Modal show={open} onHide={close}>
-        <Modal.Header closeButton>
+        {/* <Modal.Header >
           <Modal.Title>{title}</Modal.Title>
-        </Modal.Header>
+        </Modal.Header> */}
         <Modal.Body>{children}</Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           {closeButton}
          
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </div>
   );
