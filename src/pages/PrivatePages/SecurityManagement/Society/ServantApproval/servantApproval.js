@@ -8,16 +8,20 @@ import Doc from "../../../../../assets/Doc.jpg";
 import servantApprovalContainer from "../../../../../container/Security Management/Society/ServantApprovalContainer";
 import "./servantApproval.css";
 
-const ServantApprovalList = ({ servantData }) => {
+const ServantApprovalList = ({
+  servantData,
+  handleApproveServant,
+  handleRejetServant,
+}) => {
   console.log(servantData, "servant Data");
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-   const handleOpen=(params)=>{
-     console.log(params,"params")
-   }
+  // const handleOpen = (params) => {
+  //   console.log(params, "params");
+  // };
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -36,7 +40,12 @@ const ServantApprovalList = ({ servantData }) => {
       width: 200,
       getActions: (params) => [
         <div>
-          <button className="btn btn-success btn-sm " onClick={handleShow}>
+          <button
+            className="btn btn-success btn-sm "
+            onClick={() => {
+              handleShow(params.row.id);
+            }}
+          >
             View
           </button>
         </div>,
@@ -48,7 +57,7 @@ const ServantApprovalList = ({ servantData }) => {
       width: 160,
       valueGetter: (params) =>
         params.row?.status === 1
-          ? "Accepted"
+          ? "Approved"
           : params.row?.status === 0
           ? "Pending"
           : "Rejected",
@@ -60,9 +69,27 @@ const ServantApprovalList = ({ servantData }) => {
       width: 200,
       getActions: (params) => [
         <div>
-          <button className="btn btn-success btn-sm" onClick={handleOpen(params)}>Approve</button>
+          {(params.row.status === 0 || params.row.status === 2) && (
+            <button
+              className="btn btn-success btn-sm"
+              onClick={() => {
+                handleApproveServant(params.row.id, params.row.status);
+              }}
+            >
+              Approve
+            </button>
+          )}
           &nbsp;
-          <button className="btn btn-danger btn-sm ">Reject</button>
+          {(params.row?.status === 0 || params.row?.status === 1) && (
+            <button
+              className="btn btn-danger btn-sm "
+              onClick={() => {
+                handleRejetServant(params.row.id, params.row.status);
+              }}
+            >
+              Reject
+            </button>
+          )}
         </div>,
       ],
     },
@@ -97,7 +124,6 @@ const ServantApprovalList = ({ servantData }) => {
               <a href={user.cnic_images} target="_blank">
                 <img
                   src={user.cnic_images}
-                  className="img-fluid"
                   height="100px"
                   width="100px"
                   alt="pdf"
@@ -107,29 +133,31 @@ const ServantApprovalList = ({ servantData }) => {
           ))}
         </div>
         {/* -------------driving Liscence--- */}
+
         <div>
           <div className="user">
-            <h5>Driving Liscence </h5>
+            <h5>Driving Liscence sdfsdfsd </h5>
             {servantData?.map((user) => (
-              <div className="d-flex">
+              <div key={user.id} className="d-flex">
                 <a href={user.driving_licence} target="_blank">
+                  {/* <div>
+                    {user.driving_licence.type === "image/png" ?
+                    (
+                      <img src={user.driving_licence} alt=""  height="100px" width="100px"/>
+                    ): (
+                      <p>{user.driving_licence}</p>
+                    ) }
+                  </div> */}
                   <img
                     src={user.driving_licence}
-                    className="img-fluid image-style"
                     height="100px"
                     width="100px"
-                    alt="pdf"
-                    style={{
-                      border: "2px solid red",
-                      backgroundColor: "green",
-                    }}
+                    // alt="pdf"
                   />
                 </a>
               </div>
             ))}
           </div>
-
-          {/* <button onClick={handleClose}>Close</button> */}
         </div>
 
         {/* ----------------police report-------- */}
@@ -141,7 +169,6 @@ const ServantApprovalList = ({ servantData }) => {
               <a href={user.police_report_image} target="_blank">
                 <img
                   src={user.police_report_image}
-                  className="img-fluid"
                   height="100px"
                   width="100px"
                 />
@@ -149,49 +176,6 @@ const ServantApprovalList = ({ servantData }) => {
             </div>
           ))}
         </div>
-
-        {/* <div>
-          {servantData?.map((user) => (
-            <div className="user">
-              <a href={user.police_report_image} target="_blank">
-                <img
-                  src={user.police_report_image}
-                  className="img-fluid"
-                  height="100px"
-                  width="100px"
-                />
-              </a>
-  
-            </div>
-          ))}
-          <h5>CNIC</h5>
-          <div className="view-servant-doc ">
-            <img src={Doc} alt="" height="50px" width="50px" />
-            &nbsp; &nbsp;
-            <img src={Doc} alt="" height="50px" width="50px" />
-          </div>
-
-          <h5>Driving Liscence </h5>
-          <div className="d-flex">
-            <img src={Doc} alt="" height="50px" width="50px" />
-          </div>
-
-          <div className="row">
-            <div className="col-sm-10"></div>
-            <div className="col-sm-2">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-                size="normal"
-                click={handleClose}
-              >
-                Close
-              </Button>
-            </div>
-          </div>
-        </div> */}
 
         <div>
           <div className="user">
@@ -201,14 +185,9 @@ const ServantApprovalList = ({ servantData }) => {
                 <a href={user.driving_licence} target="_blank">
                   <img
                     src={user.driving_licence}
-                    className="img-fluid image-style"
                     height="100px"
                     width="100px"
                     alt="pdf"
-                    style={{
-                      border: "2px solid red",
-                      backgroundColor: "green",
-                    }}
                   />
                 </a>
               </div>

@@ -11,12 +11,13 @@ export const servantListAPi = async () => {
   });
 };
 
-export const servantApprovalApi = async () => {
+export const servantApprovalApi = async (data) => {
   const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",
     url: "servant/change-status",
+    data,
   });
 };
 
