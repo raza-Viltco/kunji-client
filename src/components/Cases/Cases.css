@@ -1,0 +1,5 @@
+.containerHeight {
+  max-height: '100px';
+  overflow-y: auto;
+  border: '1px red solid';
+}
