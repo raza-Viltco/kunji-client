@@ -1,6 +1,9 @@
 import { call, put } from "redux-saga/effects";
 
-import { setGateApprovalList } from "../../../../actions/SecurityManagement/Society/GatePassApproval";
+import {
+  setGateApprovalList,
+  setGatePassApproval,
+} from "../../../../actions/SecurityManagement/Society/GatePassApproval";
 import {
   setServantApproval,
   setServantApprovalList,
@@ -8,6 +11,7 @@ import {
 import {
   servantApprovalApi,
   servantListAPi,
+  gatePassListApi,
   gatePassApprovalApi,
 } from "../../../apis/SecurityManagement/Society/servantApproval";
 import { localApiStateHandler } from "../../localApiStateHandler";
@@ -45,9 +49,30 @@ export function* handleServantApprove(action) {
 
 export function* handleGatePassApproval() {
   function* api() {
-    const { data } = yield call(gatePassApprovalApi);
+    const { data } = yield call(gatePassListApi);
     console.log(data);
     yield put(setGateApprovalList(data));
+  }
+
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleGatePassRequest(action) {
+  console.log(action);
+  const { id, status } = action.payload;
+  const form = new FormData();
+  form.append("gatepass_id", id);
+  form.append("status", status);
+  function* api() {
+    const { data } = yield call(gatePassApprovalApi, form);
+    console.log(data);
+    yield put(setGatePassApproval(data));
+    yield put(
+      setError({
+        type: "success",
+        message: data.message,
+      })
+    );
   }
 
   yield call(() => localApiStateHandler(api));

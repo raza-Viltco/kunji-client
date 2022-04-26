@@ -21,10 +21,19 @@ export const servantApprovalApi = async (data) => {
   });
 };
 
-export const gatePassApprovalApi = async () => {
+export const gatePassListApi = async () => {
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
     url: "servant/gate-pass-list",
+  });
+};
+
+export const gatePassApprovalApi = async (data) => {
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "POST",
+    url: "servant/change-gate-pass-status",
+    data,
   });
 };
