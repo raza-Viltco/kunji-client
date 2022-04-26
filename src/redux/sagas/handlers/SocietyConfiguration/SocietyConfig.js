@@ -5,6 +5,8 @@ import {
   getBuildingApi,
   getFloorApi,
   areaMappingApi,
+  plotListApi,
+  apartmentListApi,
 } from "../../apis/SocietyConfiguration/SocietyConfig";
 import {
   setAddBuilding,
@@ -13,6 +15,8 @@ import {
   setFloorData,
   setAreaMapping,
   setVerticalMapping,
+  setPlotList,
+  setAppartmentList,
 } from "../../../actions/SocietyConfiguration/SocietyConfiguration";
 import { localApiStateHandler } from "../localApiStateHandler";
 import { setError } from "../../../actions/local";
@@ -117,6 +121,15 @@ export function* handleVerticalMapping(action) {
         message: data.message,
       })
     );
+  }
+
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleAppartmentList() {
+  function* api() {
+    const data = yield call(apartmentListApi);
+    yield put(setAppartmentList(data));
   }
 
   yield call(() => localApiStateHandler(api));

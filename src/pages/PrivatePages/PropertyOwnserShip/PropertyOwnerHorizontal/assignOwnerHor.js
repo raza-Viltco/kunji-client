@@ -1,5 +1,7 @@
 import React from "react";
 import { Formik, Form } from "formik";
+import { useDispatch } from "react-redux";
+
 
 import Card from "../../../../components/Card";
 import Button from "../../../../components/Button";
@@ -8,6 +10,7 @@ import Dropdown from "../../../../components/Form/Dropdown";
 import AssignOwnerHorListing from "./assignOwnerHorList";
 import InputError from "../../../../components/Form/InputError";
 import assignOwnerHorContainer from "../../../../container/PropertyOwnership/PropertyOwnerHorContainer"
+import { setMappingId } from "../../../../redux/actions/SocietyConfiguration/SocietyConfiguration";
 
 const AssignOwneHor = ({
   initialValues,
@@ -15,7 +18,10 @@ const AssignOwneHor = ({
   handleAssignOwnership,
   buildingArr,
   appartmentNo,
+  floorArr
 }) => {
+  const dispatch = useDispatch();
+
   return (
     <Card>
       <Formik initialValues={initialValues} validationSchema={validationSchema}>
@@ -28,6 +34,10 @@ const AssignOwneHor = ({
                   inputLabel="sector_block_building"
                   name="sector_block_building"
                   id="sector_block_building"
+                     onChange={(e) => {
+                    props.handleChange(e);
+                    dispatch(setMappingId(e.target.value));
+                  }}
                   className={
                     props?.errors?.sector_block_building &&
                     props?.touched?.sector_block_building
@@ -61,10 +71,10 @@ const AssignOwneHor = ({
                   }
                 >
                   <option>Select Street</option>
-                  {buildingArr?.map((item, index) => {
+                  {floorArr?.map((item, index) => {
                     return (
                       <option value={item.id} key={index}>
-                        {item.floor_streets}
+                        {item.street_floor}
                       </option>
                     );
                   })}

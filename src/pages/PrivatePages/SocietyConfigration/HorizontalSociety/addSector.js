@@ -8,6 +8,7 @@ import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
 import sectorContainer from "../../../../container/SocietyConfigration/SectorContainer";
 import "./addSector.css";
+import AddSectorList from "./addSectorList";
 
 const AddSector = ({
   initialValues,
@@ -15,35 +16,6 @@ const AddSector = ({
   stateLoading,
   handleHorizontalBuilding,
 }) => {
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "sector", headerName: "Sector", width: 160 },
-    { field: "name", headerName: " Name", width: 160 },
-  ];
-
-  const rows = [
-    {
-      sector: "1001",
-      name: "Sector A",
-      id: 1,
-    },
-    {
-      sector: "2001",
-      name: "Sector B",
-      id: 2,
-    },
-
-    {
-      sector: "3001",
-      name: "Sector C",
-      id: 3,
-    },
-    {
-      sector: "4001",
-      name: "Sector D",
-      id: 4,
-    },
-  ];
   return (
     <Card>
       <h3> Add Sector/Block No</h3>
@@ -117,19 +89,19 @@ const AddSector = ({
               </div>
             </div>
             <div className="row">
-            <div className="col-sm-9"></div>
-            <div className="col-sm-3">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-                isLoading={stateLoading}
-                size="small"
-              >
-                Add Sector
-              </Button>
-            </div>
+              <div className="col-sm-9"></div>
+              <div className="col-sm-3">
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+                  isLoading={stateLoading}
+                  size="small"
+                >
+                  Add Sector
+                </Button>
+              </div>
             </div>
           </Form>
         )}
@@ -137,23 +109,7 @@ const AddSector = ({
 
       <div>
         <h4 className="sector-list-heading">Add Sector/ Block Listing</h4>
-        <div
-          style={{
-            height: 420,
-            width: "100%",
-            background: "white",
-            textAlign: "center",
-          }}
-        >
-          <DataGrid
-          headerName={'bold'}
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[5]}
-            // checkboxSelection
-          />
-        </div>
+        <AddSectorList />
       </div>
     </Card>
   );

@@ -63,3 +63,13 @@ export const setVerticalMapping = (payload) => ({
   type: actionTypes.SET_VERTICAL_MAPPING,
   payload,
 });
+
+export const appartmentList = (payload) => ({
+  type: actionTypes.APPARTMENT_LIST,
+  payload,
+});
+
+export const setAppartmentList = (payload) => ({
+  type: actionTypes.SET_APPARTMENT_LIST,
+  payload,
+});

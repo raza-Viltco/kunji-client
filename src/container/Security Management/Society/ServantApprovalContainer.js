@@ -16,19 +16,14 @@ const servantApprovalContainer = (ServantApprovalList) => () => {
   const servantApprovalData = useSelector(
     (state) => state.servantApproval.approval_data
   );
-  console.log(servantApprovalData,"servantApprovalData");
-
-  // console.log(servantData, "servantApprovalList");
 
   const handleApproveServant = (servantId, status) => {
-    // console.log(servantId,status,"servantId")
     if (status === 0 || 2) {
       dispatch(servantApproval({ servantId, status: 1 }));
     }
   };
 
   const handleRejetServant = (servantId, status) => {
-    // console.log(servantId,status,"servantId")
     if (status === 0 || 1) {
       dispatch(servantApproval({ servantId, status: 2 }));
     }

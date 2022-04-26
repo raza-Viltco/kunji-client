@@ -10,6 +10,7 @@ import Dropdown from "../../../../components/Form/Dropdown";
 import appartmentContainer from "../../../../container/SocietyConfigration/AppartmentContainer";
 import InputError from "../../../../components/Form/InputError";
 import { setMappingId } from "../../../../redux/actions/SocietyConfiguration/SocietyConfiguration";
+import AddAppartmentList from "./addAppartmentList";
 
 const AddApartment = ({
   initialValues,
@@ -177,23 +178,7 @@ const AddApartment = ({
         )}
       </Formik>
 
-      <div
-        style={{
-          height: 420,
-          width: "100%",
-          background: "white",
-          textAlign: "center",
-          marginTop: "20px",
-        }}
-      >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
-        />
-      </div>
+      <AddAppartmentList/>
     </Card>
   );
 };

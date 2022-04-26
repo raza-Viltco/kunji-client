@@ -15,7 +15,7 @@ export const addBuildingApi = async (data) => {
 export const getBuildingApi = async () => {
   const state = getFromPersistance("kunji_auth_data");
   const { id } = state.data.society;
-  console.log(id)
+  console.log(id);
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -42,5 +42,14 @@ export const areaMappingApi = async (data) => {
     method: "POST",
     url: "society-admin/mapping/add-two",
     data,
+  });
+};
+
+export const apartmentListApi = async () => {
+  const state = getFromPersistance("kunji_auth_data");
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "GET",
+    url: "society/full-map",
   });
 };

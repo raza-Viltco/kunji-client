@@ -46,6 +46,7 @@ import {
   handleFloorData,
   handleAreaMapping,
   handleVerticalMapping,
+  handleAppartmentList,
 } from "./handlers/SocietyConfiguration/SocietyConfig";
 import {
   handleAddDepartment,
@@ -109,4 +110,5 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.SERVANT_APPROVAL_LIST, handleServantApproval);
   yield takeLatest(actionTypes.SERVANT_APPROVAL, handleServantApprove);
   yield takeLatest(actionTypes.GATE_APPROVE_LIST, handleGatePassApproval);
+  yield takeLatest(actionTypes.APPARTMENT_LIST, handleAppartmentList);
 }
