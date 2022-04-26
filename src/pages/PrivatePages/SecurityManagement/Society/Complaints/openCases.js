@@ -2,7 +2,7 @@ import React from "react";
 
 function OpenCases() {
   return (
-    <div className="col-sm-12">
+    <div className="col-sm-12 mb-3">
       <div className="col-sm-12 px-2 py-1">
         <h5>
           <b>Open Cases</b>
