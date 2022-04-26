@@ -11,7 +11,6 @@ const GatePassApprovalList = ({
   handleApprovalRejection,
   handleApprovalAcceptance,
 }) => {
-  console.log(gatePassData);
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
