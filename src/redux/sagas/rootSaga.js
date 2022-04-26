@@ -63,6 +63,7 @@ import {
   handleServantApproval,
   handleServantApprove,
   handleGatePassApproval,
+  handleGatePassRequest,
 } from "./handlers/SecurityManagement/Society/servantApproval";
 
 export function* watcherSaga() {
@@ -109,4 +110,5 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.SERVANT_APPROVAL_LIST, handleServantApproval);
   yield takeLatest(actionTypes.SERVANT_APPROVAL, handleServantApprove);
   yield takeLatest(actionTypes.GATE_APPROVE_LIST, handleGatePassApproval);
+  yield takeLatest(actionTypes.GATE_PASS_APPROVAL, handleGatePassRequest);
 }

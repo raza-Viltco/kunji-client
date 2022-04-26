@@ -4,6 +4,7 @@ const initialState = {
   data: [],
   gatePassList: [],
   approval_data: "",
+  gatePassApproval: "",
 };
 
 const servantApprovalReducer = (state = initialState, action) => {
@@ -15,6 +16,8 @@ const servantApprovalReducer = (state = initialState, action) => {
       return { ...state, gatePassList: payload };
     case actionTypes.SET_SERVANT_APPROVAL:
       return { ...state, approval_data: payload };
+    case actionTypes.SET_GATE_PASS_APPROVAL:
+      return { ...state, gatePassApproval: payload };
     default:
       return state;
   }

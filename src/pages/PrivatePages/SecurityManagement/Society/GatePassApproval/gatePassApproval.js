@@ -2,103 +2,102 @@ import React from "react";
 
 import Table from "../../../../../components/Table";
 import Card from "../../../../../components/Card";
-import Button from "../../../../../components/Button";
 import gatePassContainer from "../../../../../container/Security Management/Society/GatePassContainer";
 import "./gatePassApproval.css";
 
-const GatePassApprovalList = ({ stateLoading }) => {
+const GatePassApprovalList = ({
+  stateLoading,
+  gatePassData,
+  handleApprovalRejection,
+  handleApprovalAcceptance,
+}) => {
+  console.log(gatePassData);
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "name", headerName: "Resident Name", width: 160 },
-    { field: "address", headerName: " Resident Address", width: 160 },
-    { field: "visitor", headerName: " Servant Name", width: 160 },
-    { field: "mobile", headerName: "Mobile No", width: 160 },
-    { field: "validFrom", headerName: "Valid From Date", width: 160 },
-    { field: "validTill", headerName: "Valid Till Date", width: 160 },
     {
-      field: "approval",
-      headerName: "Approval",
+      field: "servant",
+      headerName: "Resident Name",
+      width: 160,
+      valueGetter: (params) =>
+        params?.row?.servant?.map_address?.resedent?.name,
+    },
+    {
+      field: "servant.map_address",
+      headerName: "Resident Address",
+      width: 160,
+      valueGetter: (params) =>
+        params?.row?.servant?.map_address?.mapping_level_one_name +
+        " " +
+        params?.row?.servant?.map_address?.mapping_level_two_name +
+        " " +
+        params?.row?.servant?.map_address?.mapping_level_three_name,
+    },
+    {
+      field: "servant.name",
+      headerName: " Servant Name",
+      width: 160,
+      valueGetter: (params) =>
+        params?.row?.servant?.first_name +
+        " " +
+        params?.row?.servant?.last_name,
+    },
+    { field: "entry_code", headerName: "Entry Code", width: 160 },
+    {
+      field: "start_date",
+      headerName: "Valid From Date",
+      width: 160,
+      valueGetter: (params) => params?.row?.start_date?.split(" ")[0],
+    },
+    {
+      field: "end_date",
+      headerName: "Valid Till Date",
+      width: 160,
+      valueGetter: (params) => params?.row?.end_date?.split(" ")[0],
+    },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 160,
+      valueGetter: (params) =>
+        params?.row?.status === 1
+          ? "Approved"
+          : params?.row?.status === 0
+          ? "Pending"
+          : "Rejected",
+    },
+    {
+      field: "actions",
+      type: "actions",
+      headerName: "Action",
       width: 200,
-      renderCell: (params) => (
-        <div style={{ display: "flex" }}>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            // isLoading={stateLoading}
-            size="small"
-          >
-            Approve
-          </Button>
+      getActions: (params) => [
+        <div>
+          {(params?.row?.status === 0 || params?.row?.status === 2) && (
+            <button
+              className="btn btn-success btn-sm"
+              onClick={() => {
+                handleApprovalAcceptance(params.row.id, params.row.status);
+              }}
+            >
+              Approve
+            </button>
+          )}
           &nbsp;
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            // isLoading={stateLoading}
-            size="small"
-          >
-            Reject
-          </Button>
-        </div>
-      ),
+          {(params?.row?.status === 0 || params?.row?.status === 1) && (
+            <button
+              className="btn btn-danger btn-sm "
+              onClick={() => {
+                handleApprovalRejection(params.row.id, params.row.status);
+              }}
+            >
+              Reject
+            </button>
+          )}
+        </div>,
+      ],
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      name: "Smith",
-      address: "Model Town",
-      visitor: "Joe",
-      mobile: "7283423423432",
-      validFrom: "12-03-2022",
-      validTill: "30-03-2022",
-      approval: "Approve Reject",
-    },
-    {
-      id: 2,
-      name: "Jack",
-      address: "Model Town",
-      visitor: "Jack",
-      mobile: "7283423423432",
-      validFrom: "12-03-2022",
-      validTill: "30-03-2022",
-      approval: "Approve Reject",
-    },
-    {
-      id: 3,
-      name: "Ahkam",
-      address: "Town",
-      visitor: "smith",
-      mobile: "7283423423432",
-      validFrom: "12-03-2022",
-      validTill: "30-03-2022",
-      approval: "Approve Reject",
-    },
-    {
-      id: 4,
-      name: "Ahmed",
-      address: "DHA",
-      visitor: "Joe",
-      mobile: "7283423423432",
-      validFrom: "12-03-2022",
-      validTill: "30-03-2022",
-      approval: "Approve Reject",
-    },
-    {
-      id: 5,
-      name: "Aslam",
-      address: "Lahore",
-      visitor: "Ken",
-      mobile: "7283423423432",
-      validFrom: "12-03-2022",
-      validTill: "30-03-2022",
-      approval: "Approve Reject",
-    },
-  ];
   return (
     <Card>
       <h3>Gate Pass Approvals</h3>
@@ -111,7 +110,7 @@ const GatePassApprovalList = ({ stateLoading }) => {
           marginTop: "20px",
         }}
       >
-        <Table rows={rows} columns={columns} loading={stateLoading} />
+        <Table rows={gatePassData} columns={columns} loading={stateLoading} />
       </div>
     </Card>
   );
