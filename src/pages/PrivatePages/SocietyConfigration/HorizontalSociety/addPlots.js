@@ -5,11 +5,11 @@ import { useDispatch } from "react-redux";
 import Card from "../../../../components/Card";
 import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
-import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "../../../../components/Form/Dropdown";
 import InputError from "../../../../components/Form/InputError";
 import plotContainer from "../../../../container/SocietyConfigration/PlotContainer";
 import { setMappingId } from "../../../../redux/actions/SocietyConfiguration/SocietyConfiguration";
+import AddPlotListing from "./addPlotList";
 import "./addPlots.css";
 
 const AddPlots = ({
@@ -22,40 +22,6 @@ const AddPlots = ({
 }) => {
   const dispatch = useDispatch();
 
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "sector", headerName: "Sector/Block", width: 160 },
-    { field: "street", headerName: " Street", width: 160 },
-    { field: "plot", headerName: " Plot/ House No", width: 160 },
-  ];
-
-  const rows = [
-    {
-      street: "1001",
-      sector: "Sector A",
-      id: 1,
-      plot: 1,
-    },
-    {
-      street: "2001",
-      sector: "Sector B",
-      id: 2,
-      plot: 99,
-    },
-
-    {
-      street: "3001",
-      sector: "Sector C",
-      id: 3,
-      plot: 200,
-    },
-    {
-      street: "4001",
-      sector: "Sector D",
-      id: 4,
-      plot: 57,
-    },
-  ];
   return (
     <Card>
       <Formik
@@ -141,40 +107,23 @@ const AddPlots = ({
             <div className="row">
               <div className="col-sm-9"></div>
               <div className="col-sm-3">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-                isLoading={stateLoading}
-                size="small"
-              >
-                Add Plots
-              </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+                  isLoading={stateLoading}
+                  size="small"
+                >
+                  Add Plots
+                </Button>
               </div>
             </div>
-          
           </Form>
         )}
       </Formik>
 
-      <div
-        style={{
-          height: 420,
-          width: "100%",
-          background: "white",
-          textAlign: "center",
-          marginTop: "20px",
-        }}
-      >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
-        />
-      </div>
+      <AddPlotListing />
     </Card>
   );
 };

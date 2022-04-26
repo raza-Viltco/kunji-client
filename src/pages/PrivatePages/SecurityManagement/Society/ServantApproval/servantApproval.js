@@ -19,20 +19,34 @@ const ServantApprovalList = ({
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // const handleOpen = (params) => {
-  //   console.log(params, "params");
-  // };
+  const handleOpen = (params) => {
+    console.log(params, "params");
+  };
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "first_name", headerName: "Resident  Name", width: 160 },
-    { field: "servant_name", headerName: "Servant  Name", width: 160 },
-
-    // { field: "last_name", headerName: "Name", width: 160 },
+    {
+      field: "name",
+      type: "actions",
+      headerName: "Resident Name",
+      width: 200,
+      getActions: (params) => [<div>{params.row.resident.name}</div>],
+    },
+    { field: "resaddress", headerName: "Resident Address", width: 160 },
+    {
+      field: "first_name",
+      type: "actions",
+      headerName: "Servant  Name",
+      width: 200,
+      getActions: (params) => [
+        <div>{params.row.first_name + " " + params.row.last_name}</div>,
+      ],
+    },
     { field: "mobile", headerName: "Mobile No", width: 160 },
     { field: "cnic", headerName: "CNIC", width: 160 },
-    { field: "address", headerName: "  Address", width: 160 },
+    { field: "address", headerName: "Servant  Address", width: 160 },
     { field: "servantType", headerName: "Servant Type", width: 160 },
+
     {
       field: "attach",
       type: "actions",

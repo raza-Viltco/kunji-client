@@ -7,6 +7,7 @@ const initialState = {
   floorData: [],
   mappingId: null,
   areaMapping: null,
+  appartmentData: [],
 };
 
 const societyConfigReducer = (state = initialState, action) => {
@@ -24,6 +25,8 @@ const societyConfigReducer = (state = initialState, action) => {
       return { ...state, mappingId: payload };
     case actionTypes.SET_AREA_MAPPING:
       return { ...state, areaMapping: payload };
+    case actionTypes.SET_APPARTMENT_LIST:
+      return { ...state, appartmentData: payload };
     default:
       return state;
   }

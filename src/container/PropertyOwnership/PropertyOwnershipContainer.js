@@ -60,6 +60,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
       handleAssignOwnership={handleAssignOwnership}
       buildingArr={buildingArr}
       appartmentNo={appartmentNo}
+      floorArr={floorArr}
     />
   );
 };
