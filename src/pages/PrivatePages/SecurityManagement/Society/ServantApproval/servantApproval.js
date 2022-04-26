@@ -111,6 +111,7 @@ const ServantApprovalList = ({
       <Modals
         open={show}
         close={handleClose}
+        className="modalstyle"
 
         // title="name"
         // closeButton="close"
@@ -119,26 +120,29 @@ const ServantApprovalList = ({
 
         <div className="user">
           <h5>CNIC </h5>
+          <div className="row mb-3">
           {servantData?.map((user) => (
-            <div className="d-flex">
+            <div className="col-sm-2 ">
               <a href={user.cnic_images} target="_blank">
                 <img
                   src={user.cnic_images}
-                  height="100px"
-                  width="100px"
+                  className="img-fluid"
+                  style={{borderRadius:"5px"}}
                   alt="pdf"
                 />
               </a>
             </div>
           ))}
+          </div>
         </div>
         {/* -------------driving Liscence--- */}
 
         <div>
           <div className="user">
             <h5>Driving Liscence sdfsdfsd </h5>
+            <div className="row mb-3">
             {servantData?.map((user) => (
-              <div key={user.id} className="d-flex">
+              <div key={user.id} className="col-sm-3">
                 <a href={user.driving_licence} target="_blank">
                   {/* <div>
                     {user.driving_licence.type === "image/png" ?
@@ -150,13 +154,14 @@ const ServantApprovalList = ({
                   </div> */}
                   <img
                     src={user.driving_licence}
-                    height="100px"
-                    width="100px"
+                    className="img-fluid"
+                    style={{borderRadius:"5px"}}
                     // alt="pdf"
                   />
                 </a>
               </div>
             ))}
+            </div>
           </div>
         </div>
 
@@ -164,34 +169,38 @@ const ServantApprovalList = ({
 
         <div className="user">
           <h5>Police Report</h5>
+          <div className="row mb-3">
           {servantData?.map((user) => (
-            <div className="d-flex">
+            <div className="col-sm-3">
               <a href={user.police_report_image} target="_blank">
                 <img
                   src={user.police_report_image}
-                  height="100px"
-                  width="100px"
+                  className="img-fluid img-set"
+                  
                 />
               </a>
             </div>
           ))}
+          </div>
         </div>
 
         <div>
           <div className="user">
             <h5>Police Report </h5>
+            <div className="row mb-3">
             {servantData?.map((user) => (
-              <div className="d-flex">
+              <div className="col-sm-2">
                 <a href={user.driving_licence} target="_blank">
                   <img
                     src={user.driving_licence}
-                    height="100px"
-                    width="100px"
+                    className="img-fluid"
+                    style={{borderRadius:"5px"}}
                     alt="pdf"
                   />
                 </a>
               </div>
             ))}
+            </div>
           </div>
 
           {/* <button onClick={handleClose}>Close</button> */}
