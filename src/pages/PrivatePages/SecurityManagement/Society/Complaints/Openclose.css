@@ -1,0 +1,35 @@
+.backgroundcover
+{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.fontname{
+    font-size: 70%;
+    margin: 0px !important;
+    padding: 0px  !important;
+}
+
+.fontname3{
+    font-size: 80%;
+    margin-top: 4%;
+}
+
+.fontname2{
+    font-size: 80%;
+    margin: 0px !important;
+    padding: 0px  !important;
+}
+.fontname1{
+    font-size: 80%;
+    
+}
+
+.heightadjust{
+    height: 23vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.heightadjust::-webkit-scrollbar{
+    display: none;
+}
