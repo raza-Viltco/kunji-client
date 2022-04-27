@@ -1,9 +1,10 @@
 import { call, put } from "redux-saga/effects";
+import { push } from "connected-react-router";
 
 import {
   saveToPersistance,
   getFromPersistance,
-  deleteFromPersistance
+  deleteFromPersistance,
 } from "../../../../utils/functions";
 import {
   setKunjiRole,
@@ -74,13 +75,14 @@ export function* handlePermissions(action) {
     const { data } = yield call(assignPermissionApi, form);
     console.log(data);
     yield put(setAssignPermission(data));
-    // deleteFromPersistance("role_id");
+    saveToPersistance("role_id", null);
     yield put(
       setError({
         type: "success",
         message: data.message,
       })
     );
+    yield put(push("/View_Role"));
   }
 
   yield call(() => localApiStateHandler(api));
