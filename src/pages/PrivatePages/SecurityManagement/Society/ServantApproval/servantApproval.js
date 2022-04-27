@@ -112,8 +112,6 @@ const ServantApprovalList = ({
     },
   ];
 
-
-
   return (
     <Card>
       <h3>Servant Registration Approvals</h3>
@@ -136,34 +134,36 @@ const ServantApprovalList = ({
         {/* {servantData?.cnic_images === "" ? (
           ""
         ) : ( */}
-          {/* <div className="user">
-            <h5>CNIC </h5>
-            <div className="row mb-3">
-              {servantData?.map((user) => (
-                <div className="col-sm-2 ">
-                  <a href={user?.cnic_images} target="_blank">
-                    {user?.cnic_images?.split(".").pop() === "png" ? (
-                      <img
-                        src={user?.cnic_images}
-                        className="img-fluid"
-                        style={{ borderRadius: "5px" }}
-                        alt="pdf"
-                      />
-                    ) : (
-                      <p>{user?.cnic_images}</p>
-                    )}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div> */}
+        <div className="user">
+          <h5>CNIC </h5>
+          <div className="servant-modal-data mb-3">
+            {servantData?.map((user) => (
+              <div className="col-sm-2 ">
+                <a href={user?.cnic_images} target="_blank">
+                  {/* {user?.cnic_images?.split(".").pop() === "png" ? ( */}
+                  <img
+                    src={user?.cnic_images}
+                    className="img-fluid"
+                    style={{ borderRadius: "5px" }}
+                    alt="pdf"
+                  />
+                  {/* ) : ( */}
+                  <ul>
+                    {/* <li>{user?.cnic_images?.split("/").pop()}</li> */}
+                  </ul>
+                  {/* )} */}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
         {/* // )} */}
         {/* -------------driving Liscence--- */}
 
         <div>
           <div className="user">
-            <h5>Driving Liscence sdfsdfsd </h5>
-            <div className="row mb-3">
+            <h5>Driving Liscence </h5>
+            <div className="servant-modal-data mb-3">
               {servantData?.map((user) => (
                 <div key={user?.id} className="col-sm-3">
                   <a href={user?.driving_licence} target="_blank">
@@ -174,7 +174,9 @@ const ServantApprovalList = ({
                         style={{ borderRadius: "5px" }}
                       />
                     ) : (
-                      <p>{user?.driving_licence}</p>
+                      <ul>
+                        <li> {user?.driving_licence?.split("/").pop()}</li>
+                      </ul>
                     )}
                   </a>
                 </div>
@@ -187,17 +189,21 @@ const ServantApprovalList = ({
 
         <div className="user">
           <h5>Police Report</h5>
-          <div className="row mb-3">
+          <div className="servant-modal-data mb-3">
             {servantData?.map((user) => (
               <div className="col-sm-3">
                 <a href={user?.police_report_image} target="_blank">
                   {user?.police_report_image?.split(".").pop() === "png" ? (
-                    <img
-                      src={user?.police_report_image}
-                      className="img-fluid img-set"
-                    />
+                    <div className="col-sm-12">
+                      <img
+                        src={user?.police_report_image}
+                        className="img-fluid img-set"
+                      />
+                    </div>
                   ) : (
-                    <p>{user?.police_report_image}</p>
+                    <ul>
+                      <li> {user?.police_report_image.split("/").pop()} </li>
+                    </ul>
                   )}
                 </a>
               </div>
