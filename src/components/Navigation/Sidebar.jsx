@@ -266,53 +266,54 @@ const Sidebar = ({
         )}
 
         {/* {userData?.data?.role.name === "kunji admin" && ( */}
-          <>
-            <ListItemButton onClick={openUserManagementHander}>
-              <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
-              </ListItemIcon>
-              <ListItemText>
-                <span className="font-dashboard">User Management</span>
-              </ListItemText>
-              {openUserManagement ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={openUserManagement} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/kunji_Role">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <AiOutlineUserAdd size={23} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">Create Role</span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              <List component="div" disablePadding>
-                <NavLink to="/View_Role">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <AiOutlineUserAdd size={23} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">View Roles</span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              <List component="div" disablePadding>
-                <NavLink to="/user_kunji_creation">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={20} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">User Creation</span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
+        <>
+          <ListItemButton onClick={openUserManagementHander}>
+            <ListItemIcon>
+              <SiHomeassistantcommunitystore size={20} />
+            </ListItemIcon>
+            <ListItemText>
+              <span className="font-dashboard">User Management</span>
+            </ListItemText>
+            {openUserManagement ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={openUserManagement} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <NavLink to="/kunji_Role">
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <AiOutlineUserAdd size={23} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard">Create Role</span>
+                  </ListItemText>
+                </ListItemButton>
+              </NavLink>
+            </List>
+            <List component="div" disablePadding>
+              <NavLink to="/View_Role">
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <AiOutlineUserAdd size={23} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard">View Roles</span>
+                  </ListItemText>
+                </ListItemButton>
+              </NavLink>
+            </List>
+            <List component="div" disablePadding>
+              <NavLink to="/user_kunji_creation">
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <MdOutlineFormatListBulleted size={20} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard">Create Staff Member</span>
+                  </ListItemText>
+                </ListItemButton>
+              </NavLink>
+            </List>
+            {userData?.data?.role.name === "Society Admin" && (
               <List component="div" disablePadding>
                 <NavLink to="/user_kunji_approval">
                   <ListItemButton sx={{ pl: 4 }}>
@@ -325,8 +326,9 @@ const Sidebar = ({
                   </ListItemButton>
                 </NavLink>
               </List>
-            </Collapse>
-          </>
+            )}
+          </Collapse>
+        </>
         {/* )} */}
 
         {/* ----------society Profile---- */}
