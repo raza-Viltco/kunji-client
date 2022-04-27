@@ -3,7 +3,7 @@ import React from "react";
 import Table from "../../../../components/Table";
 import sectorListingContainer from "../../../../container/SocietyConfigration/SectorListContainer";
 
-const AddSectorList = ({ buildingArr }) => {
+const AddSectorList = ({ buildingArr, stateLoading }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "building_code", headerName: "Sector Code", width: 160 },
@@ -13,11 +13,7 @@ const AddSectorList = ({ buildingArr }) => {
 
   return (
     <div style={{ height: "100vh", width: "100%", background: "white" }}>
-      <Table
-        rows={buildingArr}
-        columns={columns}
-        //   loading={stateLoading}
-      />
+      <Table rows={buildingArr} columns={columns} loading={stateLoading} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 
 import Card from "../../../../../components/Card";
 import Table from "../../../../../components/Table";
@@ -12,9 +12,12 @@ const ServantApprovalList = ({
   servantData,
   handleApproveServant,
   handleRejetServant,
+  stateLoading,
 }) => {
   console.log(servantData, "servant Data");
+
   const [show, setShow] = useState(false);
+  const [datas, setData] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -109,19 +112,16 @@ const ServantApprovalList = ({
     },
   ];
 
+
+
   return (
     <Card>
       <h3>Servant Registration Approvals</h3>
-
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
-        <Table
-          rows={servantData}
-          columns={columns}
-          //   loading={!societiesList.length}
-        />
+        <Table rows={servantData} columns={columns} loading={stateLoading} />
       </div>
-
       {/* -------------modal code----- */}
+      const data=
       <Modals
         open={show}
         close={handleClose}
@@ -131,50 +131,54 @@ const ServantApprovalList = ({
         // closeButton="close"
       >
         {/* -------cnic image---- */}
+        {/* const imageType = file.type === 'image/jpeg' || file.type === 'image/png'; */}
 
-        <div className="user">
-          <h5>CNIC </h5>
-          <div className="row mb-3">
-          {servantData?.map((user) => (
-            <div className="col-sm-2 ">
-              <a href={user.cnic_images} target="_blank">
-                <img
-                  src={user.cnic_images}
-                  className="img-fluid"
-                  style={{borderRadius:"5px"}}
-                  alt="pdf"
-                />
-              </a>
+        {/* {servantData?.cnic_images === "" ? (
+          ""
+        ) : ( */}
+          {/* <div className="user">
+            <h5>CNIC </h5>
+            <div className="row mb-3">
+              {servantData?.map((user) => (
+                <div className="col-sm-2 ">
+                  <a href={user?.cnic_images} target="_blank">
+                    {user?.cnic_images?.split(".").pop() === "png" ? (
+                      <img
+                        src={user?.cnic_images}
+                        className="img-fluid"
+                        style={{ borderRadius: "5px" }}
+                        alt="pdf"
+                      />
+                    ) : (
+                      <p>{user?.cnic_images}</p>
+                    )}
+                  </a>
+                </div>
+              ))}
             </div>
-          ))}
-          </div>
-        </div>
+          </div> */}
+        {/* // )} */}
         {/* -------------driving Liscence--- */}
 
         <div>
           <div className="user">
             <h5>Driving Liscence sdfsdfsd </h5>
             <div className="row mb-3">
-            {servantData?.map((user) => (
-              <div key={user.id} className="col-sm-3">
-                <a href={user.driving_licence} target="_blank">
-                  {/* <div>
-                    {user.driving_licence.type === "image/png" ?
-                    (
-                      <img src={user.driving_licence} alt=""  height="100px" width="100px"/>
-                    ): (
-                      <p>{user.driving_licence}</p>
-                    ) }
-                  </div> */}
-                  <img
-                    src={user.driving_licence}
-                    className="img-fluid"
-                    style={{borderRadius:"5px"}}
-                    // alt="pdf"
-                  />
-                </a>
-              </div>
-            ))}
+              {servantData?.map((user) => (
+                <div key={user?.id} className="col-sm-3">
+                  <a href={user?.driving_licence} target="_blank">
+                    {user?.driving_licence?.split(".").pop() === "png" ? (
+                      <img
+                        src={user?.driving_licence}
+                        className="img-fluid"
+                        style={{ borderRadius: "5px" }}
+                      />
+                    ) : (
+                      <p>{user?.driving_licence}</p>
+                    )}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -184,40 +188,21 @@ const ServantApprovalList = ({
         <div className="user">
           <h5>Police Report</h5>
           <div className="row mb-3">
-          {servantData?.map((user) => (
-            <div className="col-sm-3">
-              <a href={user.police_report_image} target="_blank">
-                <img
-                  src={user.police_report_image}
-                  className="img-fluid img-set"
-                  
-                />
-              </a>
-            </div>
-          ))}
-          </div>
-        </div>
-
-        <div>
-          <div className="user">
-            <h5>Police Report </h5>
-            <div className="row mb-3">
             {servantData?.map((user) => (
-              <div className="col-sm-2">
-                <a href={user.driving_licence} target="_blank">
-                  <img
-                    src={user.driving_licence}
-                    className="img-fluid"
-                    style={{borderRadius:"5px"}}
-                    alt="pdf"
-                  />
+              <div className="col-sm-3">
+                <a href={user?.police_report_image} target="_blank">
+                  {user?.police_report_image?.split(".").pop() === "png" ? (
+                    <img
+                      src={user?.police_report_image}
+                      className="img-fluid img-set"
+                    />
+                  ) : (
+                    <p>{user?.police_report_image}</p>
+                  )}
                 </a>
               </div>
             ))}
-            </div>
           </div>
-
-          {/* <button onClick={handleClose}>Close</button> */}
         </div>
       </Modals>
     </Card>
