@@ -5,23 +5,23 @@
 }
 
 .fontname{
-    font-size: 70%;
+    font-size: 90%;
     margin: 0px !important;
     padding: 0px  !important;
 }
 
 .fontname3{
-    font-size: 80%;
+    font-size: 90%;
     margin-top: 4%;
 }
 
 .fontname2{
-    font-size: 80%;
+    font-size: 100%;
     margin: 0px !important;
     padding: 0px  !important;
 }
 .fontname1{
-    font-size: 80%;
+    font-size: 90%;
     
 }
 
@@ -32,4 +32,23 @@
 }
 .heightadjust::-webkit-scrollbar{
     display: none;
+}
+
+
+.styleright{
+ padding-left: 2% !important;
+}
+
+.cardborder
+{
+    border: 2px solid grey;
+    border-radius: 10px;
+   
+}
+
+.cardborder:hover
+{
+ 
+    box-shadow: 1px 1px 7px 7px rgba(0, 0, 0, 0.185);
+    transition: 0.9s;
 }
