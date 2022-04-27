@@ -16,6 +16,8 @@ const servantApprovalContainer = (ServantApprovalList) => () => {
   const servantApprovalData = useSelector(
     (state) => state.servantApproval.approval_data
   );
+  const stateLoading = useSelector((state) => state.local.isLoading);
+
 
   const handleApproveServant = (servantId, status) => {
     if (status === 0 || 2) {
@@ -38,6 +40,7 @@ const servantApprovalContainer = (ServantApprovalList) => () => {
       servantData={servantData}
       handleApproveServant={handleApproveServant}
       handleRejetServant={handleRejetServant}
+      stateLoading={stateLoading}
     />
   );
 };

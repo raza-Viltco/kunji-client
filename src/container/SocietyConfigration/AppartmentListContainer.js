@@ -10,10 +10,15 @@ const appartmentListContainer = (AddAppartmentList) => () => {
     dispatch(appartmentList());
   }, []);
 
-  // const appartmentListData = useSelector((state) => state.societyConfig.appartmentData);
-  // const appartmentListing = appartmentListData.data;
-  // console.log(appartmentListing,"appartmentlisting")
-  return <AddAppartmentList />;
+  const appartmentListData = useSelector(
+    (state) => state.societyConfig.appartmentData
+  );
+  const appartmentListing = appartmentListData.data;
+  const stateLoading = useSelector((state) => state.local.isLoading);
+
+
+  return <AddAppartmentList appartmentListing={appartmentListing}
+  stateLoading={stateLoading} />;
 };
 
 export default appartmentListContainer;

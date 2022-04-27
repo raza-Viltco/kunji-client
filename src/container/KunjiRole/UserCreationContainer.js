@@ -14,8 +14,8 @@ const userCreationContainer = (UserCreationForm) => () => {
 
   const userCreationData = useSelector((state) => state.userDepartment.data);
   // console.log("departmentData", userCreationData.data.departments);
-  const departmentsDetail = userCreationData?.data?.departments;
-  // console.log(departmentsDetail)
+  const departmentsDetail = userCreationData?.data;
+  // console.log(departmentsDetail,"departmentsDetail")
   const rolesDetail = userCreationData?.data?.roles;
   // console.log(rolesDetail);
 

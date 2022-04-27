@@ -12,8 +12,8 @@ const sectorListingContainer = (AddSectorList) => () => {
     dispatch(buildingData());
   }, []);
   const buildingArr = useSelector((state) => state.societyConfig.verticalData);
-  // console.log(buildingArr, "buildingArr");
-  return <AddSectorList buildingArr={buildingArr} />;
+  const stateLoading = useSelector((state) => state.local.isLoading);
+  return <AddSectorList buildingArr={buildingArr} stateLoading={stateLoading} />;
 };
 
 export default sectorListingContainer;
