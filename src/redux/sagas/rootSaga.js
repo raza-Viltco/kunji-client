@@ -66,6 +66,7 @@ import {
   handleGatePassApproval,
   handleGatePassRequest,
 } from "./handlers/SecurityManagement/Society/servantApproval";
+import { handleCases } from "./handlers/SecurityManagement/Society/Complaints";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -113,4 +114,5 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.GATE_APPROVE_LIST, handleGatePassApproval);
   yield takeLatest(actionTypes.APPARTMENT_LIST, handleAppartmentList);
   yield takeLatest(actionTypes.GATE_PASS_APPROVAL, handleGatePassRequest);
+  yield takeLatest(actionTypes.COMPLAINT_CASES, handleCases);
 }

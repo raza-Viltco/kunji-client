@@ -6,7 +6,8 @@ export const userDepartmentApi = async () => {
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
-    url: "society/view-active-departments",
+    // url: "society/view-active-departments",
+    url: "society-admin/user/add-view"
   });
 };
 
