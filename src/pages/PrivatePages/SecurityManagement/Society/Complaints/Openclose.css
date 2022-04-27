@@ -1,54 +1,54 @@
-.backgroundcover
-{
-    background-color: white;
-    border-radius: 10px;
+.backgroundcover {
+  background-color: white;
+  border-radius: 10px;
 }
 
-.fontname{
-    font-size: 90%;
-    margin: 0px !important;
-    padding: 0px  !important;
+.fontname {
+  font-size: 90%;
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
-.fontname3{
-    font-size: 90%;
-    margin-top: 4%;
+.fontname3 {
+  font-size: 90%;
+  margin-top: 4%;
 }
 
-.fontname2{
-    font-size: 100%;
-    margin: 0px !important;
-    padding: 0px  !important;
+.fontname2 {
+  font-size: 100%;
+  margin: 0px !important;
+  padding: 0px !important;
 }
-.fontname1{
-    font-size: 90%;
-    
-}
-
-.heightadjust{
-    height: 23vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-.heightadjust::-webkit-scrollbar{
-    display: none;
+.fontname1 {
+  font-size: 90%;
 }
 
-
-.styleright{
- padding-left: 2% !important;
+.heightadjust {
+  height: 23vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.heightadjust::-webkit-scrollbar {
+  display: none;
 }
 
-.cardborder
-{
-    border: 2px solid grey;
-    border-radius: 10px;
-   
+.styleright {
+  padding-left: 2% !important;
 }
 
-.cardborder:hover
-{
- 
-    box-shadow: 1px 1px 7px 7px rgba(0, 0, 0, 0.185);
-    transition: 0.9s;
+.cardborder {
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+
+.cardborder:hover {
+  box-shadow: 1px 1px 7px 7px rgba(0, 0, 0, 0.185);
+  transition: 0.9s;
+}
+
+.imagecardstyle {
+  height: 40px;
+  width: 40px;
+  object-fit: fill;
+  border-radius: 50px;
 }

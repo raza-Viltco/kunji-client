@@ -17,7 +17,8 @@ import societyConfigReducer from "./reducer/SocietyConfiguation/SocietyConfig";
 import userApprovalReducer from "./reducer/KunjiRole/UserApproval";
 import assignOwnershipReducer from "./reducer/AssignOwnership/Vertical/assignOwnership";
 import societyProfileReducer from "./reducer/Society/SocietyProfile";
-import servantApprovalReducer from "./reducer/SecurityManagement/Society/ServantApproval"
+import servantApprovalReducer from "./reducer/SecurityManagement/Society/ServantApproval";
+import complaintCasesReducer from "./reducer/SecurityManagement/Society/Complaints";
 
 const reducers = (history) =>
   combineReducers({
@@ -37,7 +38,8 @@ const reducers = (history) =>
     societyConfig: societyConfigReducer,
     userApproval: userApprovalReducer,
     assignOwnership: assignOwnershipReducer,
-    servantApproval:servantApprovalReducer,
+    servantApproval: servantApprovalReducer,
+    cases: complaintCasesReducer,
     router: connectRouter(history),
   });
 

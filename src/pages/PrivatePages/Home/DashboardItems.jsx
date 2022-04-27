@@ -48,6 +48,7 @@ import ViewPropertyHor from "../PropertyOwnserShip/PropertyOwnerHorizontal/viewP
 import AssignOwneHor from "../PropertyOwnserShip/PropertyOwnerHorizontal/assignOwnerHor";
 import ViewRole from "../UserManagement/Kunji/ViewRole";
 import RoleDetail from "../UserManagement/Kunji/RoleDetail";
+import CaseDetail from "../SecurityManagement/Society/Complaints/caseDetail";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -142,6 +143,8 @@ const DashboardItems = () => {
         <ViewRole />
       ) : location.pathname === "/Role_Detail" ? (
         <RoleDetail />
+      ) : location.pathname === "/caseDetail/:id" ? (
+        <CaseDetail />
       ) : userData?.data?.role.name === "kunji admin" ? (
         <Dashboard />
       ) : userData?.data?.role.name === "Society Admin" ? (

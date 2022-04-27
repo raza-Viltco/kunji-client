@@ -56,6 +56,7 @@ import ViewPropertyHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOw
 import AssignOwnerHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/assignOwnerHor";
 import ViewRole from "../pages/PrivatePages/UserManagement/Kunji/ViewRole";
 import RoleDetail from "../pages/PrivatePages/UserManagement/Kunji/RoleDetail";
+import CaseDetail from "../pages/PrivatePages/SecurityManagement/Society/Complaints/caseDetail";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -217,6 +218,10 @@ const AppRouter = () => (
 
       <PrivateRoute path="/complaints">
         <Complaints />
+      </PrivateRoute>
+
+      <PrivateRoute path="/caseDetail/:id">
+        <CaseDetail />
       </PrivateRoute>
 
       <PrivateRoute path="/view_bill">
