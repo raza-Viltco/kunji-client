@@ -5,9 +5,9 @@ import Card from "../../../../components/Card";
 import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
 import InputError from "../../../../components/Form/InputError";
-import { DataGrid } from "@mui/x-data-grid";
 
 import buildingContainer from "../../../../container/SocietyConfigration/BuildingContainer";
+import BuildingList from "./defineBuildingList";
 
 const DefineBuilding = ({
   initialValues,
@@ -15,40 +15,6 @@ const DefineBuilding = ({
   validationSchema,
   handleAddBuilding,
 }) => {
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "buildingcode", headerName: "Building Code", width: 160 },
-    { field: "name", headerName: " Building Name", width: 160 },
-    { field: "floors", headerName: " Number of Floors", width: 160 },
-  ];
-
-  const rows = [
-    {
-      id: 1,
-      buildingcode: "0001",
-      name: "Arfa Tower",
-      floors: "6",
-    },
-    {
-      id: 2,
-      buildingcode: "0002",
-      name: "Ahad Tower",
-      floors: "8",
-    },
-
-    {
-      id: 3,
-      buildingcode: "0003",
-      name: "Jeff Heights",
-      floors: "4",
-    },
-    {
-      id: 4,
-      buildingcode: "0004",
-      name: "Kalma Heights",
-      floors: "2",
-    },
-  ];
   return (
     <Card>
       <h4>Define Building</h4>
@@ -126,40 +92,23 @@ const DefineBuilding = ({
             <div className="row">
               <div className="col-sm-9"></div>
               <div className="col-sm-3">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-                isLoading={stateLoading}
-                size="small"
-              >
-                Add Building
-              </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+                  isLoading={stateLoading}
+                  size="small"
+                >
+                  Add Building
+                </Button>
               </div>
             </div>
-
           </Form>
         )}
       </Formik>
 
-      <div
-        style={{
-          height: 420,
-          width: "100%",
-          background: "white",
-          textAlign: "center",
-          marginTop: "20px",
-        }}
-      >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
-        />
-      </div>
+      <BuildingList />
     </Card>
   );
 };

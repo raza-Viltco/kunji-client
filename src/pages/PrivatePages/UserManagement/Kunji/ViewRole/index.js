@@ -1,11 +1,11 @@
 import React from "react";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Table from "../../../../../components/Table";
 import viewRoleContainer from "../../../../../container/KunjiRole/ViewRoleContainer";
 import Button from "../../../../../components/Button";
 
-const ViewRole = ({ rolesDetail }) => {
+const ViewRole = ({ rolesDetail, stateLoading }) => {
   const history = useHistory();
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -31,7 +31,7 @@ const ViewRole = ({ rolesDetail }) => {
 
   return (
     <div style={{ height: "100vh", width: "100%", background: "white" }}>
-      <Table rows={rolesDetail} columns={columns} />
+      <Table rows={rolesDetail} columns={columns} loading={stateLoading} />
     </div>
   );
 };

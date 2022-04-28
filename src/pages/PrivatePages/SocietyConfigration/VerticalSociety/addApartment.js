@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import Card from "../../../../components/Card";
 import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
-import { DataGrid } from "@mui/x-data-grid";
 import Dropdown from "../../../../components/Form/Dropdown";
 import appartmentContainer from "../../../../container/SocietyConfigration/AppartmentContainer";
 import InputError from "../../../../components/Form/InputError";
@@ -20,45 +19,6 @@ const AddApartment = ({
   verticalMappingHandler,
 }) => {
   const dispatch = useDispatch();
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "name", headerName: " Building ", width: 160 },
-    { field: "floors", headerName: " Foor No", width: 160 },
-    { field: "apartment", headerName: " Appartment No", width: 160 },
-    { field: "parking", headerName: " Allocated Parking", width: 160 },
-  ];
-
-  const rows = [
-    {
-      id: 1,
-      name: "Arfa Tower",
-      floors: "6",
-      apartment: "2-A",
-      parking: "1",
-    },
-    {
-      id: 2,
-      name: "Ahad Tower",
-      floors: "8",
-      apartment: "2-B",
-      parking: "3",
-    },
-
-    {
-      id: 3,
-      name: "Jeff Heights",
-      floors: "4",
-      apartment: "2-C",
-      parking: "5",
-    },
-    {
-      id: 4,
-      name: "Kalma Heights",
-      floors: "2",
-      apartment: "5-A",
-      parking: "3",
-    },
-  ];
 
   return (
     <Card>
@@ -161,24 +121,22 @@ const AddApartment = ({
             <div className="row">
               <div className="col-sm-9"></div>
               <div className="col-sm-3">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-                size="small"
-              >
-                Add Apartment
-              </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+                  size="small"
+                >
+                  Add Apartment
+                </Button>
               </div>
             </div>
-
-          
           </Form>
         )}
       </Formik>
 
-      <AddAppartmentList/>
+      <AddAppartmentList />
     </Card>
   );
 };

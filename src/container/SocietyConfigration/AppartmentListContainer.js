@@ -16,9 +16,12 @@ const appartmentListContainer = (AddAppartmentList) => () => {
   const appartmentListing = appartmentListData.data;
   const stateLoading = useSelector((state) => state.local.isLoading);
 
-
-  return <AddAppartmentList appartmentListing={appartmentListing}
-  stateLoading={stateLoading} />;
+  return (
+    <AddAppartmentList
+      appartmentListing={appartmentListing}
+      stateLoading={stateLoading}
+    />
+  );
 };
 
 export default appartmentListContainer;
