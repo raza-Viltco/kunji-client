@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Dashboard from "../Dashboard";
@@ -56,6 +57,9 @@ import ViewPool from "../Pools/viewPool";
 const DashboardItems = () => {
   const location = useLocation();
   const userData = useSelector((state) => state.user.data);
+  const params = useParams();
+  console.log(params);
+
   return (
     <>
       {location.pathname === "/add_society" ? (
@@ -146,7 +150,7 @@ const DashboardItems = () => {
         <ViewRole />
       ) : location.pathname === "/Role_Detail" ? (
         <RoleDetail />
-      ) : location.pathname === "/caseDetail/:id" ? (
+      ) : location.pathname === location.pathname ? (
         <CaseDetail />
       ) : location.pathname === "/pool" ? (
         <Pool />

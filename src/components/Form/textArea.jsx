@@ -1,7 +1,17 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const TextArea = ({ id, name, rows, placeholder, onBlur, onChange, value }) => {
+const TextArea = ({
+  id,
+  name,
+  rows,
+  placeholder,
+  onBlur,
+  onChange,
+  value,
+  disabled,
+  className
+}) => {
   return (
     <Form.Group className="col-sm-12">
       <Form.Control
@@ -13,8 +23,9 @@ const TextArea = ({ id, name, rows, placeholder, onBlur, onChange, value }) => {
         name={name}
         onBlur={onBlur}
         value={value}
-        style={{borderRadius:"20px"}}
-        
+        style={{ borderRadius: "20px" }}
+        disabled={disabled}
+        className={className}
       />
     </Form.Group>
   );
