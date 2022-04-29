@@ -2,7 +2,7 @@ import React from "react";
 
 const CaseCard = ({ title, src, description, id, date, onClick }) => {
   return (
-    <div className="col-sm-4 px-4 pt-3" onClick={onClick}>
+    <div className="col-sm-6 px-4 pt-3" onClick={onClick}>
       <div className="cardborder px-2 pt-2">
         <div className="row">
           <div className="col-sm-2 mt-1 ">
