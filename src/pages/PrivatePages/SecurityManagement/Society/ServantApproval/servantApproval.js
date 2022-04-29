@@ -59,9 +59,13 @@ const ServantApprovalList = ({
         <div>
           <button
             className="btn btn-success btn-sm "
+            // key={params.rows.id}
             onClick={() => {
               handleShow(params.row.id);
             }}
+            // onClick={()=>{
+            //   handleOpen(params.row.id)
+            // }}
           >
             View
           </button>

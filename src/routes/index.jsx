@@ -57,6 +57,9 @@ import AssignOwnerHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwn
 import ViewRole from "../pages/PrivatePages/UserManagement/Kunji/ViewRole";
 import RoleDetail from "../pages/PrivatePages/UserManagement/Kunji/RoleDetail";
 import CaseDetail from "../pages/PrivatePages/SecurityManagement/Society/Complaints/caseDetail";
+import Pool from "../pages/PrivatePages/Pools";
+import CreatePool from "../pages/PrivatePages/Pools/createPool";
+import ViewPool from "../pages/PrivatePages/Pools/viewPool";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -250,6 +253,18 @@ const AppRouter = () => (
 
       <PrivateRoute path="/assign_owner_hor">
         <AssignOwnerHor />
+      </PrivateRoute>
+
+      <PrivateRoute path="/pool">
+        <Pool />
+      </PrivateRoute>
+
+      <PrivateRoute path="/create_pool">
+        <CreatePool />
+      </PrivateRoute>
+
+      <PrivateRoute path="/view_pool">
+        <ViewPool />
       </PrivateRoute>
 
       <Redirect to="/login" exact />
