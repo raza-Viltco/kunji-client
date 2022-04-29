@@ -18,7 +18,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const MiniDrawer = () => {
+const MiniDrawer = ({ children }) => {
   const theme = useTheme();
   const [openSidebar, setOpenSidebar] = React.useState(false);
 
@@ -48,7 +48,8 @@ const MiniDrawer = () => {
       />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <DashboardItems />
+        {/* <DashboardItems /> */}
+        {children}
       </Box>
     </Box>
   );
