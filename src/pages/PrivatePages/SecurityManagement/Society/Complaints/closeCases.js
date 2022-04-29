@@ -1,10 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import closeCaseContainer from "../../../../../container/Security Management/Society/CloseCaseContainer";
 import CaseCard from "../../../../../components/Cases/CaseCard";
+import { setCaseId } from "../../../../../redux/actions/SecurityManagement/Society/Complaints";
 import { Profile_Img } from "../../../../../constants/AssetsConstants";
+import { dateFormat } from "../../../../../utils/functions";
 
 const CloseCases = ({ closeComplaints }) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   return (
     <div className="col-sm-12">
       <div className="col-sm-12 px-2 py-1">
@@ -26,7 +32,11 @@ const CloseCases = ({ closeComplaints }) => {
                     ? item.user.profile_picture
                     : Profile_Img
                 }
-                date={item.created_at.split("T")[0]}
+                date={dateFormat(item.created_at)}
+                onClick={() => {
+                  history.push(`/caseDetail/${item.id}`);
+                  dispatch(setCaseId(item.id));
+                }}
               />
             );
           })}
