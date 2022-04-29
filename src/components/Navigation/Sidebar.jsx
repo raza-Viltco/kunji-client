@@ -953,6 +953,25 @@ const Sidebar = ({
               </ListItemButton>
             </ListItem>
           </NavLink>
+
+          {/* ----------pool-------------------- */}
+          {userData?.data?.role.name === "Society Admin" && (
+            <>
+              <NavLink to="/pool">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <i class="fad fa-ball-pile" id="iconstyle"></i>
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">Poll</span>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            </>
+          )}
+
           {/* <ListItemButton onClick={eventOpenHandler}>
           <ListItemIcon>
             <SiHomeassistantcommunitystore size={20} />

@@ -49,6 +49,9 @@ import AssignOwneHor from "../PropertyOwnserShip/PropertyOwnerHorizontal/assignO
 import ViewRole from "../UserManagement/Kunji/ViewRole";
 import RoleDetail from "../UserManagement/Kunji/RoleDetail";
 import CaseDetail from "../SecurityManagement/Society/Complaints/caseDetail";
+import Pool from "../Pools";
+import CreatePool from "../Pools/createPool";
+import ViewPool from "../Pools/viewPool";
 
 const DashboardItems = () => {
   const location = useLocation();
@@ -145,6 +148,12 @@ const DashboardItems = () => {
         <RoleDetail />
       ) : location.pathname === "/caseDetail/:id" ? (
         <CaseDetail />
+      ) : location.pathname === "/pool" ? (
+        <Pool />
+      ) : location.pathname === "/create_pool" ? (
+        <CreatePool />
+      ) : location.pathname === "/view_pool" ? (
+        <ViewPool />
       ) : userData?.data?.role.name === "kunji admin" ? (
         <Dashboard />
       ) : userData?.data?.role.name === "Society Admin" ? (

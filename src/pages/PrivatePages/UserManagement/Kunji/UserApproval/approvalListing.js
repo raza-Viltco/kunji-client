@@ -1,7 +1,6 @@
 import { React, useEffect } from "react";
 
 import Table from "../../../../../components/Table";
-import Button from "../../../../../components/Button";
 import userApprovalContainer from "../../../../../container/KunjiRole/UserApprovalContainer";
 
 const UserApprovalListing = ({
@@ -32,8 +31,7 @@ const UserApprovalListing = ({
     {
       field: "dob",
       headerName: " Date of Birth",
-      valueGetter: (params) => params.row.user?.dob,
-
+      valueGetter: (params) => params.row.user?.dob?.split(" ")[0],
       width: 160,
     },
     {
@@ -134,11 +132,7 @@ const UserApprovalListing = ({
       <h3>User Approvals</h3>
 
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
-        <Table
-          rows={approval}
-          columns={columns}
-          loading={stateLoading}
-        />
+        <Table rows={approval} columns={columns} loading={stateLoading} />
       </div>
     </>
   );
