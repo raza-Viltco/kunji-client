@@ -19,6 +19,7 @@ import assignOwnershipReducer from "./reducer/AssignOwnership/Vertical/assignOwn
 import societyProfileReducer from "./reducer/Society/SocietyProfile";
 import servantApprovalReducer from "./reducer/SecurityManagement/Society/ServantApproval";
 import complaintCasesReducer from "./reducer/SecurityManagement/Society/Complaints";
+import pollReducer from "./reducer/Poll/Poll";
 
 const reducers = (history) =>
   combineReducers({
@@ -39,6 +40,7 @@ const reducers = (history) =>
     userApproval: userApprovalReducer,
     assignOwnership: assignOwnershipReducer,
     servantApproval: servantApprovalReducer,
+    poll: pollReducer,
     cases: complaintCasesReducer,
     router: connectRouter(history),
   });

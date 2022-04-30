@@ -258,17 +258,18 @@ const AppRouter = () => (
           <AssignOwnerHor />
         </PrivateRoute>
 
-        <PrivateRoute path="/pool">
+        <PrivateRoute path="/poll">
           <Pool />
         </PrivateRoute>
 
-        <PrivateRoute path="/create_pool">
+        <PrivateRoute path="/create_poll">
           <CreatePool />
         </PrivateRoute>
 
-        <PrivateRoute path="/view_pool">
+        <PrivateRoute path="/view_poll/:poll_id">
           <ViewPool />
         </PrivateRoute>
+
       </MiniDrawer>
 
       <Redirect to="/login" exact />

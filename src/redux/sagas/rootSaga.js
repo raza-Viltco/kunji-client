@@ -58,7 +58,10 @@ import {
   handlerUserApproval,
   handleUserApproval,
 } from "./handlers/KunjiRole/UserApproval";
-import { handleAssignDepartmentData } from "./handlers/AssignOwnership/Vertical/assignOwnership";
+import {
+  handleAssignDepartmentData,
+  handlePropertyList
+} from "./handlers/AssignOwnership/Vertical/assignOwnership";
 import { handleSocietyProfile } from "./handlers/Society/SocietyProfile";
 import {
   handleServantApproval,
@@ -71,6 +74,11 @@ import {
   handleCaseDetail,
   handleCaseReply,
 } from "./handlers/SecurityManagement/Society/Complaints";
+import {
+  handleCreatePoll,
+  handlePollList,
+  handleViewPoll,
+} from "./handlers/Poll/Poll";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -121,4 +129,8 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.COMPLAINT_CASES, handleCases);
   yield takeLatest(actionTypes.COMPLAINT_DETAIL, handleCaseDetail);
   yield takeLatest(actionTypes.COMPLAINT_REPLY, handleCaseReply);
+  yield takeLatest(actionTypes.POLL_LIST, handlePollList);
+  yield takeLatest(actionTypes.CREATE_POLL, handleCreatePoll);
+  yield takeLatest(actionTypes.VIEW_POLL, handleViewPoll);
+  yield takeLatest(actionTypes.PROPERTY_LIST, handlePropertyList);
 }
