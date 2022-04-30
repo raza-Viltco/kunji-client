@@ -1,6 +1,6 @@
 import React from "react";
 
-import PoolList from "./poolList";
+import PoolList from "./pollList";
 
 const Pool = () => {
   return (

@@ -957,7 +957,7 @@ const Sidebar = ({
           {/* ----------pool-------------------- */}
           {userData?.data?.role.name === "Society Admin" && (
             <>
-              <NavLink to="/pool">
+              <NavLink to="/poll">
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>

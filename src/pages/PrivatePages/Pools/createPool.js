@@ -3,6 +3,7 @@ import React from "react";
 import Button from "../../../components/Button";
 import Input from "../../../components/Form/Input";
 import TextArea from "../../../components/Form/textArea";
+import Dropdown from "../../../components/Form/Dropdown";
 
 const CreatePool = () => {
   return (
@@ -28,7 +29,7 @@ const CreatePool = () => {
         <div className="col-sm-6">
           <div className="col-sm-12">
             <label className="px-2">
-              <b>Your Question</b>
+              <b>Option 1</b>
             </label>
             <Input
               className="bootstyle"
@@ -39,7 +40,7 @@ const CreatePool = () => {
           </div>
           <div className="col-sm-12 mt-2">
             <label className="px-2">
-              <b>Your Question</b>
+              <b>Option 2</b>
             </label>
             <Input
               className="bootstyle"
@@ -50,7 +51,7 @@ const CreatePool = () => {
           </div>
           <div className="col-sm-12 mt-2">
             <label className="px-2">
-              <b>Your Question</b>
+              <b>Option 3</b>
             </label>
             <Input
               className="bootstyle"
@@ -59,17 +60,23 @@ const CreatePool = () => {
               placeholder="Ali"
             />
           </div>
+
           <div className="col-sm-12 mt-2">
             <label className="px-2">
-              <b>Your Question</b>
+              <b>Validity</b>
             </label>
-            <Input
-              className="bootstyle"
-              label="Notice Title"
-              margin="normal"
-              placeholder="Ali"
-            />
-          </div>
+                <Dropdown
+                  inputLabel="Country"
+                  name="society"
+                  className="bootstyle"
+                >
+                  <option>Validity</option>
+                 
+                </Dropdown>
+                
+              </div>
+
+     
           <div className="row">
             <div className="col-sm-4"></div>
             <div className="col-sm-4"></div>

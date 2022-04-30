@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Card from "../../../components/Card";
 import Table from "../../../components/Table";
 import Button from "../../../components/Button";
-import "./poolList.css";
+import "./pollList.css";
 
 const PoolList = () => {
   const columns = [
@@ -19,7 +19,7 @@ const PoolList = () => {
       width: 200,
       renderCell: (params) => (
         <div className="view-button-outer" style={{ display: "flex" }}>
-          <Link to="/view_pool">
+          <Link to="/view_poll">
             <Button
               type="submit"
               fullWidth
@@ -65,7 +65,7 @@ const PoolList = () => {
         </div>
 
         <div className="society_btn__wrapper">
-          <Link to="/create_pool">
+          <Link to="/create_poll">
             <Button
               type="submit"
               fullWidth

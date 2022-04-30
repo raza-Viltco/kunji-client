@@ -57,9 +57,9 @@ import AssignOwnerHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwn
 import ViewRole from "../pages/PrivatePages/UserManagement/Kunji/ViewRole";
 import RoleDetail from "../pages/PrivatePages/UserManagement/Kunji/RoleDetail";
 import CaseDetail from "../pages/PrivatePages/SecurityManagement/Society/Complaints/caseDetail";
-import Pool from "../pages/PrivatePages/Pools";
-import CreatePool from "../pages/PrivatePages/Pools/createPool";
-import ViewPool from "../pages/PrivatePages/Pools/viewPool";
+import Pool from "../pages/PrivatePages/polls";
+import CreatePool from "../pages/PrivatePages/polls/createPool";
+import ViewPool from "../pages/PrivatePages/polls/viewPool";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -255,15 +255,15 @@ const AppRouter = () => (
         <AssignOwnerHor />
       </PrivateRoute>
 
-      <PrivateRoute path="/pool">
+      <PrivateRoute path="/poll">
         <Pool />
       </PrivateRoute>
 
-      <PrivateRoute path="/create_pool">
+      <PrivateRoute path="/create_poll">
         <CreatePool />
       </PrivateRoute>
 
-      <PrivateRoute path="/view_pool">
+      <PrivateRoute path="/view_poll">
         <ViewPool />
       </PrivateRoute>
 
