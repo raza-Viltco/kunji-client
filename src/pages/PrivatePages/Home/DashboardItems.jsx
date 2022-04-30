@@ -50,9 +50,9 @@ import AssignOwneHor from "../PropertyOwnserShip/PropertyOwnerHorizontal/assignO
 import ViewRole from "../UserManagement/Kunji/ViewRole";
 import RoleDetail from "../UserManagement/Kunji/RoleDetail";
 import CaseDetail from "../SecurityManagement/Society/Complaints/caseDetail";
-import Pool from "../polls";
-import CreatePool from "../polls/createPool";
-import ViewPool from "../polls/viewPool";
+// import Pool from "../polls";
+// import CreatePool from "../polls/createPool";
+// import ViewPool from "../polls/viewPool";
 
 const DashboardItems = () => {
   const location = useLocation();

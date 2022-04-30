@@ -1,17 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Card from "../../../components/Card";
 import Table from "../../../components/Table";
 import Button from "../../../components/Button";
-import "./pollList.css";
+import pollListContainer from "../../../container/Poll/PollListContainer";
+import "./poolList.css";
 
-const PoolList = () => {
+const PoolList = ({ pollListData, stateLoading }) => {
+  const history = useHistory();
+  const handleData = (params) => {
+    console.log(params, "params");
+    history.push("/view_poll", { params });
+  };
+
   const columns = [
     { field: "id", headerName: "Sr", width: 70 },
     { field: "question", headerName: "Questions", width: 300 },
-    { field: "validity", headerName: " Validity", width: 160 },
-    { field: "totalVotes", headerName: " Total Votes", width: 160 },
+    { field: "valid_days", headerName: " Validity", width: 160 },
+    { field: "total_vote", headerName: " Total Votes", width: 160 },
+    {
+      field: "first_name",
+      headerName: "Person",
+      width: 160,
+      valueGetter: (params) =>
+        params.row.user?.first_name + " " + params.row.user?.last_name,
+    },
 
     {
       field: "action",
@@ -19,41 +34,20 @@ const PoolList = () => {
       width: 200,
       renderCell: (params) => (
         <div className="view-button-outer" style={{ display: "flex" }}>
-          <Link to="/view_poll">
+          <Link to={`/view_poll/${params.id}`}>
             <Button
-              type="submit"
+              // type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              // isLoading={stateLoading}
               size="small"
+              // click={() => handleData(params.id)}
             >
               View
             </Button>
           </Link>
         </div>
       ),
-    },
-  ];
-
-  const rows = [
-    {
-      id: 1,
-      question: "What new services do you want to see?",
-      validity: "2 Days",
-      totalVotes: "658",
-    },
-    {
-      id: 2,
-      question: "What new services do you want to see?",
-      validity: "5 Days",
-      totalVotes: "858",
-    },
-    {
-      id: 3,
-      question: "What new services do you want to see?",
-      validity: "7 Days",
-      totalVotes: "958",
     },
   ];
 
@@ -81,13 +75,9 @@ const PoolList = () => {
       </div>
 
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
-        <Table
-          rows={rows}
-          columns={columns}
-          //   loading={!societiesList.length}
-        />
+        <Table rows={pollListData} columns={columns} loading={stateLoading} />
       </div>
     </Card>
   );
 };
-export default PoolList;
+export default pollListContainer(PoolList);

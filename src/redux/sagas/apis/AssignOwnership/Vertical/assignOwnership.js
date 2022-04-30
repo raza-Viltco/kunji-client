@@ -12,3 +12,12 @@ export const assignAppartmentDataApi = async (data) => {
     params: { society_id: society_id, mapping_two_id: data },
   });
 };
+
+export const propertyListApi = async () => {
+  const state = getFromPersistance("kunji_auth_data");
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "GET",
+    url: "property/list",
+  });
+};
