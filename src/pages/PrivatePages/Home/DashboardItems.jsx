@@ -62,7 +62,14 @@ const DashboardItems = () => {
 
   return (
     <>
-      {location.pathname === "/add_society" ? (
+      {userData?.data?.role.name === "kunji admin" ? (
+        <Dashboard />
+      ) : userData?.data?.role.name === "Society Admin" ? (
+        <SocietyDashboard />
+      ) : (
+        ""
+      )}
+      {/* {location.pathname === "/add_society" ? (
         <AddSociety />
       ) : location.pathname === "/society_list" ? (
         <SocietyListing />
@@ -164,7 +171,7 @@ const DashboardItems = () => {
         <SocietyDashboard />
       ) : (
         ""
-      )}
+      )} */}
     </>
   );
 };

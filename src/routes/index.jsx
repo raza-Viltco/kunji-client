@@ -9,7 +9,6 @@ import ForgotPassword from "../pages/PublicPages/ForgotPassword";
 import OtpVerification from "../pages/PublicPages/Otp";
 import ForgotPasswordOtp from "../pages/PublicPages/ForgotPasswordOtp";
 import RecoverPassword from "../pages/PublicPages/RecoverPassword";
-import Home from "../pages/PrivatePages/Home";
 import AddSociety from "../pages/PrivatePages/Society/AddSociety";
 import SocietyListing from "../pages/PrivatePages/Society/SocietyListing";
 import PublicRoute from "./PublicRoute";
@@ -57,11 +56,14 @@ import AssignOwnerHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwn
 import ViewRole from "../pages/PrivatePages/UserManagement/Kunji/ViewRole";
 import RoleDetail from "../pages/PrivatePages/UserManagement/Kunji/RoleDetail";
 import CaseDetail from "../pages/PrivatePages/SecurityManagement/Society/Complaints/caseDetail";
-import Pool from "../pages/PrivatePages/polls";
-import CreatePool from "../pages/PrivatePages/polls/createPool";
-import ViewPool from "../pages/PrivatePages/polls/viewPool";
+import Pool from "../pages/PrivatePages/Pools";
+import CreatePool from "../pages/PrivatePages/Pools/createPool";
+import ViewPool from "../pages/PrivatePages/Pools/viewPool";
+import MiniDrawer from "../pages/PrivatePages/Home";
+import DashboardItems from "../pages/PrivatePages/Home/DashboardItems";
 
 const AppRouter = () => (
+  // const userData = useSelector((state) => state.user.data);
   <ConnectedRouter history={localhistory}>
     <Switch>
       <PublicRoute path="/login" exact>
@@ -83,189 +85,192 @@ const AppRouter = () => (
         <RecoverPassword />
       </PublicRoute>
 
-      <PrivateRoute path="/">
-        <Home />
-      </PrivateRoute>
-      <PrivateRoute path="/add_society">
-        <AddSociety />
-      </PrivateRoute>
-      <PrivateRoute path="/society_list">
-        <SocietyListing />
-      </PrivateRoute>
-      <PrivateRoute path="/add_asset">
-        <RegisterAsset />
-      </PrivateRoute>
-      <PrivateRoute path="/asset_list">
-        <AssetListing />
-      </PrivateRoute>
+      <MiniDrawer>
+        <PrivateRoute path="/" exact>
+          <DashboardItems />
+        </PrivateRoute>
+        <PrivateRoute path="/add_society">
+          <AddSociety />
+        </PrivateRoute>
+        <PrivateRoute path="/society_list">
+          <SocietyListing />
+        </PrivateRoute>
+        <PrivateRoute path="/add_asset">
+          <RegisterAsset />
+        </PrivateRoute>
+        <PrivateRoute path="/asset_list">
+          <AssetListing />
+        </PrivateRoute>
 
-      <PrivateRoute path="/builder_society_register">
-        <BuilderRegisterUser />
-      </PrivateRoute>
-      <PrivateRoute path="/builder_staff_management">
-        <RegisterStaff />
-      </PrivateRoute>
-      <PrivateRoute path="/staff_list">
-        <StaffListing />
-      </PrivateRoute>
-      <PrivateRoute path="/register_flat">
-        <RegisterFlat />
-      </PrivateRoute>
-      <PrivateRoute path="/flat_listing">
-        <FlatListing />
-      </PrivateRoute>
-      <PrivateRoute path="/facility_listing">
-        <FacilitiesListing />
-      </PrivateRoute>
+        <PrivateRoute path="/builder_society_register">
+          <BuilderRegisterUser />
+        </PrivateRoute>
+        <PrivateRoute path="/builder_staff_management">
+          <RegisterStaff />
+        </PrivateRoute>
+        <PrivateRoute path="/staff_list">
+          <StaffListing />
+        </PrivateRoute>
+        <PrivateRoute path="/register_flat">
+          <RegisterFlat />
+        </PrivateRoute>
+        <PrivateRoute path="/flat_listing">
+          <FlatListing />
+        </PrivateRoute>
+        <PrivateRoute path="/facility_listing">
+          <FacilitiesListing />
+        </PrivateRoute>
 
-      <PrivateRoute path="/user_profile">
-        <Profile />
-      </PrivateRoute>
+        <PrivateRoute path="/user_profile">
+          <Profile />
+        </PrivateRoute>
 
-      <PrivateRoute path="/add_sector">
-        <AddSector />
-      </PrivateRoute>
-      <PrivateRoute path="/add_street">
-        <AddStreet />
-      </PrivateRoute>
-      <PrivateRoute path="/add_plots">
-        <AddPlots />
-      </PrivateRoute>
+        <PrivateRoute path="/add_sector">
+          <AddSector />
+        </PrivateRoute>
+        <PrivateRoute path="/add_street">
+          <AddStreet />
+        </PrivateRoute>
+        <PrivateRoute path="/add_plots">
+          <AddPlots />
+        </PrivateRoute>
 
-      <PrivateRoute path="/add_apartment">
-        <AddApartment />
-      </PrivateRoute>
-      <PrivateRoute path="/define_building">
-        <DefineBuilding />
-      </PrivateRoute>
+        <PrivateRoute path="/add_apartment">
+          <AddApartment />
+        </PrivateRoute>
+        <PrivateRoute path="/define_building">
+          <DefineBuilding />
+        </PrivateRoute>
 
-      <PrivateRoute path="/kunji_Role">
-        <KunjiRole />
-      </PrivateRoute>
+        <PrivateRoute path="/kunji_Role">
+          <KunjiRole />
+        </PrivateRoute>
 
-      <PrivateRoute path="/View_Role">
-        <ViewRole />
-      </PrivateRoute>
+        <PrivateRoute path="/View_Role">
+          <ViewRole />
+        </PrivateRoute>
 
-      <PrivateRoute path="/Role_Detail">
-        <RoleDetail />
-      </PrivateRoute>
+        <PrivateRoute path="/Role_Detail">
+          <RoleDetail />
+        </PrivateRoute>
 
-      <PrivateRoute path="/user_kunji_creation">
-        <UserKunjiCreation />
-      </PrivateRoute>
+        <PrivateRoute path="/user_kunji_creation">
+          <UserKunjiCreation />
+        </PrivateRoute>
 
-      <PrivateRoute path="/user_kunji_approval">
-        <UserKunjiApproval />
-      </PrivateRoute>
+        <PrivateRoute path="/user_kunji_approval">
+          <UserKunjiApproval />
+        </PrivateRoute>
 
-      <PrivateRoute path="/add_kunji_staff">
-        <AddKunjiStaff />
-      </PrivateRoute>
+        <PrivateRoute path="/add_kunji_staff">
+          <AddKunjiStaff />
+        </PrivateRoute>
 
-      <PrivateRoute path="/list_kunji_staff">
-        <StaffKunjiMember />
-      </PrivateRoute>
+        <PrivateRoute path="/list_kunji_staff">
+          <StaffKunjiMember />
+        </PrivateRoute>
 
-      <PrivateRoute path="/add_kunji_department">
-        <AddKunjiDepartment />
-      </PrivateRoute>
+        <PrivateRoute path="/add_kunji_department">
+          <AddKunjiDepartment />
+        </PrivateRoute>
 
-      <PrivateRoute path="/society_visitor_list">
-        <VisitorList />
-      </PrivateRoute>
+        <PrivateRoute path="/society_visitor_list">
+          <VisitorList />
+        </PrivateRoute>
 
-      <PrivateRoute path="/servant_visitor_list">
-        <ServantApproval />
-      </PrivateRoute>
+        <PrivateRoute path="/servant_visitor_list">
+          <ServantApproval />
+        </PrivateRoute>
 
-      <PrivateRoute path="/gate_pass_approval">
-        <GatePassApproval />
-      </PrivateRoute>
+        <PrivateRoute path="/gate_pass_approval">
+          <GatePassApproval />
+        </PrivateRoute>
 
-      <PrivateRoute path="/society_delivery_booking">
-        <DeliveryBooking />
-      </PrivateRoute>
+        <PrivateRoute path="/society_delivery_booking">
+          <DeliveryBooking />
+        </PrivateRoute>
 
-      <PrivateRoute path="/society_panic_alert">
-        <PanicAlert />
-      </PrivateRoute>
+        <PrivateRoute path="/society_panic_alert">
+          <PanicAlert />
+        </PrivateRoute>
 
-      <PrivateRoute path="/society_charges_type">
-        <ChargesType />
-      </PrivateRoute>
+        <PrivateRoute path="/society_charges_type">
+          <ChargesType />
+        </PrivateRoute>
 
-      <PrivateRoute path="/society_generate_bill">
-        <GenerateBill />
-      </PrivateRoute>
+        <PrivateRoute path="/society_generate_bill">
+          <GenerateBill />
+        </PrivateRoute>
 
-      <PrivateRoute path="/society_notices">
-        <Notices />
-      </PrivateRoute>
+        <PrivateRoute path="/society_notices">
+          <Notices />
+        </PrivateRoute>
 
-      <PrivateRoute path="/terms_condition">
-        <TermsAndConditions />
-      </PrivateRoute>
+        <PrivateRoute path="/terms_condition">
+          <TermsAndConditions />
+        </PrivateRoute>
 
-      <PrivateRoute path="/society_profile">
-        <SocietyProfile />
-      </PrivateRoute>
+        <PrivateRoute path="/society_profile">
+          <SocietyProfile />
+        </PrivateRoute>
 
-      <PrivateRoute path="/property_ownership">
-        <PropertyOwnerShip />
-      </PrivateRoute>
+        <PrivateRoute path="/property_ownership">
+          <PropertyOwnerShip />
+        </PrivateRoute>
 
-      <PrivateRoute path="/assign_ownership">
-        <AssignOwnership />
-      </PrivateRoute>
+        <PrivateRoute path="/assign_ownership">
+          <AssignOwnership />
+        </PrivateRoute>
 
-      <PrivateRoute path="/complaints">
-        <Complaints />
-      </PrivateRoute>
+        <PrivateRoute path="/complaints">
+          <Complaints />
+        </PrivateRoute>
 
-      <PrivateRoute path="/caseDetail/:id">
-        <CaseDetail />
-      </PrivateRoute>
+        <PrivateRoute path="/caseDetail/:id">
+          <CaseDetail />
+        </PrivateRoute>
 
-      <PrivateRoute path="/view_bill">
-        <ViewBill />
-      </PrivateRoute>
+        <PrivateRoute path="/view_bill">
+          <ViewBill />
+        </PrivateRoute>
 
-      <PrivateRoute path="/assets">
-        <Assets />
-      </PrivateRoute>
+        <PrivateRoute path="/assets">
+          <Assets />
+        </PrivateRoute>
 
-      <PrivateRoute path="/society_listing_view">
-        <SocietyListingView />
-      </PrivateRoute>
+        <PrivateRoute path="/society_listing_view">
+          <SocietyListingView />
+        </PrivateRoute>
 
-      <PrivateRoute path="/view_property">
-        <ViewProperty />
-      </PrivateRoute>
+        <PrivateRoute path="/view_property">
+          <ViewProperty />
+        </PrivateRoute>
 
-      <PrivateRoute path="/property_owner_hor">
-        <PropertyOwnerHorizontal />
-      </PrivateRoute>
+        <PrivateRoute path="/property_owner_hor">
+          <PropertyOwnerHorizontal />
+        </PrivateRoute>
 
-      <PrivateRoute path="/view_property_hor">
-        <ViewPropertyHor />
-      </PrivateRoute>
+        <PrivateRoute path="/view_property_hor">
+          <ViewPropertyHor />
+        </PrivateRoute>
 
-      <PrivateRoute path="/assign_owner_hor">
-        <AssignOwnerHor />
-      </PrivateRoute>
+        <PrivateRoute path="/assign_owner_hor">
+          <AssignOwnerHor />
+        </PrivateRoute>
 
-      <PrivateRoute path="/poll">
-        <Pool />
-      </PrivateRoute>
+        <PrivateRoute path="/poll">
+          <Pool />
+        </PrivateRoute>
 
-      <PrivateRoute path="/create_poll">
-        <CreatePool />
-      </PrivateRoute>
+        <PrivateRoute path="/create_poll">
+          <CreatePool />
+        </PrivateRoute>
 
-      <PrivateRoute path="/view_poll">
-        <ViewPool />
-      </PrivateRoute>
+        <PrivateRoute path="/view_poll/:poll_id">
+          <ViewPool />
+        </PrivateRoute>
+
+      </MiniDrawer>
 
       <Redirect to="/login" exact />
     </Switch>

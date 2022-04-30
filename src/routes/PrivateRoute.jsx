@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router";
 import { useSelector } from "react-redux";
 
 import { getFromPersistance } from "../utils/functions";
+import MiniDrawer from "../pages/PrivatePages/Home";
 
 const PrivateRoute = (props) => {
   const state = getFromPersistance("kunji_auth_data");
@@ -10,7 +11,11 @@ const PrivateRoute = (props) => {
   console.log(state?.data?.token);
 
   if (state?.data?.token) {
-    return (<Route {...props}>{props.children}</Route>);
+    return (
+      <Route {...props}>
+        {props.children}
+      </Route>
+    );
   }
   return <Redirect to="/login" />;
 };
