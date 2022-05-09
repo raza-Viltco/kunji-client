@@ -6,7 +6,11 @@ import {
   buildingData,
   floorData,
 } from "../../redux/actions/SocietyConfiguration/SocietyConfiguration";
-import { assignAppartmentData } from "../../redux/actions/AssignOwnership/Vertical/AssignOwnership";
+import {
+  assignAppartmentData,
+  assignOwnership,
+  ownerData,
+} from "../../redux/actions/AssignOwnership/Vertical/AssignOwnership";
 
 const assignOwnershipContainer = (AssignOwnership) => () => {
   const dispatch = useDispatch();
@@ -15,6 +19,18 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
   const mappingId = useSelector((state) => state.societyConfig.mappingId);
 
   const appartmentNo = useSelector((state) => state.assignOwnership.data);
+
+  const appartmentFloor = useSelector(
+    (state) => state.assignOwnership.setAppartmentFloor
+  );
+
+  const appartmentId = useSelector(
+    (state) => state.assignOwnership.setAppartmentNumber
+  );
+
+  const ownerDetails = useSelector(
+    (state) => state?.assignOwnership?.setOwnerData
+  );
 
   useEffect(() => {
     dispatch(buildingData());
@@ -27,8 +43,16 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
   }, [mappingId]);
 
   useEffect(() => {
-    dispatch(assignAppartmentData());
-  }, []);
+    if (appartmentFloor) {
+      dispatch(assignAppartmentData(appartmentFloor));
+    }
+  }, [appartmentFloor]);
+
+  useEffect(() => {
+    if (mappingId && appartmentFloor && appartmentId) {
+      dispatch(ownerData({ mappingId, appartmentFloor, appartmentId }));
+    }
+  }, [mappingId, appartmentFloor, appartmentId]);
 
   const initialValues = {
     sector_block_building: "",
@@ -49,8 +73,9 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     address: Yup.string().required("Adress is required"),
     documents: Yup.string().required("Document is required"),
   });
-  const handleAssignOwnership = () => {
+  const handleAssignOwnership = (values, formikActions) => {
     console.log("asignOwnership");
+    dispatch(assignOwnership({ values, formikActions }));
   };
 
   return (
@@ -61,6 +86,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
       buildingArr={buildingArr}
       appartmentNo={appartmentNo}
       floorArr={floorArr}
+      ownerDetails={ownerDetails}
     />
   );
 };

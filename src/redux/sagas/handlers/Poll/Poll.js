@@ -19,7 +19,7 @@ export function* handlePollList() {
 }
 
 export function* handleCreatePoll(action) {
-  console.log(action, "actions are here");
+  // console.log(action, "actions are here");
   const { resetForm } = action.payload.formikActions;
   const { question, valid_days, options } = action.payload.values;
   const form = new FormData();

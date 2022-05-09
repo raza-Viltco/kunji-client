@@ -7,7 +7,7 @@ import Table from "../../../components/Table";
 import propertyListContainer from "../../../container/PropertyOwnership/PropertyListingContainer";
 import "./propertyListing.css";
 
-const PropertyListing = ({propertyListData}) => {
+const PropertyListing = ({ propertyListData, stateLoading }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     // { field: "location", headerName: "Location", width: 300 },
@@ -57,36 +57,12 @@ const PropertyListing = ({propertyListData}) => {
               sx={{ mt: 3, mb: 2 }}
               // isLoading={stateLoading}
               size="small"
-           
             >
               View
             </Button>
           </Link>
         </div>
       ),
-    },
-  ];
-
-  const rows = [
-    {
-      id: 1,
-      location: "252-A Defence Housing Authority",
-      size: "5 marla",
-    },
-    {
-      id: 2,
-      location: "2-A Paragon Housing Authority",
-      size: "5 marla",
-    },
-    {
-      id: 3,
-      location: "34-B Bahria Housing Authority",
-      size: "5 marla",
-    },
-    {
-      id: 4,
-      location: "252-A Defence Housing Authority",
-      size: "5 marla",
     },
   ];
 
@@ -116,9 +92,9 @@ const PropertyListing = ({propertyListData}) => {
 
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
         <Table
-          rows={rows}
+          rows={propertyListData}
           columns={columns}
-          //   loading={!societiesList.length}
+          loading={stateLoading}
         />
       </div>
     </Card>
