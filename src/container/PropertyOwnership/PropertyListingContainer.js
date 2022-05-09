@@ -9,11 +9,17 @@ const propertyListContainer = (PropertyList) => () => {
     (state) => state.assignOwnership.propertyList
   );
   console.log(propertyListData, "propertyListData");
+  const stateLoading = useSelector((state) => state.local.isLoading);
 
   useEffect(() => {
     dispatch(propertyList());
   }, []);
 
-  return <PropertyList propertyListData={propertyListData} />;
+  return (
+    <PropertyList
+      propertyListData={propertyListData}
+      stateLoading={stateLoading}
+    />
+  );
 };
 export default propertyListContainer;

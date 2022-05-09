@@ -10,6 +10,11 @@ import AssignOwnershipListing from "./assignOwnerShipListing";
 import assignOwnershipContainer from "../../../container/PropertyOwnership/PropertyOwnershipContainer";
 import InputError from "../../../components/Form/InputError";
 import { setMappingId } from "../../../redux/actions/SocietyConfiguration/SocietyConfiguration";
+import {
+  setAppartmentFloor,
+  setAppartmentNumber,
+} from "../../../redux/actions/AssignOwnership/Vertical/AssignOwnership";
+
 import "./assignOwnership.css";
 
 const AssignOwnership = ({
@@ -18,13 +23,18 @@ const AssignOwnership = ({
   handleAssignOwnership,
   buildingArr,
   appartmentNo,
-  floorArr
+  floorArr,
+  ownerDetails,
 }) => {
   const dispatch = useDispatch();
 
   return (
     <Card>
-      <Formik initialValues={initialValues} validationSchema={validationSchema}>
+      <Formik
+        initialValues={initialValues}
+        // validationSchema={validationSchema}
+        onSubmit={handleAssignOwnership}
+      >
         {(props) => (
           <Form>
             <h3>Assign Ownership</h3>
@@ -63,6 +73,10 @@ const AssignOwnership = ({
                   inputLabel="floor_streets"
                   name="floor_streets"
                   id="floor_streets"
+                  onChange={(e) => {
+                    props.handleChange(e);
+                    dispatch(setAppartmentFloor(e.target.value));
+                  }}
                   className={
                     props?.errors?.floor_streets &&
                     props?.touched?.floor_streets
@@ -84,11 +98,16 @@ const AssignOwnership = ({
                     <InputError>{props?.errors?.floor_streets}</InputError>
                   )}
               </div>
+
               <div className="col-md-6  mt-4">
                 <Dropdown
                   inputLabel="plot_home_apartment"
                   name="plot_home_apartment"
                   id="plot_home_apartment"
+                  onChange={(e) => {
+                    props.handleChange(e);
+                    dispatch(setAppartmentNumber(e.target.value));
+                  }}
                   className={
                     props?.errors?.plot_home_apartment &&
                     props?.touched?.plot_home_apartment
@@ -112,6 +131,7 @@ const AssignOwnership = ({
                     </InputError>
                   )}
               </div>
+
               <div className="col-md-6  mt-4">
                 <Input
                   margin="normal"
@@ -120,6 +140,7 @@ const AssignOwnership = ({
                   name="owner_name"
                   id="owner_name"
                   type="text"
+                  value={ownerDetails?.landlord?.name}
                   className={
                     props?.errors?.owner_name && props?.touched?.owner_name
                       ? "input-outline"
@@ -130,6 +151,7 @@ const AssignOwnership = ({
                   <InputError>{props?.errors?.owner_name}</InputError>
                 )}
               </div>
+
               <div className="col-md-6  mt-4">
                 <Input
                   margin="normal"
@@ -138,6 +160,7 @@ const AssignOwnership = ({
                   name="cnic"
                   id="cnic"
                   type="text"
+                  value={ownerDetails?.landlord?.cnic}
                   className={
                     props?.errors?.cnic && props?.touched?.cnic
                       ? "input-outline"
@@ -148,6 +171,7 @@ const AssignOwnership = ({
                   <InputError>{props?.errors?.cnic}</InputError>
                 )}
               </div>
+
               <div className="col-md-6  mt-4">
                 <Input
                   margin="normal"
@@ -156,6 +180,7 @@ const AssignOwnership = ({
                   name="address"
                   id="address"
                   type="text"
+                  value={ownerDetails?.landlord?.address}
                   className={
                     props?.errors?.address && props?.touched?.address
                       ? "input-outline"
@@ -166,6 +191,52 @@ const AssignOwnership = ({
                   <InputError>{props?.errors?.address}</InputError>
                 )}
               </div>
+              <div className="col-md-6  mt-2">
+                <div className="col-sm-12 mt-3">
+                  <Input
+                    margin="normal"
+                    fullWidth
+                    type="file"
+                    multiple
+                    placeholder="Attachment"
+                    name="documents"
+                    id="documents"
+                    className={
+                      props?.errors?.documents && props?.touched?.documents
+                        ? "input-outline"
+                        : "bootstyle"
+                    }
+                  />
+                  {props?.touched?.documents && props?.errors?.documents && (
+                    <InputError>{props?.errors?.documents}</InputError>
+                  )}
+                </div>
+              </div>
+
+              {/* ------------------------------------ */}
+
+              <div className="col-md-6  mt-2">
+                <div className="col-sm-12 mt-3">
+                  <Input
+                    margin="normal"
+                    fullWidth
+                    type="file"
+                    multiple
+                    placeholder="Attachment"
+                    name="documents"
+                    id="documents"
+                    className={
+                      props?.errors?.documents && props?.touched?.documents
+                        ? "input-outline"
+                        : "bootstyle"
+                    }
+                  />
+                  {props?.touched?.documents && props?.errors?.documents && (
+                    <InputError>{props?.errors?.documents}</InputError>
+                  )}
+                </div>
+              </div>
+
               <div className="col-md-6  mt-2">
                 <div className="col-sm-12 mt-3">
                   <Input

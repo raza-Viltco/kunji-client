@@ -7,7 +7,7 @@ import Table from "../../../../components/Table";
 import propertyListContainer from "../../../../container/PropertyOwnership/PropertyListingContainer";
 // import "./propertyListing.css";
 
-const PropertyListHor = ({ propertyListData }) => {
+const PropertyListHor = ({ propertyListData, stateLoading }) => {
   // const dataHere = (params) => {
   //   console.log(params);
   // };
@@ -55,43 +55,20 @@ const PropertyListHor = ({ propertyListData }) => {
       renderCell: (params) => (
         <div className="view-button-outer" style={{ display: "flex" }}>
           <Link to="/view_property_hor">
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            // isLoading={stateLoading}
-            // click={() => dataHere(params)}
-            size="small"
-          >
-            View
-          </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              // isLoading={stateLoading}
+              // click={() => dataHere(params)}
+              size="small"
+            >
+              View
+            </Button>
           </Link>
         </div>
       ),
-    },
-  ];
-
-  const rows = [
-    {
-      id: 1,
-      location: "252-A Defence Housing Authority",
-      size: "5 marla",
-    },
-    {
-      id: 2,
-      location: "2-A Paragon Housing Authority",
-      size: "5 marla",
-    },
-    {
-      id: 3,
-      location: "34-B Bahria Housing Authority",
-      size: "5 marla",
-    },
-    {
-      id: 4,
-      location: "252-A Defence Housing Authority",
-      size: "5 marla",
     },
   ];
 
@@ -122,7 +99,7 @@ const PropertyListHor = ({ propertyListData }) => {
         <Table
           rows={propertyListData}
           columns={columns}
-          //   loading={!societiesList.length}
+          loading={stateLoading}
         />
       </div>
     </Card>
