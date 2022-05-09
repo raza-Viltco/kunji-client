@@ -3,7 +3,6 @@ import { Route, Redirect } from "react-router";
 import { useSelector } from "react-redux";
 
 import { getFromPersistance } from "../utils/functions";
-import MiniDrawer from "../pages/PrivatePages/Home";
 
 const PrivateRoute = (props) => {
   const state = getFromPersistance("kunji_auth_data");

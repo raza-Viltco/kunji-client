@@ -5,7 +5,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import Sidebar from "../../../components/Navigation/Sidebar";
 import Header from "../../../components/Navigation/Header";
-import DashboardItems from "./DashboardItems";
 
 const drawerWidth = 240;
 
@@ -48,7 +47,6 @@ const MiniDrawer = ({ children }) => {
       />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {/* <DashboardItems /> */}
         {children}
       </Box>
     </Box>
