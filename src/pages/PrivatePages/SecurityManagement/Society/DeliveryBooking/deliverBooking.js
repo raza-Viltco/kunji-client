@@ -1,20 +1,33 @@
 import React from "react";
 
-import { DataGrid } from "@mui/x-data-grid";
+import Table from "../../../../../components/Table";
 import Card from "../../../../../components/Card";
 import Button from "../../../../../components/Button";
 import "./deliveryBooking.css";
+import deliveryBookingContainer from "../../../../../container/Security Management/Society/DeliveryBooking";
 
-const DeliveryBookingList = () => {
-  
+const DeliveryBookingList = ({ deliveryListData, stateLoading }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "name", headerName: "Resident Name", width: 160 },
-    { field: "address", headerName: " Resident Address", width: 160 },
+    {
+      field: "name",
+      type: "actions",
+      headerName: "Resident Name",
+      width: "200",
+      getActions: (params) => [<div>{params?.row?.user?.name}</div>],
+    },
+    {
+      field: "address",
+      headerName: "Resident Address",
+      width: 200,
+      getActions: (params) => [<div>{params?.row?.user?.address}</div>],
+    },
     { field: "visitor", headerName: " Delivery Vendor", width: 160 },
-    { field: "validFrom", headerName: "Arrival Date From", width: 160 },
-    { field: "validTill", headerName: "Valid Till Date", width: 160 },
-    { field: "arrivalTime", headerName: "Arrival Time From", width: 160 },
+    { field: "order_no", headerName: " Order No", width: 160 },
+    { field: "arrival_date_from", headerName: "Arrival Date From", width: 160 },
+    { field: "arrival_date_to", headerName: "Valid Till Date", width: 160 },
+    { field: "arrival_time_to", headerName: "Arrival Time From", width: 160 },
+    { field: "arrival_time_form", headerName: "Arrival Time To", width: 160 },
     {
       field: "notify",
       headerName: "Notify",
@@ -36,79 +49,17 @@ const DeliveryBookingList = () => {
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      name: "Smith",
-      address: "DHA",
-      visitor: "Jack",
-      validFrom: "12-2-2022",
-      validTill: "16-2-2022",
-      arrivalTime: "11:30 pm",
-      notify: "Notify",
-    },
-    {
-      id: 2,
-      name: "Joe",
-      address: "DHA",
-      visitor: "ken",
-      validFrom: "12-2-2022",
-      validTill: "16-2-2022",
-      arrivalTime: "11:30 pm",
-      notify: "Notify",
-    },
-    {
-      id: 3,
-      name: "Ken",
-      address: "DHA",
-      visitor: "Jey",
-      validFrom: "12-2-2022",
-      validTill: "16-2-2022",
-      arrivalTime: "11:30 pm",
-      notify: "Notify",
-    },
-    {
-      id: 4,
-      name: "Smith",
-      address: "Model Town",
-      visitor: "Jeff",
-      validFrom: "12-2-2022",
-      validTill: "16-2-2022",
-      arrivalTime: "11:30 pm",
-      notify: "Notify",
-    },
-    {
-      id: 5,
-      name: "Jack",
-      address: "Johar Town",
-      visitor: "mark",
-      validFrom: "12-2-2022",
-      validTill: "16-2-2022",
-      arrivalTime: "11:30 pm",
-      notify: "Notify",
-    },
-  ];
   return (
     <Card>
       <h3>Resident Delivery Booking Information</h3>
-      <div
-        style={{
-          height: 420,
-          width: "100%",
-          background: "white",
-          textAlign: "center",
-          marginTop: "20px",
-        }}
-      >
-        <DataGrid
-          rows={rows}
+      <div style={{ height: "100vh", width: "100%", background: "white" }}>
+        <Table
+          rows={deliveryListData}
           columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
+          loading={stateLoading}
         />
       </div>
     </Card>
   );
 };
-export default DeliveryBookingList;
+export default deliveryBookingContainer(DeliveryBookingList);

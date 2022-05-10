@@ -102,7 +102,7 @@ const GatePassApprovalList = ({
       <h3>Gate Pass Approvals</h3>
       <div
         style={{
-          height: 420,
+          height: "100vh",
           width: "100%",
           background: "white",
           textAlign: "center",
