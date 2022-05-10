@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Card from "../../../components/Card";
 import Button from "../../../components/Button";
@@ -20,23 +20,39 @@ import "./assignOwnership.css";
 const AssignOwnership = ({
   initialValues,
   validationSchema,
+  horizontalValidationSchema,
+  stateLoading,
   handleAssignOwnership,
   buildingArr,
   appartmentNo,
   floorArr,
   ownerDetails,
+  getLandlordData,
 }) => {
   const dispatch = useDispatch();
+  const userData = useSelector((state) => state.user.data);
+  const societyType = userData?.data?.society?.society_type;
+
+  const residentialStatus = [
+    { id: 0, status: "I am not living" },
+    { id: 1, status: "I am living" },
+  ];
 
   return (
     <Card>
       <Formik
-        initialValues={initialValues}
-        // validationSchema={validationSchema}
+        initialValues={
+          ownerDetails?.data?.length === 0 ? initialValues : getLandlordData
+        }
+        validationSchema={
+          societyType === 0 ? validationSchema : horizontalValidationSchema
+        }
         onSubmit={handleAssignOwnership}
+        enableReinitialize
       >
         {(props) => (
           <Form>
+            {console.log(props)}
             <h3>Assign Ownership</h3>
             <div className="row">
               <div className="col-md-6  mt-4">
@@ -44,10 +60,12 @@ const AssignOwnership = ({
                   inputLabel="sector_block_building"
                   name="sector_block_building"
                   id="sector_block_building"
+                  // value={props.values.sector_block_building}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setMappingId(e.target.value));
                   }}
+                  onBlur={props.handleBlur}
                   className={
                     props?.errors?.sector_block_building &&
                     props?.touched?.sector_block_building
@@ -55,7 +73,11 @@ const AssignOwnership = ({
                       : "bootstyle"
                   }
                 >
-                  <option>Select Building</option>
+                  <option>
+                    {societyType === 0
+                      ? "Select Building"
+                      : "Select Sector/Block"}
+                  </option>
                   {buildingArr?.map((item, index) => {
                     return (
                       <option value={item.id} key={index}>
@@ -64,19 +86,24 @@ const AssignOwnership = ({
                     );
                   })}
                 </Dropdown>
-                {props?.touched?.building && props?.errors?.building && (
-                  <InputError>{props?.errors?.building}</InputError>
-                )}
+                {props?.touched?.sector_block_building &&
+                  props?.errors?.sector_block_building && (
+                    <InputError>
+                      {props?.errors?.sector_block_building}
+                    </InputError>
+                  )}
               </div>
               <div className="col-md-6  mt-4">
                 <Dropdown
                   inputLabel="floor_streets"
                   name="floor_streets"
                   id="floor_streets"
+                  // value={props.values.floor_streets}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setAppartmentFloor(e.target.value));
                   }}
+                  onBlur={props.handleBlur}
                   className={
                     props?.errors?.floor_streets &&
                     props?.touched?.floor_streets
@@ -84,7 +111,9 @@ const AssignOwnership = ({
                       : "bootstyle"
                   }
                 >
-                  <option>Select Floor No</option>
+                  <option>
+                    {societyType === 0 ? "Select Floor No" : "Select Street"}
+                  </option>
                   {floorArr?.map((item, index) => {
                     return (
                       <option value={item.id} key={index}>
@@ -104,10 +133,12 @@ const AssignOwnership = ({
                   inputLabel="plot_home_apartment"
                   name="plot_home_apartment"
                   id="plot_home_apartment"
+                  // value={props.values.plot_home_apartment}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setAppartmentNumber(e.target.value));
                   }}
+                  onBlur={props.handleBlur}
                   className={
                     props?.errors?.plot_home_apartment &&
                     props?.touched?.plot_home_apartment
@@ -115,7 +146,11 @@ const AssignOwnership = ({
                       : "bootstyle"
                   }
                 >
-                  <option>Select Appartment No</option>
+                  <option>
+                    {societyType === 0
+                      ? "Select Appartment No"
+                      : "Select House No"}
+                  </option>
                   {appartmentNo.map((item, index) => {
                     return (
                       <option value={item.id} key={index}>
@@ -136,20 +171,50 @@ const AssignOwnership = ({
                 <Input
                   margin="normal"
                   fullWidth
-                  placeholder="Owner Name"
-                  name="owner_name"
+                  placeholder="Owner First Name"
+                  name="owner_first_name"
                   id="owner_name"
                   type="text"
-                  value={ownerDetails?.landlord?.name}
+                  value={props.values.owner_first_name}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
                   className={
-                    props?.errors?.owner_name && props?.touched?.owner_name
+                    props?.errors?.owner_first_name &&
+                    props?.touched?.owner_first_name
                       ? "input-outline"
                       : "bootstyle"
                   }
+                  disabled={getLandlordData?.owner_first_name ? true : false}
                 />
-                {props?.touched?.owner_name && props?.errors?.owner_name && (
-                  <InputError>{props?.errors?.owner_name}</InputError>
-                )}
+                {props?.touched?.owner_first_name &&
+                  props?.errors?.owner_first_name && (
+                    <InputError>{props?.errors?.owner_first_name}</InputError>
+                  )}
+              </div>
+
+              <div className="col-md-6  mt-4">
+                <Input
+                  margin="normal"
+                  fullWidth
+                  placeholder="Owner Last Name"
+                  name="owner_last_name"
+                  id="owner_name"
+                  type="text"
+                  value={props.values.owner_last_name}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                  className={
+                    props?.errors?.owner_last_name &&
+                    props?.touched?.owner_last_name
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
+                  disabled={getLandlordData?.owner_last_name ? true : false}
+                />
+                {props?.touched?.owner_last_name &&
+                  props?.errors?.owner_last_name && (
+                    <InputError>{props?.errors?.owner_last_name}</InputError>
+                  )}
               </div>
 
               <div className="col-md-6  mt-4">
@@ -160,15 +225,41 @@ const AssignOwnership = ({
                   name="cnic"
                   id="cnic"
                   type="text"
-                  value={ownerDetails?.landlord?.cnic}
+                  value={props.values.cnic}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
                   className={
                     props?.errors?.cnic && props?.touched?.cnic
                       ? "input-outline"
                       : "bootstyle"
                   }
+                  disabled={getLandlordData?.cnic ? true : false}
                 />
                 {props?.touched?.cnic && props?.errors?.cnic && (
                   <InputError>{props?.errors?.cnic}</InputError>
+                )}
+              </div>
+
+              <div className="col-md-6  mt-4">
+                <Input
+                  margin="normal"
+                  fullWidth
+                  placeholder="Phone Number"
+                  name="contact"
+                  id="cnic"
+                  type="text"
+                  value={props.values.contact}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                  className={
+                    props?.errors?.contact && props?.touched?.contact
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
+                  disabled={getLandlordData?.contact ? true : false}
+                />
+                {props?.touched?.contact && props?.errors?.contact && (
+                  <InputError>{props?.errors?.contact}</InputError>
                 )}
               </div>
 
@@ -180,17 +271,51 @@ const AssignOwnership = ({
                   name="address"
                   id="address"
                   type="text"
-                  value={ownerDetails?.landlord?.address}
+                  value={props.values.address}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
                   className={
                     props?.errors?.address && props?.touched?.address
                       ? "input-outline"
                       : "bootstyle"
                   }
+                  disabled={getLandlordData?.address ? true : false}
                 />
                 {props?.touched?.address && props?.errors?.address && (
                   <InputError>{props?.errors?.address}</InputError>
                 )}
               </div>
+
+              <div className="col-md-6  mt-4">
+                <Dropdown
+                  inputLabel="Residential Status"
+                  name="reidential_status"
+                  value={props.values.residential_status}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                  className={
+                    props?.errors?.reidential_status &&
+                    props?.touched?.reidential_status
+                      ? "input-outline"
+                      : "bootstyle"
+                  }
+                  disabled={getLandlordData?.residential_status ? true : false}
+                >
+                  <option>Select Residential Status</option>
+                  {residentialStatus.map((item, index) => {
+                    return (
+                      <option value={item.id} key={index}>
+                        {item.status}
+                      </option>
+                    );
+                  })}
+                </Dropdown>
+                {props?.touched?.reidential_status &&
+                  props?.errors?.reidential_status && (
+                    <InputError>{props?.errors?.reidential_status}</InputError>
+                  )}
+              </div>
+
               <div className="col-md-6  mt-2">
                 <div className="col-sm-12 mt-3">
                   <Input
@@ -201,6 +326,12 @@ const AssignOwnership = ({
                     placeholder="Attachment"
                     name="documents"
                     id="documents"
+                    onChange={(e) =>
+                      props.setFieldValue("documents", [
+                        ...e.currentTarget.files,
+                      ])
+                    }
+                    onBlur={props.handleBlur}
                     className={
                       props?.errors?.documents && props?.touched?.documents
                         ? "input-outline"
@@ -222,17 +353,23 @@ const AssignOwnership = ({
                     fullWidth
                     type="file"
                     multiple
-                    placeholder="Attachment"
-                    name="documents"
+                    placeholder="Cnic Image"
+                    name="cnic_image"
                     id="documents"
+                    onChange={(e) =>
+                      props.setFieldValue("cnic_image", [
+                        ...e.currentTarget.files,
+                      ])
+                    }
+                    onBlur={props.handleBlur}
                     className={
-                      props?.errors?.documents && props?.touched?.documents
+                      props?.errors?.cnic_image && props?.touched?.cnic_image
                         ? "input-outline"
                         : "bootstyle"
                     }
                   />
-                  {props?.touched?.documents && props?.errors?.documents && (
-                    <InputError>{props?.errors?.documents}</InputError>
+                  {props?.touched?.cnic_image && props?.errors?.cnic_image && (
+                    <InputError>{props?.errors?.cnic_image}</InputError>
                   )}
                 </div>
               </div>
@@ -243,31 +380,36 @@ const AssignOwnership = ({
                     margin="normal"
                     fullWidth
                     type="file"
-                    multiple
-                    placeholder="Attachment"
-                    name="documents"
+                    // multiple
+                    placeholder="Property Image"
+                    name="property_image"
+                    value={props.values.property_image}
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
                     id="documents"
                     className={
-                      props?.errors?.documents && props?.touched?.documents
+                      props?.errors?.property_image &&
+                      props?.touched?.property_image
                         ? "input-outline"
                         : "bootstyle"
                     }
                   />
-                  {props?.touched?.documents && props?.errors?.documents && (
-                    <InputError>{props?.errors?.documents}</InputError>
-                  )}
+                  {props?.touched?.property_image &&
+                    props?.errors?.property_image && (
+                      <InputError>{props?.errors?.property_image}</InputError>
+                    )}
                 </div>
               </div>
             </div>
 
-            <div className=" ownership-button-outer">
+            <div className="ownership-button-outer">
               <div className="society_btn__wrapper">
                 <Button
                   type="submit"
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-                  // isLoading={stateLoading}
+                  isLoading={stateLoading}
                   size="small"
                 >
                   Assign
