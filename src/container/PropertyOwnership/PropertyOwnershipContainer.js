@@ -14,23 +14,84 @@ import {
 
 const assignOwnershipContainer = (AssignOwnership) => () => {
   const dispatch = useDispatch();
+  const stateLoading = useSelector((state) => state.local.isLoading);
   const buildingArr = useSelector((state) => state.societyConfig.verticalData);
   const floorArr = useSelector((state) => state.societyConfig.floorData);
   const mappingId = useSelector((state) => state.societyConfig.mappingId);
-
   const appartmentNo = useSelector((state) => state.assignOwnership.data);
-
   const appartmentFloor = useSelector(
     (state) => state.assignOwnership.setAppartmentFloor
   );
-
   const appartmentId = useSelector(
     (state) => state.assignOwnership.setAppartmentNumber
   );
-
   const ownerDetails = useSelector(
     (state) => state?.assignOwnership?.setOwnerData
   );
+
+  console.log(ownerDetails)
+
+  const initialValues = {
+    sector_block_building: "",
+    floor_streets: "",
+    plot_home_apartment: "",
+    owner_first_name: "",
+    owner_last_name: "",
+    cnic: "",
+    contact: "",
+    address: "",
+    reidential_status: "",
+    documents: [],
+    cnic_image: [],
+    property_image: "",
+  };
+
+  const getLandlordData = () => {
+    let data = {
+      owner_first_name: ownerDetails?.landlord?.first_name,
+      owner_last_name: ownerDetails?.landlord?.last_name,
+      cnic: ownerDetails?.landlord?.cnic,
+      contact: ownerDetails?.landlord?.mobile,
+      address: ownerDetails?.landlord?.address,
+      reidential_status: ownerDetails?.landlord?.residential_status,
+      // documents: [],
+      // cnic_image: [],
+      // property_image: "",
+    };
+    return data;
+  };
+
+  console.log(getLandlordData());
+
+  const validationSchema = Yup.object().shape({
+    sector_block_building: Yup.string().required("Building is required"),
+    floor_streets: Yup.string().required("Floor is required"),
+    plot_home_apartment: Yup.string().required("Appartment is required"),
+    owner_first_name: Yup.string().required("First name is required"),
+    owner_last_name: Yup.string().required("Last name is required"),
+    cnic: Yup.string().required("Cnic is required"),
+    contact: Yup.string().required("Phone number is required"),
+    address: Yup.string().required("Address is required"),
+    reidential_status: Yup.string().required("Residential status is required"),
+    // documents: Yup.string().required("Document is required"),
+  });
+
+  const horizontalValidationSchema = Yup.object().shape({
+    sector_block_building: Yup.string().required("Sector/Block is required"),
+    floor_streets: Yup.string().required("Street is required"),
+    plot_home_apartment: Yup.string().required("House no is required"),
+    owner_first_name: Yup.string().required("First name is required"),
+    owner_last_name: Yup.string().required("Last name is required"),
+    cnic: Yup.string().required("Cnic is required"),
+    contact: Yup.string().required("Phone number is required"),
+    address: Yup.string().required("Address is required"),
+    reidential_status: Yup.string().required("Residential status is required"),
+    // documents: Yup.string().required("Document is required"),
+  });
+
+  const handleAssignOwnership = (values, formikActions) => {
+    dispatch(assignOwnership({ values, formikActions }));
+  };
 
   useEffect(() => {
     dispatch(buildingData());
@@ -54,39 +115,24 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     }
   }, [mappingId, appartmentFloor, appartmentId]);
 
-  const initialValues = {
-    sector_block_building: "",
-    floor_streets: "",
-    plot_home_apartment: "",
-    owner_name: "",
-    cnic: "",
-    address: "",
-    documents: "",
-  };
-
-  const validationSchema = Yup.object().shape({
-    sector_block_building: Yup.string().required("Building is required"),
-    floor_streets: Yup.string().required("Floor is required"),
-    plot_home_apartment: Yup.string().required("Appartment is required"),
-    owner_name: Yup.string().required("Owner name is required"),
-    cnic: Yup.string().required("Cnic is requires"),
-    address: Yup.string().required("Adress is required"),
-    documents: Yup.string().required("Document is required"),
-  });
-  const handleAssignOwnership = (values, formikActions) => {
-    console.log("asignOwnership");
-    dispatch(assignOwnership({ values, formikActions }));
-  };
+  useEffect(() => {
+    if (ownerDetails) {
+      getLandlordData();
+    }
+  }, [ownerDetails]);
 
   return (
     <AssignOwnership
       initialValues={initialValues}
       validationSchema={validationSchema}
-      handleAssignOwnership={handleAssignOwnership}
+      horizontalValidationSchema={horizontalValidationSchema}
+      stateLoading={stateLoading}
       buildingArr={buildingArr}
       appartmentNo={appartmentNo}
       floorArr={floorArr}
       ownerDetails={ownerDetails}
+      handleAssignOwnership={handleAssignOwnership}
+      getLandlordData={getLandlordData()}
     />
   );
 };

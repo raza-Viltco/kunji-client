@@ -451,26 +451,25 @@ const Sidebar = ({
           )}
 
         {/* ---------------------------property ownership-------------- */}
-        {userData?.data?.role.name === "Society Admin" &&
-          userData?.data?.society?.society_type === 0 && (
-            <>
-              <NavLink to="/property_ownership">
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <MdDashboard size={20} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">Property Ownership</span>
-                    </ListItemText>
-                  </ListItemButton>
-                </ListItem>
-              </NavLink>
-            </>
-          )}
+        {userData?.data?.role.name === "Society Admin" && (
+          <>
+            <NavLink to="/property_ownership">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <MdDashboard size={20} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard">Property Ownership</span>
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          </>
+        )}
 
         {/* ---------------------------property ownership- horizontal------------- */}
-        {userData?.data?.role.name === "Society Admin" &&
+        {/* {userData?.data?.role.name === "Society Admin" &&
           userData?.data?.society?.society_type === 1 && (
             <>
               <NavLink to="/property_owner_hor">
@@ -486,7 +485,7 @@ const Sidebar = ({
                 </ListItem>
               </NavLink>
             </>
-          )}
+          )} */}
 
         {/* ----------assets---------- */}
 
