@@ -20,6 +20,8 @@ import societyProfileReducer from "./reducer/Society/SocietyProfile";
 import servantApprovalReducer from "./reducer/SecurityManagement/Society/ServantApproval";
 import complaintCasesReducer from "./reducer/SecurityManagement/Society/Complaints";
 import pollReducer from "./reducer/Poll/Poll";
+import visitorListReducer from "./reducer/SecurityManagement/Society/VisitorList";
+import deliveryListReducer from "./reducer/SecurityManagement/Society/DeliveryList";
 
 const reducers = (history) =>
   combineReducers({
@@ -42,6 +44,8 @@ const reducers = (history) =>
     servantApproval: servantApprovalReducer,
     poll: pollReducer,
     cases: complaintCasesReducer,
+    visitorList: visitorListReducer,
+    deliveryList:deliveryListReducer,
     router: connectRouter(history),
   });
 

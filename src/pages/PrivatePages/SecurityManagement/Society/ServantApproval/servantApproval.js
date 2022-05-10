@@ -2,7 +2,6 @@ import { React, useEffect, useState } from "react";
 
 import Card from "../../../../../components/Card";
 import Table from "../../../../../components/Table";
-import Button from "../../../../../components/Button";
 import Modals from "../../../../../components/Modal";
 import Doc from "../../../../../assets/Doc.jpg";
 import servantApprovalContainer from "../../../../../container/Security Management/Society/ServantApprovalContainer";
@@ -123,7 +122,7 @@ const ServantApprovalList = ({
         <Table rows={servantData} columns={columns} loading={stateLoading} />
       </div>
       {/* -------------modal code----- */}
-      const data=
+    
       <Modals
         open={show}
         close={handleClose}
