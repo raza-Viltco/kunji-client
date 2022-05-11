@@ -1,6 +1,5 @@
 import API from "../../../../utils/httpClient";
 import { getFromPersistance } from "../../../../utils/functions";
-import { Co2Sharp } from "@mui/icons-material";
 
 export const addBuildingApi = async (data) => {
   const state = getFromPersistance("kunji_auth_data");

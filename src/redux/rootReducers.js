@@ -22,6 +22,8 @@ import complaintCasesReducer from "./reducer/SecurityManagement/Society/Complain
 import pollReducer from "./reducer/Poll/Poll";
 import visitorListReducer from "./reducer/SecurityManagement/Society/VisitorList";
 import deliveryListReducer from "./reducer/SecurityManagement/Society/DeliveryList";
+import ChargesListReducer from "./reducer/SocietyAdministration/ChargesList";
+import generateBillReducer from "./reducer/SocietyAdministration/GenerateBill";
 
 const reducers = (history) =>
   combineReducers({
@@ -45,7 +47,9 @@ const reducers = (history) =>
     poll: pollReducer,
     cases: complaintCasesReducer,
     visitorList: visitorListReducer,
-    deliveryList:deliveryListReducer,
+    deliveryList: deliveryListReducer,
+    chargesList: ChargesListReducer,
+    generateBill: generateBillReducer,
     router: connectRouter(history),
   });
 

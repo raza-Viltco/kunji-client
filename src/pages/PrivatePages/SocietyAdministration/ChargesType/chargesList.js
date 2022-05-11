@@ -1,59 +1,20 @@
 import React from "react";
 
-import { DataGrid } from "@mui/x-data-grid";
+import Table from "../../../../components/Table";
+import chargesListContainer from "../../../../container/SocietyAdministration/ChargesListContainer";
 
-const ChargesList = () => {
+const ChargesList = ({ chargesListData, stateLoading }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "chargesCode", headerName: "Charges Code", width: 360 },
-    { field: "chargesTitle", headerName: "Charges Title", width: 360 },
+    { field: "charges_code", headerName: "Charges Code", width: 360 },
+    { field: "charges_title", headerName: "Charges Title", width: 360 },
     { field: "charges", headerName: " Charges", width: 160 },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      chargesCode: "001",
-      chargesTitle: "Property Tax",
-      charges: "5000",
-    },
-    {
-      id: 2,
-      chargesCode: "002",
-      chargesTitle: "Water Charges",
-      charges: "2000",
-    },
-    {
-      id: 3,
-      chargesCode: "003",
-      chargesTitle: "Electricity Charges",
-      charges: "5000",
-    },
-    {
-      id: 4,
-      chargesCode: "004",
-      chargesTitle: "Repair and Maintainance Charges",
-      charges: "5000",
-    },
-  ];
   return (
-    <div
-      style={{
-        height: 420,
-        width: "100%",
-        background: "white",
-        textAlign: "center",
-        marginTop: "20px",
-      }}
-    >
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[5]}
-        // checkboxSelection
-      />
+    <div style={{ height: "100vh", width: "100%", background: "white" }}>
+      <Table rows={chargesListData} columns={columns} loading={stateLoading} />
     </div>
   );
 };
-export default ChargesList;
+export default chargesListContainer(ChargesList);

@@ -83,6 +83,12 @@ import {
 } from "./handlers/Poll/Poll";
 import { handleVisitorList } from "./handlers/SecurityManagement/Society/VisitorList";
 import { handleDeliveryList } from "./handlers/SecurityManagement/Society/DeliveryList";
+import { handleAddCharges } from "./handlers/SocietyAdministration/AddCharges";
+import { handleChargesList } from "./handlers/SocietyAdministration/ChargesList";
+import {
+  handleGenerateBill,
+  handleSelectResident,
+} from "./handlers/SocietyAdministration/GenerateBill";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -141,4 +147,8 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.ASSIGN_OWNERSHIP, handleOwnership);
   yield takeLatest(actionTypes.VISITOR_LIST, handleVisitorList);
   yield takeLatest(actionTypes.DELIVERY_LIST, handleDeliveryList);
+  yield takeLatest(actionTypes.ADD_CHARGES, handleAddCharges);
+  yield takeLatest(actionTypes.CHARGES_LIST, handleChargesList);
+  yield takeLatest(actionTypes.SELECT_RESIDENT, handleSelectResident);
+  yield takeLatest(actionTypes.GENERATE_BILL, handleGenerateBill);
 }
