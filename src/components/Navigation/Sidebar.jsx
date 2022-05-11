@@ -332,7 +332,7 @@ const Sidebar = ({
         {/* )} */}
 
         {/* ----------society Profile---- */}
-        {userData?.data?.role.name === "Society Admin" && (
+        {userData?.data?.role.name !== "kunji admin" && (
           <>
             <NavLink to="/society_profile">
               <ListItem disablePadding>
@@ -350,7 +350,7 @@ const Sidebar = ({
           </>
         )}
 
-        {userData?.data?.role.name === "Society Admin" &&
+        {userData?.data?.role.name !== "kunji admin" &&
           userData?.data?.society?.society_type === 1 && (
             <>
               <ListItemButton onClick={openSocietyConfigHandler}>
@@ -409,7 +409,7 @@ const Sidebar = ({
           )}
         {/* ------vertical-society------- */}
 
-        {userData?.data?.role.name === "Society Admin" &&
+        {userData?.data?.role.name !== "kunji admin" &&
           userData?.data?.society?.society_type === 0 && (
             <>
               <ListItemButton onClick={OpenVerticalConfigHandler}>
@@ -451,7 +451,7 @@ const Sidebar = ({
           )}
 
         {/* ---------------------------property ownership-------------- */}
-        {userData?.data?.role.name === "Society Admin" && (
+        {userData?.data?.role.name !== "kunji admin" && (
           <>
             <NavLink to="/property_ownership">
               <ListItem disablePadding>
@@ -489,7 +489,7 @@ const Sidebar = ({
 
         {/* ----------assets---------- */}
 
-        {userData?.data?.role.name === "Society Admin" && (
+        {userData?.data?.role.name !== "kunji admin" && (
           <>
             <NavLink to="/assets">
               <ListItem disablePadding>
@@ -507,7 +507,7 @@ const Sidebar = ({
         )}
 
         {/* --------------society-Administrator--------- */}
-        {userData?.data?.role.name === "Society Admin" && (
+        {userData?.data?.role.name !== "kunji admin" && (
           <>
             <ListItemButton onClick={OpenSocietyAdminHandler}>
               <ListItemIcon>
@@ -804,7 +804,7 @@ const Sidebar = ({
 
           {/* ---------security-management---- */}
 
-          {userData?.data?.role.name === "Society Admin" && (
+          {userData?.data?.role.name !== "kunji admin" && (
             <>
               <ListItemButton onClick={OpenSecurityHandler}>
                 <ListItemIcon>
@@ -921,7 +921,7 @@ const Sidebar = ({
           </NavLink>
 
           {/* --------notices--------------- */}
-          {userData?.data?.role.name === "Society Admin" && (
+          {userData?.data?.role.name !== "kunji admin" && (
             <>
               <NavLink to="/society_notices">
                 <ListItem disablePadding>
@@ -954,7 +954,7 @@ const Sidebar = ({
           </NavLink>
 
           {/* ----------pool-------------------- */}
-          {userData?.data?.role.name === "Society Admin" && (
+          {userData?.data?.role.name !== "kunji admin" && (
             <>
               <NavLink to="/poll">
                 <ListItem disablePadding>

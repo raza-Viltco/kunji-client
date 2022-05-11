@@ -60,7 +60,7 @@ const AssignOwnership = ({
                   inputLabel="sector_block_building"
                   name="sector_block_building"
                   id="sector_block_building"
-                  // value={props.values.sector_block_building}
+                  // value={ownerDetails?.mapping_level_one}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setMappingId(e.target.value));
@@ -98,7 +98,7 @@ const AssignOwnership = ({
                   inputLabel="floor_streets"
                   name="floor_streets"
                   id="floor_streets"
-                  // value={props.values.floor_streets}
+                  // value={ownerDetails?.mapping_level_two}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setAppartmentFloor(e.target.value));
@@ -133,7 +133,7 @@ const AssignOwnership = ({
                   inputLabel="plot_home_apartment"
                   name="plot_home_apartment"
                   id="plot_home_apartment"
-                  // value={props.values.plot_home_apartment}
+                  // value={ownerDetails?.mapping_level_three}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setAppartmentNumber(e.target.value));
@@ -285,39 +285,47 @@ const AssignOwnership = ({
                   <InputError>{props?.errors?.address}</InputError>
                 )}
               </div>
-
-              <div className="col-md-6  mt-4">
-                <Dropdown
-                  inputLabel="Residential Status"
-                  name="reidential_status"
-                  value={props.values.residential_status}
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  className={
-                    props?.errors?.reidential_status &&
-                    props?.touched?.reidential_status
-                      ? "input-outline"
-                      : "bootstyle"
-                  }
-                  disabled={getLandlordData?.residential_status ? true : false}
-                >
-                  <option>Select Residential Status</option>
-                  {residentialStatus.map((item, index) => {
-                    return (
-                      <option value={item.id} key={index}>
-                        {item.status}
-                      </option>
-                    );
-                  })}
-                </Dropdown>
-                {props?.touched?.reidential_status &&
-                  props?.errors?.reidential_status && (
-                    <InputError>{props?.errors?.reidential_status}</InputError>
-                  )}
+              <div className="col-sm-12">
+                <div className="col-md-6  mt-4">
+                  <Dropdown
+                    inputLabel="Residential Status"
+                    name="reidential_status"
+                    value={props.values.residential_status}
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    className={
+                      props?.errors?.reidential_status &&
+                      props?.touched?.reidential_status
+                        ? "input-outline"
+                        : "bootstyle"
+                    }
+                    disabled={
+                      getLandlordData?.residential_status ? true : false
+                    }
+                  >
+                    <option>Select Residential Status</option>
+                    {residentialStatus.map((item, index) => {
+                      return (
+                        <option value={item.id} key={index}>
+                          {item.status}
+                        </option>
+                      );
+                    })}
+                  </Dropdown>
+                  {props?.touched?.reidential_status &&
+                    props?.errors?.reidential_status && (
+                      <InputError>
+                        {props?.errors?.reidential_status}
+                      </InputError>
+                    )}
+                </div>
               </div>
 
               <div className="col-md-6  mt-2">
                 <div className="col-sm-12 mt-3">
+                  <label className="px-3">
+                    <b>Documents</b>
+                  </label>
                   <Input
                     margin="normal"
                     fullWidth
@@ -348,6 +356,9 @@ const AssignOwnership = ({
 
               <div className="col-md-6  mt-2">
                 <div className="col-sm-12 mt-3">
+                  <label className="px-3">
+                    <b>Cnic Picture</b>
+                  </label>
                   <Input
                     margin="normal"
                     fullWidth
@@ -376,28 +387,49 @@ const AssignOwnership = ({
 
               <div className="col-md-6  mt-2">
                 <div className="col-sm-12 mt-3">
-                  <Input
-                    margin="normal"
-                    fullWidth
-                    type="file"
-                    // multiple
-                    placeholder="Property Image"
-                    name="property_image"
-                    value={props.values.property_image}
-                    onChange={props.handleChange}
-                    onBlur={props.handleBlur}
-                    id="documents"
-                    className={
-                      props?.errors?.property_image &&
-                      props?.touched?.property_image
-                        ? "input-outline"
-                        : "bootstyle"
-                    }
-                  />
-                  {props?.touched?.property_image &&
-                    props?.errors?.property_image && (
-                      <InputError>{props?.errors?.property_image}</InputError>
-                    )}
+                  <label className="px-3">
+                    <b>Property Picture</b>
+                  </label>
+                  {getLandlordData?.property_images ? (
+                    <div className="col-sm-12 pt-2 pb-2 propertystyle">
+                      <a
+                        className="textstyle"
+                        href={getLandlordData?.property_images}
+                        target="_blank"
+                      >
+                        <p className="px-2 m-0 parapropertystyle">
+                          {getLandlordData?.property_images}
+                        </p>
+                      </a>
+                    </div>
+                  ) : (
+                    <>
+                      <Input
+                        margin="normal"
+                        fullWidth
+                        type="file"
+                        // multiple
+                        placeholder="Property Image"
+                        name="property_image"
+                        value={props.values.property_image}
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        id="documents"
+                        className={
+                          props?.errors?.property_image &&
+                          props?.touched?.property_image
+                            ? "input-outline"
+                            : "bootstyle"
+                        }
+                      />
+                      {props?.touched?.property_image &&
+                        props?.errors?.property_image && (
+                          <InputError>
+                            {props?.errors?.property_image}
+                          </InputError>
+                        )}
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -411,6 +443,7 @@ const AssignOwnership = ({
                   sx={{ mt: 3, mb: 2, borderRadius: 20 }}
                   isLoading={stateLoading}
                   size="small"
+                  disabled={ownerDetails?.data?.length !== 0 ? true : false}
                 >
                   Assign
                 </Button>
