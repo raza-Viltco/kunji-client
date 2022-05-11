@@ -14,7 +14,6 @@ import { localApiStateHandler } from "../../localApiStateHandler";
 import { propertyListApi } from "../../../apis/AssignOwnership/Vertical/assignOwnership";
 import { setPropertyList } from "../../../../actions/AssignOwnership/Vertical/AssignOwnership";
 import { setError } from "../../../../actions/local";
-import { Form } from "formik";
 
 export function* handleAssignDepartmentData(action) {
   function* api() {
@@ -62,7 +61,7 @@ export function* handleOwnership(action) {
   form.append("mapping_one_id", values.sector_block_building);
   form.append("mapping_two_id", values.floor_streets);
   form.append("mapping_three_id", values.plot_home_apartment);
-  form.append("reidential_status", values.reidential_status);
+  form.append("reidential_status", values.residential_status);
   values.cnic_image.forEach((item) => {
     form.append("cnic_image[]", item);
   });

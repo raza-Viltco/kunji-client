@@ -1,6 +1,24 @@
-.ownership-button-outer{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
+.ownership-button-outer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.propertystyle {
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+}
+
+.parapropertystyle {
+  color: grey;
+}
+
+.textstyle {
+  text-decoration: none;
+}
+
+.textstyle:hover {
+  text-decoration: underline;
 }

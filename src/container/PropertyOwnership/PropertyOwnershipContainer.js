@@ -29,7 +29,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     (state) => state?.assignOwnership?.setOwnerData
   );
 
-  console.log(ownerDetails)
+  console.log(ownerDetails);
 
   const initialValues = {
     sector_block_building: "",
@@ -40,7 +40,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     cnic: "",
     contact: "",
     address: "",
-    reidential_status: "",
+    residential_status: "",
     documents: [],
     cnic_image: [],
     property_image: "",
@@ -53,10 +53,10 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
       cnic: ownerDetails?.landlord?.cnic,
       contact: ownerDetails?.landlord?.mobile,
       address: ownerDetails?.landlord?.address,
-      reidential_status: ownerDetails?.landlord?.residential_status,
+      residential_status: ownerDetails?.residential_status,
       // documents: [],
       // cnic_image: [],
-      // property_image: "",
+      property_images: ownerDetails?.property_image,
     };
     return data;
   };
@@ -72,7 +72,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     cnic: Yup.string().required("Cnic is required"),
     contact: Yup.string().required("Phone number is required"),
     address: Yup.string().required("Address is required"),
-    reidential_status: Yup.string().required("Residential status is required"),
+    residential_status: Yup.string().required("Residential status is required"),
     // documents: Yup.string().required("Document is required"),
   });
 
@@ -85,7 +85,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     cnic: Yup.string().required("Cnic is required"),
     contact: Yup.string().required("Phone number is required"),
     address: Yup.string().required("Address is required"),
-    reidential_status: Yup.string().required("Residential status is required"),
+    residential_status: Yup.string().required("Residential status is required"),
     // documents: Yup.string().required("Document is required"),
   });
 

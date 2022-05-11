@@ -14,6 +14,7 @@ const LoadingButton = ({
   size,
   click,
   className,
+  disabled
 }) => {
   return (
     <Button
@@ -25,6 +26,7 @@ const LoadingButton = ({
       size={size}
       onClick={click}
       className={className}
+      disabled={disabled}
     >
       {isLoading ? <CircularProgress color="secondary" size={25} /> : children}
     </Button>
