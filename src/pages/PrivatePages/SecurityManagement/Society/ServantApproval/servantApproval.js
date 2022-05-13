@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 
 import Card from "../../../../../components/Card";
 import Table from "../../../../../components/Table";
-import Modals from "../../../../../components/Modal";
+import Dialog from "../../../../../components/Modal";
 import Doc from "../../../../../assets/Doc.jpg";
 import servantApprovalContainer from "../../../../../container/Security Management/Society/ServantApprovalContainer";
 import "./servantApproval.css";
@@ -123,7 +123,7 @@ const ServantApprovalList = ({
       </div>
       {/* -------------modal code----- */}
     
-      <Modals
+      <Dialog
         open={show}
         close={handleClose}
         className="modalstyle"
@@ -213,7 +213,7 @@ const ServantApprovalList = ({
             ))}
           </div>
         </div>
-      </Modals>
+      </Dialog>
     </Card>
   );
 };

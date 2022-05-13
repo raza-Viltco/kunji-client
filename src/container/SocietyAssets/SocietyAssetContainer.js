@@ -4,16 +4,22 @@ import * as Yup from "yup";
 
 import { addAsset } from "../../redux/actions/Asset/AddAsset";
 
-const societyAssetContainer = (RegisterAsset) => () => {
+const societyAssetContainer = (AssetsForm) => () => {
   const dispatch = useDispatch();
   const stateLoading = useSelector((state) => state.local.isLoading);
 
   const initialValues = {
+    code: "",
     name: "",
+    location: "",
+    quantity: "",
   };
 
   const validationSchema = Yup.object().shape({
+    code: Yup.string().required("Code is required."),
     name: Yup.string().required("Asset name is required."),
+    location: Yup.string().required("Location is required."),
+    quantity: Yup.number().required("Quantity is required."),
   });
 
   const addAssetHandler = (values, formikActions) => {
@@ -21,7 +27,7 @@ const societyAssetContainer = (RegisterAsset) => () => {
   };
 
   return (
-    <RegisterAsset
+    <AssetsForm
       initialValues={initialValues}
       validationSchema={validationSchema}
       stateLoading={stateLoading}
