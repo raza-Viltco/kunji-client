@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Table from "../../../../../components/Table";
 import viewRoleContainer from "../../../../../container/KunjiRole/ViewRoleContainer";
 import Button from "../../../../../components/Button";
+import Card from "../../../../../components/Card";
 
 const ViewRole = ({ rolesDetail, stateLoading }) => {
   const history = useHistory();
@@ -30,9 +31,13 @@ const ViewRole = ({ rolesDetail, stateLoading }) => {
   ];
 
   return (
-    <div style={{ height: "100vh", width: "100%", background: "white" }}>
-      <Table rows={rolesDetail} columns={columns} loading={stateLoading} />
-    </div>
+    <Card>
+      <h3>View Roles</h3>
+
+      <div style={{ height: "100vh", width: "100%", background: "white" }}>
+        <Table rows={rolesDetail} columns={columns} loading={stateLoading} />
+      </div>
+    </Card>
   );
 };
 

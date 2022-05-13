@@ -15,6 +15,7 @@ const RoleList = ({
   const roleData = getFromPersistance("role_id");
   return (
     <div>
+      
       {roleData !== null ? (
         <>
           <div className="row">

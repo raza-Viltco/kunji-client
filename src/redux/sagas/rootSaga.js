@@ -90,6 +90,7 @@ import { handleDeliveryList } from "./handlers/SecurityManagement/Society/Delive
 import { handleAddCharges } from "./handlers/SocietyAdministration/AddCharges";
 import { handleChargesList } from "./handlers/SocietyAdministration/ChargesList";
 import {
+  handleBillList,
   handleGenerateBill,
   handleSelectResident,
 } from "./handlers/SocietyAdministration/GenerateBill";
@@ -156,4 +157,5 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.SELECT_RESIDENT, handleSelectResident);
   yield takeLatest(actionTypes.GENERATE_BILL, handleGenerateBill);
   yield takeLatest(actionTypes.EDIT_ASSET, handleAssetEdit);
+  yield takeLatest(actionTypes.BILL_LIST, handleBillList);
 }
