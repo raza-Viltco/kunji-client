@@ -265,6 +265,24 @@ const Sidebar = ({
           </>
         )}
 
+
+
+
+      {/* -----------------------department--------------- */}
+      <NavLink activeClassName="selected" to="/add_kunji_department">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <i class="fas fa-atlas" id="iconstyle"></i>
+                </ListItemIcon>
+                <ListItemText>
+                  <span className="font-dashboard">Department</span>
+                </ListItemText>
+                {/* className="font-dashboard"  */}
+              </ListItemButton>
+            </ListItem>
+          </NavLink>
+          
         {/* {userData?.data?.role.name === "kunji admin" && ( */}
         <>
           <ListItemButton onClick={openUserManagementHander}>
@@ -905,20 +923,7 @@ const Sidebar = ({
             </>
           )}
 
-          {/* -----------------------department--------------- */}
-          <NavLink activeClassName="selected" to="/add_kunji_department">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <i class="fas fa-atlas" id="iconstyle"></i>
-                </ListItemIcon>
-                <ListItemText>
-                  <span className="font-dashboard">Department</span>
-                </ListItemText>
-                {/* className="font-dashboard"  */}
-              </ListItemButton>
-            </ListItem>
-          </NavLink>
+    
 
           {/* --------notices--------------- */}
           {userData?.data?.role.name !== "kunji admin" && (

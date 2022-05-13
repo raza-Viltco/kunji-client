@@ -1,6 +1,7 @@
 import React from "react";
 
 import Table from "../../../../components/Table";
+import Card from "../../../../components/Card"
 import chargesListContainer from "../../../../container/SocietyAdministration/ChargesListContainer";
 
 const ChargesList = ({ chargesListData, stateLoading }) => {
@@ -12,9 +13,12 @@ const ChargesList = ({ chargesListData, stateLoading }) => {
   ];
 
   return (
+    <>
+    <h3>Society Charges List</h3>
     <div style={{ height: "100vh", width: "100%", background: "white" }}>
       <Table rows={chargesListData} columns={columns} loading={stateLoading} />
     </div>
+    </>
   );
 };
 export default chargesListContainer(ChargesList);

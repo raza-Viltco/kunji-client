@@ -110,6 +110,7 @@ const UserCreationForm = ({
                   name="password"
                   label="Password"
                   margin="normal"
+                  type="password"
                   placeholder="Password"
                   value={props.values.password}
                   onChange={props.handleChange}
@@ -130,7 +131,7 @@ const UserCreationForm = ({
                   name="cnic"
                   label="CNIC"
                   margin="normal"
-                  placeholder="Cnic"
+                  placeholder="CNIC"
                   value={props.values.cnic}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
@@ -231,7 +232,7 @@ const UserCreationForm = ({
                 // isLoading={stateLoading}
                 size="small"
               >
-                Add User
+                Add  Staff Member
               </Button>
             </div>
             </div>

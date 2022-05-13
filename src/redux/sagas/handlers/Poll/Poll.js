@@ -1,4 +1,5 @@
 import { call, put } from "redux-saga/effects";
+import { push } from "connected-react-router";
 
 import {
   setCreatePoll,
@@ -19,7 +20,6 @@ export function* handlePollList() {
 }
 
 export function* handleCreatePoll(action) {
-  // console.log(action, "actions are here");
   const { resetForm } = action.payload.formikActions;
   const { question, valid_days, options } = action.payload.values;
   const form = new FormData();
@@ -40,6 +40,8 @@ export function* handleCreatePoll(action) {
         message: data.message,
       })
     );
+    yield put(push("/poll"));
+
   }
   yield call(() => localApiStateHandler(api));
 }

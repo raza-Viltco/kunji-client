@@ -1,3 +1,12 @@
 .tableradius{
     border-radius: 20px !important;
 }
+.rmsc .dropdown-container {
+    position: relative;
+    outline: 0;
+    background-color: var(--rmsc-bg);
+    border: 1px solid var(--rmsc-border);
+    /* border-radius: var(--rmsc-radius); */
+    border-radius: 50px !important;
+}
+
