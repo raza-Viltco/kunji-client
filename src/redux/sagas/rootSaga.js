@@ -28,7 +28,11 @@ import {
   viewProfileData,
   handleUpdateProfile,
 } from "./handlers/Profile/profile";
-import { handleAddAsset, handleAssetList } from "./handlers/Asset/AddAsset";
+import {
+  handleAddAsset,
+  handleAssetList,
+  handleAssetEdit,
+} from "./handlers/Asset/AddAsset";
 import { handleFacilityList } from "./handlers/Facilities/AddFacilities";
 import {
   handleAddRole,
@@ -152,5 +156,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.CHARGES_LIST, handleChargesList);
   yield takeLatest(actionTypes.SELECT_RESIDENT, handleSelectResident);
   yield takeLatest(actionTypes.GENERATE_BILL, handleGenerateBill);
+  yield takeLatest(actionTypes.EDIT_ASSET, handleAssetEdit);
   yield takeLatest(actionTypes.BILL_LIST, handleBillList);
 }

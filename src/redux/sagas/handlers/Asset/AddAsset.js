@@ -1,7 +1,15 @@
 import { call, put } from "redux-saga/effects";
 
-import { addAssetApi, getAssetApi } from "../../apis/Asset/AddAsset";
-import { setAddAsset, setAssetListing } from "../../../actions/Asset/AddAsset";
+import {
+  addAssetApi,
+  getAssetApi,
+  editAssetApi,
+} from "../../apis/Asset/AddAsset";
+import {
+  setAddAsset,
+  setAssetListing,
+  setEditAsset,
+} from "../../../actions/Asset/AddAsset";
 import { localApiStateHandler } from "../localApiStateHandler";
 import { setError } from "../../../actions/local";
 
@@ -27,14 +35,19 @@ export function* handleAddAsset(action) {
 export function* handleAssetList() {
   function* api() {
     const { data } = yield call(getAssetApi);
-    console.log(data.data.assets);
-    yield put(setAssetListing(data.data.assets));
-    yield put(
-      setError({
-        type: "success",
-        message: data.message,
-      })
-    );
+    console.log(data);
+    yield put(setAssetListing(data));
+  }
+
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleAssetEdit(action) {
+  console.log(action);
+  function* api() {
+    const { data } = yield call(editAssetApi, action.payload);
+    console.log(data);
+    yield put(setEditAsset(data.assets));
   }
 
   yield call(() => localApiStateHandler(api));
