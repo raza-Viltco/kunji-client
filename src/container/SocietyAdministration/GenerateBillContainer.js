@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import { chargesList } from "../../redux/actions/SocietyAdministration/ChargesList";
 import {
+  billList,
   generateBill,
   selectResident,
 } from "../../redux/actions/SocietyAdministration/GenerateBill";
@@ -25,12 +26,19 @@ const generateBillContainer = (GenerateBillForm) => () => {
     (state) => state.chargesList.chargesData
   );
 
+  const billListData = useSelector((state) => state.generateBill.billList);
+  console.log(billListData, "billlistdata");
+
   useEffect(() => {
     dispatch(selectResident());
   }, []);
 
   useEffect(() => {
     dispatch(chargesList());
+  }, []);
+
+  useEffect(() => {
+    dispatch(billList());
   }, []);
 
   const validationSchema = Yup.object().shape({
@@ -50,6 +58,7 @@ const generateBillContainer = (GenerateBillForm) => () => {
       validationSchema={validationSchema}
       selectResidentData={selectResidentData}
       selectChargesData={selectChargesData}
+      billListData={billListData}
       handleGenerateBill={handleGenerateBill}
     />
   );

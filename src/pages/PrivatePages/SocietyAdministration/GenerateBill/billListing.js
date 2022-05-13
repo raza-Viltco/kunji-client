@@ -1,15 +1,30 @@
 import React from "react";
 
-import { DataGrid } from "@mui/x-data-grid";
+import Table from "../../../../components/Table";
 import Button from "../../../../components/Button";
+import billListContainer from "../../../../container/SocietyAdministration/BillListContainer";
 
-const BillListing = () => {
+const BillListing = ({ billListData }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "chargesCode", headerName: "Charges Code", width: 300 },
-    { field: "chargesTitle", headerName: "Charges Title", width: 300 },
-    { field: "charges", headerName: " Charges", width: 160 },
-    { field: "Duedate", headerName: " Due Date", width: 160 },
+    {
+      field: "charges_code",
+      headerName: "Charges Code",
+      valueGetter: (params) => params?.row?.charges_type_list?.charges_code,
+      width: 200,
+    },
+    {
+      field: "charges_title",
+      headerName: "Charges Title",
+      valueGetter: (params) => params?.row?.charges_type_list?.charges_title,
+      width: 200,
+    },
+    {
+      field: "charges",
+      headerName: " Charges",
+      valueGetter: (params) => params?.row?.charges_type_list?.charges,
+    },
+    { field: "due_date", headerName: " Due Date", width: 200 },
   ];
 
   const rows = [
@@ -44,25 +59,15 @@ const BillListing = () => {
   ];
   return (
     <>
-      <div
-        style={{
-          height: 420,
-          width: "100%",
-          background: "white",
-          textAlign: "center",
-          marginTop: "20px",
-        }}
-      >
-        <DataGrid
-          rows={rows}
+      <div style={{ height: "100vh", width: "100%", background: "white" }}>
+        <Table
+          rows={billListData}
           columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
+          // loading={stateLoading}
         />
       </div>
 
-      <div className="row">
+      {/* <div className="row">
         <div className="col-sm-9"></div>
         <div className="col-sm-3">
           <Button
@@ -76,8 +81,8 @@ const BillListing = () => {
             Generate Bill
           </Button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
-export default BillListing;
+export default billListContainer(BillListing);

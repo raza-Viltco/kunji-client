@@ -357,7 +357,7 @@ const AssignOwnership = ({
               <div className="col-md-6  mt-2">
                 <div className="col-sm-12 mt-3">
                   <label className="px-3">
-                    <b>Cnic Picture</b>
+                    <b>CNIC Picture</b>
                   </label>
                   <Input
                     margin="normal"
@@ -452,7 +452,7 @@ const AssignOwnership = ({
           </Form>
         )}
       </Formik>
-      <AssignOwnershipListing />
+      {/* <AssignOwnershipListing /> */}
     </Card>
   );
 };
