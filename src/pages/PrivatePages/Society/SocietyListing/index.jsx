@@ -1,24 +1,12 @@
 import React from "react";
-// import { GridActionsCellItem } from "@mui/x-data-grid";
-// import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-// import { Formik, Form } from "formik";
-// import MenuItem from "@mui/material/MenuItem";
-
-import Table from "../../../../components/Table";
-// import Modal from "../../../../components/Modal";
-import Button from "../../../../components/Button";
-// import Input from "../../../../components/Form/Input";
-// import Dropdown from "../../../../components/Form/Dropdown";
-import societyListingContainer from "../../../../container/Society/SocietyListingContainer";
 import { Link } from "react-router-dom";
 
-const SocietyListing = ({
-  societiesList,
-  // open,
-  // editData,
-  // handleClickOpen,
-  // handleClickClose,
-}) => {
+import Table from "../../../../components/Table";
+import Button from "../../../../components/Button";
+import societyListingContainer from "../../../../container/Society/SocietyListingContainer";
+import "./societyList.css";
+
+const SocietyListing = ({ societiesList }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Society Name", width: 180 },
@@ -57,23 +45,23 @@ const SocietyListing = ({
       headerName: "Action",
       width: 80,
       getActions: (params) => [
-        <Button
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2, borderRadius: 20 , textTransform: "Capitalize" }}
-          size="normal"
-        >
-          View
-        </Button>,
-        // <GridActionsCellItem
-        //   icon={<AiFillDelete size={20} />}
-        //   label="Delete"
-        // />,
-        // <GridActionsCellItem
-        //   icon={<AiFillEdit size={20} />}
-        //   label="Edit"
-        //   onClick={() => handleClickOpen(params.id)}
-        // />,
+        <div className="society_view_btn">
+          <Link to={`/society_listing_view/${params.id}`}>
+            <Button
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 2,
+                borderRadius: 20,
+                textTransform: "Capitalize",
+              }}
+              size="normal"
+            >
+              View
+            </Button>
+          </Link>
+        </div>,
       ],
     },
   ];

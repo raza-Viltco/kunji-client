@@ -24,6 +24,7 @@ import visitorListReducer from "./reducer/SecurityManagement/Society/VisitorList
 import deliveryListReducer from "./reducer/SecurityManagement/Society/DeliveryList";
 import ChargesListReducer from "./reducer/SocietyAdministration/ChargesList";
 import generateBillReducer from "./reducer/SocietyAdministration/GenerateBill";
+import viewSocietyReducer from "./reducer/Society/ViewSociety";
 
 const reducers = (history) =>
   combineReducers({
@@ -50,6 +51,7 @@ const reducers = (history) =>
     deliveryList: deliveryListReducer,
     chargesList: ChargesListReducer,
     generateBill: generateBillReducer,
+    viewSociety: viewSocietyReducer,
     router: connectRouter(history),
   });
 

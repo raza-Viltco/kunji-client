@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { MultiSelect } from "react-multi-select-component";
+import { useDispatch } from "react-redux";
 
 import Card from "../../../../../components/Card";
 import Input from "../../../../../components/Form/Input";
@@ -7,11 +8,11 @@ import Button from "../../../../../components/Button";
 import noticesContainer from "../../../../../container/Notices/NoticesContainer";
 import TextArea from "../../../../../components/Form/textArea";
 import InputError from "../../../../../components/Form/InputError";
-
+import { createNotice } from "../../../../../redux/actions/Notice/Notice";
 import "./notices.css";
 
 const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
-  const [selected, setSelected] = useState([]);
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     notice_title: "",
     notice_detail: "",
@@ -25,9 +26,6 @@ const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
   });
 
   const handleChange = (e) => {
-    // console.log(e?.target?.id);
-    // console.log(e.target.value);
-
     if (e?.target?.id === "notice_title") {
       if (e?.target?.value === "" || e?.target?.value === null) {
         setError({ ...error, notice_title_Error: "Title is required" });
@@ -53,15 +51,12 @@ const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
   };
 
   const handleNotices = (e) => {
-    console.log("clicked");
-
     if (
       user.notice_title !== "" &&
       user.notice_detail !== "" &&
       e.length !== 0
     ) {
-      console.log("data here");
-
+      dispatch(createNotice(user));
       setUser({ notice_title: "", notice_detail: "", residents: "" });
       setError({ error, form_Error: "" });
     } else {
@@ -81,7 +76,6 @@ const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
   return (
     <Card>
       <h4>Notice</h4>
-
       <div className="row">
         <div className="col-md-12">
           <Input
@@ -117,7 +111,7 @@ const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
             className="bootstyle"
             // id="residents"
             // name="residents"
-            options={setResidentDrop}
+            options={residentsOption}
             value={user.residents}
             onChange={handleChange}
             disableSearch={true}
@@ -129,7 +123,6 @@ const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
         </div>
       </div>
       {error.form_Error && <InputError>{error.form_Error}</InputError>}
-
       <div className="row">
         <div className="col-sm-9"></div>
         <div className="col-sm-3">
@@ -145,6 +138,7 @@ const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
           </Button>
         </div>
       </div>
+
     </Card>
   );
 };

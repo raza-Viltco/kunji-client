@@ -8,11 +8,11 @@ const noticesContainer = (NoticeForm) => () => {
   const selectResidentData = useSelector(
     (state) => state.generateBill.residentData
   );
-  console.log("selectResidentData", selectResidentData);
+  // console.log("selectResidentData", selectResidentData);
   const setResidentDrop = useSelector(
     (state) => state.generateBill.residentDrop
   );
-  console.log(setResidentDrop, "setResidentDrop");
+  // console.log(setResidentDrop, "setResidentDrop");
 
   const residentOptionFunction = () => {
     const residentsOption = [];
@@ -30,11 +30,11 @@ const noticesContainer = (NoticeForm) => () => {
     residents: [],
   };
 
-  console.log(residentOptionFunction(), "residentOptionFunction");
+  // console.log(residentOptionFunction(), "residentOptionFunction");
 
-  useEffect(() => {
-    residentOptionFunction();
-  }, [selectResidentData]);
+  // useEffect(() => {
+  //   residentOptionFunction();
+  // }, [selectResidentData]);
 
   useEffect(() => {
     dispatch(selectResident());
@@ -44,7 +44,7 @@ const noticesContainer = (NoticeForm) => () => {
     <NoticeForm
       initialValues={initialValues}
       selectResidentData={selectResidentData}
-      setResidentDrop={residentOptionFunction()}
+      // setResidentDrop={residentOptionFunction()}
     />
   );
 };

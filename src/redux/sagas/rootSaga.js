@@ -42,6 +42,7 @@ import {
   handlePermissions,
 } from "./handlers/KunjiRole/AddRole";
 import {
+  handleStaffList,
   handleUserCreation,
   handleUserDepartment,
 } from "./handlers/KunjiRole/UserCreation";
@@ -96,6 +97,11 @@ import {
   handleGenerateBill,
   handleSelectResident,
 } from "./handlers/SocietyAdministration/GenerateBill";
+import {
+  handleSocietyStatus,
+  handleViewSociety,
+} from "./handlers/Society/ViewSociety";
+import { handleCreateNotice } from "./handlers/Notice/Notice";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -162,4 +168,8 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.BILL_LIST, handleBillList);
   yield takeLatest(actionTypes.UPDATE_ASSET, handleUpdateAsset);
   yield takeLatest(actionTypes.REMOVE_ASSET, handleRemoveAsset);
+  yield takeLatest(actionTypes.VIEW_SOCIETY, handleViewSociety);
+  yield takeLatest(actionTypes.SOCIETY_STATUS, handleSocietyStatus);
+  yield takeLatest(actionTypes.STAFF_LIST, handleStaffList);
+  yield takeLatest(actionTypes.CREATE_NOTICE, handleCreateNotice);
 }

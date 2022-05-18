@@ -1,6 +1,7 @@
 import React from "react";
 
 import Table from "../../../../components/Table";
+import Card from "../../../../components/Card";
 import appartmentListContainer from "../../../../container/SocietyConfigration/AppartmentListContainer";
 
 const AddAppartmentList = ({ appartmentListing,stateLoading }) => {
@@ -14,6 +15,8 @@ const AddAppartmentList = ({ appartmentListing,stateLoading }) => {
   ];
 
   return (
+    <>
+      <h3 className="text-center">Appartment Listing</h3>
     <div style={{ height: "100vh", width: "100%", background: "white" }}>
       <Table
         rows={appartmentListing}
@@ -21,6 +24,7 @@ const AddAppartmentList = ({ appartmentListing,stateLoading }) => {
           loading={stateLoading}
       />
     </div>
+    </>
   );
 };
 export default appartmentListContainer(AddAppartmentList);

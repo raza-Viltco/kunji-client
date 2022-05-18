@@ -113,7 +113,7 @@ const GenerateBillForm = ({
                   sx={{ mt: 3, mb: 2, borderRadius: 20 }}
                   size="small"
                 >
-                  Add Charges
+                 Generate Bill
                 </Button>
               </div>
             </div>

@@ -1,15 +1,18 @@
 import { call, put } from "redux-saga/effects";
 
 import {
+  staffListApi,
   userCreationApi,
   userDepartmentApi,
 } from "../../apis/KunjiRole/UserCreation";
 import { localApiStateHandler } from "../localApiStateHandler";
 import {
+  setStaffList,
   setUserCreation,
   setUserDepartment,
 } from "../../../actions/KunjiRole/UserCreation";
 import { setError } from "../../../actions/local";
+import staffListing from "../../../../pages/PrivatePages/UserManagement/Kunji/UserCreation/staffListing";
 
 export function* handleUserDepartment() {
   function* api() {
@@ -55,6 +58,15 @@ export function* handleUserCreation(action) {
         message: data.message,
       })
     );
+  }
+  yield call(() => localApiStateHandler(api));
+}
+
+
+export function* handleStaffList() {
+  function* api() {
+    const { data } = yield call(staffListApi);
+    yield put(setStaffList(data));
   }
   yield call(() => localApiStateHandler(api));
 }
