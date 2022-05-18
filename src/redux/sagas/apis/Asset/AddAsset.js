@@ -30,3 +30,21 @@ export const editAssetApi = async (data) => {
     params: { id: data },
   });
 };
+
+export const updateAssetApi = async (data) => {
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "POST",
+    url: "society/update-society-assets",
+    data,
+  });
+};
+
+export const removeAssetApi = async (data) => {
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "POST",
+    url: "society/delete-society-asset",
+    data,
+  });
+};

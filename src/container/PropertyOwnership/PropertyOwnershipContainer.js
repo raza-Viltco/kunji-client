@@ -32,9 +32,9 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
   console.log(ownerDetails);
 
   const initialValues = {
-    sector_block_building: "",
-    floor_streets: "",
-    plot_home_apartment: "",
+    sector_block_building: ownerDetails?.data?.mapping_level_one,
+    floor_streets: ownerDetails?.data?.mapping_level_two,
+    plot_home_apartment: ownerDetails?.data?.mapping_level_three,
     owner_first_name: "",
     owner_last_name: "",
     cnic: "",
@@ -48,20 +48,21 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
 
   const getLandlordData = () => {
     let data = {
+      sector_block_building: ownerDetails?.mapping_level_one,
+      floor_streets: ownerDetails?.mapping_level_two,
+      plot_home_apartment: ownerDetails?.mapping_level_three,
       owner_first_name: ownerDetails?.landlord?.first_name,
       owner_last_name: ownerDetails?.landlord?.last_name,
       cnic: ownerDetails?.landlord?.cnic,
       contact: ownerDetails?.landlord?.mobile,
       address: ownerDetails?.landlord?.address,
       residential_status: ownerDetails?.residential_status,
-      // documents: [],
-      // cnic_image: [],
+      documents: ownerDetails?.documents,
+      cnic_image: ownerDetails?.cnic_image,
       property_images: ownerDetails?.property_image,
     };
     return data;
   };
-
-  console.log(getLandlordData());
 
   const validationSchema = Yup.object().shape({
     sector_block_building: Yup.string().required("Building is required"),
@@ -90,6 +91,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
   });
 
   const handleAssignOwnership = (values, formikActions) => {
+    console.log(values);
     dispatch(assignOwnership({ values, formikActions }));
   };
 
@@ -113,11 +115,12 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     if (mappingId && appartmentFloor && appartmentId) {
       dispatch(ownerData({ mappingId, appartmentFloor, appartmentId }));
     }
-  }, [mappingId, appartmentFloor, appartmentId]);
+  }, [mappingId && appartmentFloor && appartmentId]);
 
   useEffect(() => {
     if (ownerDetails) {
       getLandlordData();
+      console.log(getLandlordData());
     }
   }, [ownerDetails]);
 

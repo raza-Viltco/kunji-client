@@ -1,4 +1,5 @@
 import { call, put } from "redux-saga/effects";
+import { push } from "connected-react-router";
 
 import {
   setAssignAppartmentData,
@@ -80,6 +81,7 @@ export function* handleOwnership(action) {
         message: data.message,
       })
     );
+    yield put(push("/property_ownership"));
   }
 
   yield call(() => localApiStateHandler(api));

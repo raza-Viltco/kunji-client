@@ -32,6 +32,8 @@ import {
   handleAddAsset,
   handleAssetList,
   handleAssetEdit,
+  handleUpdateAsset,
+  handleRemoveAsset,
 } from "./handlers/Asset/AddAsset";
 import { handleFacilityList } from "./handlers/Facilities/AddFacilities";
 import {
@@ -158,4 +160,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.GENERATE_BILL, handleGenerateBill);
   yield takeLatest(actionTypes.EDIT_ASSET, handleAssetEdit);
   yield takeLatest(actionTypes.BILL_LIST, handleBillList);
+  yield takeLatest(actionTypes.UPDATE_ASSET, handleUpdateAsset);
+  yield takeLatest(actionTypes.REMOVE_ASSET, handleRemoveAsset);
 }

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
-import { useDispatch } from "react-redux";
 
 import Dialog from "../../../../components/Modal";
 import Table from "../../../../components/Table";
@@ -8,7 +7,6 @@ import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
 import InputError from "../../../../components/Form/InputError";
 import assetListingContainer from "../../../../container/SocietyAssets/AssetListingContainer";
-import { setAssetId } from "../../../../redux/actions/Asset/AddAsset";
 
 const AssetListing = ({
   assetListing,
@@ -16,18 +14,12 @@ const AssetListing = ({
   initialValues,
   validationSchema,
   editData,
+  show,
+  handleAssetModal,
+  handleModalClose,
+  handleAssetRemove,
   updateAssetHandler,
 }) => {
-  const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
-
-  const handleAssetModal = (id) => {
-    // console.log(id);
-    dispatch(setAssetId(id));
-    setShow(true);
-  };
-
-  const handleModalClose = () => setShow(false);
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -49,13 +41,18 @@ const AssetListing = ({
       getActions: (params) => [
         <div>
           <button
-            className="btn btn-primary btn-sm "
+            className="btn btn-success btn-sm "
             onClick={() => handleAssetModal(params.id)}
           >
             Edit
           </button>
           &nbsp;
-          <button className="btn btn-danger btn-sm ">Delete</button>
+          <button
+            className="btn btn-danger btn-sm "
+            onClick={() => handleAssetRemove(params.id)}
+          >
+            Delete
+          </button>
         </div>,
       ],
     },
@@ -74,9 +71,9 @@ const AssetListing = ({
         className="modalstyle"
       >
         <Formik
-          initialValues={editData ? editData : initialValues}
+          initialValues={editData}
           validationSchema={validationSchema}
-          onSubmit={updateAssetHandler}
+          onSubmit={(values) => updateAssetHandler(values, handleModalClose)}
         >
           {(props) => (
             <Form>
@@ -87,17 +84,17 @@ const AssetListing = ({
                     placeholder="Code"
                     name="code"
                     type="text"
-                    value={props.values.code}
+                    value={props?.values?.code}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     className={
-                      props.errors.code && props.touched.code
+                      props?.errors?.code && props?.touched?.code
                         ? "input-outline"
                         : "bootstyle"
                     }
                   />
-                  {props.touched.code && props.errors.code && (
-                    <InputError>{props.errors.code}</InputError>
+                  {props?.touched?.code && props?.errors?.code && (
+                    <InputError>{props?.errors?.code}</InputError>
                   )}
                 </div>
                 <div className="col-md-6 mt-3">
@@ -105,17 +102,17 @@ const AssetListing = ({
                     placeholder="Name"
                     name="name"
                     type="text"
-                    value={props.values.name}
+                    value={props?.values?.name}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     className={
-                      props.errors.name && props.touched.name
+                      props?.errors?.name && props?.touched?.name
                         ? "input-outline"
                         : "bootstyle"
                     }
                   />
-                  {props.touched.name && props.errors.name && (
-                    <InputError>{props.errors.name}</InputError>
+                  {props?.touched?.name && props?.errors?.name && (
+                    <InputError>{props?.errors?.name}</InputError>
                   )}
                 </div>
                 <div className="col-md-6 mt-3">
@@ -123,17 +120,17 @@ const AssetListing = ({
                     placeholder="Quantity"
                     name="quantity"
                     type="text"
-                    value={props.values.quantity}
+                    value={props?.values?.quantity}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     className={
-                      props.errors.quantity && props.touched.quantity
+                      props?.errors?.quantity && props?.touched?.quantity
                         ? "input-outline"
                         : "bootstyle"
                     }
                   />
-                  {props.touched.quantity && props.errors.quantity && (
-                    <InputError>{props.errors.quantity}</InputError>
+                  {props?.touched?.quantity && props?.errors?.quantity && (
+                    <InputError>{props?.errors?.quantity}</InputError>
                   )}
                 </div>
                 <div className="col-md-6 mt-3">
@@ -141,17 +138,17 @@ const AssetListing = ({
                     placeholder="Location"
                     name="location"
                     type="text"
-                    value={props.values.location}
+                    value={props?.values?.location}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     className={
-                      props.errors.location && props.touched.location
+                      props?.errors?.location && props?.touched?.location
                         ? "input-outline"
                         : "bootstyle"
                     }
                   />
-                  {props.touched.location && props.errors.location && (
-                    <InputError>{props.errors.location}</InputError>
+                  {props?.touched?.location && props?.errors?.location && (
+                    <InputError>{props?.errors?.location}</InputError>
                   )}
                 </div>
               </div>
@@ -160,10 +157,10 @@ const AssetListing = ({
                   type="submit"
                   variant="contained"
                   sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-                  // isLoading={stateLoading}
+                  isLoading={stateLoading}
                   size="small"
                 >
-                  Update Asset
+                  Update
                 </Button>
                 &nbsp;
                 <Button
