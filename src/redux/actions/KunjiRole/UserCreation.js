@@ -19,3 +19,12 @@ export const setUserCreation = (paylaod) => ({
   type: actionTypes.SET_USER_CREATION,
   paylaod,
 });
+
+export const staffList = () => ({
+  type: actionTypes.STAFF_LIST,
+});
+
+export const setStaffList = (payload) => ({
+  type: actionTypes.SET_STAFF_LIST,
+  payload,
+});

@@ -6,11 +6,22 @@ import visitorListContainer from "../../../../../container/Security Management/S
 import "./visitorList.css";
 
 const VisitorsList = ({ visitorListData, stateLoading }) => {
+  console.log(visitorListData, "visitorListData");
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "visitor", headerName: " Resident Name", width: 160 },
+    {
+      field: "resident",
+      headerName: " Resident Name",
+      width: 160,
+      valueGetter: (params) => params?.row?.resident?.name,
+    },
 
-    { field: "address", headerName: "Address", width: 160 },
+    {
+      field: "address",
+      headerName: " Address",
+      width: 160,
+      valueGetter: (params) => params?.row?.resident?.address,
+    },
     {
       field: "first_name",
       type: "actions",

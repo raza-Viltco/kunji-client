@@ -24,9 +24,8 @@ const UserCreationForm = ({
       >
         {(props) => (
           <Form>
-            {/* {console.log(props)} */}
             <div className="user-creation-upper-style ">
-              <h3 className="col-md-6">User Creation</h3>
+              <h3 className="col-md-6"> Staff Member Creation</h3>
 
               {/* <div className="society_btn__wrapper ">
                 <Button
@@ -223,18 +222,18 @@ const UserCreationForm = ({
               </div>
             </div>
             <div className="lower-button-style">
-            <div className="society_btn__wrapper">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2,borderRadius: 20 }}
-                // isLoading={stateLoading}
-                size="small"
-              >
-                Add  Staff Member
-              </Button>
-            </div>
+              <div className="society_btn__wrapper">
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+                  // isLoading={stateLoading}
+                  size="small"
+                >
+                  Add Staff Member
+                </Button>
+              </div>
             </div>
           </Form>
         )}

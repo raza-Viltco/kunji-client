@@ -61,6 +61,7 @@ import CreatePool from "../pages/PrivatePages/Pools/createPool";
 import ViewPool from "../pages/PrivatePages/Pools/viewPool";
 import MiniDrawer from "../pages/PrivatePages/Home";
 import DashboardItems from "../pages/PrivatePages/Home/DashboardItems";
+import StaffMemberListing from "../pages/PrivatePages/UserManagement/Kunji/UserCreation/staffListing";
 
 const AppRouter = () => (
   // const userData = useSelector((state) => state.user.data);
@@ -238,7 +239,7 @@ const AppRouter = () => (
           <Assets />
         </PrivateRoute>
 
-        <PrivateRoute path="/society_listing_view">
+        <PrivateRoute path="/society_listing_view/:viewId">
           <SocietyListingView />
         </PrivateRoute>
 
@@ -268,6 +269,9 @@ const AppRouter = () => (
 
         <PrivateRoute path="/view_poll/:poll_id">
           <ViewPool />
+        </PrivateRoute>
+        <PrivateRoute path="/staff_member_list">
+          <StaffMemberListing/>
         </PrivateRoute>
 
       </MiniDrawer>

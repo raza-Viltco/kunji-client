@@ -331,6 +331,19 @@ const Sidebar = ({
                 </ListItemButton>
               </NavLink>
             </List>
+            <List component="div" disablePadding>
+              <NavLink to="/staff_member_list">
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <MdOutlineFormatListBulleted size={20} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <span className="font-dashboard"> Staff Member Listing</span>
+                  </ListItemText>
+                </ListItemButton>
+              </NavLink>
+            </List>
+
             {userData?.data?.role.name === "Society Admin" && (
               <List component="div" disablePadding>
                 <NavLink to="/user_kunji_approval">

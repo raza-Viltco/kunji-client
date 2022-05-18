@@ -9,6 +9,7 @@ const deliveryBookingContainer = (DeliveryList) => () => {
   const deliveryListData = useSelector(
     (state) => state.deliveryList.deliveryData
   );
+  // console.log(deliveryListData, "deliveryListData"); 
 
   useEffect(() => {
     dispatch(deliveryList());
