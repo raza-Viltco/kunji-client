@@ -33,3 +33,23 @@ export const setEditAsset = (payload) => ({
   type: actionTypes.SET_EDIT_ASSET,
   payload,
 });
+
+export const updateAsset = (payload) => ({
+  type: actionTypes.UPDATE_ASSET,
+  payload,
+});
+
+export const setUpdateAsset = (payload) => ({
+  type: actionTypes.SET_UPDATE_ASSET,
+  payload,
+});
+
+export const removeAsset = (payload) => ({
+  type: actionTypes.REMOVE_ASSET,
+  payload,
+});
+
+export const setRemoveAsset = (payload) => ({
+  type: actionTypes.SET_REMOVE_ASSET,
+  payload,
+});

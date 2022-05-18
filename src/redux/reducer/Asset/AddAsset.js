@@ -3,8 +3,9 @@ import { actionTypes } from "../../actions/action-types";
 const initialState = {
   assetData: null,
   assetListing: [],
-  assetId: null,
+  // assetId: null,
   editAsset: null,
+  updateAsset: null,
 };
 
 const addAssetReducer = (state = initialState, action) => {
@@ -18,6 +19,15 @@ const addAssetReducer = (state = initialState, action) => {
       return { ...state, assetId: payload };
     case actionTypes.SET_EDIT_ASSET:
       return { ...state, editAsset: payload };
+    case actionTypes.SET_UPDATE_ASSET:
+      return { ...state, updateAsset: payload };
+    case actionTypes.SET_REMOVE_ASSET:
+      return {
+        ...state,
+        assetListing: state.assetListing.filter(
+          (item) => item.id !== Number(payload.data)
+        ),
+      };
     default:
       return state;
   }

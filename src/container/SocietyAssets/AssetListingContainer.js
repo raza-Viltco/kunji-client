@@ -1,25 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
-import { assetListing, editAsset } from "../../redux/actions/Asset/AddAsset";
+import {
+  assetListing,
+  editAsset,
+  updateAsset,
+  removeAsset
+} from "../../redux/actions/Asset/AddAsset";
 
 const assetListingContainer = (AssetListing) => () => {
   const dispatch = useDispatch();
   const assetList = useSelector((state) => state.asset.assetListing);
   const stateLoading = useSelector((state) => state.local.isLoading);
-  const editId = useSelector((state) => state.asset.assetId);
+  // const editId = useSelector((state) => state.asset.assetId);
   const editData = useSelector((state) => state.asset.editAsset);
+  const updatedAsset = useSelector((state) => state.asset.updateAsset);
+  const [show, setShow] = useState(false);
 
-  console.log(editId);
-  console.log(editData);
-
-  const initialValues = {
-    code: "",
-    name: "",
-    location: "",
-    quantity: "",
-  };
+  // const initialValues = {
+  //   code: "",
+  //   name: "",
+  //   location: "",
+  //   quantity: "",
+  // };
 
   const validationSchema = Yup.object().shape({
     code: Yup.string().required("Code is required."),
@@ -28,27 +32,41 @@ const assetListingContainer = (AssetListing) => () => {
     quantity: Yup.number().required("Quantity is required."),
   });
 
-  const updateAssetHandler = (values) => {
-    console.log(values);
+  const handleModalClose = () => setShow(false);
+
+  const handleAssetModal = (id) => {
+    dispatch(editAsset(id));
+  };
+
+  const handleAssetRemove = (id) => {
+    dispatch(removeAsset(id));
+  };
+
+  const updateAssetHandler = (values, customParam) => {
+    dispatch(updateAsset({ values, customParam }));
   };
 
   useEffect(() => {
     dispatch(assetListing());
-  }, []);
+  }, [updatedAsset]);
 
   useEffect(() => {
-    if (editId) {
-      dispatch(editAsset(editId));
+    if (editData) {
+      setShow(true);
     }
-  }, [editId]);
+  }, [editData]);
 
   return (
     <AssetListing
       assetListing={assetList}
       stateLoading={stateLoading}
-      initialValues={initialValues}
+      // initialValues={initialValues}
       validationSchema={validationSchema}
       editData={editData}
+      show={show}
+      handleAssetModal={handleAssetModal}
+      handleModalClose={handleModalClose}
+      handleAssetRemove={handleAssetRemove}
       updateAssetHandler={updateAssetHandler}
     />
   );
