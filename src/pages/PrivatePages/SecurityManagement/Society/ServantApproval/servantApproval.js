@@ -32,16 +32,16 @@ const ServantApprovalList = ({
       type: "actions",
       headerName: "Resident Name",
       width: 200,
-      getActions: (params) => [<div>{params.row.resident.name}</div>],
+      getActions: (params) => [<div>{params?.row?.resident?.name}</div>],
     },
-    { field: "resaddress", headerName: "Resident Address", width: 160 },
+    { field: "address", headerName: "Resident Address", width: 160 },
     {
       field: "first_name",
       type: "actions",
       headerName: "Servant  Name",
       width: 200,
       getActions: (params) => [
-        <div>{params.row.first_name + " " + params.row.last_name}</div>,
+        <div>{params?.row?.first_name + " " + params?.row?.last_name}</div>,
       ],
     },
     { field: "mobile", headerName: "Mobile No", width: 160 },
@@ -60,7 +60,7 @@ const ServantApprovalList = ({
             className="btn btn-success btn-sm "
             // key={params.rows.id}
             onClick={() => {
-              handleShow(params.row.id);
+              handleShow(params?.row?.id);
             }}
             // onClick={()=>{
             //   handleOpen(params.row.id)
@@ -89,7 +89,7 @@ const ServantApprovalList = ({
       width: 200,
       getActions: (params) => [
         <div>
-          {(params.row.status === 0 || params.row.status === 2) && (
+          {(params.row?.status === 0 || params.row?.status === 2) && (
             <button
               className="btn btn-success btn-sm"
               onClick={() => {
@@ -122,7 +122,7 @@ const ServantApprovalList = ({
         <Table rows={servantData} columns={columns} loading={stateLoading} />
       </div>
       {/* -------------modal code----- */}
-    
+
       <Dialog
         open={show}
         close={handleClose}
@@ -205,12 +205,17 @@ const ServantApprovalList = ({
                     </div>
                   ) : (
                     <ul>
-                      <li> {user?.police_report_image.split("/").pop()} </li>
+                      <li> {user?.police_report_image?.split("/")?.pop()} </li>
                     </ul>
                   )}
                 </a>
               </div>
             ))}
+          </div>
+          <div className="close-modal-button">
+            <button className=" btn btn-danger btn-sm " onClick={handleClose}>
+              Close
+            </button>
           </div>
         </div>
       </Dialog>

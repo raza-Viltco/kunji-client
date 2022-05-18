@@ -11,13 +11,15 @@ const AddPlotListing = ({ appartmentListing, stateLoading }) => {
   ];
 
   return (
+    <>
+    <h3 className="text-center">Plots Listing</h3>
     <div style={{ height: "100vh", width: "100%", background: "white" }}>
       <Table
         rows={appartmentListing}
         columns={columns}
         loading={stateLoading}
       />
-    </div>
+    </div></>
   );
 };
 export default plotListContainer(AddPlotListing);

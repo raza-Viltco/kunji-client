@@ -11,7 +11,7 @@ const visitorListContainer = (VisitorsList) => () => {
   }, []);
   const stateLoading = useSelector((state) => state.local.isLoading);
   const visitorListData = useSelector((state) => state.visitorList.visitorData);
-  console.log(visitorListData, "visitorListData");
+  // console.log(visitorListData, "visitorListData");
 
   return (
     <VisitorsList

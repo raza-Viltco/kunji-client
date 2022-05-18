@@ -9,20 +9,17 @@ import deliveryBookingContainer from "../../../../../container/Security Manageme
 const DeliveryBookingList = ({ deliveryListData, stateLoading }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    {
-      field: "name",
-      type: "actions",
-      headerName: "Resident Name",
-      width: "200",
-      getActions: (params) => [<div>{params?.row?.user?.name}</div>],
-    },
+    { field: "resident", headerName: "Resident Name", width: 160 },
     {
       field: "address",
       headerName: "Resident Address",
       width: 200,
-      getActions: (params) => [<div>{params?.row?.user?.address}</div>],
+      getActions: (params) => [<div>{params?.row?.address}</div>],
     },
-    { field: "visitor", headerName: " Delivery Vendor", width: 160 },
+    { field: "name", headerName: " Delivery Vendor", width: 200,
+    getActions: (params) => [<div>{params?.row?.vendor?.name}</div>],
+
+  },
     { field: "order_no", headerName: " Order No", width: 160 },
     { field: "arrival_date_from", headerName: "Arrival Date From", width: 160 },
     { field: "arrival_date_to", headerName: "Valid Till Date", width: 160 },

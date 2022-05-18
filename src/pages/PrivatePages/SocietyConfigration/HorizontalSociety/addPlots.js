@@ -32,6 +32,7 @@ const AddPlots = ({
         {(props) => (
           <Form>
             {console.log(props)}
+            <h3>Add Plots</h3>
             <div className="row">
               <div className="col-md-6">
                 <Dropdown

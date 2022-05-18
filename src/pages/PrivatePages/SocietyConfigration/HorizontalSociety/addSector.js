@@ -18,7 +18,7 @@ const AddSector = ({
 }) => {
   return (
     <Card>
-      <h3> Add Sector/Block No</h3>
+      <h3> Add Sector/Block </h3>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
