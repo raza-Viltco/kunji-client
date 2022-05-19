@@ -63,7 +63,6 @@ const AssignOwnership = ({
                   name="sector_block_building"
                   id="sector_block_building"
                   value={props.values.sector_block_building}
-                  // value={ownerDetails?.mapping_level_one}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setMappingId(e.target.value));
@@ -102,7 +101,6 @@ const AssignOwnership = ({
                   name="floor_streets"
                   // id="floor_streets"
                   value={props.values.floor_streets}
-                  // value={ownerDetails?.mapping_level_two}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setAppartmentFloor(e.target.value));
@@ -138,7 +136,6 @@ const AssignOwnership = ({
                   name="plot_home_apartment"
                   // id="plot_home_apartment"
                   value={props.values.plot_home_apartment}
-                  // value={ownerDetails?.mapping_level_three}
                   onChange={(e) => {
                     props.handleChange(e);
                     dispatch(setAppartmentNumber(e.target.value));
