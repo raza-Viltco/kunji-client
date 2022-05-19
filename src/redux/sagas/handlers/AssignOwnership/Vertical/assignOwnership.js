@@ -2,14 +2,18 @@ import { call, put } from "redux-saga/effects";
 import { push } from "connected-react-router";
 
 import {
+  setApproveProperty,
   setAssignAppartmentData,
   setAssignOwnership,
   setOwnerData,
+  setOwnershipList,
 } from "../../../../actions/AssignOwnership/Vertical/AssignOwnership";
 import {
+  approvePropertyApi,
   assignAppartmentDataApi,
   assignOwnershipApi,
   ownerDataApi,
+  ownershipListApi,
 } from "../../../apis/AssignOwnership/Vertical/assignOwnership";
 import { localApiStateHandler } from "../../localApiStateHandler";
 import { propertyListApi } from "../../../apis/AssignOwnership/Vertical/assignOwnership";
@@ -81,8 +85,32 @@ export function* handleOwnership(action) {
         message: data.message,
       })
     );
-    yield put(push("/property_ownership"));
+    // yield put(push("/property_ownership"));
   }
 
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleOwnershipList() {
+  function* api() {
+    const { data } = yield call(ownershipListApi);
+    yield put(setOwnershipList(data));
+  }
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleApproveProperty(action) {
+  function* api() {
+    const { data } = yield call(approvePropertyApi, action.payload);
+    console.log(data, "data");
+    yield put(setApproveProperty(data));
+
+    yield put(
+      setError({
+        type: "success",
+        message: data.message,
+      })
+    );
+  }
   yield call(() => localApiStateHandler(api));
 }

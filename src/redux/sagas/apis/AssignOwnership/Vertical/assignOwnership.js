@@ -18,7 +18,7 @@ export const propertyListApi = async () => {
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
-    url: "property/list",
+    url: "property/approve-list",
   });
 };
 
@@ -41,6 +41,23 @@ export const assignOwnershipApi = async (data) => {
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",
     url: "property/add",
+    data,
+  });
+};
+
+export const ownershipListApi = async () => {
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "GET",
+    url: "property/list",
+  });
+};
+
+export const approvePropertyApi = async (data) => {
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "POST",
+    url: "property/approve",
     data,
   });
 };
