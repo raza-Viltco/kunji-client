@@ -7,6 +7,8 @@ const initialState = {
   setAppartmentNumber: "",
   setOwnerData: "",
   assignOwnership: [],
+  ownershipData: "",
+  approveProperty: "",
 };
 
 const assignOwnershipReducer = (state = initialState, action) => {
@@ -24,6 +26,10 @@ const assignOwnershipReducer = (state = initialState, action) => {
       return { ...state, setOwnerData: payload };
     case actionTypes.ASSIGN_OWNERSHIP:
       return { ...state, assignOwnership: payload };
+    case actionTypes.SET_OWNERSHIP_LIST:
+      return { ...state, ownershipData: payload };
+    case actionTypes.SET_APPROVE_PROPERTY:
+      return { ...state, approveProperty: payload };
     default:
       return state;
   }

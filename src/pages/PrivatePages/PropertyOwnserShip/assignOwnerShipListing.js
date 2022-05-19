@@ -1,74 +1,82 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 import Table from "../../../components/Table";
+import propertyListContainer from "../../../container/PropertyOwnership/PropertyListingContainer";
+import Button from "../../../components/Button";
 
-const AssignOwnershipListing = () => {
+const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "building", headerName: "Building", width: 200 },
-    { field: "floor", headerName: "Floor No", width: 160 },
-    { field: "apartment", headerName: "Apartment No", width: 200 },
-    { field: "ownerName", headerName: "Owner Name", width: 200 },
-    { field: "cnic", headerName: "CNIC", width:200 },
-    { field: "address", headerName: "Address", width: 260 },
-    { field: "attachment", headerName: "Attachment", width: 160 },
+    // { field: "location", headerName: "Location", width: 300 },
+    {
+      field: "mapping_level_one_name",
+      headerName: " Location",
+      valueGetter: (params) =>
+        params?.row?.mapping_level_one_name +
+        " " +
+        params?.row?.mapping_level_three_name +
+        " " +
+        params?.row?.mapping_level_two_name,
+      width: 160,
+    },
+
+    {
+      field: "first_name",
+      headerName: " User Name",
+      valueGetter: (params) =>
+        params?.row?.user?.first_name + " " + params?.row?.user?.last_name,
+      width: 160,
+    },
+    {
+      field: "cnic",
+      headerName: "CNIC",
+      valueGetter: (params) => params?.row?.user?.cnic,
+      width: 160,
+    },
+    {
+      field: "mobile",
+      headerName: "MOBILE",
+      valueGetter: (params) => params?.row?.user?.mobile,
+      width: 160,
+    },
+
+    {
+      field: "action",
+      headerName: "Action",
+      width: 200,
+      renderCell: (params) => (
+        <div className="view-button-outer" style={{ display: "flex" }}>
+          <Link to="/view_property">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              // isLoading={stateLoading}
+              size="small"
+            >
+              View
+            </Button>
+          </Link>
+        </div>
+      ),
+    },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      building: "Arfa Tower",
-      floor: "5 ",
-      apartment: "4",
-      ownerName: "Ahmed",
-      cnic: "21313-243-2",
-      address: "252-A Defence Housing Authority",
-      attachment: "icons",
-    },
-    {
-      id: 2,
-      building: "Mehtab Tower",
-      floor: "8 ",
-      apartment: "1",
-      ownerName: "Akram",
-      cnic: "56123-4554-2",
-      address: "Model Town",
-      attachment: "icons",
-    },
-    {
-      id: 3,
-      building: "Ali Tower",
-      floor: "9 ",
-      apartment: "3",
-      ownerName: "Aslam",
-      cnic: "21313-243-2",
-      address: "Garison Homes ",
-      attachment: "icons",
-    },
-    {
-      id: 4,
-      building: "Arfa Tower",
-      floor: "12 ",
-      apartment: "4",
-      ownerName: "Arslan",
-      cnic: "345435433-243-2",
-      address: "Muslim Town",
-      attachment: "icons",
-    },
-  ];
+
 
   return (
     <>
-    
-
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
         <Table
-          rows={rows}
+          rows={assignListData}
           columns={columns}
-          //   loading={!societiesList.length}
+          loading={stateLoading}
         />
       </div>
     </>
   );
 };
-export default AssignOwnershipListing;
+export default propertyListContainer(AssignOwnershipListing);

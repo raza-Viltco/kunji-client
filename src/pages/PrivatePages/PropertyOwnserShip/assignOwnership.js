@@ -517,7 +517,8 @@ const AssignOwnership = ({
           </Form>
         )}
       </Formik>
-      {/* <AssignOwnershipListing /> */}
+      <h3>Assign Ownership Listing</h3>
+      <AssignOwnershipListing />
     </Card>
   );
 };

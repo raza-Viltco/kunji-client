@@ -48,3 +48,22 @@ export const setAssignOwnership = (payload) => ({
   type: actionTypes.SET_ASSIGN_OWNERHIP,
   payload,
 });
+
+export const ownershipList = () => ({
+  type: actionTypes.OWNERSHIP_LIST,
+});
+
+export const setOwnershipList = (payload) => ({
+  type: actionTypes.SET_OWNERSHIP_LIST,
+  payload,
+});
+
+export const approveProperty = (payload) => ({
+  type: actionTypes.APPROVE_PROPERTY,
+  payload,
+});
+
+export const setApproveProperty = (payload) => ({
+  type: actionTypes.SET_APPROVE_PROPERTY,
+  payload,
+});

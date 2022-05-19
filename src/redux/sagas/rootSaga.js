@@ -66,9 +66,11 @@ import {
   handleUserApproval,
 } from "./handlers/KunjiRole/UserApproval";
 import {
+  handleApproveProperty,
   handleAssignDepartmentData,
   handleOwnerData,
   handleOwnership,
+  handleOwnershipList,
   handlePropertyList,
 } from "./handlers/AssignOwnership/Vertical/assignOwnership";
 import { handleSocietyProfile } from "./handlers/Society/SocietyProfile";
@@ -172,4 +174,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.SOCIETY_STATUS, handleSocietyStatus);
   yield takeLatest(actionTypes.STAFF_LIST, handleStaffList);
   yield takeLatest(actionTypes.CREATE_NOTICE, handleCreateNotice);
+  yield takeLatest(actionTypes.OWNERSHIP_LIST, handleOwnershipList);
+  yield takeLatest(actionTypes.APPROVE_PROPERTY, handleApproveProperty);
 }

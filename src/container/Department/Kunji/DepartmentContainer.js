@@ -12,8 +12,8 @@ const departmentContainer = (DepartmentForm) => () => {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Department is required"),
-    code: Yup.string().required("Department code is required"),
+    name: Yup.string().required("Department is require"),
+    code: Yup.string().required("Department code is require"),
   });
 
   const addDepartmentHandler = (values, formikActions) => {

@@ -1,24 +1,51 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { propertyList } from "../../redux/actions/AssignOwnership/Vertical/AssignOwnership";
+import {
+  approveProperty,
+  ownershipList,
+  propertyList,
+} from "../../redux/actions/AssignOwnership/Vertical/AssignOwnership";
 
 const propertyListContainer = (PropertyList) => () => {
   const dispatch = useDispatch();
 
-  const propertyListData = useSelector(
+  const assignListData = useSelector(
     (state) => state.assignOwnership.propertyList
   );
-  console.log(propertyListData, "propertyListData");
+  // console.log(assignListData, "assignListData");
   const stateLoading = useSelector((state) => state.local.isLoading);
 
+  const ownershipListData = useSelector(
+    (state) => state.assignOwnership.ownershipData
+  );
+  // console.log(ownershipListData, "ownershipListData");
+
+  const approvePropertyData = useSelector(
+    (state) => state.assignOwnership.approveProperty
+  );
+  // console.log(approvePropertyData, "approveProperty");
   useEffect(() => {
     dispatch(propertyList());
   }, []);
 
+  useEffect(() => {
+    dispatch(ownershipList());
+  }, [approvePropertyData]);
+
+  const handleAccept = (id) => {
+    dispatch(approveProperty({ id, status: 1 }));
+  };
+  const handleReject = (id) => {
+    dispatch(approveProperty({ id, status: 0 }));
+  };
+
   return (
     <PropertyList
-      propertyListData={propertyListData}
+      handleAccept={handleAccept}
+      handleReject={handleReject}
+      assignListData={assignListData}
       stateLoading={stateLoading}
+      ownershipListData={ownershipListData}
     />
   );
 };
