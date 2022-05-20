@@ -8,7 +8,7 @@ const societyProfileReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case actionTypes.SET_SOCIETY_PROFILE:
-      return { ...state, profileData: payload };
+      return {...state, profileData: payload };
     default:
       return state;
   }
