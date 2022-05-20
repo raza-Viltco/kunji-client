@@ -1,11 +1,12 @@
 import API from "../../../../../utils/httpClient";
 import { getFromPersistance } from "../../../../../utils/functions";
 
-const state = getFromPersistance("kunji_auth_data");
 
 export const assignAppartmentDataApi = async (data) => {
   const { id } = state.data.society;
   console.log(id, "id");
+  const state = getFromPersistance("kunji_auth_data");
+
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -15,6 +16,7 @@ export const assignAppartmentDataApi = async (data) => {
 };
 
 export const propertyListApi = async () => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -24,6 +26,7 @@ export const propertyListApi = async () => {
 
 export const ownerDataApi = async (data) => {
   const { mappingId, appartmentFloor, appartmentId } = data;
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -37,6 +40,7 @@ export const ownerDataApi = async (data) => {
 };
 
 export const assignOwnershipApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",
@@ -46,6 +50,7 @@ export const assignOwnershipApi = async (data) => {
 };
 
 export const ownershipListApi = async () => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -54,6 +59,7 @@ export const ownershipListApi = async () => {
 };
 
 export const approvePropertyApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",

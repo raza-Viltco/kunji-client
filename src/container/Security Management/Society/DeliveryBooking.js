@@ -1,6 +1,9 @@
 import { React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deliveryList } from "../../../redux/actions/SecurityManagement/Society/DeliveryList";
+import {
+  deliveryList,
+  notifyResident,
+} from "../../../redux/actions/SecurityManagement/Society/DeliveryList";
 
 const deliveryBookingContainer = (DeliveryList) => () => {
   const dispatch = useDispatch();
@@ -9,16 +12,20 @@ const deliveryBookingContainer = (DeliveryList) => () => {
   const deliveryListData = useSelector(
     (state) => state.deliveryList.deliveryData
   );
-  // console.log(deliveryListData, "deliveryListData"); 
 
   useEffect(() => {
     dispatch(deliveryList());
   }, []);
 
+  const handleNotify = (booking_id) => {
+    dispatch(notifyResident({ booking_id }));
+  };
+
   return (
     <DeliveryList
       deliveryListData={deliveryListData}
       stateLoading={stateLoading}
+      handleNotify={handleNotify}
     />
   );
 };

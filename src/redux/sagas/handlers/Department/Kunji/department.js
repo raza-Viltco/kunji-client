@@ -3,7 +3,7 @@ import { call, put } from "redux-saga/effects";
 import {
   setAddDepartment,
   setDepartmentListing,
-  setDepartmentStatus
+  setDepartmentStatus,
 } from "../../../../actions/Department/Kunji/department";
 import {
   addDepartmentApi,
@@ -15,12 +15,10 @@ import { setError } from "../../../../actions/local";
 
 export function* handleAddDepartment(action) {
   const { resetForm } = action.payload.formikActions;
-  const { name, code, status } = action.payload.values;
+  const { code, departName } = action.payload.values;
   const form = new FormData();
-  form.append("name", name);
   form.append("code", code);
-  form.append("status", status);
-
+  form.append("name", departName);
   function* api() {
     const { data } = yield call(addDepartmentApi, form);
     yield put(setAddDepartment(data));
@@ -53,7 +51,7 @@ export function* handleDepartmentStatus(action) {
   form.append("status", status);
   function* api() {
     const { data } = yield call(departmentStatusApi, form);
-    yield put(setDepartmentStatus(data))
+    yield put(setDepartmentStatus(data));
     yield put(
       setError({
         type: "success",

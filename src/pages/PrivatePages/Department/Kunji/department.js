@@ -6,7 +6,6 @@ import { Formik, Form } from "formik";
 import Input from "../../../../components/Form/Input";
 import Button from "../../../../components/Button";
 import InputError from "../../../../components/Form/InputError";
-import RadioButton from "../../../../components/Form/RadioButton";
 import departmentContainer from "../../../../container/Department/Kunji/DepartmentContainer";
 import "./department.css";
 
@@ -24,7 +23,6 @@ const DepartmentForm = ({
       >
         {(props) => (
           <Form>
-            {console.log(props)}
             <h3> Department</h3>
 
             <div className="row">
@@ -50,23 +48,23 @@ const DepartmentForm = ({
               </div>
               <div className="col-md-6">
                 <Input
-                  id="name"
-                  name="name"
+                  id="departName"
+                  name="departName"
                   label="Department Name"
                   margin="normal"
                   placeholder="Department name"
-                  values={props.values.name}
+                  value={props.values.departName}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
                   className={
-                    props?.errors?.name && props?.touched?.name
+                    props?.errors?.departName && props?.touched?.departName
                       ? "input-outline"
                       : "bootstyle"
                   }
                 />
 
-                {props?.touched?.name && props?.errors?.name && (
-                  <InputError>{props?.errors?.name}</InputError>
+                {props?.touched?.departName && props?.errors?.departName && (
+                  <InputError>{props?.errors?.departName}</InputError>
                 )}
               </div>
 
