@@ -91,7 +91,10 @@ import {
   handleViewPoll,
 } from "./handlers/Poll/Poll";
 import { handleVisitorList } from "./handlers/SecurityManagement/Society/VisitorList";
-import { handleDeliveryList } from "./handlers/SecurityManagement/Society/DeliveryList";
+import {
+  handleDeliveryList,
+  handleNotifyResident,
+} from "./handlers/SecurityManagement/Society/DeliveryList";
 import { handleAddCharges } from "./handlers/SocietyAdministration/AddCharges";
 import { handleChargesList } from "./handlers/SocietyAdministration/ChargesList";
 import {
@@ -176,4 +179,5 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.CREATE_NOTICE, handleCreateNotice);
   yield takeLatest(actionTypes.OWNERSHIP_LIST, handleOwnershipList);
   yield takeLatest(actionTypes.APPROVE_PROPERTY, handleApproveProperty);
+  yield takeLatest(actionTypes.NOTIFY_RESIDENT, handleNotifyResident);
 }

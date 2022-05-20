@@ -1,6 +1,5 @@
 import API from "../../../../../utils/httpClient";
 import { getFromPersistance } from "../../../../../utils/functions";
-const state = getFromPersistance("kunji_auth_data");
 
 export const servantListAPi = async () => {
   const state = getFromPersistance("kunji_auth_data");
@@ -22,6 +21,7 @@ export const servantApprovalApi = async (data) => {
 };
 
 export const gatePassListApi = async () => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -30,6 +30,7 @@ export const gatePassListApi = async () => {
 };
 
 export const gatePassApprovalApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",

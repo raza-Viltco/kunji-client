@@ -1,8 +1,6 @@
 import API from "../../../../utils/httpClient";
 import { getFromPersistance } from "../../../../utils/functions";
 
-const state = getFromPersistance("kunji_auth_data");
-
 export const addAssetApi = async (data) => {
   const state = getFromPersistance("kunji_auth_data");
   return API.request({
@@ -23,6 +21,7 @@ export const getAssetApi = async () => {
 };
 
 export const editAssetApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -32,6 +31,7 @@ export const editAssetApi = async (data) => {
 };
 
 export const updateAssetApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",
@@ -41,6 +41,7 @@ export const updateAssetApi = async (data) => {
 };
 
 export const removeAssetApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",

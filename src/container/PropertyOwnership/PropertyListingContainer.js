@@ -12,18 +12,15 @@ const propertyListContainer = (PropertyList) => () => {
   const assignListData = useSelector(
     (state) => state.assignOwnership.propertyList
   );
-  // console.log(assignListData, "assignListData");
   const stateLoading = useSelector((state) => state.local.isLoading);
 
   const ownershipListData = useSelector(
     (state) => state.assignOwnership.ownershipData
   );
-  // console.log(ownershipListData, "ownershipListData");
 
   const approvePropertyData = useSelector(
     (state) => state.assignOwnership.approveProperty
   );
-  // console.log(approvePropertyData, "approveProperty");
   useEffect(() => {
     dispatch(propertyList());
   }, []);
@@ -35,6 +32,7 @@ const propertyListContainer = (PropertyList) => () => {
   const handleAccept = (id) => {
     dispatch(approveProperty({ id, status: 1 }));
   };
+  
   const handleReject = (id) => {
     dispatch(approveProperty({ id, status: 0 }));
   };

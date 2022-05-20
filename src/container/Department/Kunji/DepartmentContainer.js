@@ -7,13 +7,13 @@ const departmentContainer = (DepartmentForm) => () => {
   const dispatch = useDispatch();
 
   const initialValues = {
-    name: "",
     code: "",
+    departName: "",
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Department is require"),
     code: Yup.string().required("Department code is require"),
+    departName: Yup.string().required("Department is require"),
   });
 
   const addDepartmentHandler = (values, formikActions) => {

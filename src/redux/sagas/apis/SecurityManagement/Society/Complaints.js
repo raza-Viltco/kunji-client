@@ -1,8 +1,8 @@
 import API from "../../../../../utils/httpClient";
 import { getFromPersistance } from "../../../../../utils/functions";
-const state = getFromPersistance("kunji_auth_data");
 
 export const getCasesApi = async () => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -11,6 +11,7 @@ export const getCasesApi = async () => {
 };
 
 export const caseDetailApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -20,6 +21,7 @@ export const caseDetailApi = async (data) => {
 };
 
 export const caseReplyApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",

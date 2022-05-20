@@ -1,9 +1,9 @@
 import API from "../../../../utils/httpClient";
 import { getFromPersistance } from "../../../../utils/functions";
 
-const state = getFromPersistance("kunji_auth_data");
 
 export const pollListApi = async () => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
@@ -12,6 +12,7 @@ export const pollListApi = async () => {
 };
 
 export const createPollApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",
@@ -21,6 +22,7 @@ export const createPollApi = async (data) => {
 };
 
 export const viewPollApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",
