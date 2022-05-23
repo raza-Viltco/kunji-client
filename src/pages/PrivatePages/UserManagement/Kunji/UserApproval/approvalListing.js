@@ -1,4 +1,5 @@
 import { React, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Table from "../../../../../components/Table";
 import userApprovalContainer from "../../../../../container/KunjiRole/UserApprovalContainer";
@@ -9,6 +10,9 @@ const UserApprovalListing = ({
   userApprovalHandler,
   userRejectionHandler,
 }) => {
+  const userData = useSelector((state) => state.user.data);
+  const societyType = userData?.data?.society?.society_type;
+
   const columns = [
     {
       field: "id",
@@ -46,9 +50,22 @@ const UserApprovalListing = ({
       width: 160,
       valueGetter: (params) => params.row.user?.mobile,
     },
-    { field: "mapping_level_one_name", headerName: "Building ", width: 200 },
-    { field: "mapping_level_two_name", headerName: "Floor", width: 160 },
-    { field: "mapping_level_three_name", headerName: "Appartment", width: 160 },
+    {
+      field: "mapping_level_one_name",
+
+      headerName: societyType === 0 ? "Building " : "Sector/Block",
+      width: 200,
+    },
+    {
+      field: "mapping_level_two_name",
+      headerName: societyType === 0 ? "Floor" : "Street",
+      width: 160,
+    },
+    {
+      field: "mapping_level_three_name",
+      headerName: societyType === 0 ? "Appartment" : "Plot/House No",
+      width: 160,
+    },
 
     {
       field: "status",
