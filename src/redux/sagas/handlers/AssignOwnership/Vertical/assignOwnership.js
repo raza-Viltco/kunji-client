@@ -21,6 +21,7 @@ import { setPropertyList } from "../../../../actions/AssignOwnership/Vertical/As
 import { setError } from "../../../../actions/local";
 
 export function* handleAssignDepartmentData(action) {
+  console.log(action)
   function* api() {
     const { data } = yield call(assignAppartmentDataApi, action.payload);
 
@@ -28,7 +29,7 @@ export function* handleAssignDepartmentData(action) {
   }
   yield call(() => localApiStateHandler(api));
 }
-export default handleAssignDepartmentData;
+// export default handleAssignDepartmentData;
 
 export function* handlePropertyList() {
   function* api() {
