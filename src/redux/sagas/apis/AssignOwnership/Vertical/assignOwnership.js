@@ -3,10 +3,9 @@ import { getFromPersistance } from "../../../../../utils/functions";
 
 
 export const assignAppartmentDataApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
   const { id } = state.data.society;
   console.log(id, "id");
-  const state = getFromPersistance("kunji_auth_data");
-
   return API.request({
     headers: { Authorization: `Bearer ${state.data.token}` },
     method: "GET",

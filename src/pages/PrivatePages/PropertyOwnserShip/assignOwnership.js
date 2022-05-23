@@ -54,7 +54,7 @@ const AssignOwnership = ({
       >
         {(props) => (
           <Form>
-            {console.log(props)}
+            {/* {console.log(props)} */}
             <h3>Assign Ownership</h3>
             <div className="row">
               <div className="col-md-6  mt-4">
