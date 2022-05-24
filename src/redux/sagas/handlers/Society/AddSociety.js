@@ -1,4 +1,5 @@
 import { call, put } from "redux-saga/effects";
+import { push } from "connected-react-router";
 
 import {
   getCountriesApi,
@@ -61,6 +62,7 @@ export function* handleAddSociety(action) {
         message: data.message,
       })
     );
+    yield put(push("/society_list"));
   }
 
   yield call(() => localApiStateHandler(api));

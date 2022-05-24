@@ -63,7 +63,7 @@ const UserApprovalListing = ({
     },
     {
       field: "mapping_level_three_name",
-      headerName: societyType === 0 ? "Appartment" : "Plot/House No",
+      headerName: societyType === 0 ? "Apartment" : "Plot/House No",
       width: 160,
     },
 

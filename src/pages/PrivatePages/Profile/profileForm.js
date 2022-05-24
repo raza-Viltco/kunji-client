@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import { useDispatch } from "react-redux";
 
 import Input from "../../../components/Form/Input";
+import InputError from "../../../components/Form/InputError";
 import Button from "../../../components/Button";
 import Card from "../../../components/Card";
 import { Profile_Img } from "../../../constants/AssetsConstants";
@@ -57,7 +58,11 @@ const ProfileForm = ({
                         placeholder="Name"
                         name="name"
                         type="text"
-                        className="bootstyle"
+                        className={
+                          props?.errors?.name && props?.touched?.name
+                            ? "input-outline"
+                            : "bootstyle"
+                        }
                         disabled={enableField}
                         value={props.values.name}
                         onChange={props.handleChange}
@@ -65,19 +70,26 @@ const ProfileForm = ({
                         error={props.errors.name}
                         helperText
                       />
+                      {props?.touched?.name && props?.errors?.name && (
+                        <InputError>{props?.errors?.name}</InputError>
+                      )}
                     </div>
                     <div className="col-md-12 mt-2">
                       <label className="padding-profile">
                         <b>Email</b>
                       </label>
                       <Input
-                        className="bootstyle"
                         margin="normal"
                         fullWidth
                         id="email"
                         placeholder="Email"
                         name="email"
                         type="email"
+                        className={
+                          props?.errors?.email && props?.touched?.email
+                            ? "input-outline"
+                            : "bootstyle"
+                        }
                         value={props.values.email}
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
@@ -85,6 +97,9 @@ const ProfileForm = ({
                         disabled={true}
                         helperText
                       />
+                      {props?.touched?.email && props?.errors?.email && (
+                        <InputError>{props?.errors?.email}</InputError>
+                      )}
                     </div>
 
                     <div className="col-md-12 mt-2">
@@ -92,13 +107,17 @@ const ProfileForm = ({
                         <b>Phone</b>
                       </label>
                       <Input
-                        className="bootstyle"
                         margin="normal"
                         fullWidth
                         id="number"
                         placeholder="Contact Number"
                         name="mobile"
                         type="text"
+                        className={
+                          props?.errors?.mobile && props?.touched?.mobile
+                            ? "input-outline"
+                            : "bootstyle"
+                        }
                         value={props.values.mobile}
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
@@ -106,6 +125,9 @@ const ProfileForm = ({
                         error={props.errors.mobile}
                         helperText
                       />
+                      {props?.touched?.mobile && props?.errors?.mobile && (
+                        <InputError>{props?.errors?.mobile}</InputError>
+                      )}
                     </div>
                   </div>
                   <div className="form-button-outer">
@@ -188,18 +210,21 @@ const ProfileForm = ({
                         setAppbarImg(props.values.profile_picture)
                       )}
                       onBlur={props.handleBlur}
+                      className="profile-picture-style"
                     />
-                    <label
-                      type="button"
-                      for="profile-picture"
-                      className="profile-picture-icon"
-                    >
-                      <BiEditAlt size={40} />
-                    </label>
+                    <div className="profile-image-icon-outer">
+                      <label
+                        type="button"
+                        for="profile-picture"
+                        className="profile-picture-icon"
+                      >
+                        <BiEditAlt size={20} />
+                      </label>
+                    </div>
                   </div>
 
                   <div>
-                    <h3>{props.values.name}</h3>
+                    <h3 className="profile-name-style">{props.values.name}</h3>
                   </div>
                 </Card>
               </div>

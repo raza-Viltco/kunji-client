@@ -16,14 +16,14 @@ const updatePasswordContainer = (UpdatePassword) => () => {
   const validationSchema = Yup.object().shape({
     old_password: Yup.string().required("Password is required"),
     password: Yup.string()
-      .required("Password is required")
+      .required("New password is required")
       .matches(
         /^(?=.*\d)(?=.*[~`!@#$%^&*()--+={}:;"'<>,.?/|\_₹])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
         "Password should be min 8 letter, with a symbol, upper and lower case letters and a number!"
       ),
     password_confirmation: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
-      .required("Password is required."),
+      .required("New password is required."),
   });
 
   const updatePasswordHandler = (values, formikActions) => {
