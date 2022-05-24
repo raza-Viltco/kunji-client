@@ -30,7 +30,7 @@ export function* handleUpdateProfile(action) {
     yield put(
       setError({
         type: "success",
-        message: "Profile Upated",
+        message: data.message,
       })
     );
   }

@@ -6,19 +6,20 @@ import { appartmentList } from "../../redux/actions/SocietyConfiguration/Society
 const plotListContainer = (AddPlotList) => () => {
   const dispatch = useDispatch();
 
+  const appartmentListData = useSelector(
+    (state) => state.societyConfig.appartmentData
+  );
+  // const appartmentListing = appartmentListData.data;
+  const stateLoading = useSelector((state) => state.local.isLoading);
+  console.log(appartmentListData)
+
   useEffect(() => {
     dispatch(appartmentList());
   }, []);
 
-  const appartmentListData = useSelector(
-    (state) => state.societyConfig.appartmentData
-  );
-  const appartmentListing = appartmentListData.data;
-  const stateLoading = useSelector((state) => state.local.isLoading);
-
   return (
     <AddPlotList
-      appartmentListing={appartmentListing}
+      appartmentListing={appartmentListData}
       stateLoading={stateLoading}
     />
   );

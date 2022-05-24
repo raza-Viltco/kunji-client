@@ -12,7 +12,6 @@ import profileContainer from "../../../container/Profile/ProfileContainer";
 import { setAppbarImg } from "../../../redux/actions/Profile/profile";
 
 import "./profileForm.css";
-import { borderRadius } from "@mui/system";
 
 const ProfileForm = ({
   initialValues,
@@ -37,6 +36,7 @@ const ProfileForm = ({
         validationSchema={validationSchema}
         enableReinitialize
         onSubmit={(values) => viewProfileHandler(values, handleSave)}
+        // onSubmit={viewProfileHandler}
       >
         {(props) => (
           <Form>
@@ -46,8 +46,10 @@ const ProfileForm = ({
                 <Card>
                   <h3>General Information</h3>
                   <div className="row">
-                    <div className="col-md-12  mt-2" >
-                      <label className="padding-profile"><b>Name</b></label>
+                    <div className="col-md-12  mt-2">
+                      <label className="padding-profile">
+                        <b>Name</b>
+                      </label>
                       <Input
                         margin="normal"
                         fullWidth
@@ -56,7 +58,6 @@ const ProfileForm = ({
                         name="name"
                         type="text"
                         className="bootstyle"
-                      
                         disabled={enableField}
                         value={props.values.name}
                         onChange={props.handleChange}
@@ -66,7 +67,9 @@ const ProfileForm = ({
                       />
                     </div>
                     <div className="col-md-12 mt-2">
-                    <label className="padding-profile"><b>Email</b></label>
+                      <label className="padding-profile">
+                        <b>Email</b>
+                      </label>
                       <Input
                         className="bootstyle"
                         margin="normal"
@@ -85,7 +88,9 @@ const ProfileForm = ({
                     </div>
 
                     <div className="col-md-12 mt-2">
-                    <label className="padding-profile"><b>Phone</b></label>
+                      <label className="padding-profile">
+                        <b>Phone</b>
+                      </label>
                       <Input
                         className="bootstyle"
                         margin="normal"
@@ -97,7 +102,7 @@ const ProfileForm = ({
                         value={props.values.mobile}
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        disabled={enableField}
+                        disabled={true}
                         error={props.errors.mobile}
                         helperText
                       />
@@ -112,7 +117,7 @@ const ProfileForm = ({
                           variant="contained"
                           size="small"
                           click={handleEdit}
-                          sx={{borderRadius:20}}
+                          sx={{ borderRadius: 20 }}
                         >
                           Edit
                         </Button>
@@ -125,7 +130,7 @@ const ProfileForm = ({
                             variant="contained"
                             size="small"
                             isLoading={stateLoading}
-                            sx={{borderRadius:20}}
+                            sx={{ borderRadius: 20 }}
                           >
                             Save
                           </Button>
@@ -138,7 +143,7 @@ const ProfileForm = ({
                             variant="contained"
                             size="small"
                             click={handleCancel}
-                            sx={{borderRadius:20}}
+                            sx={{ borderRadius: 20 }}
                           >
                             Cancel
                           </Button>
@@ -197,11 +202,6 @@ const ProfileForm = ({
                     <h3>{props.values.name}</h3>
                   </div>
                 </Card>
-
-
-
-
-                
               </div>
             </div>
           </Form>

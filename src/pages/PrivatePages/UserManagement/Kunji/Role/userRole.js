@@ -5,6 +5,7 @@ import Input from "../../../../../components/Form/Input";
 import Button from "../../../../../components/Button";
 import userRoleContainer from "../../../../../container/KunjiRole/UserRoleContainer";
 import InputError from "../../../../../components/Form/InputError";
+import { getFromPersistance } from "../../../../../utils/functions";
 import "./role.css";
 
 const UserRole = ({
@@ -13,6 +14,7 @@ const UserRole = ({
   stateLoading,
   addRoleHandler,
 }) => {
+  const roleData = getFromPersistance("role_id");
   return (
     <>
       <h3>Roles Defining</h3>
@@ -85,6 +87,7 @@ const UserRole = ({
                   variant="contained"
                   sx={{ mt: 3, mb: 2, borderRadius: 20 }}
                   isLoading={stateLoading}
+                  disabled={roleData !== null ? true : false}
                   size="small"
                 >
                   Create Role

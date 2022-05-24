@@ -27,7 +27,7 @@ export function* handleBuilding(action) {
   function* api() {
     const data = yield call(addBuildingApi, values);
     console.log(data);
-    yield put(setAddBuilding(data));
+    yield put(setAddBuilding(data.data));
     yield call(formikActions.resetForm);
     yield put(
       setError({
@@ -46,7 +46,7 @@ export function* handleHorizontalBuilding(action) {
   function* api() {
     const data = yield call(addBuildingApi, values);
     console.log(data);
-    yield put(setHorizontalBuilding(data));
+    yield put(setHorizontalBuilding(data.data));
     yield call(formikActions.resetForm);
     yield put(
       setError({
@@ -90,7 +90,7 @@ export function* handleAreaMapping(action) {
   function* api() {
     const { data } = yield call(areaMappingApi, form);
     console.log(data);
-    yield put(setAreaMapping(data));
+    yield put(setAreaMapping(data.data));
     yield call(formikActions.resetForm);
     yield put(
       setError({
@@ -113,7 +113,7 @@ export function* handleVerticalMapping(action) {
   function* api() {
     const { data } = yield call(areaMappingApi, form);
     console.log(data);
-    yield put(setVerticalMapping(data));
+    yield put(setVerticalMapping(data.data));
     yield call(formikActions.resetForm);
     yield put(
       setError({
@@ -129,7 +129,7 @@ export function* handleVerticalMapping(action) {
 export function* handleAppartmentList() {
   function* api() {
     const data = yield call(apartmentListApi);
-    yield put(setAppartmentList(data));
+    yield put(setAppartmentList(data.data));
   }
 
   yield call(() => localApiStateHandler(api));

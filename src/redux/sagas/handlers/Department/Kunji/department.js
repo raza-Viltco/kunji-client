@@ -21,7 +21,7 @@ export function* handleAddDepartment(action) {
   form.append("name", departName);
   function* api() {
     const { data } = yield call(addDepartmentApi, form);
-    yield put(setAddDepartment(data));
+    yield put(setAddDepartment(data.data));
     yield call(resetForm);
     yield put(
       setError({
@@ -37,7 +37,7 @@ export function* handleDepartmentListing() {
   function* api() {
     const { data } = yield call(departmentListingApi);
     // console.log("data", data);
-    yield put(setDepartmentListing(data));
+    yield put(setDepartmentListing(data.data));
   }
   yield call(() => localApiStateHandler(api));
 }

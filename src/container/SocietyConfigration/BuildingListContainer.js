@@ -17,7 +17,10 @@ const buildingListContainer = (BuildingList) => () => {
   const buildingArrData = useSelector((state) => state.societyConfig.verticalData);
   const stateLoading = useSelector((state) => state.local.isLoading);
 
-  return <BuildingList buildingArrData={buildingArrData} stateLoading={stateLoading} />;
+  console.log(buildingArrData)
+
+  return <BuildingList
+   buildingArrData={buildingArrData} stateLoading={stateLoading} />;
 };
 
 export default buildingListContainer;
