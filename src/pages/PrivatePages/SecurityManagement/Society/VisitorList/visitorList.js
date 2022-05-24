@@ -16,12 +16,12 @@ const VisitorsList = ({ visitorListData, stateLoading }) => {
       valueGetter: (params) => params?.row?.resident?.name,
     },
 
-    {
-      field: "address",
-      headerName: " Address",
-      width: 160,
-      valueGetter: (params) => params?.row?.resident?.address,
-    },
+    // {
+    //   field: "address",
+    //   headerName: " Address",
+    //   width: 160,
+    //   valueGetter: (params) => params?.row?.resident?.address,
+    // },
     {
       field: "first_name",
       type: "actions",

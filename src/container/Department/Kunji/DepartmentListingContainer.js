@@ -10,7 +10,9 @@ const departmentListingContainer = (DepartmentList) => () => {
 
   const alldepartmentList = useSelector((state) => state.userDepart.data);
   const depStatus = useSelector((state) => state.userDepart.depStatus);
-  const departmentList = alldepartmentList.data;
+  // const departmentList = alldepartmentList.data;
+
+  console.log(alldepartmentList);
 
   const handleDepartmentStatus = (dptId, status) => {
     if (status === 1) {
@@ -26,7 +28,7 @@ const departmentListingContainer = (DepartmentList) => () => {
 
   return (
     <DepartmentList
-      departmentList={departmentList}
+      alldepartmentList={alldepartmentList}
       handleDepartmentStatus={handleDepartmentStatus}
     />
   );

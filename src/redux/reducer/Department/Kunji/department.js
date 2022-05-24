@@ -1,7 +1,7 @@
 import { actionTypes } from "../../../actions/action-types";
 
 const initialState = {
-  data: [],
+  data: "",
   depStatus: "",
 };
 
@@ -12,6 +12,8 @@ const departmentListingReducer = (state = initialState, action) => {
       return { ...state, data: payload };
     case actionTypes.SET_DEPARTMENT_STATUS:
       return { ...state, depStatus: payload };
+    case actionTypes.SET_ADD_DEPARTMENT:
+      return {...state, data: [payload, ...state.data]};
     default:
       return state;
   }

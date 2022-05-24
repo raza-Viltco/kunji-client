@@ -13,7 +13,6 @@ import profileContainer from "../../../container/Profile/ProfileContainer";
 import { setAppbarImg } from "../../../redux/actions/Profile/profile";
 
 import "./profileForm.css";
-import { borderRadius } from "@mui/system";
 
 const ProfileForm = ({
   initialValues,
@@ -38,6 +37,7 @@ const ProfileForm = ({
         validationSchema={validationSchema}
         enableReinitialize
         onSubmit={(values) => viewProfileHandler(values, handleSave)}
+        // onSubmit={viewProfileHandler}
       >
         {(props) => (
           <Form>
@@ -121,7 +121,7 @@ const ProfileForm = ({
                         value={props.values.mobile}
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        disabled={enableField}
+                        disabled={true}
                         error={props.errors.mobile}
                         helperText
                       />

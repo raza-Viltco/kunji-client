@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import React from "react";
 
 import Table from "../../../../components/Table";
 import Button from "../../../../components/Button";
 import departmentListingContainer from "../../../../container/Department/Kunji/DepartmentListingContainer";
 import "./department.css";
 
-const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
-  console.log("departmentList",departmentList)
+const DepartmentList = ({ alldepartmentList, handleDepartmentStatus }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "code", headerName: "Code", width: 200 },
@@ -26,23 +24,29 @@ const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
       getActions: (params) => [
         <div className="col-sm-12 text-center">
           {params.row.status === 1 ? (
-            <Button
-              className={
-                params.row.status === 0 ? "active-Button" : "inactive-button"
+            <button
+              // className={
+              //   params.row.status === 0 ? "active-Button" : "inactive-button"
+              // }
+              className="btn btn-danger"
+              onClick={() =>
+                handleDepartmentStatus(params.id, params.row.status)
               }
-              click={() => handleDepartmentStatus(params.id, params.row.status)}
             >
               Inactive
-            </Button>
+            </button>
           ) : (
-            <Button
-              className={
-                params.row.status === 0 ? "active-Button" : "inactive-button"
+            <button
+              // className={
+              //   params.row.status === 0 ? "active-Button" : "inactive-button"
+              // }
+              className="btn btn-success"
+              onClick={() =>
+                handleDepartmentStatus(params.id, params.row.status)
               }
-              click={() => handleDepartmentStatus(params.id, params.row.status)}
             >
               Active
-            </Button>
+            </button>
           )}
         </div>,
       ],
@@ -51,12 +55,8 @@ const DepartmentList = ({ departmentList, handleDepartmentStatus }) => {
 
   return (
     <div style={{ height: "100vh", width: "100%", background: "white" }}>
-    <Table
-      rows={departmentList}
-      columns={columns}
-   
-    />
-  </div>
+      <Table rows={alldepartmentList} columns={columns} />
+    </div>
     // <div
     //   style={{
     //     height: 420,
