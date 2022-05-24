@@ -1,7 +1,6 @@
-.padding-profile{
+.padding-profile {
   padding-left: 12px !important;
 }
-
 
 .form-button-outer {
   display: flex;
@@ -18,7 +17,6 @@
 }
 .society-profile-inner {
   border-radius: 100px;
-  /* margin-top: -91px; */
   background-color: white;
 }
 .society-cover-photo {
@@ -27,15 +25,26 @@
   background-repeat: no-repeat;
   border-radius: 4px;
 }
-.profile-picture-icon{
-  padding: 12px;
+
+.profile-image-icon-outer {
+  margin-top: -2rem;
+  margin-left: 4rem;
+  z-index: 12;
 }
-.profile-picture-outer{
+.profile-picture-outer {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
+}
+.profile-picture {
+  display: none;
+}
+.profile-picture-style {
+  display: none;
+}
+.profile-name-style {
+  margin-top: 12px;
 }
 @media only screen and (max-width: 900px) {
   .userProfile-background {

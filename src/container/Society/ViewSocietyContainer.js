@@ -12,24 +12,19 @@ const viewSoietyContainer = (SocietyListingView) => () => {
   const dispatch = useDispatch();
   const params = useParams();
   const { viewId } = params;
-  //   console.log(viewId, "viewid");
   const viewSocietyData = useSelector(
     (state) => state.viewSociety.viewSocietyData
   );
-  // console.log(viewSocietyData, "viewSocietyData");
 
   const initialValues = {
-    status: "",
+    status: "1",
   };
 
   const validationSchema = Yup.object().shape({
-    status: Yup.string().required("status is required!"),
+    status: Yup.string().required("status is require"),
   });
 
   const handleStatusChange = (values) => {
-    // console.log("status change button is clicked");
-    // console.log(values, "values");
-    // console.log(society_id, "societyId");
     values.society_id = viewId;
     console.log(values);
     dispatch(societyStatus(values));

@@ -11,6 +11,7 @@ const RadioButton = ({
   onChange,
   onBlur,
   flexAlign,
+  defaultValue
 }) => {
   return (
     <div
@@ -26,6 +27,7 @@ const RadioButton = ({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+        defaultValue={defaultValue}
       >
         {children}
       </RadioGroup>
