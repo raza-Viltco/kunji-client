@@ -5,6 +5,7 @@ import Card from "../../../../../components/Card";
 import staffListingContainer from "../../../../../container/KunjiRole/StaffListingContainer";
 
 const StaffMemberListing = ({ staffListData, stateLoading }) => {
+  console.log(staffListData, "staffListData");
   const columns = [
     {
       field: "id",
@@ -44,7 +45,7 @@ const StaffMemberListing = ({ staffListData, stateLoading }) => {
 
   return (
     <Card>
-      <h3>Staff Members Listing</h3>
+      <h3>View Staff Members</h3>
 
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
         <Table rows={staffListData} columns={columns} loading={stateLoading} />

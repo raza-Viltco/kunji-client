@@ -13,6 +13,7 @@ const SocietyListingView = ({
   viewSocietyData,
   initialValues,
   validationSchema,
+  valid,
   handleStatusChange,
 }) => {
   return (
@@ -120,7 +121,7 @@ const SocietyListingView = ({
 
                 <div className="col-md-6 ">
                   <div className="col-md-12 mt-5 ">
-                    <RadioButton label="Change Status" row>
+                    <RadioButton label="Change Status" row defaultValue={1}>
                       <FormControlLabel
                         value={1}
                         control={<Radio size="small" />}

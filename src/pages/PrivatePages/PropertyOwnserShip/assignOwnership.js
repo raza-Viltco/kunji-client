@@ -150,7 +150,7 @@ const AssignOwnership = ({
                 >
                   <option>
                     {societyType === 0
-                      ? "Select Appartment No"
+                      ? "Select Apartment No"
                       : "Select House No"}
                   </option>
                   {appartmentNo.map((item, index) => {

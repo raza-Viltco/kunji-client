@@ -16,7 +16,12 @@
   cursor: pointer;
   text-decoration: none;
 }
-.text-end{
+.text-end {
   color: #2f5351;
-
+}
+.show-pass-icon-style {
+  float: right;
+  width: 30px;
+  margin-top: -2.1rem;
+  margin-right: 12px;
 }

@@ -10,13 +10,13 @@ const AddAppartmentList = ({ appartmentListing,stateLoading }) => {
     { field: "id", headerName: "ID", width: 70 },
     { field: "sector_block_building", headerName: "Building Name", width: 160 },
     { field: "street_floor", headerName: "Floor No", width: 160 },
-    { field: "plot_home_apartment", headerName: " Appartment No", width: 160 },
+    { field: "plot_home_apartment", headerName: " Apartment No", width: 160 },
     { field: "parkings", headerName: " Allocated Parking", width: 160 },
   ];
 
   return (
     <>
-      <h3 className="text-center">Appartment Listing</h3>
+      <h3 className="text-center">Apartment Listing</h3>
     <div style={{ height: "100vh", width: "100%", background: "white" }}>
       <Table
         rows={appartmentListing}
