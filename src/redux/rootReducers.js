@@ -25,6 +25,7 @@ import deliveryListReducer from "./reducer/SecurityManagement/Society/DeliveryLi
 import ChargesListReducer from "./reducer/SocietyAdministration/ChargesList";
 import generateBillReducer from "./reducer/SocietyAdministration/GenerateBill";
 import viewSocietyReducer from "./reducer/Society/ViewSociety";
+import panicAlertReducer from "./reducer/SecurityManagement/Society/PanicAlert";
 
 const reducers = (history) =>
   combineReducers({
@@ -52,6 +53,7 @@ const reducers = (history) =>
     chargesList: ChargesListReducer,
     generateBill: generateBillReducer,
     viewSociety: viewSocietyReducer,
+    panicAlert: panicAlertReducer,
     router: connectRouter(history),
   });
 

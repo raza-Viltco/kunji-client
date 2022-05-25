@@ -1,18 +1,83 @@
 import React from "react";
 
-import { DataGrid } from "@mui/x-data-grid";
+import Table from "../../../../../components/Table";
 import Card from "../../../../../components/Card";
+import panicAlertContainer from "../../../../../container/Security Management/Society/PanicAlertContainer";
 import "./panicAlert.css";
 
-const PanicAlertList = () => {
+const PanicAlertList = ({ stateLoading, alertValue }) => {
+  const handleMap = (params) => {
+    window.open(
+      "https://maps.google.com?q=" + params?.row?.lat + "," + params?.row?.long
+    );
+  };
+
+  // function getFullData(params) {
+  //   return `${ params?.row?.lat + " " + params?.row?.long !== 0 || undefined
+  //   ? handleMap( params?.row?.lat + " " + params?.row?.long)
+  //   : params?.row?.selected_location?.mapping_level_one_name +
+  //       " " +
+  //       params?.row?.selected_location?.mapping_level_two_name +
+  //       " " +
+  //       params?.row?.selected_location?.mapping_level_three_name !==
+  //       null || ""
+  //   ? params?.row?.selected_location?.mapping_level_one_name +
+  //     " " +
+  //     params?.row?.selected_location?.mapping_level_two_name +
+  //     " " +
+  //     params?.row?.selected_location?.mapping_level_three_name
+  //   : params?.row?.other_field}`;
+  // }
+
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "name", headerName: "Resident Name", width: 160 },
-    { field: "address", headerName: " Resident Address", width: 160 },
-    { field: "alertType", headerName: " Alert Type", width: 160 },
-    { field: "contactNo", headerName: " Contact No", width: 160 },
-    { field: "emergencyNo", headerName: " Emergency  No", width: 160 },
-    { field: "location", headerName: "Location", width: 160 },
+    {
+      field: "name",
+      headerName: "Resident Name",
+      width: 160,
+      valueGetter: (params) => params?.row?.user_list_record?.name,
+    },
+    {
+      field: "location",
+      headerName: "Location",
+      width: 220,
+      valueGetter: (params) =>
+        params?.row?.lat + " " + params?.row?.long !== 0 || undefined
+          ? params?.row?.lat + " " + params?.row?.long
+          : params?.row?.selected_location?.mapping_level_one_name +
+              " " +
+              params?.row?.selected_location?.mapping_level_two_name +
+              " " +
+              params?.row?.selected_location?.mapping_level_three_name !==
+              null || ""
+          ? params?.row?.selected_location?.mapping_level_one_name +
+            " " +
+            params?.row?.selected_location?.mapping_level_two_name +
+            " " +
+            params?.row?.selected_location?.mapping_level_three_name
+          : params?.row?.other_field,
+    },
+    { field: "alarm_type", headerName: " Alert Type", width: 160 },
+    {
+      field: "contactNo",
+      headerName: " Contact No",
+      width: 160,
+      valueGetter: (params) => params?.row?.user_list_record?.mobile,
+    },
+    {
+      field: "emergencyNo",
+      headerName: " Emergency  No",
+      width: 160,
+      valueGetter: (params) => params?.row?.user_list_record?.emergency_contact,
+    },
+
+    {
+      field: "status",
+      headerName: "Status",
+      width: 160,
+      valueGetter: (params) =>
+        params?.row?.status === 1 ? "Active" : "Inactive",
+    },
   ];
 
   const rows = [
@@ -68,22 +133,16 @@ const PanicAlertList = () => {
 
       <div
         style={{
-          height: 420,
+          height: "100vh",
           width: "100%",
           background: "white",
           textAlign: "center",
           marginTop: "20px",
         }}
       >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
-          // checkboxSelection
-        />
+        <Table rows={alertValue} columns={columns} loading={stateLoading} />
       </div>
     </Card>
   );
 };
-export default PanicAlertList;
+export default panicAlertContainer(PanicAlertList);

@@ -9,6 +9,7 @@ const initialState = {
   assignOwnership: [],
   ownershipData: "",
   approveProperty: "",
+  viewOwnership: "",
 };
 
 const assignOwnershipReducer = (state = initialState, action) => {
@@ -30,6 +31,8 @@ const assignOwnershipReducer = (state = initialState, action) => {
       return { ...state, ownershipData: payload };
     case actionTypes.SET_APPROVE_PROPERTY:
       return { ...state, approveProperty: payload };
+    case actionTypes.SET_VIEW_OWNERSHIP:
+      return { ...state, viewOwnership: payload };
     default:
       return state;
   }

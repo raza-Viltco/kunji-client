@@ -2,9 +2,10 @@ import React from "react";
 
 import Card from "../../../components/Card";
 import Button from "../../../components/Button";
+import viewOwnershipContainer from "../../../container/PropertyOwnership/ViewOwnershipContainer";
 import "./viewProperty.css";
 
-const ViewProperty = () => {
+const ViewProperty = ({ viewOwnershipData }) => {
   return (
     <Card>
       <div className="view-property-card">
@@ -12,15 +13,21 @@ const ViewProperty = () => {
         <div className="col-md-6 view-property-flex">
           <div className="head-property">
             <p>Location</p>
-            <p>Area</p>
+            {/* <p>Area</p> */}
             <p>City</p>
             <p>Status</p>
           </div>
           <div>
-            <p>252-A DHA</p>
-            <p>5 Marla</p>
-            <p>Lahore</p>
-            <p>Rented</p>
+            <p>
+              {viewOwnershipData?.mapping_level_one_name +
+                " " +
+                viewOwnershipData?.mapping_level_two_name +
+                " " +
+                viewOwnershipData?.mapping_level_three_name}
+            </p>
+            {/* <p>5 Marla</p> */}
+            <p>{viewOwnershipData?.city_name_from_society?.city?.name}</p>
+            <p>{viewOwnershipData?.city_name_from_society?.status}</p>
           </div>
         </div>
       </div>
@@ -36,10 +43,10 @@ const ViewProperty = () => {
             <p>Email</p>
           </div>
           <div>
-            <p>Ahmed</p>
-            <p>344556-3242443242-2</p>
-            <p>034354545422</p>
-            <p>ahmed12@gmail.com</p>
+            <p>{viewOwnershipData?.owner_detail?.name}</p>
+            <p>{viewOwnershipData?.owner_detail?.cnic}</p>
+            <p>{viewOwnershipData?.owner_detail?.mobile}</p>
+            <p>{viewOwnershipData?.owner_detail?.email}</p>
           </div>
         </div>
       </div>
@@ -55,10 +62,10 @@ const ViewProperty = () => {
             <p>Email</p>
           </div>
           <div>
-            <p>teanant</p>
-            <p>344556-3242443242-2</p>
-            <p>034354545422</p>
-            <p>abc12@gmail.com</p>
+            <p>{viewOwnershipData?.tanent_detail?.name}</p>
+            <p>{viewOwnershipData?.tanent_detail?.cnic}</p>
+            <p>{viewOwnershipData?.tanent_detail?.mobile}</p>
+            <p>{viewOwnershipData?.tanent_detail?.email}</p>
           </div>
         </div>
       </div>
@@ -80,4 +87,4 @@ const ViewProperty = () => {
     </Card>
   );
 };
-export default ViewProperty;
+export default viewOwnershipContainer(ViewProperty);

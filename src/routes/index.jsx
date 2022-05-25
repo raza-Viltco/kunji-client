@@ -243,7 +243,7 @@ const AppRouter = () => (
           <SocietyListingView />
         </PrivateRoute>
 
-        <PrivateRoute path="/view_property">
+        <PrivateRoute path="/view_property/:ownershipId">
           <ViewProperty />
         </PrivateRoute>
 
@@ -271,9 +271,8 @@ const AppRouter = () => (
           <ViewPool />
         </PrivateRoute>
         <PrivateRoute path="/staff_member_list">
-          <StaffMemberListing/>
+          <StaffMemberListing />
         </PrivateRoute>
-
       </MiniDrawer>
 
       <Redirect to="/login" exact />

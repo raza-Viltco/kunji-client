@@ -67,3 +67,13 @@ export const setApproveProperty = (payload) => ({
   type: actionTypes.SET_APPROVE_PROPERTY,
   payload,
 });
+
+export const viewOwnership = (payload) => ({
+  type: actionTypes.VIEW_OWNERSHIP,
+  payload,
+});
+
+export const setViewOwnership = (payload) => ({
+  type: actionTypes.SET_VIEW_OWNERSHIP,
+  payload,
+});
