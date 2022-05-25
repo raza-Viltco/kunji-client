@@ -54,7 +54,7 @@ const AssignOwnership = ({
       >
         {(props) => (
           <Form>
-            {/* {console.log(props)} */}
+            {console.log(props)}
             <h3>Assign Ownership</h3>
             <div className="row">
               <div className="col-md-6  mt-4">
@@ -468,8 +468,14 @@ const AssignOwnership = ({
                         // multiple
                         placeholder="Property Image"
                         name="property_image"
-                        value={props.values.property_image}
-                        onChange={props.handleChange}
+                        // value={props.values.property_image}
+                        // onChange={props.handleChange}
+                        onChange={(e) =>
+                          props.setFieldValue(
+                            "property_image",
+                            e.currentTarget.files
+                          )
+                        }
                         onBlur={props.handleBlur}
                         id="documents"
                         className={

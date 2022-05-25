@@ -11,13 +11,6 @@ import {
 
 const generateBillContainer = (GenerateBillForm) => () => {
   const dispatch = useDispatch();
-
-  const initialValues = {
-    resident_id: "",
-    selected_charges_id: "",
-    due_date: "",
-  };
-
   const selectResidentData = useSelector(
     (state) => state.generateBill.residentData
   );
@@ -26,20 +19,15 @@ const generateBillContainer = (GenerateBillForm) => () => {
     (state) => state.chargesList.chargesData
   );
 
+  const initialValues = {
+    resident_id: "",
+    selected_charges_id: "",
+    due_date: "",
+  };
+
   const billListData = useSelector((state) => state.generateBill.billList);
-  console.log(billListData, "billlistdata");
-
-  useEffect(() => {
-    dispatch(selectResident());
-  }, []);
-
-  useEffect(() => {
-    dispatch(chargesList());
-  }, []);
-
-  useEffect(() => {
-    dispatch(billList());
-  }, []);
+  // console.log(billListData, "billlistdata");
+  
 
   const validationSchema = Yup.object().shape({
     resident_id: Yup.string().required("Resident is required"),
@@ -51,6 +39,19 @@ const generateBillContainer = (GenerateBillForm) => () => {
     console.log("handle generate bill Button is clicked");
     dispatch(generateBill({ values, formikActions }));
   };
+
+  console.log(selectChargesData);
+  useEffect(() => {
+    dispatch(selectResident());
+  }, []);
+
+  useEffect(() => {
+    dispatch(chargesList());
+  }, []);
+
+  useEffect(() => {
+    dispatch(billList());
+  }, []);
 
   return (
     <GenerateBillForm

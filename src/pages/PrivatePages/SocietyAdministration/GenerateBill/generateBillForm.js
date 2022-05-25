@@ -15,6 +15,7 @@ const GenerateBillForm = ({
   selectChargesData,
   handleGenerateBill,
 }) => {
+  console.log(selectChargesData);
   return (
     <>
       <h3>Generate Society Bill</h3>
@@ -40,7 +41,7 @@ const GenerateBillForm = ({
                   }
                 >
                   <option>Select Resident</option>
-                  {selectResidentData.map((item, index) => {
+                  {selectResidentData?.map((item, index) => {
                     return (
                       <option value={item?.resedent?.id} key={index}>
                         {item?.resedent?.name}
@@ -67,13 +68,16 @@ const GenerateBillForm = ({
                   }
                 >
                   <option>Select Charges</option>
-                  {selectChargesData.map((item, index) => {
-                    return (
-                      <option value={item?.id} key={index}>
-                        {item?.charges_title + " " + item?.charges_code}
-                      </option>
-                    );
-                  })}
+                  {selectChargesData &&
+                    selectChargesData.length > 0 &&
+                    selectChargesData?.map((item, index) => {
+                      return (
+                        <option value={item?.id} key={index}>
+                          {`${item?.charges_title}  ${item?.charges_code}`}
+                          {/* {item?.charges_title + " " + item?.charges_code} */}
+                        </option>
+                      );
+                    })}
                 </Dropdown>
                 {props?.errors?.selected_charges_id &&
                   props?.touched?.selected_charges_id && (
@@ -113,7 +117,7 @@ const GenerateBillForm = ({
                   sx={{ mt: 3, mb: 2, borderRadius: 20 }}
                   size="small"
                 >
-                 Generate Bill
+                  Generate Bill
                 </Button>
               </div>
             </div>

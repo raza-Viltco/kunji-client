@@ -21,7 +21,7 @@ import { setPropertyList } from "../../../../actions/AssignOwnership/Vertical/As
 import { setError } from "../../../../actions/local";
 
 export function* handleAssignDepartmentData(action) {
-  console.log(action)
+  console.log(action);
   function* api() {
     const { data } = yield call(assignAppartmentDataApi, action.payload);
 
@@ -58,6 +58,11 @@ export function* handleOwnerData(action) {
 export function* handleOwnership(action) {
   console.log(action);
   const { values, formikActions } = action.payload;
+  function* setVal() {
+    formikActions.setFieldValue("sector_block_building", "");
+    formikActions.setFieldValue("floor_streets", "");
+    formikActions.setFieldValue("plot_home_apartment", "");
+  }
   const form = new FormData();
   form.append("first_name", values.owner_first_name);
   form.append("last_name", values.owner_last_name);
@@ -80,6 +85,7 @@ export function* handleOwnership(action) {
     const { data } = yield call(assignOwnershipApi, form);
     yield put(setAssignOwnership(data));
     yield call(formikActions.resetForm);
+    yield call(setVal)
     yield put(
       setError({
         type: "success",

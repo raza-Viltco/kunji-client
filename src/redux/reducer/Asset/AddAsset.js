@@ -12,7 +12,7 @@ const addAssetReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case actionTypes.SET_ASSETS:
-      return { ...state, assetData: payload };
+      return { ...state, assetListing: [payload, ...state.assetListing] };
     case actionTypes.SET_ASSET_LIST:
       return { ...state, assetListing: payload };
     case actionTypes.SET_ASSET_ID:

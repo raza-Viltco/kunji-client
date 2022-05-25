@@ -3,6 +3,7 @@ import {
   setBillList,
   setResidentDrop,
   setSelectResident,
+  setGenerateBill,
 } from "../../../actions/SocietyAdministration/GenerateBill";
 import {
   billListApi,
@@ -15,7 +16,7 @@ import { setError } from "../../../actions/local";
 export function* handleSelectResident() {
   function* api() {
     const { data } = yield call(selectResidentApi);
-    console.log(data)
+    console.log(data);
     // function* residentDropDown() {
     //   const residentsOption = [];
     //   for (let i = 0; i < data?.length; i++) {
@@ -27,7 +28,7 @@ export function* handleSelectResident() {
     //   }
     //   yield put(setResidentDrop(residentsOption));
     // }
-    // yield call(residentDropDown); 
+    // yield call(residentDropDown);
 
     yield put(setSelectResident(data));
   }
@@ -43,6 +44,8 @@ export function* handleGenerateBill(action) {
   form.append("due_date", values.due_date);
   function* api() {
     const { data } = yield call(generateBillApi, values);
+    console.log(data);
+    yield put(setGenerateBill(data.data));
     yield call(formikActions.resetForm);
     yield put(
       setError({
