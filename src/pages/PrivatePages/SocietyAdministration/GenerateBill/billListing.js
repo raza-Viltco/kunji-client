@@ -27,36 +27,6 @@ const BillListing = ({ billListData }) => {
     { field: "due_date", headerName: " Due Date", width: 200 },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      chargesCode: "001",
-      chargesTitle: "Property Tax",
-      charges: "5000",
-      Duedate: "12-02-2022",
-    },
-    {
-      id: 2,
-      chargesCode: "002",
-      chargesTitle: "Water Charges",
-      charges: "2000",
-      Duedate: "12-02-2022",
-    },
-    {
-      id: 3,
-      chargesCode: "003",
-      chargesTitle: "Electricity Charges",
-      charges: "5000",
-      Duedate: "12-02-2022",
-    },
-    {
-      id: 4,
-      chargesCode: "004",
-      chargesTitle: "Repair and Maintainance Charges",
-      charges: "5000",
-      Duedate: "12-02-2022",
-    },
-  ];
   return (
     <>
       <div style={{ height: "100vh", width: "100%", background: "white" }}>

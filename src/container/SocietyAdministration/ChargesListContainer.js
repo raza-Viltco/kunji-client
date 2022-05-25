@@ -9,6 +9,8 @@ const chargesListContainer = (ChargesList) => () => {
   const stateLoading = (state) => state.local.isLoading;
   const chargesListData = useSelector((state) => state.chargesList.chargesData);
 
+  console.log(chargesListData)
+
   useEffect(() => {
     dispatch(chargesList());
   }, []);

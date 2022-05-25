@@ -2,7 +2,7 @@ import { actionTypes } from "../../actions/action-types";
 
 const initialState = {
   residentData: [],
-  billList: [],
+  billList: "",
   residentDrop: null,
 };
 
@@ -13,6 +13,8 @@ const generateBillReducer = (state = initialState, action) => {
       return { ...state, residentData: payload };
     case actionTypes.SET_BILL_LIST:
       return { ...state, billList: payload };
+    case actionTypes.SET_GENERATE_BILL:
+      return { ...state, billList: [payload, ...state.billList] };
     case actionTypes.SET_RESIDENT_DROP:
       return { ...state, residentDrop: payload };
     default:

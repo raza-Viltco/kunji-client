@@ -28,19 +28,19 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
       field: "first_name",
       headerName: " User Name",
       valueGetter: (params) =>
-        params?.row?.user?.first_name + " " + params?.row?.user?.last_name,
+        params?.row?.landlord?.first_name + " " + params?.row?.landlord?.last_name,
       width: 160,
     },
     {
       field: "cnic",
       headerName: "CNIC",
-      valueGetter: (params) => params?.row?.user?.cnic,
+      valueGetter: (params) => params?.row?.landlord?.cnic,
       width: 160,
     },
     {
       field: "mobile",
       headerName: "MOBILE",
-      valueGetter: (params) => params?.row?.user?.mobile,
+      valueGetter: (params) => params?.row?.landlord?.mobile,
       width: 160,
     },
 

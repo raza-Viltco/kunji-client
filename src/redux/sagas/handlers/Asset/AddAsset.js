@@ -23,7 +23,7 @@ export function* handleAddAsset(action) {
   function* api() {
     const { data } = yield call(addAssetApi, action.payload.values);
     console.log(data);
-    yield put(setAddAsset(data));
+    yield put(setAddAsset(data.data));
     yield call(resetForm);
     yield put(
       setError({
