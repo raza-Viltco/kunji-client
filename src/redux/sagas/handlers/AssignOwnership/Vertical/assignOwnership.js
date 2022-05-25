@@ -7,6 +7,7 @@ import {
   setAssignOwnership,
   setOwnerData,
   setOwnershipList,
+  setViewOwnership,
 } from "../../../../actions/AssignOwnership/Vertical/AssignOwnership";
 import {
   approvePropertyApi,
@@ -14,6 +15,7 @@ import {
   assignOwnershipApi,
   ownerDataApi,
   ownershipListApi,
+  viewOwnershipApi,
 } from "../../../apis/AssignOwnership/Vertical/assignOwnership";
 import { localApiStateHandler } from "../../localApiStateHandler";
 import { propertyListApi } from "../../../apis/AssignOwnership/Vertical/assignOwnership";
@@ -21,7 +23,7 @@ import { setPropertyList } from "../../../../actions/AssignOwnership/Vertical/As
 import { setError } from "../../../../actions/local";
 
 export function* handleAssignDepartmentData(action) {
-  console.log(action)
+  console.log(action);
   function* api() {
     const { data } = yield call(assignAppartmentDataApi, action.payload);
 
@@ -112,6 +114,14 @@ export function* handleApproveProperty(action) {
         message: data.message,
       })
     );
+  }
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleViewOwnership(action) {
+  function* api() {
+    const { data } = yield call(viewOwnershipApi,action.payload);
+    yield put(setViewOwnership(data));
   }
   yield call(() => localApiStateHandler(api));
 }

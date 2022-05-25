@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 import Table from "../../../components/Table";
 import propertyListContainer from "../../../container/PropertyOwnership/PropertyListingContainer";
 import Button from "../../../components/Button";
 
 const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
+  const showData = (params) => {
+    console.log(params, "apats");
+  };
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     // { field: "location", headerName: "Location", width: 300 },
@@ -48,7 +50,7 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
       width: 200,
       renderCell: (params) => (
         <div className="view-button-outer" style={{ display: "flex" }}>
-          <Link to="/view_property">
+          <Link to={`/view_property/${params.id}`}>
             <Button
               type="submit"
               fullWidth
@@ -65,16 +67,10 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
     },
   ];
 
-
-
   return (
     <>
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
-        <Table
-          rows={assignListData}
-          columns={columns}
-          loading={stateLoading}
-        />
+        <Table rows={assignListData} columns={columns} loading={stateLoading} />
       </div>
     </>
   );

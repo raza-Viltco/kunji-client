@@ -72,6 +72,7 @@ import {
   handleOwnership,
   handleOwnershipList,
   handlePropertyList,
+  handleViewOwnership,
 } from "./handlers/AssignOwnership/Vertical/assignOwnership";
 import { handleSocietyProfile } from "./handlers/Society/SocietyProfile";
 import {
@@ -107,6 +108,7 @@ import {
   handleViewSociety,
 } from "./handlers/Society/ViewSociety";
 import { handleCreateNotice } from "./handlers/Notice/Notice";
+import { handlePanicAlert } from "./handlers/SecurityManagement/Society/PanicAlert";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -180,4 +182,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.OWNERSHIP_LIST, handleOwnershipList);
   yield takeLatest(actionTypes.APPROVE_PROPERTY, handleApproveProperty);
   yield takeLatest(actionTypes.NOTIFY_RESIDENT, handleNotifyResident);
+  yield takeLatest(actionTypes.PANIC_ALERT, handlePanicAlert);
+  yield takeLatest(actionTypes.VIEW_OWNERSHIP, handleViewOwnership);
 }

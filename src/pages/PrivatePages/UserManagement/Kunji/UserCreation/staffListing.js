@@ -45,7 +45,7 @@ const StaffMemberListing = ({ staffListData, stateLoading }) => {
 
   return (
     <Card>
-      <h3>View Staff Members</h3>
+      <h3>View Staff Member</h3>
 
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
         <Table rows={staffListData} columns={columns} loading={stateLoading} />
