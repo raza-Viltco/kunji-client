@@ -12,23 +12,6 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
     );
   };
 
-  // function getFullData(params) {
-  //   return `${ params?.row?.lat + " " + params?.row?.long !== 0 || undefined
-  //   ? handleMap( params?.row?.lat + " " + params?.row?.long)
-  //   : params?.row?.selected_location?.mapping_level_one_name +
-  //       " " +
-  //       params?.row?.selected_location?.mapping_level_two_name +
-  //       " " +
-  //       params?.row?.selected_location?.mapping_level_three_name !==
-  //       null || ""
-  //   ? params?.row?.selected_location?.mapping_level_one_name +
-  //     " " +
-  //     params?.row?.selected_location?.mapping_level_two_name +
-  //     " " +
-  //     params?.row?.selected_location?.mapping_level_three_name
-  //   : params?.row?.other_field}`;
-  // }
-
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
@@ -40,22 +23,28 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
     {
       field: "location",
       headerName: "Location",
+      type: "actions",
       width: 220,
-      valueGetter: (params) =>
-        params?.row?.lat + " " + params?.row?.long !== 0 || undefined
-          ? params?.row?.lat + " " + params?.row?.long
-          : params?.row?.selected_location?.mapping_level_one_name +
-              " " +
-              params?.row?.selected_location?.mapping_level_two_name +
-              " " +
-              params?.row?.selected_location?.mapping_level_three_name !==
-              null || ""
-          ? params?.row?.selected_location?.mapping_level_one_name +
+      getActions: (params) => [
+        <div>
+          {Number(params?.row?.lat) !== 0 || undefined ? (
+            <button
+              onClick={() => handleMap(params)}
+              className="btn btn-success"
+            >
+              View
+            </button>
+          ) : params?.row?.selected_location !== null ? (
+            params?.row?.selected_location?.mapping_level_one_name +
             " " +
-            params?.row?.selected_location?.mapping_level_two_name +
+            params?.row?.selected_location.mapping_level_two_name +
             " " +
-            params?.row?.selected_location?.mapping_level_three_name
-          : params?.row?.other_field,
+            params?.row?.selected_location.mapping_level_three_name
+          ) : (
+            params?.row?.other_field
+          )}
+        </div>,
+      ],
     },
     { field: "alarm_type", headerName: " Alert Type", width: 160 },
     {
@@ -80,53 +69,6 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      name: "Smith",
-      address: "DHA",
-      alertType: "Fire",
-      contactNo: "032424323324",
-      emergencyNo: "234344444545",
-      location: "Lahore",
-    },
-    {
-      id: 2,
-      name: "Akram",
-      address: "Model Town",
-      alertType: "Medical",
-      contactNo: "033333344455",
-      emergencyNo: "000004545",
-      location: "Lahore",
-    },
-    {
-      id: 3,
-      name: "Jeff",
-      address: "Garisson",
-      alertType: "Emergency",
-      contactNo: "0456324324324",
-      emergencyNo: "23434445",
-      location: "Lahore",
-    },
-    {
-      id: 4,
-      name: "Jack",
-      address: "Urban Vilas",
-      alertType: "Medical",
-      contactNo: "0211232332432",
-      emergencyNo: "233334344545",
-      location: "Lahore",
-    },
-    {
-      id: 5,
-      name: "Mark",
-      address: "DHA",
-      alertType: "Fire",
-      contactNo: "032424323324",
-      emergencyNo: "2222234344444",
-      location: "Lahore",
-    },
-  ];
   return (
     <Card>
       <h3>Panic Alerts</h3>
