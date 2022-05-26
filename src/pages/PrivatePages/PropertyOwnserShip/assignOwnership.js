@@ -473,7 +473,7 @@ const AssignOwnership = ({
                         onChange={(e) =>
                           props.setFieldValue(
                             "property_image",
-                            e.currentTarget.files
+                            e.target.files[0]
                           )
                         }
                         onBlur={props.handleBlur}

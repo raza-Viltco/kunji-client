@@ -31,6 +31,8 @@ const assignOwnershipReducer = (state = initialState, action) => {
       return { ...state, ownershipData: payload };
     case actionTypes.SET_APPROVE_PROPERTY:
       return { ...state, approveProperty: payload };
+    case actionTypes.SET_ASSIGN_OWNERHIP:
+      return { ...state, propertyList: [payload, ...state.propertyList] };
     case actionTypes.SET_VIEW_OWNERSHIP:
       return { ...state, viewOwnership: payload };
     default:

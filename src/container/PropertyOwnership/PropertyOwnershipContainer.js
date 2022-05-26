@@ -55,7 +55,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
       owner_last_name: ownerDetails?.landlord?.last_name,
       cnic: ownerDetails?.landlord?.cnic,
       contact: ownerDetails?.landlord?.mobile,
-      address: ownerDetails?.landlord?.address,
+      address: ownerDetails?.other_address,
       residential_status: ownerDetails?.residential_status,
       documents: ownerDetails?.documents,
       cnic_image: ownerDetails?.cnic_image,
@@ -120,7 +120,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
   useEffect(() => {
     if (ownerDetails) {
       getLandlordData();
-      console.log(getLandlordData());
+      // console.log(getLandlordData());
     }
   }, [ownerDetails]);
 
