@@ -24,8 +24,7 @@ const PoolList = ({ pollListData, stateLoading }) => {
       field: "first_name",
       headerName: "Person",
       width: 160,
-      valueGetter: (params) =>
-        params.row.user?.first_name + " " + params.row.user?.last_name,
+      valueGetter: (params) => params.row.user?.name,
     },
 
     {

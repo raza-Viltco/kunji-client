@@ -4,35 +4,51 @@ import Card from "../../../../components/Card";
 import Input from "../../../../components/Form/Input";
 import Table from "../../../../components/Table";
 import Button from "../../../../components/Button";
+import viewBillContainer from "../../../../container/SocietyAdministration/ViewBillContainer";
 
-const ViewBillData = () => {
+const ViewBillData = ({ viewBillList }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "role", headerName: "Role", width: 160 },
-    { field: "name", headerName: "Name", width: 160 },
-    { field: "cnic", headerName: "CNIC", width: 160 },
-    { field: "mobile", headerName: "Mobile No", width: 160 },
-    { field: "address", headerName: "Address", width: 160 },
-    { field: "dueDate", headerName: "Due Date", width: 160 },
-    { field: "status", headerName: "Status", width: 160 },
     {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => (
-        <div style={{ display: "flex" }}>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            // isLoading={stateLoading}
-            size="small"
-          >
-            View
-          </Button>
-        </div>
-      ),
+      field: "role",
+      headerName: "Role",
+      width: 160,
+      valueGetter: (params) =>
+        params?.row?.view_user_name_on_bill?.mobile_app_role === 1
+          ? "Landloard"
+          : params?.row?.view_user_name_on_bill?.mobile_app_role === 2
+          ? "Tenant"
+          : "pending",
+    },
+    {
+      field: "name",
+      headerName: "Name",
+      width: 160,
+      valueGetter: (params) => params?.row?.view_user_name_on_bill.name,
+    },
+    {
+      field: "cnic",
+      headerName: "CNIC",
+      width: 160,
+      valueGetter: (params) => params?.row?.view_user_name_on_bill.cnic,
+    },
+    {
+      field: "mobile",
+      headerName: "Mobile No",
+      width: 160,
+      valueGetter: (params) => params?.row?.view_user_name_on_bill.mobile,
+    },
+    {
+      field: "address",
+      headerName: "Address",
+      width: 160,
+      valueGetter: (params) => params?.row?.view_user_name_on_bill.address,
+    },
+    {
+      field: "dueDate",
+      headerName: "Due Date",
+      width: 160,
+      valueGetter: (params) => params?.row?.due_date,
     },
   ];
 
@@ -82,10 +98,10 @@ const ViewBillData = () => {
   return (
     <Card>
       <h3>View Bill</h3>
-      <Input placeholder="search" className="bootstyle mb-4 mt-2" />
+      {/* <Input placeholder="search" className="bootstyle mb-4 mt-2" /> */}
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
         <Table
-          rows={rows}
+          rows={viewBillList}
           columns={columns}
           //   loading={!societiesList.length}
         />
@@ -93,4 +109,4 @@ const ViewBillData = () => {
     </Card>
   );
 };
-export default ViewBillData;
+export default viewBillContainer(ViewBillData);
