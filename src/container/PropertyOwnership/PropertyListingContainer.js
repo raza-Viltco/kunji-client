@@ -32,18 +32,18 @@ const propertyListContainer = (PropertyList) => () => {
   const handleAccept = (id) => {
     dispatch(approveProperty({ id, status: 1 }));
   };
-  
+
   const handleReject = (id) => {
     dispatch(approveProperty({ id, status: 0 }));
   };
 
   return (
     <PropertyList
-      handleAccept={handleAccept}
-      handleReject={handleReject}
       assignListData={assignListData}
       stateLoading={stateLoading}
       ownershipListData={ownershipListData}
+      handleAccept={handleAccept}
+      handleReject={handleReject}
     />
   );
 };

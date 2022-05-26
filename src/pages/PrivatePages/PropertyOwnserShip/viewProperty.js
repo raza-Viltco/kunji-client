@@ -53,7 +53,7 @@ const ViewProperty = ({ viewOwnershipData }) => {
 
       {/* ------teanant details-------- */}
       <div className="view-property-card">
-        <h3>Teanant Details</h3>
+        <h3>Tenant Details</h3>
         <div className="col-md-6 view-property-flex">
           <div className="head-property">
             <p>Name</p>
@@ -70,7 +70,7 @@ const ViewProperty = ({ viewOwnershipData }) => {
         </div>
       </div>
 
-      <div className="view-prop-btn-outer">
+      {/* <div className="view-prop-btn-outer">
         <div className="society_btn__wrapper">
           <Button
             type="submit"
@@ -83,7 +83,7 @@ const ViewProperty = ({ viewOwnershipData }) => {
             Done
           </Button>
         </div>
-      </div>
+      </div> */}
     </Card>
   );
 };

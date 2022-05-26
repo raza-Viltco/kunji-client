@@ -22,26 +22,30 @@ const OpenCases = ({ openComplaints }) => {
       </div>
       <div className="col-sm-12 heightadjust">
         <div className="row">
-          {openComplaints?.map((item, index) => {
-            return (
-              <CaseCard
-                key={index}
-                id={item.id}
-                title={item.title}
-                description={item.description}
-                src={
-                  item.user.profile_picture
-                    ? item.user.profile_picture
-                    : Profile_Img
-                }
-                date={dateFormat(item.created_at)}
-                onClick={() => {
-                  history.push(`/caseDetail/${item.id}`);
-                  dispatch(setCaseId(item.id));
-                }}
-              />
-            );
-          })}
+          {openComplaints?.length === 0 ? (
+            <b className="text-center">No data found</b>
+          ) : (
+            openComplaints?.map((item, index) => {
+              return (
+                <CaseCard
+                  key={index}
+                  id={item.id}
+                  title={item.title}
+                  description={item.description}
+                  src={
+                    item?.user?.profile_picture
+                      ? item?.user?.profile_picture
+                      : Profile_Img
+                  }
+                  date={dateFormat(item?.created_at)}
+                  onClick={() => {
+                    history.push(`/caseDetail/${item?.id}`);
+                    dispatch(setCaseId(item?.id));
+                  }}
+                />
+              );
+            })
+          )}
         </div>
       </div>
     </div>

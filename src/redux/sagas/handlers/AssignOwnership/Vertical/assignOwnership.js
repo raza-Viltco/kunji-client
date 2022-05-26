@@ -64,6 +64,9 @@ export function* handleOwnership(action) {
     formikActions.setFieldValue("sector_block_building", "");
     formikActions.setFieldValue("floor_streets", "");
     formikActions.setFieldValue("plot_home_apartment", "");
+    formikActions.setFieldValue("documents", []);
+    formikActions.setFieldValue("cnic_image", []);
+    formikActions.setFieldValue("property_image", "");
   }
   const form = new FormData();
   form.append("first_name", values.owner_first_name);
@@ -85,9 +88,9 @@ export function* handleOwnership(action) {
 
   function* api() {
     const { data } = yield call(assignOwnershipApi, form);
-    yield put(setAssignOwnership(data));
+    yield put(setAssignOwnership(data.data));
     yield call(formikActions.resetForm);
-    yield call(setVal)
+    yield call(setVal);
     yield put(
       setError({
         type: "success",
@@ -126,7 +129,7 @@ export function* handleApproveProperty(action) {
 
 export function* handleViewOwnership(action) {
   function* api() {
-    const { data } = yield call(viewOwnershipApi,action.payload);
+    const { data } = yield call(viewOwnershipApi, action.payload);
     yield put(setViewOwnership(data));
   }
   yield call(() => localApiStateHandler(api));
