@@ -13,7 +13,10 @@ const userRoleContainer = (UserRole) => () => {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Role name is required!"),
+    name: Yup.string().required("Role name is required!").matches(
+      /^[aA-zZ\s]+$/,
+      "Only alphabets are allowed for role name "
+    ),
   });
 
   const addRoleHandler = (values, formikActions) => {

@@ -21,7 +21,7 @@ const addSocietyContainer = (AddSociety) => () => {
       country_id: "",
       city_id: "",
       zip_code: "",
-      society_type: ""
+      society_type: "",
     },
     society_admin_user: {
       full_name: "",
@@ -34,18 +34,30 @@ const addSocietyContainer = (AddSociety) => () => {
 
   const validationSchema = Yup.object().shape({
     society: Yup.object().shape({
-      name: Yup.string().required("Society name is required!"),
+      name: Yup.string()
+        .required("Society name is required!")
+        .matches(
+          /^[aA-zZ\s]+$/,
+          "Only alphabets are allowed for society name "
+        ),
       country_id: Yup.string().required("Country is required!"),
       city_id: Yup.string().required("City is required!"),
       zip_code: Yup.string().required("Zipcode is required!"),
     }),
     society_admin_user: Yup.object().shape({
-      full_name: Yup.string().required("Full name is required!"),
+      full_name: Yup.string()
+        .required("Full name is required!")
+        .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for  name "),
       address: Yup.string().required("Address is required!"),
       email: Yup.string()
         .email("Invalid email address!")
         .required("Email is required!"),
-      mobile: Yup.string().required("Contact is required!"),
+      mobile: Yup.string()
+        .required("Contact is required!")
+        .matches(
+          /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+          "Contact number is not valid"
+        ),
     }),
   });
 

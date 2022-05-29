@@ -110,6 +110,7 @@ import {
 import { handleCreateNotice } from "./handlers/Notice/Notice";
 import { handlePanicAlert } from "./handlers/SecurityManagement/Society/PanicAlert";
 import { handleViewBill } from "./handlers/SocietyAdministration/ViewBill";
+import { handleSocietyDashboard } from "./handlers/SocietyDashboard/SocietyDashboard";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -186,4 +187,5 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.PANIC_ALERT, handlePanicAlert);
   yield takeLatest(actionTypes.VIEW_OWNERSHIP, handleViewOwnership);
   yield takeLatest(actionTypes.VIEW_BILL, handleViewBill);
+  yield takeLatest(actionTypes.SOCIETY_DASHBOARD, handleSocietyDashboard);
 }

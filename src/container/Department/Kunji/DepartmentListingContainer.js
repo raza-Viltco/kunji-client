@@ -8,11 +8,10 @@ import {
 const departmentListingContainer = (DepartmentList) => () => {
   const dispatch = useDispatch();
 
+  const stateLoading = useSelector((state) => state.local.isLoading);
   const alldepartmentList = useSelector((state) => state.userDepart.data);
   const depStatus = useSelector((state) => state.userDepart.depStatus);
-  // const departmentList = alldepartmentList.data;
 
-  console.log(alldepartmentList);
 
   const handleDepartmentStatus = (dptId, status) => {
     if (status === 1) {
@@ -30,6 +29,7 @@ const departmentListingContainer = (DepartmentList) => () => {
     <DepartmentList
       alldepartmentList={alldepartmentList}
       handleDepartmentStatus={handleDepartmentStatus}
+      stateLoading={stateLoading}
     />
   );
 };
