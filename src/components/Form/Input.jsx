@@ -1,5 +1,4 @@
 import React from "react";
-// import { TextField } from "@mui/material";
 import { Button, Form } from "react-bootstrap";
 import "./Input.css";
 
@@ -13,7 +12,8 @@ const Input = ({
   disabled,
   placeholder,
   multiple,
-  className
+  className,
+  key
 }) => {
   return (
     <Form.Group className="col-sm-12">
@@ -28,6 +28,7 @@ const Input = ({
         disabled={disabled}
         multiple={multiple}
         className={className}
+        key={key}
       />
     </Form.Group>
   );

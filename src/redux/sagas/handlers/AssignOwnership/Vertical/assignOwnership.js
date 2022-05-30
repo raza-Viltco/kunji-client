@@ -59,14 +59,11 @@ export function* handleOwnerData(action) {
 
 export function* handleOwnership(action) {
   console.log(action);
-  const { values, formikActions } = action.payload;
+  const { values, formikActions, nullValue } = action.payload;
   function* setVal() {
     formikActions.setFieldValue("sector_block_building", "");
     formikActions.setFieldValue("floor_streets", "");
     formikActions.setFieldValue("plot_home_apartment", "");
-    formikActions.setFieldValue("documents", []);
-    formikActions.setFieldValue("cnic_image", []);
-    formikActions.setFieldValue("property_image", "");
   }
   const form = new FormData();
   form.append("first_name", values.owner_first_name);
@@ -90,6 +87,7 @@ export function* handleOwnership(action) {
     const { data } = yield call(assignOwnershipApi, form);
     yield put(setAssignOwnership(data.data));
     yield call(formikActions.resetForm);
+    yield call(nullValue)
     yield call(setVal);
     yield put(
       setError({
