@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
@@ -28,6 +28,8 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
   const ownerDetails = useSelector(
     (state) => state?.assignOwnership?.setOwnerData
   );
+
+  const [key, setKey] = useState("start");
 
   console.log(ownerDetails);
 
@@ -90,9 +92,13 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     // documents: Yup.string().required("Document is required"),
   });
 
+  const nullValue = () => {
+    setKey(new Date().toString());
+  }
+
   const handleAssignOwnership = (values, formikActions) => {
     console.log(values);
-    dispatch(assignOwnership({ values, formikActions }));
+    dispatch(assignOwnership({ values, formikActions, nullValue }));
   };
 
   useEffect(() => {
@@ -134,6 +140,7 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
       appartmentNo={appartmentNo}
       floorArr={floorArr}
       ownerDetails={ownerDetails}
+      nullKey={key}
       handleAssignOwnership={handleAssignOwnership}
       getLandlordData={getLandlordData()}
     />
