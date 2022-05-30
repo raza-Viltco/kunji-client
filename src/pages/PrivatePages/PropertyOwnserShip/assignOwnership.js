@@ -28,6 +28,7 @@ const AssignOwnership = ({
   floorArr,
   ownerDetails,
   getLandlordData,
+  nullKey,
 }) => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.user.data);
@@ -358,12 +359,13 @@ const AssignOwnership = ({
                         placeholder="Attachment"
                         name="documents"
                         id="documents"
-                        onChange={(e) =>
+                        onChange={(e) => {
                           props.setFieldValue("documents", [
                             ...e.currentTarget.files,
-                          ])
-                        }
+                          ]);
+                        }}
                         onBlur={props.handleBlur}
+                        key={nullKey}
                         className={
                           props?.errors?.documents && props?.touched?.documents
                             ? "input-outline"
@@ -422,6 +424,7 @@ const AssignOwnership = ({
                           ])
                         }
                         onBlur={props.handleBlur}
+                        key={nullKey}
                         className={
                           props?.errors?.cnic_image &&
                           props?.touched?.cnic_image
@@ -468,8 +471,6 @@ const AssignOwnership = ({
                         // multiple
                         placeholder="Property Image"
                         name="property_image"
-                        // value={props.values.property_image}
-                        // onChange={props.handleChange}
                         onChange={(e) =>
                           props.setFieldValue(
                             "property_image",
@@ -477,6 +478,7 @@ const AssignOwnership = ({
                           )
                         }
                         onBlur={props.handleBlur}
+                        key={nullKey}
                         id="documents"
                         className={
                           props?.errors?.property_image &&
