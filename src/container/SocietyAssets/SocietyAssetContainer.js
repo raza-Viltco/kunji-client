@@ -17,7 +17,9 @@ const societyAssetContainer = (AssetsForm) => () => {
 
   const validationSchema = Yup.object().shape({
     code: Yup.string().required("Code is required."),
-    name: Yup.string().required("Asset name is required."),
+    name: Yup.string()
+      .required("Asset name is required.")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for asset name "),
     location: Yup.string().required("Location is required."),
     quantity: Yup.number().required("Quantity is required."),
   });

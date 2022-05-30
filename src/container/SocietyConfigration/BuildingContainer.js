@@ -16,7 +16,10 @@ const buildingContainer = (DefineBuilding) => () => {
 
   const validationSchema = Yup.object().shape({
     building_code: Yup.string().required("Building code is required!"),
-    building_name: Yup.string().required("Building name is required!"),
+    building_name: Yup.string().required("Building name is required!").matches(
+      /^[aA-zZ\s]+$/,
+      "Only alphabets are allowed for building name "
+    ),
     floor_streets: Yup.string().required("Floor number is required!"),
   });
 

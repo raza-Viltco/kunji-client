@@ -4,12 +4,12 @@ import { viewBill } from "../../redux/actions/SocietyAdministration/ViewBill";
 
 const viewBillContainer = (ViewBillData) => () => {
   const dispatch = useDispatch();
-
+  const stateLoading = useSelector((state) => state.local.isLoading);
   const viewBillList = useSelector((state) => state.viewBill.viewBillData);
-  console.log(viewBillList, "viewBillList");
+
   useEffect(() => {
     dispatch(viewBill());
   }, []);
-  return <ViewBillData viewBillList={viewBillList} />;
+  return <ViewBillData viewBillList={viewBillList}  stateLoading={stateLoading}/>;
 };
 export default viewBillContainer;

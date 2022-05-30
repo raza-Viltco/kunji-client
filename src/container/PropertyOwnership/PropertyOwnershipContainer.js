@@ -68,10 +68,19 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     sector_block_building: Yup.string().required("Building is required"),
     floor_streets: Yup.string().required("Floor is required"),
     plot_home_apartment: Yup.string().required("Appartment is required"),
-    owner_first_name: Yup.string().required("First name is required"),
-    owner_last_name: Yup.string().required("Last name is required"),
+    owner_first_name: Yup.string()
+      .required("First name is required")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for first name "),
+    owner_last_name: Yup.string()
+      .required("Last name is required")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for last name "),
     cnic: Yup.string().required("Cnic is required"),
-    contact: Yup.string().required("Phone number is required"),
+    contact: Yup.string()
+      .required("Phone number is required")
+      .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        "Contact number is not valid"
+      ),
     address: Yup.string().required("Address is required"),
     residential_status: Yup.string().required("Residential status is required"),
     // documents: Yup.string().required("Document is required"),
@@ -81,10 +90,19 @@ const assignOwnershipContainer = (AssignOwnership) => () => {
     sector_block_building: Yup.string().required("Sector/Block is required"),
     floor_streets: Yup.string().required("Street is required"),
     plot_home_apartment: Yup.string().required("House no is required"),
-    owner_first_name: Yup.string().required("First name is required"),
-    owner_last_name: Yup.string().required("Last name is required"),
+    owner_first_name: Yup.string()
+      .required("First name is required")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for first name "),
+    owner_last_name: Yup.string()
+      .required("Last name is required")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for last name "),
     cnic: Yup.string().required("Cnic is required"),
-    contact: Yup.string().required("Phone number is required"),
+    contact: Yup.string()
+      .required("Phone number is required")
+      .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        "Contact number is not valid"
+      ),
     address: Yup.string().required("Address is required"),
     residential_status: Yup.string().required("Residential status is required"),
     // documents: Yup.string().required("Document is required"),

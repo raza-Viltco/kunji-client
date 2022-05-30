@@ -13,7 +13,12 @@ const departmentContainer = (DepartmentForm) => () => {
 
   const validationSchema = Yup.object().shape({
     code: Yup.string().required("Department code is require"),
-    departName: Yup.string().required("Department is require"),
+    departName: Yup.string()
+      .required("Department is require")
+      .matches(
+        /^[aA-zZ\s]+$/,
+        "Only alphabets are allowed for department name "
+      ),
   });
 
   const addDepartmentHandler = (values, formikActions) => {

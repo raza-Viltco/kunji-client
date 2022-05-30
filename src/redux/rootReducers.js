@@ -27,6 +27,7 @@ import generateBillReducer from "./reducer/SocietyAdministration/GenerateBill";
 import viewSocietyReducer from "./reducer/Society/ViewSociety";
 import panicAlertReducer from "./reducer/SecurityManagement/Society/PanicAlert";
 import viewBillReducer from "./reducer/SocietyAdministration/ViewBill";
+import societyDashboardReducer from "./reducer/SocietyDashboard/SocietyDashboard";
 
 const reducers = (history) =>
   combineReducers({
@@ -55,6 +56,7 @@ const reducers = (history) =>
     generateBill: generateBillReducer,
     viewSociety: viewSocietyReducer,
     panicAlert: panicAlertReducer,
+    societyDashboard: societyDashboardReducer,
     viewBill: viewBillReducer,
     router: connectRouter(history),
   });

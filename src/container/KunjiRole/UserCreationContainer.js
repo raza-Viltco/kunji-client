@@ -31,11 +31,20 @@ const userCreationContainer = (UserCreationForm) => () => {
   };
 
   const validationSchema = Yup.object().shape({
-    first_name: Yup.string().required("First name  is required"),
-    last_name: Yup.string().required("Last name is required"),
+    first_name: Yup.string()
+      .required("First name  is required")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for first name "),
+    last_name: Yup.string()
+      .required("Last name is required")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for last name "),
     email: Yup.string().email().required("Email is required"),
     password: Yup.string().required("Password is required"),
-    mobile: Yup.string().required("Mobile no  is required"),
+    mobile: Yup.string()
+      .required("Mobile no  is required")
+      .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        "Phone number is not valid"
+      ),
     cnic: Yup.string().required("Cnic is required"),
     department_id: Yup.string().required("Department is required"),
     role_id: Yup.string().required("Role is required"),

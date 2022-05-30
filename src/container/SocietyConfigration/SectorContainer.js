@@ -16,7 +16,9 @@ const sectorContainer = (AddSector) => () => {
 
   const validationSchema = Yup.object().shape({
     building_code: Yup.string().required("Sector or Block number is required!"),
-    building_name: Yup.string().required("Sector name is required!"),
+    building_name: Yup.string()
+      .required("Sector name is required!")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for sector name "),
     floor_streets: Yup.string().required("Street number is required!"),
   });
 

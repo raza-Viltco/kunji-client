@@ -36,6 +36,9 @@
   margin-top: 17px;
   /* margin-left: 12px; */
 }
+.dashboard-card-style p{
+  color: #2f5351;
+}
 
 @media screen and (max-width: 900px) {
   .society-dashboard-flex {
