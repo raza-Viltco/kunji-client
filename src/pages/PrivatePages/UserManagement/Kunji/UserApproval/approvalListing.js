@@ -52,7 +52,6 @@ const UserApprovalListing = ({
     },
     {
       field: "mapping_level_one_name",
-
       headerName: societyType === 0 ? "Building " : "Sector/Block",
       width: 200,
     },
@@ -66,7 +65,11 @@ const UserApprovalListing = ({
       headerName: societyType === 0 ? "Apartment" : "Plot/House No",
       width: 160,
     },
-
+    {
+      field: "role_type",
+      headerName: "User Type",
+      width: 160,
+    },
     {
       field: "status",
       headerName: "Status",

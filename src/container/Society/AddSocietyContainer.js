@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
@@ -14,6 +14,7 @@ const addSocietyContainer = (AddSociety) => () => {
   const countryData = useSelector((state) => state.addSociety.countryData);
   const cityData = useSelector((state) => state.addSociety.cityData);
   const cityId = useSelector((state) => state.addSociety.cityId);
+  const [key, setKey] = useState("start");
 
   const initialValues = {
     society: {
@@ -61,9 +62,13 @@ const addSocietyContainer = (AddSociety) => () => {
     }),
   });
 
+  const nullValue = () => {
+    setKey(new Date().toString());
+  };
+
   const addSocietyHandler = (values, formikActions) => {
     console.log(values);
-    dispatch(addSociety({ values, formikActions }));
+    dispatch(addSociety({ values, formikActions, nullValue }));
   };
 
   useEffect(() => {
@@ -81,6 +86,7 @@ const addSocietyContainer = (AddSociety) => () => {
       countryData={countryData}
       cityData={cityData}
       stateLoading={stateLoading}
+      nullKey={key}
       addSocietyHandler={addSocietyHandler}
     />
   );

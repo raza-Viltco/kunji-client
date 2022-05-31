@@ -9,10 +9,6 @@ import {
 const userApprovalContainer = (UserApprovalListing) => () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(approvalListing());
-  }, []);
-
   const approval = useSelector((state) => state.userApproval.data);
   const userApprovalData = useSelector((state) => state.userApproval.user);
   const stateLoading = useSelector((state) => state.local.isLoading);
@@ -31,6 +27,10 @@ const userApprovalContainer = (UserApprovalListing) => () => {
       dispatch(userApproval({ aprId, status: 2 }));
     }
   };
+
+  // useEffect(() => {
+  //   dispatch(approvalListing());
+  // }, []);
 
   useEffect(() => {
     dispatch(approvalListing());
