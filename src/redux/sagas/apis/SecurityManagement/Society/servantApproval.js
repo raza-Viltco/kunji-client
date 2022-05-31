@@ -38,3 +38,14 @@ export const gatePassApprovalApi = async (data) => {
     data,
   });
 };
+
+export const servantListApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "GET",
+    url: "servant/documents",
+    params: { servant_id: data },
+    data,
+  });
+};

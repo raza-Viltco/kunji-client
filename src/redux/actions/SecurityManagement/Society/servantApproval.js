@@ -18,3 +18,13 @@ export const setServantApproval = (payload) => ({
   type: actionTypes.SET_SERVANT_APPROVAL,
   payload,
 });
+
+export const servantList = (payload) => ({
+  type: actionTypes.SERVANT_LIST,
+  payload,
+});
+
+export const setServantList = (payload) => ({
+  type: actionTypes.SET_SERVANT_LIST,
+  payload,
+});
