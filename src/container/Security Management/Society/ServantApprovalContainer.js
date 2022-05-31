@@ -8,16 +8,13 @@ import {
 const servantApprovalContainer = (ServantApprovalList) => () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(servantApprovalList());
-  }, []);
+
 
   const servantData = useSelector((state) => state.servantApproval.data);
   const servantApprovalData = useSelector(
     (state) => state.servantApproval.approval_data
   );
   const stateLoading = useSelector((state) => state.local.isLoading);
-
 
   const handleApproveServant = (servantId, status) => {
     if (status === 0 || 2) {

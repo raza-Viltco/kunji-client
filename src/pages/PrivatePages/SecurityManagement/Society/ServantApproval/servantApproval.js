@@ -3,9 +3,10 @@ import { React, useEffect, useState } from "react";
 import Card from "../../../../../components/Card";
 import Table from "../../../../../components/Table";
 import Dialog from "../../../../../components/Modal";
-import Doc from "../../../../../assets/Doc.jpg";
+import { useDispatch, useSelector } from "react-redux";
 import servantApprovalContainer from "../../../../../container/Security Management/Society/ServantApprovalContainer";
 import "./servantApproval.css";
+import { servantList } from "../../../../../redux/actions/SecurityManagement/Society/servantApproval";
 
 const ServantApprovalList = ({
   servantData,
@@ -13,8 +14,13 @@ const ServantApprovalList = ({
   handleRejetServant,
   stateLoading,
 }) => {
-  console.log(servantData, "servant Data");
+  const servantDataList = useSelector(
+    (state) => state.servantApproval.servantData
+  );
+  console.log(servantDataList, "servantDataList");
 
+  // console.log(servantData, "servant Data");
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [datas, setData] = useState("");
 
@@ -47,7 +53,7 @@ const ServantApprovalList = ({
     { field: "mobile", headerName: "Mobile No", width: 160 },
     { field: "cnic", headerName: "CNIC", width: 160 },
     { field: "address", headerName: "Servant  Address", width: 160 },
-    { field: "servantType", headerName: "Servant Type", width: 160 },
+    // { field: "servantType", headerName: "Servant Type", width: 160 },
 
     {
       field: "attach",
@@ -61,6 +67,7 @@ const ServantApprovalList = ({
             // key={params.rows.id}
             onClick={() => {
               handleShow(params?.row?.id);
+              dispatch(servantList(params?.row?.id));
             }}
             // onClick={()=>{
             //   handleOpen(params.row.id)
@@ -123,67 +130,63 @@ const ServantApprovalList = ({
       </div>
       {/* -------------modal code----- */}
 
-      <Dialog
-        open={show}
-        close={handleClose}
-        className="modalstyle"
-
-        // title="name"
-        // closeButton="close"
-      >
-        {/* -------cnic image---- */}
-        {/* const imageType = file.type === 'image/jpeg' || file.type === 'image/png'; */}
-
-        {/* {servantData?.cnic_images === "" ? (
-          ""
-        ) : ( */}
+      <Dialog open={show} close={handleClose} className="modalstyle">
         <div className="user">
           <h5>CNIC </h5>
           <div className="servant-modal-data mb-3">
-            {servantData?.map((user) => (
-              <div className="col-sm-2 ">
-                <a href={user?.cnic_images} target="_blank">
-                  {/* {user?.cnic_images?.split(".").pop() === "png" ? ( */}
-                  <img
-                    src={user?.cnic_images}
-                    className="img-fluid"
-                    style={{ borderRadius: "5px" }}
-                    alt="pdf"
-                  />
-                  {/* ) : ( */}
-                  <ul>
-                    {/* <li>{user?.cnic_images?.split("/").pop()}</li> */}
-                  </ul>
-                  {/* )} */}
-                </a>
-              </div>
-            ))}
+            <div className="col-sm-2 ">
+              {servantDataList?.cnic_images?.map((item) => {
+                return (
+                  <>
+                    <a href={item} target="_blank">
+                      {item?.cnic_images?.split(".").pop() === "png" ||
+                      "jpg" ||
+                      "jpeg" ||
+                      "svg" ? (
+                        <img
+                          src={item}
+                          className="img-fluid"
+                          style={{ borderRadius: "5px" }}
+                          alt="pdf"
+                        />
+                      ) : (
+                        <li>{item?.split("/").pop()}</li>
+                      )}
+                    </a>
+                  </>
+                );
+              })}
+            </div>
           </div>
         </div>
-        {/* // )} */}
+
         {/* -------------driving Liscence--- */}
 
         <div>
           <div className="user">
             <h5>Driving Liscence </h5>
             <div className="servant-modal-data mb-3">
-              {servantData?.map((user) => (
-                <div key={user?.id} className="col-sm-3">
-                  <a href={user?.driving_licence} target="_blank">
-                    {user?.driving_licence?.split(".").pop() === "png" ? (
-                      <img
-                        src={user?.driving_licence}
-                        className="img-fluid"
-                        style={{ borderRadius: "5px" }}
-                      />
-                    ) : (
-                      <ul>
-                        <li> {user?.driving_licence?.split("/").pop()}</li>
-                      </ul>
-                    )}
-                  </a>
-                </div>
-              ))}
+              <div key={servantDataList?.id} className="col-sm-3">
+                <a href={servantDataList?.driving_licence} target="_blank">
+                  {servantDataList?.driving_licence?.split(".").pop() ===
+                    "png" ||
+                  "jpg" ||
+                  "jpeg" ||
+                  "svg" ? (
+                    <img
+                      src={servantDataList?.driving_licence}
+                      className="img-fluid"
+                      style={{ borderRadius: "5px" }}
+                    />
+                  ) : (
+                    <ul>
+                      <li>
+                        {servantDataList?.driving_licence?.split("/").pop()}
+                      </li>
+                    </ul>
+                  )}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -193,24 +196,30 @@ const ServantApprovalList = ({
         <div className="user">
           <h5>Police Report</h5>
           <div className="servant-modal-data mb-3">
-            {servantData?.map((user) => (
-              <div className="col-sm-3">
-                <a href={user?.police_report_image} target="_blank">
-                  {user?.police_report_image?.split(".").pop() === "png" ? (
-                    <div className="col-sm-12">
-                      <img
-                        src={user?.police_report_image}
-                        className="img-fluid img-set"
-                      />
-                    </div>
-                  ) : (
-                    <ul>
-                      <li> {user?.police_report_image?.split("/")?.pop()} </li>
-                    </ul>
-                  )}
-                </a>
-              </div>
-            ))}
+            <div className="col-sm-3">
+              <a href={servantDataList?.police_report_image} target="_blank">
+                {servantDataList?.police_report_image?.split(".").pop() ===
+                  "png" ||
+                "jpg" ||
+                "jpeg" ||
+                "svg" ? (
+                  <div className="col-sm-12">
+                    <img
+                      src={servantDataList?.police_report_image}
+                      className="img-fluid img-set"
+                    />
+                  </div>
+                ) : (
+                  <ul>
+                    <li>
+                      {servantDataList?.police_report_image
+                        ?.split("/")
+                        ?.pop()}
+                    </li>
+                  </ul>
+                )}
+              </a>
+            </div>
           </div>
           <div className="close-modal-button">
             <button className=" btn btn-danger btn-sm " onClick={handleClose}>

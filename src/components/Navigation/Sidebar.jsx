@@ -265,24 +265,21 @@ const Sidebar = ({
           </>
         )}
 
+        {/* -----------------------department--------------- */}
+        <NavLink activeClassName="selected" to="/add_kunji_department">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <i class="fas fa-atlas" id="iconstyle"></i>
+              </ListItemIcon>
+              <ListItemText>
+                <span className="font-dashboard">Department</span>
+              </ListItemText>
+              {/* className="font-dashboard"  */}
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
 
-
-
-      {/* -----------------------department--------------- */}
-      <NavLink activeClassName="selected" to="/add_kunji_department">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <i class="fas fa-atlas" id="iconstyle"></i>
-                </ListItemIcon>
-                <ListItemText>
-                  <span className="font-dashboard">Department</span>
-                </ListItemText>
-                {/* className="font-dashboard"  */}
-              </ListItemButton>
-            </ListItem>
-          </NavLink>
-          
         {/* {userData?.data?.role.name === "kunji admin" && ( */}
         <>
           <ListItemButton onClick={openUserManagementHander}>
@@ -338,7 +335,10 @@ const Sidebar = ({
                     <MdOutlineFormatListBulleted size={20} />
                   </ListItemIcon>
                   <ListItemText>
-                    <span className="font-dashboard"> Staff Member Listing</span>
+                    <span className="font-dashboard">
+                      {" "}
+                      Staff Member Listing
+                    </span>
                   </ListItemText>
                 </ListItemButton>
               </NavLink>
@@ -907,6 +907,22 @@ const Sidebar = ({
                     </ListItemButton>
                   </NavLink>
                 </List>
+
+                <List component="div" disablePadding>
+                  <NavLink to="/vehicle_list">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fas fa-truck" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">
+                          Registered Vehicles
+                        </span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+
                 <List component="div" disablePadding>
                   <NavLink to="/society_panic_alert">
                     <ListItemButton sx={{ pl: 4 }}>
@@ -935,8 +951,6 @@ const Sidebar = ({
               </Collapse>
             </>
           )}
-
-    
 
           {/* --------notices--------------- */}
           {userData?.data?.role.name !== "kunji admin" && (

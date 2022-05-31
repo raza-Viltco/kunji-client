@@ -68,8 +68,8 @@ const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
   for (let i = 0; i < selectResidentData.length; i++) {
     const Obj = { value: "", label: "" };
     const newData = selectResidentData[i].resedent;
-    Obj.value = newData.id;
-    Obj.label = newData.name;
+    Obj.value = newData?.id;
+    Obj.label = newData?.name;
     residentsOption.push(Obj);
   }
 
@@ -114,7 +114,7 @@ const NoticeForm = ({ selectResidentData, setResidentDrop, initialValues }) => {
             options={residentsOption}
             value={user.residents}
             onChange={handleChange}
-            disableSearch={true}
+            // disableSearch={true}
             labelledBy="Select Resident"
           />
           {error.residents_Error && (

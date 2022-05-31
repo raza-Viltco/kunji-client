@@ -7,12 +7,14 @@ import {
 import {
   setServantApproval,
   setServantApprovalList,
+  setServantList,
 } from "../../../../actions/SecurityManagement/Society/servantApproval";
 import {
   servantApprovalApi,
   servantListAPi,
   gatePassListApi,
   gatePassApprovalApi,
+  servantListApi,
 } from "../../../apis/SecurityManagement/Society/servantApproval";
 import { localApiStateHandler } from "../../localApiStateHandler";
 import { setError } from "../../../../actions/local";
@@ -73,6 +75,16 @@ export function* handleGatePassRequest(action) {
         message: data.message,
       })
     );
+  }
+
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleServantList(action) {
+  function* api() {
+    const { data } = yield call(servantListApi,action.payload);
+    // console.log(data);
+    yield put(setServantList(data));
   }
 
   yield call(() => localApiStateHandler(api));
