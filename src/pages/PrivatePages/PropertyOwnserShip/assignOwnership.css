@@ -20,5 +20,23 @@
 }
 
 .textstyle:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+.text-color
+{
+  color: white;
+}
+
+
+.text-color1
+{
+  text-decoration: none;
+  color: white;
+}
+
+.text-color1:hover
+{
+  text-decoration: none;
+  color: white;
 }

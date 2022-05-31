@@ -21,6 +21,7 @@ const AddSociety = ({
   countryData,
   cityData,
   stateLoading,
+  nullKey,
   addSocietyHandler,
 }) => {
   const dispatch = useDispatch();
@@ -156,6 +157,7 @@ const AddSociety = ({
                       ])
                     }
                     onBlur={props.handleBlur}
+                    key={nullKey}
                     className={
                       props?.errors?.society?.documents &&
                       props?.touched?.society?.documents

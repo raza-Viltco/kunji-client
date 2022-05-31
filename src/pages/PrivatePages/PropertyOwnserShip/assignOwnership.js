@@ -331,23 +331,17 @@ const AssignOwnership = ({
                   </label>
                   {getLandlordData?.documents ? (
                     <div className="col-sm-12 pt-2 pb-2 propertystyle">
-                      <ul>
-                        {getLandlordData?.documents?.map((item) => {
-                          return (
-                            <li>
-                              <a
-                                className="textstyle"
-                                href={item}
-                                target="_blank"
-                              >
-                                <p className="px-2 m-0 parapropertystyle">
-                                  {item}
-                                </p>
-                              </a>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                      {getLandlordData?.documents?.map((item) => {
+                        return (
+                          <a
+                            className="btn btn-success rounded-pill btn-sm mx-1 px-4"
+                            href={item}
+                            target="_blank"
+                          >
+                            View
+                          </a>
+                        );
+                      })}
                     </div>
                   ) : (
                     <>
@@ -390,23 +384,17 @@ const AssignOwnership = ({
                   </label>
                   {getLandlordData?.cnic_image ? (
                     <div className="col-sm-12 pt-2 pb-2 propertystyle">
-                      <ul>
-                        {getLandlordData?.cnic_image?.map((item) => {
-                          return (
-                            <li>
-                              <a
-                                className="textstyle"
-                                href={item}
-                                target="_blank"
-                              >
-                                <p className="px-2 m-0 parapropertystyle">
-                                  {item}
-                                </p>
-                              </a>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                      {getLandlordData?.cnic_image?.map((item) => {
+                        return (
+                          <a
+                            className="btn btn-success rounded-pill btn-sm mx-1 px-4"
+                            href={item}
+                            target="_blank"
+                          >
+                            View
+                          </a>
+                        );
+                      })}
                     </div>
                   ) : (
                     <>
@@ -448,19 +436,13 @@ const AssignOwnership = ({
                   </label>
                   {getLandlordData?.property_images ? (
                     <div className="col-sm-12 pt-2 pb-2 propertystyle">
-                      <ul>
-                        <li>
-                          <a
-                            className="textstyle"
-                            href={getLandlordData?.property_images}
-                            target="_blank"
-                          >
-                            <p className="px-2 m-0 parapropertystyle">
-                              {getLandlordData?.property_images}
-                            </p>
-                          </a>
-                        </li>
-                      </ul>
+                      <a
+                        className="btn btn-success rounded-pill btn-sm mx-1 px-4"
+                        href={getLandlordData?.property_images}
+                        target="_blank"
+                      >
+                        View
+                      </a>
                     </div>
                   ) : (
                     <>
