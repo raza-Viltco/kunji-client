@@ -1,36 +1,21 @@
-import { React, useEffect, useState } from "react";
+import { React } from "react";
 
 import Card from "../../../../../components/Card";
 import Table from "../../../../../components/Table";
 import Dialog from "../../../../../components/Modal";
-import { useDispatch, useSelector } from "react-redux";
 import servantApprovalContainer from "../../../../../container/Security Management/Society/ServantApprovalContainer";
 import "./servantApproval.css";
-import { servantList } from "../../../../../redux/actions/SecurityManagement/Society/servantApproval";
 
 const ServantApprovalList = ({
   servantData,
   handleApproveServant,
+  servantDataList,
   handleRejetServant,
+  show,
+  handleServantList,
+  handleModalClose,
   stateLoading,
 }) => {
-  const servantDataList = useSelector(
-    (state) => state.servantApproval.servantData
-  );
-  console.log(servantDataList, "servantDataList");
-
-  // console.log(servantData, "servant Data");
-  const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
-  const [datas, setData] = useState("");
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const handleOpen = (params) => {
-    console.log(params, "params");
-  };
-
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
@@ -50,10 +35,16 @@ const ServantApprovalList = ({
         <div>{params?.row?.first_name + " " + params?.row?.last_name}</div>,
       ],
     },
+    {
+      field: "servent_name",
+      headerName: "Servant Type",
+      width: 160,
+      valueGetter: (params) => params?.row?.servent_name?.name,
+    },
+
     { field: "mobile", headerName: "Mobile No", width: 160 },
     { field: "cnic", headerName: "CNIC", width: 160 },
     { field: "address", headerName: "Servant  Address", width: 160 },
-    // { field: "servantType", headerName: "Servant Type", width: 160 },
 
     {
       field: "attach",
@@ -64,14 +55,9 @@ const ServantApprovalList = ({
         <div>
           <button
             className="btn btn-success btn-sm "
-            // key={params.rows.id}
             onClick={() => {
-              handleShow(params?.row?.id);
-              dispatch(servantList(params?.row?.id));
+              handleServantList(params?.row?.id);
             }}
-            // onClick={()=>{
-            //   handleOpen(params.row.id)
-            // }}
           >
             View
           </button>
@@ -130,58 +116,101 @@ const ServantApprovalList = ({
       </div>
       {/* -------------modal code----- */}
 
-      <Dialog open={show} close={handleClose} className="modalstyle">
-        <div className="user">
-          <h5>CNIC </h5>
-          <div className="servant-modal-data mb-3">
-            <div className="col-sm-2 ">
-              {servantDataList?.cnic_images?.map((item) => {
-                return (
-                  <>
-                    <a href={item} target="_blank">
-                      {item?.cnic_images?.split(".").pop() === "png" ||
-                      "jpg" ||
-                      "jpeg" ||
-                      "svg" ? (
-                        <img
-                          src={item}
-                          className="img-fluid"
-                          style={{ borderRadius: "5px" }}
-                          alt="pdf"
-                        />
-                      ) : (
-                        <li>{item?.split("/").pop()}</li>
-                      )}
-                    </a>
-                  </>
-                );
-              })}
+      <Dialog open={show} close={handleModalClose} className="modalstyle">
+        {servantDataList?.cnic_images === null ||
+        servantDataList?.cnic_images === "" ? (
+          ""
+        ) : (
+          <div className="user">
+            <h5>CNIC </h5>
+            <div className="servant-modal-data mb-3">
+              <div className="col-sm-2 ">
+                {servantDataList?.cnic_images?.map((item) => {
+                  return (
+                    <>
+                      <a href={item} target="_blank">
+                        {item?.cnic_images?.split(".").pop() === "png" ||
+                        "jpg" ||
+                        "jpeg" ||
+                        "svg" ? (
+                          <img
+                            src={item}
+                            className="img-fluid"
+                            style={{ borderRadius: "5px" }}
+                            alt="pdf"
+                          />
+                        ) : (
+                          <li>{item?.split("/").pop()}</li>
+                        )}
+                      </a>
+                    </>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
-
+        )}
         {/* -------------driving Liscence--- */}
-
-        <div>
+        {servantDataList?.driving_licence === null ||
+        servantDataList?.driving_licence === "" ? (
+          ""
+        ) : (
+          <div>
+            <div className="user">
+              <h5>Driving Liscence </h5>
+              <div className="servant-modal-data mb-3">
+                <div key={servantDataList?.id} className="col-sm-3">
+                  <a href={servantDataList?.driving_licence} target="_blank">
+                    {servantDataList?.driving_licence?.split(".").pop() ===
+                      "png" ||
+                    "jpg" ||
+                    "jpeg" ||
+                    "svg" ? (
+                      <img
+                        src={servantDataList?.driving_licence}
+                        className="img-fluid"
+                        style={{ borderRadius: "5px" }}
+                      />
+                    ) : (
+                      <ul>
+                        <li>
+                          {servantDataList?.driving_licence?.split("/").pop()}
+                        </li>
+                      </ul>
+                    )}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {/* ----------------police report-------- */}
+        {servantDataList?.police_report_image === null ||
+        servantDataList?.police_report_image === "" ? (
+          ""
+        ) : (
           <div className="user">
-            <h5>Driving Liscence </h5>
+            <h5>Police Report</h5>
             <div className="servant-modal-data mb-3">
-              <div key={servantDataList?.id} className="col-sm-3">
-                <a href={servantDataList?.driving_licence} target="_blank">
-                  {servantDataList?.driving_licence?.split(".").pop() ===
+              <div className="col-sm-3">
+                <a href={servantDataList?.police_report_image} target="_blank">
+                  {servantDataList?.police_report_image?.split(".").pop() ===
                     "png" ||
                   "jpg" ||
                   "jpeg" ||
                   "svg" ? (
-                    <img
-                      src={servantDataList?.driving_licence}
-                      className="img-fluid"
-                      style={{ borderRadius: "5px" }}
-                    />
+                    <div className="col-sm-12">
+                      <img
+                        src={servantDataList?.police_report_image}
+                        className="img-fluid img-set"
+                      />
+                    </div>
                   ) : (
                     <ul>
                       <li>
-                        {servantDataList?.driving_licence?.split("/").pop()}
+                        {servantDataList?.police_report_image
+                          ?.split("/")
+                          ?.pop()}
                       </li>
                     </ul>
                   )}
@@ -189,43 +218,14 @@ const ServantApprovalList = ({
               </div>
             </div>
           </div>
-        </div>
-
-        {/* ----------------police report-------- */}
-
-        <div className="user">
-          <h5>Police Report</h5>
-          <div className="servant-modal-data mb-3">
-            <div className="col-sm-3">
-              <a href={servantDataList?.police_report_image} target="_blank">
-                {servantDataList?.police_report_image?.split(".").pop() ===
-                  "png" ||
-                "jpg" ||
-                "jpeg" ||
-                "svg" ? (
-                  <div className="col-sm-12">
-                    <img
-                      src={servantDataList?.police_report_image}
-                      className="img-fluid img-set"
-                    />
-                  </div>
-                ) : (
-                  <ul>
-                    <li>
-                      {servantDataList?.police_report_image
-                        ?.split("/")
-                        ?.pop()}
-                    </li>
-                  </ul>
-                )}
-              </a>
-            </div>
-          </div>
-          <div className="close-modal-button">
-            <button className=" btn btn-danger btn-sm " onClick={handleClose}>
-              Close
-            </button>
-          </div>
+        )}
+        <div className="close-modal-button">
+          <button
+            className=" btn btn-danger btn-sm "
+            onClick={handleModalClose}
+          >
+            Close
+          </button>
         </div>
       </Dialog>
     </Card>
