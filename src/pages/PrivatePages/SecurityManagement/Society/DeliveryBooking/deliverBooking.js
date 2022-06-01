@@ -12,7 +12,8 @@ const DeliveryBookingList = ({
 }) => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "resident", headerName: "Resident Name", width: 160 },
+    { field: "resident", headerName: "Resident Name", width: 160,
+    valueGetter: (params) => params?.row?.user?.name },
     {
       field: "address",
       headerName: "Resident Address",
@@ -29,7 +30,7 @@ const DeliveryBookingList = ({
       field: "vendor",
       headerName: " Delivery Vendor",
       width: 200,
-      valueGetter: (params) => params?.row?.vendor?.name
+      valueGetter: (params) => params?.row?.vendor_id
       // getActions: (params) => [<div>{params?.row?.vendor}</div>],
     },
     { field: "order_no", headerName: " Order No", width: 160 },
