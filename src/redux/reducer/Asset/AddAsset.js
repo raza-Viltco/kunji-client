@@ -28,6 +28,8 @@ const addAssetReducer = (state = initialState, action) => {
           (item) => item.id !== Number(payload.data)
         ),
       };
+    case actionTypes.SET_ASSET_NULL:
+      return { ...state, editAsset: payload}  
     default:
       return state;
   }

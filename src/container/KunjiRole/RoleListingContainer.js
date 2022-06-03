@@ -17,8 +17,8 @@ const roleListingContainer = (RoleListing) => () => {
   const [permissions, setPermissions] = useState();
 
   const handleCheck = (e) => {
-    console.log(e.target.value);
-    console.log(e.target.checked);
+    // console.log(e.target.value);
+    // console.log(e.target.checked);
     let permissionID = Number(e.target.value);
     if (e.target.checked === false) {
       setPermissions(permissions.filter((item) => item !== permissionID));

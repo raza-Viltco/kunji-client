@@ -6,7 +6,8 @@ import {
   assetListing,
   editAsset,
   updateAsset,
-  removeAsset
+  removeAsset,
+  setNullAsset
 } from "../../redux/actions/Asset/AddAsset";
 
 const assetListingContainer = (AssetListing) => () => {
@@ -32,7 +33,10 @@ const assetListingContainer = (AssetListing) => () => {
     quantity: Yup.number().required("Quantity is required."),
   });
 
-  const handleModalClose = () => setShow(false);
+  const handleModalClose = () => { 
+    setShow(false) 
+    dispatch(setNullAsset(null))
+  };
 
   const handleAssetModal = (id) => {
     dispatch(editAsset(id));
@@ -46,12 +50,14 @@ const assetListingContainer = (AssetListing) => () => {
     dispatch(updateAsset({ values, customParam }));
   };
 
+  console.log(editData)
+
   useEffect(() => {
     dispatch(assetListing());
   }, [updatedAsset]);
 
   useEffect(() => {
-    if (editData) {
+    if (!!editData) {
       setShow(true);
     }
   }, [editData]);
