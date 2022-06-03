@@ -70,7 +70,7 @@ const SocietyListingView = ({
                 <div className="col-md-6">
                   <p className="head-font-style">Current Status</p>
                   <p>
-                    {viewSocietyData?.status === 0 ? "In Active" : "Active"}
+                    {viewSocietyData?.status === 0 ? "Deactived" : "Activated"}
                   </p>
                 </div>
               </div>
@@ -125,14 +125,14 @@ const SocietyListingView = ({
                       <FormControlLabel
                         value={1}
                         control={<Radio size="small" />}
-                        label="Active"
+                        label="Activate"
                         name="status"
                         onChange={props.handleChange}
                       />
                       <FormControlLabel
                         value={0}
                         control={<Radio size="small" />}
-                        label="In Active"
+                        label="Deactivate"
                         name="status"
                         onChange={props.handleChange}
                       />

@@ -16,7 +16,6 @@ const roleListingContainer = (RoleListing) => () => {
   const initialState = useSelector((state) => state.kunjiRole.permissionId);
   const [permissions, setPermissions] = useState();
 
-
   const handleCheck = (e) => {
     console.log(e.target.value);
     console.log(e.target.checked);
@@ -29,7 +28,6 @@ const roleListingContainer = (RoleListing) => () => {
   };
 
   console.log(permissions);
-
 
   const handlePermissions = () => {
     dispatch(assignPermission(permissions));

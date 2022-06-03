@@ -17,7 +17,7 @@ const DepartmentList = ({
       field: "status",
       headerName: "Status",
       width: 120,
-      valueGetter: ({ value }) => (value === 1 ? "Active" : "Inactive"),
+      valueGetter: ({ value }) => (value === 1 ? "Activeted" : "Deactived"),
     },
     {
       field: "actions",

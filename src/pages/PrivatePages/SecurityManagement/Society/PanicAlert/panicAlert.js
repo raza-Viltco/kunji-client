@@ -65,7 +65,7 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
       headerName: "Status",
       width: 160,
       valueGetter: (params) =>
-        params?.row?.status === 1 ? "Active" : "Inactive",
+        params?.row?.status === 1 ? "Activated" : "Deactived",
     },
   ];
 

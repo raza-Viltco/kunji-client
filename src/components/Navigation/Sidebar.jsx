@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   IconButton,
-  Divider,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -18,22 +16,17 @@ import { NavLink } from "react-router-dom";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
-import StarBorder from "@mui/icons-material/StarBorder";
 import {
   MdDashboard,
   MdAddBusiness,
   MdOutlineFormatListBulleted,
-  MdOutlineManageAccounts,
 } from "react-icons/md";
 
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
-import { BiBuildingHouse, BiLogOut, BiLogIn } from "react-icons/bi";
-import { BsBuilding } from "react-icons/bs";
-import { MdOutlineTaskAlt } from "react-icons/md";
+import { BiLogOut } from "react-icons/bi";
 import { logout } from "../../redux/actions/Auth/user";
 import "./sidebar.css";
-import { shouldForwardProp } from "@mui/styled-engine";
 
 const Sidebar = ({
   styled,
@@ -45,16 +38,8 @@ const Sidebar = ({
   const userData = useSelector((state) => state.user.data);
   console.log(userData?.data?.role.name);
   const [open, setOpen] = useState(false);
-  const [registerOpen, setRegisterOpen] = useState(false);
-  const [staffOpen, setStaffOpen] = useState(false);
-  const [flatsOpen, setFlatsOpen] = useState(false);
-  const [assetOpen, setAssetOpen] = useState(false);
-  const [eventOpen, setEventOpen] = useState(false);
-  const [facilityOpen, setFacilityOpen] = useState(false);
-  const [userOpen, setUserOpen] = useState(false);
   const [openSocietyConfi, setOpenSocietyConfig] = useState(false);
   const [openUserManagement, setOpenUserManagement] = useState(false);
-  const [openStaff, setOpenStaff] = useState(false);
   const [openSecurity, setOpenSecurity] = useState(false);
   const [openSocietyAdmin, setOpenSocietyAdmin] = useState(false);
   const [openVerticalConfig, setOpenVerticalConfig] = useState(false);
@@ -63,36 +48,14 @@ const Sidebar = ({
   const nestedListHandler = () => {
     setOpen((prev) => !prev);
   };
-  const registerOpenHandler = () => {
-    setRegisterOpen((prev) => !prev);
-  };
-  const staffOpenHandler = () => {
-    setStaffOpen((prev) => !prev);
-  };
-  const flatOpenHandler = () => {
-    setFlatsOpen((prev) => !prev);
-  };
-  const assetOpenHandler = () => {
-    setAssetOpen((prev) => !prev);
-  };
-  const eventOpenHandler = () => {
-    setEventOpen((prev) => !prev);
-  };
-  const facilityOpenHandler = () => {
-    setFacilityOpen((prev) => !prev);
-  };
-  const userOpenHandler = () => {
-    setUserOpen((prev) => !prev);
-  };
+
   const openSocietyConfigHandler = () => {
     setOpenSocietyConfig((prev) => !prev);
   };
   const openUserManagementHander = () => {
     setOpenUserManagement((prev) => !prev);
   };
-  const OpenStaffHandler = () => {
-    setOpenStaff((prev) => !prev);
-  };
+
   const OpenSecurityHandler = () => {
     setOpenSecurity((prev) => !prev);
   };
@@ -187,45 +150,6 @@ const Sidebar = ({
             </ListItemButton>
           </ListItem>
         </NavLink>
-
-        {/* 
-        {userData?.data?.roles[0].name === "Super Admin" && (
-          <>
-            <ListItemButton onClick={userOpenHandler}>
-              <ListItemIcon>
-                <SiHomeassistantcommunitystore size={25} />
-              </ListItemIcon>
-              <ListItemText>
-              <span className="font-dashboard" >User Management </span>
-                </ListItemText>
-              {userOpen ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={userOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/add_user">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <AiOutlineUserAdd size={25} />
-                    </ListItemIcon>
-                    <ListItemText>
-                    <span className="font-dashboard" >Add User</span>
-                      </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-                <NavLink to="/user_listing">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={25} />
-                    </ListItemIcon>
-                    <ListItemText>
-                    <span className="font-dashboard" > User Listing </span>
-                      </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          </>
-        )} */}
 
         {userData?.data?.role.name === "kunji admin" && (
           <>
@@ -499,25 +423,6 @@ const Sidebar = ({
           </>
         )}
 
-        {/* ---------------------------property ownership- horizontal------------- */}
-        {/* {userData?.data?.role.name === "Society Admin" &&
-          userData?.data?.society?.society_type === 1 && (
-            <>
-              <NavLink to="/property_owner_hor">
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <MdDashboard size={25} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">Property Ownership</span>
-                    </ListItemText>
-                  </ListItemButton>
-                </ListItem>
-              </NavLink>
-            </>
-          )} */}
-
         {/* ----------assets---------- */}
 
         {userData?.data?.role.name !== "kunji admin" && (
@@ -590,247 +495,8 @@ const Sidebar = ({
             </Collapse>
           </>
         )}
-        {/* {userData?.data?.roles[0].name === "Super Admin" && (
-          <>
-            <ListItemButton onClick={OpenStaffHandler}>
-              <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
-              </ListItemIcon>
-              <ListItemText primary="Staff Management" />
-              {openStaff ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={openStaff} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/add_kunji_staff">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <AiOutlineUserAdd size={23} />
-                    </ListItemIcon>
-                    <ListItemText primary="Add Staff Member" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              <List component="div" disablePadding>
-                <NavLink to="/list_kunji_staff">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={20} />
-                    </ListItemIcon>
-                    <ListItemText primary="Staff Listing" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          </>
-        )} */}
-
-        {/* {userData?.data?.roles[0].name === "Super Admin" && ( */}
-        {/* <>
-            <NavLink activeClassName="selected" to="/add_kunji_department">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <MdDashboard size={20} />
-                  </ListItemIcon>
-                  <ListItemText primary="Department" />
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
-          </> */}
-        {/* )} */}
-
-        {/* {userData?.data?.roles[0].name === "Society Admin" && (
-          <>
-            <ListItemButton onClick={registerOpenHandler}>
-              <ListItemIcon>
-                <BiLogIn size={20} />
-              </ListItemIcon>
-              <ListItemText>
-              Register Resident
-                </ListItemText>
-              {registerOpen ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={registerOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/builder_society_register">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={23} />
-                    </ListItemIcon>
-                    <ListItemText>
-                    Resident Listing
-                      </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          </>
-        )} */}
-
-        {/* {userData?.data?.roles[0].name === "Society Admin" && (
-          <>
-            <ListItemButton onClick={staffOpenHandler}>
-              <ListItemIcon>
-                <MdOutlineManageAccounts size={20} />
-              </ListItemIcon>
-              <ListItemText>
-              Staff Management
-                </ListItemText>
-              {staffOpen ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={staffOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/builder_staff_management">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <AiOutlineUserAdd size={23} />
-                    </ListItemIcon>
-                    <ListItemText primary="Register Staff" />
-                  </ListItemButton>
-                </NavLink>
-                <NavLink to="/staff_list">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={20} />
-                    </ListItemIcon>
-                    <ListItemText primary="Staff Listing" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          </>
-        )} */}
 
         <List className="sidebar-anchor-outer">
-          {/* {userData?.data?.roles[0].name === "Society Admin" && (
-            <>
-              <ListItemButton onClick={facilityOpenHandler}>
-                <ListItemIcon>
-                  <SiHomeassistantcommunitystore size={20} />
-                </ListItemIcon>
-                <ListItemText primary="Facility Management" />
-                {facilityOpen ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={facilityOpen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink to="/facility_listing">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <MdAddBusiness size={20} />
-                      </ListItemIcon>
-                      <ListItemText primary="Facility Listing" />
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              </Collapse>
-            </>
-          )} */}
-
-          {/* <List component="div" disablePadding>
-        {userData?.data?.roles[0].name === "Society Admin" && (
-          <>
-            <ListItemButton onClick={facilityOpenHandler}>
-              <ListItemIcon>
-                <SiHomeassistantcommunitystore size={20} />
-              </ListItemIcon>
-              <ListItemText primary="Facility Management" />
-              {facilityOpen ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={facilityOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/facility_listing">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdAddBusiness size={20} />
-                    </ListItemIcon>
-                    <ListItemText primary="Facility Listing" />
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            </Collapse>
-          </>
-        )}
-
-         {/* <List component="div" disablePadding>
-            <NavLink to="/">
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <MdOutlineTaskAlt size={20} />
-                </ListItemIcon>
-                <ListItemText primary="Staff Roles" />
-              </ListItemButton>
-            </ListItem>
-          </NavLink>
-        )} */}
-
-          {/* {userData?.data?.roles[0].name === "Society Admin" && (
-            <>
-              <ListItemButton onClick={flatOpenHandler}>
-                <ListItemIcon>
-                  <SiHomeassistantcommunitystore size={20} />
-                </ListItemIcon>
-                <ListItemText primary="Flats Management" />
-                {flatsOpen ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={flatsOpen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink to="/register_flat">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <AiOutlineUserAdd size={23} />
-                      </ListItemIcon>
-                      <ListItemText primary="Register Flat" />
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-                <List component="div" disablePadding>
-                  <NavLink to="/flat_listing">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={20} />
-                      </ListItemIcon>
-                      <ListItemText primary="Flat List" />
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              </Collapse>
-            </>
-          )} */}
-
-          {/* {userData?.data?.roles[0].name === "Society Admin" && (
-            <>
-              <ListItemButton onClick={assetOpenHandler}>
-                <ListItemIcon>
-                  <MdOutlineManageAccounts size={20} />
-                </ListItemIcon>
-                <ListItemText primary="Asset Management" />
-                {assetOpen ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={assetOpen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink to="/add_asset">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <AiOutlineUserAdd size={23} />
-                      </ListItemIcon>
-                      <ListItemText primary="Add Asset" />
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-                <List component="div" disablePadding>
-                  <NavLink to="/asset_list">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <MdOutlineFormatListBulleted size={20} />
-                      </ListItemIcon>
-                      <ListItemText primary="Asset List" />
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              </Collapse>
-            </>
-          )} */}
-
           {/* ----------------------------------------------------society List-------------- */}
 
           {/* ---------security-management---- */}
@@ -1003,32 +669,12 @@ const Sidebar = ({
             </>
           )}
 
-          {/* <ListItemButton onClick={eventOpenHandler}>
-          <ListItemIcon>
-            <SiHomeassistantcommunitystore size={20} />
-          </ListItemIcon>
-          <ListItemText primary="Event Management" />
-          {eventOpen ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        <Collapse in={eventOpen} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <NavLink to="/">
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <MdAddBusiness size={20} />
-                </ListItemIcon>
-                <ListItemText primary="Register" />
-              </ListItemButton>
-            </NavLink>
-          </List>
-        </Collapse>  */}
-
-          <ListItem disablePadding>
+          <ListItem disablePadding onClick={logoutHandler}>
             <ListItemButton>
               <ListItemIcon>
                 <BiLogOut size={20} />
               </ListItemIcon>
-              <ListItemText onClick={logoutHandler}>
+              <ListItemText >
                 <span className="font-dashboard">Logout</span>
               </ListItemText>
             </ListItemButton>
