@@ -13,7 +13,7 @@ const FacilitiesListing = ({ facilityList }) => {
       field: "status",
       headerName: "Status",
       width: 180,
-      valueGetter: ({ value }) => (value === 1 ? "Active" : "Inactive"),
+      valueGetter: ({ value }) => (value === 1 ? "Actived" : "Deactived"),
     },
     {
       field: "edit",

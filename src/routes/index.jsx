@@ -50,9 +50,6 @@ import Assets from "../pages/PrivatePages/Assets/Society";
 import SocietyListingView from "../pages/PrivatePages/Society/SocietyListingView";
 import ViewProperty from "../pages/PrivatePages/PropertyOwnserShip/viewProperty";
 import SocietyProfile from "../pages/PrivatePages/SocietyProfile";
-import PropertyOwnerHorizontal from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal";
-import ViewPropertyHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/viewPropertyHor";
-import AssignOwnerHor from "../pages/PrivatePages/PropertyOwnserShip/PropertyOwnerHorizontal/assignOwnerHor";
 import ViewRole from "../pages/PrivatePages/UserManagement/Kunji/ViewRole";
 import RoleDetail from "../pages/PrivatePages/UserManagement/Kunji/RoleDetail";
 import CaseDetail from "../pages/PrivatePages/SecurityManagement/Society/Complaints/caseDetail";
@@ -65,7 +62,6 @@ import StaffMemberListing from "../pages/PrivatePages/UserManagement/Kunji/UserC
 import VehicleList from "../pages/PrivatePages/SecurityManagement/Society/Vehicle";
 
 const AppRouter = () => (
-  // const userData = useSelector((state) => state.user.data);
   <ConnectedRouter history={localhistory}>
     <Switch>
       <PublicRoute path="/login" exact>
@@ -246,18 +242,6 @@ const AppRouter = () => (
 
         <PrivateRoute path="/view_property/:ownershipId">
           <ViewProperty />
-        </PrivateRoute>
-
-        <PrivateRoute path="/property_owner_hor">
-          <PropertyOwnerHorizontal />
-        </PrivateRoute>
-
-        <PrivateRoute path="/view_property_hor">
-          <ViewPropertyHor />
-        </PrivateRoute>
-
-        <PrivateRoute path="/assign_owner_hor">
-          <AssignOwnerHor />
         </PrivateRoute>
 
         <PrivateRoute path="/poll">
