@@ -12,7 +12,8 @@ import {
   setAssetListing,
   setEditAsset,
   setUpdateAsset,
-  setRemoveAsset
+  setRemoveAsset,
+  setNullAsset,
 } from "../../../actions/Asset/AddAsset";
 import { localApiStateHandler } from "../localApiStateHandler";
 import { setError } from "../../../actions/local";
@@ -70,6 +71,7 @@ export function* handleUpdateAsset(action) {
     const { data } = yield call(updateAssetApi, form);
     console.log(data);
     yield put(setUpdateAsset(data));
+    yield put(setNullAsset(null));
     yield call(customParam);
     yield put(
       setError({

@@ -53,3 +53,8 @@ export const setRemoveAsset = (payload) => ({
   type: actionTypes.SET_REMOVE_ASSET,
   payload,
 });
+
+export const setNullAsset = (payload) => ({
+  type: actionTypes.SET_ASSET_NULL,
+  payload
+})
