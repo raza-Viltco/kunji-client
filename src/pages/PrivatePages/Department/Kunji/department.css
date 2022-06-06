@@ -1,18 +1,53 @@
 .department-button-outer{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 .inactive-button {
-    background: rgb(196, 81, 81) !important;
-    color: white !important;
-    width: 110%;
-    border-radius: 20px !important;
-  }
-  .active-Button {
-    background: #203A38 !important;
-    color: white !important;
-    width: 120%;
-    border-radius: 20px !important;
-  }
-  
+  background: rgb(196, 81, 81) !important;
+  color: white !important;
+  width: 110%;
+  border-radius: 20px !important;
+}
+.active-Button {
+  background: #203A38 !important;
+  color: white !important;
+  width: 120%;
+  border-radius: 20px !important;
+}
+
+.MuiDataGrid-columnHeaderTitle
+{
+  text-align: center !important;
+}
+
+
+.css-1qsp5ul-MuiDataGrid-root
+{
+  width: 100% !important;
+}
+
+
+
+.css-f3jnds-MuiDataGrid-columnHeaders
+{
+  text-align: center;
+}
+
+.MuiDataGrid-cell
+{
+  display: block !important;
+  text-align:center !important;
+  width: 100% !important;
+  padding-top: 1% !important;
+}
+
+.MuiButton-sizeMedium
+{
+
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+  padding-top: 3% !important;
+  padding-bottom: 3% !important;
+  font-size: 12px !important;
+}

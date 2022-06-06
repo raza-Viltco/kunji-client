@@ -24,7 +24,7 @@ const CreatePool = ({ initialValues, createPollHandler }) => {
                     <b>Your Question</b>
                   </label>
                   <TextArea
-                    className="bootstyle"
+                    className="bootstyle1"
                     rows="9"
                     placeholder="Terms and Conditions"
                     id="question"

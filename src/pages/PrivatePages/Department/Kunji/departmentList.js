@@ -10,14 +10,15 @@ const DepartmentList = ({
   stateLoading,
 }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "code", headerName: "Code", width: 200 },
-    { field: "name", headerName: "Department Name", width: 200 },
+    { field: "id", headerName: "ID", width: 180 ,headerAlign:"center"},
+    { field: "code", headerName: "Code", width: 300,headerAlign:"center" },
+    { field: "name", headerName: "Department Name", width: 300 ,headerAlign:"center"},
     {
       field: "status",
       headerName: "Status",
-      width: 120,
-      valueGetter: ({ value }) => (value === 1 ? "Activeted" : "Deactived"),
+      width: 200,
+      headerAlign:"center",
+      valueGetter: ({ value }) => (value === 1 ? "Active" : "Inactive"),
     },
     {
       field: "actions",
@@ -25,10 +26,10 @@ const DepartmentList = ({
       headerName: "Action",
       width: 200,
       getActions: (params) => [
-        <div className="col-sm-12 text-center">
+        <div className="col-sm-12 m-0 p-0 text-center">
           {params.row.status === 1 ? (
             <button
-              className="btn btn-danger"
+              className="btn btn-danger btn-sm rounded-pill"
               onClick={() =>
                 handleDepartmentStatus(params.id, params.row.status)
               }
@@ -37,7 +38,7 @@ const DepartmentList = ({
             </button>
           ) : (
             <button
-              className="btn btn-success"
+              className="btn btn-success btn-sm rounded-pill"
               onClick={() =>
                 handleDepartmentStatus(params.id, params.row.status)
               }
@@ -51,8 +52,9 @@ const DepartmentList = ({
   ];
 
   return (
-    <div style={{ height: "100vh", width: "100%", background: "white" }}>
+    <div style={{ height: "50vh", width: "100%", background: "white", textAlign:"center",align:"right" }}>
       <Table
+       sx={{ Width: 650, textAlign:"center" }}
         rows={alldepartmentList}
         columns={columns}
         loading={stateLoading}
