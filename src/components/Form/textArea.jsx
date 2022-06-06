@@ -23,7 +23,7 @@ const TextArea = ({
         name={name}
         onBlur={onBlur}
         value={value}
-        style={{ borderRadius: "20px" }}
+        style={{ borderRadius: "15px" }}
         disabled={disabled}
         className={className}
       />

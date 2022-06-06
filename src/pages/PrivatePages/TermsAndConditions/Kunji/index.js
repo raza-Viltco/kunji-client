@@ -24,7 +24,7 @@ const TermsAndConditions = ({
           <Form>
             <h3>Terms and Condition</h3>
             <TextArea
-              rows="8"
+             rows="8"
               placeholder="Terms and Conditions"
               id="terms_conditions"
               name="terms_conditions"
@@ -35,7 +35,7 @@ const TermsAndConditions = ({
                 props?.errors?.terms_conditions &&
                 props?.touched?.terms_conditions
                   ? "input-outline"
-                  : "bootstyle"
+                  : ""
               }
             ></TextArea>
             {props?.touched?.terms_conditions &&

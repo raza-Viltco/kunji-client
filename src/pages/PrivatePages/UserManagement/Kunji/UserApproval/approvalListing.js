@@ -57,6 +57,7 @@ const UserApprovalListing = ({
       valueGetter: (params) => params.row.user?.mobile,
     },
     {
+      headerAlign:"center",
       field: "mapping_level_one_name",
       headerName: societyType === 0 ? "Building " : "Sector/Block",
       width: 200,

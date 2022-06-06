@@ -10,9 +10,10 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
     console.log(params, "apats");
   };
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
     // { field: "location", headerName: "Location", width: 300 },
     {
+      headerAlign:"center",
       field: "mapping_level_one_name",
       headerName: " Location",
       valueGetter: (params) =>
@@ -25,6 +26,7 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
     },
 
     {
+      headerAlign:"center",
       field: "first_name",
       headerName: " User Name",
       valueGetter: (params) =>
@@ -32,12 +34,14 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
       width: 160,
     },
     {
+      headerAlign:"center",
       field: "cnic",
       headerName: "CNIC",
       valueGetter: (params) => params?.row?.landlord?.cnic,
       width: 160,
     },
     {
+      headerAlign:"center",
       field: "mobile",
       headerName: "MOBILE",
       valueGetter: (params) => params?.row?.landlord?.mobile,
@@ -45,6 +49,7 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
     },
 
     {
+      headerAlign:"center",
       field: "action",
       headerName: "Action",
       width: 200,
