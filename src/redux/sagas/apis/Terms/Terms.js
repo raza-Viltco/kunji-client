@@ -10,3 +10,12 @@ export const termsApi = async (data) => {
     data,
   });
 };
+
+export const termsDataApi = async () => {
+  const state = getFromPersistance("kunji_auth_data");
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "GET",
+    url: "user/view-terms-conditions",
+  });
+};

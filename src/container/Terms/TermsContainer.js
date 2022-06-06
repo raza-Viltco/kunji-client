@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import { terms } from "../../redux/actions/Terms.js/Terms";
+import { terms, termsData } from "../../redux/actions/Terms.js/Terms";
 
 const termsContainer = (TermsAndConditions) => () => {
   const dispatch = useDispatch();
+  const termsListData = useSelector((state) => state.terms.termsData);
+  const termsCondition = termsListData?.value;
+  const createTerms = useSelector((state) => state.terms.createTerms);
 
   const initialValues = {
-    terms_conditions: "",
+    terms_conditions: termsCondition,
   };
 
   const validationSchema = Yup.object().shape({
@@ -15,9 +18,13 @@ const termsContainer = (TermsAndConditions) => () => {
   });
 
   const handleTerms = (values, formikActions) => {
-    console.log(values);
     dispatch(terms({ values, formikActions }));
   };
+
+  useEffect(() => {
+    dispatch(termsData());
+  }, [createTerms]);
+  
   return (
     <TermsAndConditions
       initialValues={initialValues}

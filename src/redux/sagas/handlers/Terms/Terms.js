@@ -3,7 +3,8 @@ import { push } from "connected-react-router";
 
 import { localApiStateHandler } from "../localApiStateHandler";
 import { setError } from "../../../actions/local";
-import { termsApi } from "../../apis/Terms/Terms";
+import { termsApi, termsDataApi } from "../../apis/Terms/Terms";
+import { setTerms, setTermsData } from "../../../actions/Terms.js/Terms";
 
 export function* handleTerms(action) {
   console.log(action, "action");
@@ -14,7 +15,8 @@ export function* handleTerms(action) {
 
   function* api() {
     const { data } = yield call(termsApi, form);
-    yield call(resetForm);
+    // yield call(resetForm);
+    yield put(setTerms(data));
     // yield put(
     //   setError({
     //     type: "success",
@@ -22,5 +24,15 @@ export function* handleTerms(action) {
     //   })
     // );
   }
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleTermsData(action) {
+  function* api() {
+    const { data } = yield call(termsDataApi);
+
+    yield put(setTermsData(data));
+  }
+
   yield call(() => localApiStateHandler(api));
 }
