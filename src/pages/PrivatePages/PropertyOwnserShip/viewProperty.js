@@ -52,23 +52,28 @@ const ViewProperty = ({ viewOwnershipData }) => {
       </div>
 
       {/* ------teanant details-------- */}
-      <div className="view-property-card">
-        <h3>Tenant Details</h3>
-        <div className="col-md-6 view-property-flex">
-          <div className="head-property">
-            <p>Name</p>
-            <p>CNIC</p>
-            <p>Mobile No</p>
-            <p>Email</p>
-          </div>
-          <div>
-            <p>{viewOwnershipData?.tanent_detail?.name}</p>
-            <p>{viewOwnershipData?.tanent_detail?.cnic}</p>
-            <p>{viewOwnershipData?.tanent_detail?.mobile}</p>
-            <p>{viewOwnershipData?.tanent_detail?.email}</p>
+      {viewOwnershipData?.tanent_detail === null ||
+      viewOwnershipData?.tanent_detail === " " ? (
+        " "
+      ) : (
+        <div className="view-property-card">
+          <h3>Tenant Details</h3>
+          <div className="col-md-6 view-property-flex">
+            <div className="head-property">
+              <p>Name</p>
+              <p>CNIC</p>
+              <p>Mobile No</p>
+              <p>Email</p>
+            </div>
+            <div>
+              <p>{viewOwnershipData?.tanent_detail?.name}</p>
+              <p>{viewOwnershipData?.tanent_detail?.cnic}</p>
+              <p>{viewOwnershipData?.tanent_detail?.mobile}</p>
+              <p>{viewOwnershipData?.tanent_detail?.email}</p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* <div className="view-prop-btn-outer">
         <div className="society_btn__wrapper">
