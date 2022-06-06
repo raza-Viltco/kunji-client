@@ -67,17 +67,27 @@ export function* handleRoleListing() {
 export function* handlePermissions(action) {
   console.log(action.payload);
   const state = getFromPersistance("role_id");
-  console.log(state.data.id);
+  // console.log(state.data.id);
   const form = new FormData();
-  form.append("role_id", state?.data?.id);
-  action.payload.forEach((item) => {
-    form.append("permissions[]", item);
-  });
+  if (action?.payload?.roleId) {
+    form.append("role_id", action?.payload?.roleId);
+    action?.payload?.updatePermissions?.forEach((item) => {
+      form.append("permissions[]", item);
+    });
+  } else {
+    form.append("role_id", state?.data?.id);
+    action?.payload?.forEach((item) => {
+      form.append("permissions[]", item);
+    });
+  }
+
   function* api() {
     const { data } = yield call(assignPermissionApi, form);
     console.log(data);
     yield put(setAssignPermission(data));
-    saveToPersistance("role_id", null);
+    if (state !== null) {
+      saveToPersistance("role_id", null);
+    }
     yield put(
       setError({
         type: "success",

@@ -5,11 +5,13 @@ import { useParams } from "react-router-dom";
 import {
   kunjiRoleListing,
   editRole,
+  assignPermission,
 } from "../../redux/actions/KunjiRole/AddRole";
 
 const roleDetailContainer = (RoleDetail) => () => {
   const dispatch = useDispatch();
   const { roleId } = useParams();
+  const stateLoading = useSelector((state) => state.local.isLoading);
   const permissionList = useSelector(
     (state) => state.kunjiRole.kunjiRoleListing
   );
@@ -17,8 +19,8 @@ const roleDetailContainer = (RoleDetail) => () => {
   const [updatePermissions, setUpdatePermissions] = useState([]);
   const [roleEdit, setroleEdit] = useState(false);
 
-  const handleUpdatePermissions = (e) => {
-    console.log(e.target.value);
+  const handleCheckPermissions = (e) => {
+    // console.log(e.target.value);
     let permissionID = Number(e.target.value);
     if (e.target.checked === false) {
       setUpdatePermissions(
@@ -30,6 +32,10 @@ const roleDetailContainer = (RoleDetail) => () => {
   };
 
   console.log(updatePermissions);
+
+  const handleUpdatePermissions = () => {
+    dispatch(assignPermission({ updatePermissions, roleId }));
+  };
 
   useEffect(() => {
     dispatch(kunjiRoleListing());
@@ -53,6 +59,8 @@ const roleDetailContainer = (RoleDetail) => () => {
       permissionList={permissionList}
       updatePermissions={updatePermissions}
       roleEdit={roleEdit}
+      stateLoading={stateLoading}
+      handleCheckPermissions={handleCheckPermissions}
       handleUpdatePermissions={handleUpdatePermissions}
     />
   );

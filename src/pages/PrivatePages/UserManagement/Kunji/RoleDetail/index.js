@@ -8,6 +8,8 @@ const RoleDetail = ({
   permissionList,
   updatePermissions,
   roleEdit,
+  stateLoading,
+  handleCheckPermissions,
   handleUpdatePermissions,
 }) => {
   return (
@@ -50,7 +52,7 @@ const RoleDetail = ({
                             <div className="col-sm-6">
                               <div className="col-sm-12 text-end">
                                 <Switch
-                                  onChange={handleUpdatePermissions}
+                                  onChange={handleCheckPermissions}
                                   value={el?.id}
                                   checked={updatePermissions?.includes(el?.id)}
                                 />
@@ -75,9 +77,9 @@ const RoleDetail = ({
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
-                  //   isLoading={stateLoading}
+                  isLoading={stateLoading}
                   size="small"
-                  //   click={handlePermissions}
+                  click={handleUpdatePermissions}
                 >
                   Update
                 </Button>
