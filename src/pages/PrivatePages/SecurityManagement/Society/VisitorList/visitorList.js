@@ -31,13 +31,13 @@ const VisitorsList = ({ visitorListData, stateLoading }) => {
         <div>{params.row.first_name + " " + params.row.last_name}</div>,
       ],
     },
-    { field: "mobile", headerName: "Mobile No", width: 160 },
-    { field: "email", headerName: "Email", width: 160 },
-    { field: "arrival_date", headerName: "Arrival Date", width: 160 },
-    { field: "time_in", headerName: "Arrival Time", width: 160 },
-    { field: "leaving_date", headerName: "Leaving Date", width: 160 },
-    { field: "time_out", headerName: "Leaving Time", width: 160 },
-    { field: "code", headerName: "Entry Code", width: 160 },
+    { field: "mobile", headerName: "Mobile No", width: 160, headerAlign:"center" },
+    { field: "email", headerName: "Email", width: 160, headerAlign:"center" },
+    { field: "arrival_date", headerName: "Arrival Date", width: 160, headerAlign:"center" },
+    { field: "time_in", headerName: "Arrival Time", width: 160, headerAlign:"center" },
+    { field: "leaving_date", headerName: "Leaving Date", width: 160, headerAlign:"center" },
+    { field: "time_out", headerName: "Leaving Time", width: 160, headerAlign:"center" },
+    { field: "code", headerName: "Entry Code", width: 160, headerAlign:"center" },
   ];
 
   return (

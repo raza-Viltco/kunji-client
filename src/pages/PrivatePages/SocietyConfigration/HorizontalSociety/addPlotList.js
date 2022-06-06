@@ -4,10 +4,10 @@ import Table from "../../../../components/Table";
 
 const AddPlotListing = ({ appartmentListing, stateLoading }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "sector_block_building", headerName: "Sector/Block", width: 160 },
-    { field: "street_floor", headerName: " Street", width: 160 },
-    { field: "plot_home_apartment", headerName: " Plot/ House No", width: 160 },
+    { field: "id", headerName: "ID", width: 170, headerAlign:"center" },
+    { field: "sector_block_building", headerName: "Sector/Block", width: 280, headerAlign:"center" },
+    { field: "street_floor", headerName: " Street", width: 280, headerAlign:"center" },
+    { field: "plot_home_apartment", headerName: " Plot/ House No", width: 280, headerAlign:"center" },
   ];
 
   return (

@@ -13,14 +13,16 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "name",
       headerName: "Resident Name",
       width: 160,
       valueGetter: (params) => params?.row?.user_list_record?.name,
     },
     {
+      headerAlign:"center",
       field: "location",
       headerName: "Location",
       type: "actions",
@@ -46,14 +48,16 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
         </div>,
       ],
     },
-    { field: "alarm_type", headerName: " Alert Type", width: 160 },
+    { field: "alarm_type", headerName: " Alert Type", width: 160, headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "contactNo",
       headerName: " Contact No",
       width: 160,
       valueGetter: (params) => params?.row?.user_list_record?.mobile,
     },
     {
+      headerAlign:"center",
       field: "emergencyNo",
       headerName: " Emergency  No",
       width: 160,
@@ -61,6 +65,7 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
     },
 
     {
+      headerAlign:"center",
       field: "status",
       headerName: "Status",
       width: 160,

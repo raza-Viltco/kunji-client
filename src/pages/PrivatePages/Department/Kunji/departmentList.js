@@ -10,13 +10,15 @@ const DepartmentList = ({
   stateLoading,
 }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "code", headerName: "Code", width: 200 },
-    { field: "name", headerName: "Department Name", width: 200 },
+    { field: "id", headerName: "ID", width: 170,headerAlign:"center" },
+    { field: "code", headerName: "Code", width: 300,headerAlign:"center" },
+    { field: "name", headerName: "Department Name", width: 300,headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "status",
       headerName: "Status",
-      width: 120,
+      width: 220,
+      
       valueGetter: ({ value }) => (value === 1 ? "Activated" : "Deactived"),
     },
     {

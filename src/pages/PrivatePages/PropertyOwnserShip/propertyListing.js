@@ -25,7 +25,8 @@ const PropertyListing = ({
         params?.row?.mapping_level_three_name +
         " " +
         params?.row?.mapping_level_two_name,
-      width: 160,
+      width: 260,
+      headerAlign:"center"
     },
 
     {
@@ -33,22 +34,26 @@ const PropertyListing = ({
       headerName: " User Name",
       valueGetter: (params) =>
         params?.row?.landlord?.first_name + " " + params?.row?.landlord?.last_name,
-      width: 160,
+      width: 260,
+      headerAlign:"center"
     },
     {
       field: "cnic",
       headerName: "CNIC",
       valueGetter: (params) => params?.row?.landlord?.cnic,
-      width: 160,
+      width: 260,
+      headerAlign:"center"
     },
     {
       field: "mobile",
       headerName: "MOBILE",
       valueGetter: (params) => params?.row?.landlord?.mobile,
-      width: 160,
+      width: 260,
+      headerAlign:"center"
     },
 
     {
+      headerAlign:"center",
       field: "actions",
       type: "actions",
       headerName: "Action",

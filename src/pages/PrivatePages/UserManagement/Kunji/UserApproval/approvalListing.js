@@ -18,12 +18,14 @@ const UserApprovalListing = ({
       field: "id",
       headerName: "ID",
       width: 70,
+      headerAlign:"center"
     },
 
     {
       field: "first_name",
       headerName: "First Name",
       width: 160,
+      headerAlign:"center",
       valueGetter: (params) => params.row.user?.first_name,
     },
     {
@@ -31,23 +33,27 @@ const UserApprovalListing = ({
       headerName: "Last Name",
       valueGetter: (params) => params.row.user?.last_name,
       width: 160,
+      headerAlign:"center"
     },
     {
       field: "dob",
       headerName: " Date of Birth",
       valueGetter: (params) => params.row.user?.dob?.split(" ")[0],
       width: 160,
+      headerAlign:"center"
     },
     {
       field: "cnic",
       headerName: " CNIC",
       valueGetter: (params) => params.row.user?.cnic,
       width: 160,
+      headerAlign:"center"
     },
     {
       field: "mobile",
       headerName: "Mobile No",
       width: 160,
+      headerAlign:"center",
       valueGetter: (params) => params.row.user?.mobile,
     },
     {
@@ -59,21 +65,26 @@ const UserApprovalListing = ({
       field: "mapping_level_two_name",
       headerName: societyType === 0 ? "Floor" : "Street",
       width: 160,
+      headerAlign:"center"
     },
     {
       field: "mapping_level_three_name",
       headerName: societyType === 0 ? "Apartment" : "Plot/House No",
       width: 160,
+      headerAlign:"center"
     },
     {
       field: "role_type",
       headerName: "User Type",
       width: 160,
+      headerAlign:"center"
     },
     {
+      headerAlign:"center",
       field: "status",
       headerName: "Status",
       width: 160,
+     
       valueGetter: (params) =>
         params.row?.approved_status === 1
           ? "Accepted"

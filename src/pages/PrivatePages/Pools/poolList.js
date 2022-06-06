@@ -16,10 +16,10 @@ const PoolList = ({ pollListData, stateLoading }) => {
   };
 
   const columns = [
-    { field: "id", headerName: "Sr", width: 70 },
-    { field: "question", headerName: "Questions", width: 300 },
-    { field: "valid_days", headerName: " Validity", width: 160 },
-    { field: "total_vote", headerName: " Total Votes", width: 160 },
+    { field: "id", headerName: "Sr", width: 70, headerAlign:"center" },
+    { field: "question", headerName: "Questions", width: 300, headerAlign:"center" },
+    { field: "valid_days", headerName: " Validity", width: 160, headerAlign:"center" },
+    { field: "total_vote", headerName: " Total Votes", width: 160, headerAlign:"center" },
     {
       field: "first_name",
       headerName: "Person",
@@ -38,7 +38,8 @@ const PoolList = ({ pollListData, stateLoading }) => {
               // type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              className="rounded-pill"
+              
               size="small"
               // click={() => handleData(params.id)}
             >

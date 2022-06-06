@@ -10,36 +10,42 @@ const StaffMemberListing = ({ staffListData, stateLoading }) => {
     {
       field: "id",
       headerName: "ID",
-      width: 70,
+      width: 170,
+      headerAlign:"center"
     },
 
     {
       field: "first_name",
       headerName: "First Name",
-      width: 160,
+      width: 210,
+      headerAlign:"center"
     },
     {
       field: "last_name",
       headerName: "Last Name",
 
-      width: 160,
+      width: 210,
+      headerAlign:"center"
     },
     {
       field: "email",
       headerName: " Email",
 
-      width: 160,
+      width: 210,
+      headerAlign:"center"
     },
     {
       field: "cnic",
       headerName: " CNIC",
 
-      width: 160,
+      width: 210,
+      headerAlign:"center"
     },
     {
       field: "mobile",
       headerName: "Mobile No",
-      width: 160,
+      width: 210,
+      headerAlign:"center"
     },
   ];
 
