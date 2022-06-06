@@ -14,7 +14,7 @@ const PropertyListing = ({
   handleReject,
 }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
     // { field: "location", headerName: "Location", width: 300 },
     {
       field: "mapping_level_one_name",
