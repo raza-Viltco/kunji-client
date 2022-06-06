@@ -5,10 +5,10 @@ import chargesListContainer from "../../../../container/SocietyAdministration/Ch
 
 const ChargesList = ({ chargesListData, stateLoading }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "charges_code", headerName: "Charges Code", width: 360 },
-    { field: "charges_title", headerName: "Charges Title", width: 360 },
-    { field: "charges", headerName: " Charges", width: 160 },
+    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
+    { field: "charges_code", headerName: "Charges Code", width: 360, headerAlign:"center" },
+    { field: "charges_title", headerName: "Charges Title", width: 360, headerAlign:"center" },
+    { field: "charges", headerName: " Charges", width: 160, headerAlign:"center" },
   ];
 
   return (

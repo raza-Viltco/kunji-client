@@ -6,8 +6,9 @@ import viewBillContainer from "../../../../container/SocietyAdministration/ViewB
 
 const ViewBillData = ({ viewBillList, stateLoading }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70,headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "role",
       headerName: "Role",
       width: 160,
@@ -19,30 +20,35 @@ const ViewBillData = ({ viewBillList, stateLoading }) => {
           : "pending",
     },
     {
+      headerAlign:"center",
       field: "name",
       headerName: "Name",
       width: 160,
       valueGetter: (params) => params?.row?.view_user_name_on_bill?.name,
     },
     {
+      headerAlign:"center",
       field: "cnic",
       headerName: "CNIC",
       width: 160,
       valueGetter: (params) => params?.row?.view_user_name_on_bill?.cnic,
     },
     {
+      headerAlign:"center",
       field: "mobile",
       headerName: "Mobile No",
       width: 160,
       valueGetter: (params) => params?.row?.view_user_name_on_bill?.mobile,
     },
     {
+      headerAlign:"center",
       field: "address",
       headerName: "Address",
       width: 160,
       valueGetter: (params) => params?.row?.view_user_name_on_bill?.address,
     },
     {
+      headerAlign:"center",
       field: "dueDate",
       headerName: "Due Date",
       width: 160,

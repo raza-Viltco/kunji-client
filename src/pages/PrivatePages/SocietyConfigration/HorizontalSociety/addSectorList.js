@@ -5,10 +5,10 @@ import sectorListingContainer from "../../../../container/SocietyConfigration/Se
 
 const AddSectorList = ({ buildingArr, stateLoading }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "building_code", headerName: "Sector Code", width: 160 },
-    { field: "sector_block_building", headerName: "Sector Name", width: 160 },
-    { field: "floor_streets", headerName: "No of Streets", width: 160 },
+    { field: "id", headerName: "ID", width: 170 , headerAlign:"center"},
+    { field: "building_code", headerName: "Sector Code", width: 280, headerAlign:"center" },
+    { field: "sector_block_building", headerName: "Sector Name", width: 280, headerAlign:"center" },
+    { field: "floor_streets", headerName: "No of Streets", width: 280, headerAlign:"center" },
   ];
 
   return (

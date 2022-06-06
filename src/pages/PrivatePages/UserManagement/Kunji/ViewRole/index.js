@@ -9,13 +9,14 @@ import Card from "../../../../../components/Card";
 const ViewRole = ({ rolesDetail, stateLoading }) => {
   const history = useHistory();
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "name", headerName: "Role", width: 160 },
+    { field: "id", headerName: "ID", width: 200,headerAlign:"center" },
+    { field: "name", headerName: "Role", width: 360,headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "actions",
       type: "actions",
       headerName: "Action",
-      width: 160,
+      width: 360,
       getActions: (params) => [
         <div className="view-button-outer" style={{ display: "flex" }}>
           <Link to={`/Role_Detail/${params?.id}`}>
@@ -23,8 +24,7 @@ const ViewRole = ({ rolesDetail, stateLoading }) => {
               fullWidth
               variant="contained"
               sx={{
-                mt: 3,
-                mb: 2,
+                
                 borderRadius: 20,
                 textTransform: "Capitalize",
               }}

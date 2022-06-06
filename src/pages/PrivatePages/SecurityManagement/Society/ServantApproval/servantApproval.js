@@ -17,16 +17,18 @@ const ServantApprovalList = ({
   stateLoading,
 }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "name",
       type: "actions",
       headerName: "Resident Name",
       width: 200,
       getActions: (params) => [<div>{params?.row?.resident?.name}</div>],
     },
-    { field: "address", headerName: "Resident Address", width: 160 },
+    { field: "address", headerName: "Resident Address", width: 160,headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "first_name",
       type: "actions",
       headerName: "Servant  Name",
@@ -36,17 +38,19 @@ const ServantApprovalList = ({
       ],
     },
     {
+      headerAlign:"center",
       field: "servent_name",
       headerName: "Servant Type",
       width: 160,
       valueGetter: (params) => params?.row?.servent_name?.name,
     },
 
-    { field: "mobile", headerName: "Mobile No", width: 160 },
-    { field: "cnic", headerName: "CNIC", width: 160 },
-    { field: "address", headerName: "Servant  Address", width: 160 },
+    { field: "mobile", headerName: "Mobile No", width: 160,headerAlign:"center" },
+    { field: "cnic", headerName: "CNIC", width: 160,headerAlign:"center" },
+    { field: "address", headerName: "Servant  Address", width: 160 ,headerAlign:"center"},
 
     {
+      headerAlign:"center",
       field: "attach",
       type: "actions",
       headerName: "Attachments",
@@ -65,6 +69,7 @@ const ServantApprovalList = ({
       ],
     },
     {
+      headerAlign:"center",
       field: "status",
       headerName: "Status",
       width: 160,
@@ -76,6 +81,7 @@ const ServantApprovalList = ({
           : "Rejected",
     },
     {
+      headerAlign:"center",
       field: "actions",
       type: "actions",
       headerName: "Action",

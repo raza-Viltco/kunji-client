@@ -12,8 +12,9 @@ const GatePassApprovalList = ({
   handleApprovalAcceptance,
 }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70,headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "servant",
       headerName: "Resident Name",
       width: 160,
@@ -21,6 +22,7 @@ const GatePassApprovalList = ({
         params?.row?.servant?.map_address?.resedent?.name,
     },
     {
+      headerAlign:"center",
       field: "servant.map_address",
       headerName: "Resident Address",
       width: 160,
@@ -32,6 +34,7 @@ const GatePassApprovalList = ({
         params?.row?.servant?.map_address?.mapping_level_three_name,
     },
     {
+      headerAlign:"center",
       field: "servant.name",
       headerName: " Servant Name",
       width: 160,
@@ -40,20 +43,23 @@ const GatePassApprovalList = ({
         " " +
         params?.row?.servant?.last_name,
     },
-    { field: "entry_code", headerName: "Entry Code", width: 160 },
+    { field: "entry_code", headerName: "Entry Code", width: 160,headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "start_date",
       headerName: "Valid From Date",
       width: 160,
       valueGetter: (params) => params?.row?.start_date?.split(" ")[0],
     },
     {
+      headerAlign:"center",
       field: "end_date",
       headerName: "Valid Till Date",
       width: 160,
       valueGetter: (params) => params?.row?.end_date?.split(" ")[0],
     },
     {
+      headerAlign:"center",
       field: "status",
       headerName: "Status",
       width: 160,
@@ -65,6 +71,7 @@ const GatePassApprovalList = ({
           : "Rejected",
     },
     {
+      headerAlign:"center",
       field: "actions",
       type: "actions",
       headerName: "Action",

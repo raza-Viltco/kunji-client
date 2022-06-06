@@ -22,12 +22,13 @@ const AssetListing = ({
 }) => {
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "code", headerName: "Code" },
-    { field: "name", headerName: "Name" },
-    { field: "location", headerName: "Location" },
-    { field: "quantity", headerName: "Quantity" },
+    { field: "id", headerName: "ID", width: 70,headerAlign:"center" },
+    { field: "code", headerName: "Code",width: 130,headerAlign:"center"  },
+    { field: "name", headerName: "Name",width: 130,headerAlign:"center"  },
+    { field: "location", headerName: "Location",width: 130,headerAlign:"center"  },
+    { field: "quantity", headerName: "Quantity",width: 130,headerAlign:"center"  },
     {
+      headerAlign:"center" ,
       field: "status",
       headerName: "Status",
       width: 180,

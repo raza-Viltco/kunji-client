@@ -6,25 +6,28 @@ import billListContainer from "../../../../container/SocietyAdministration/BillL
 
 const BillListing = ({ billListData }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
     {
+      headerAlign:"center",
       field: "charges_code",
       headerName: "Charges Code",
       valueGetter: (params) => params?.row?.charges_type_list?.charges_code,
-      width: 200,
+      width: 280,
     },
     {
+      headerAlign:"center",
       field: "charges_title",
       headerName: "Charges Title",
       valueGetter: (params) => params?.row?.charges_type_list?.charges_title,
-      width: 200,
+      width: 280,
     },
     {
+      headerAlign:"center",
       field: "charges",
       headerName: " Charges",
       valueGetter: (params) => params?.row?.charges_type_list?.charges,
     },
-    { field: "due_date", headerName: " Due Date", width: 200 },
+    { field: "due_date", headerName: " Due Date", width: 280,headerAlign:"center" },
   ];
 
   return (
