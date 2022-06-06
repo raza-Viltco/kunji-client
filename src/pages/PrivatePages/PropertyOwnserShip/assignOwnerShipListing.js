@@ -54,13 +54,14 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
       headerName: "Action",
       width: 200,
       renderCell: (params) => (
-        <div className="view-button-outer" style={{ display: "flex" }}>
+        <div className="col-sm-12 view-button-outer text-center " >
           <Link to={`/view_property/${params.id}`}>
             <Button
               type="submit"
               fullWidth
+              className="rounded-pill"
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              // sx={{ mt: 3, mb: 2 }}
               // isLoading={stateLoading}
               size="small"
             >

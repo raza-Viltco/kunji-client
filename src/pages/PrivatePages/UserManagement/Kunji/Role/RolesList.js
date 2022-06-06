@@ -26,7 +26,7 @@ const RoleList = ({
             {Object.entries(permissionList).map(([item, value], index) => {
               return (
                 <div className="col-sm-4" key={index}>
-                  <div className="col-sm-12 cardheight1 pl-2 pr-2 pt-0">
+                  <div className="col-sm-12 mt-3 cardheight1 pl-2 pr-2 pt-0">
                     <div className="row background-color-header">
                       <div className="col-sm-6 m-auto pt-2 ">
                         <h6>
