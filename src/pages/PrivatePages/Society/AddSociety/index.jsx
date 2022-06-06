@@ -144,7 +144,11 @@ const AddSociety = ({
               </div>
 
               <div className="col-md-6  mt-4">
+                
                 <div className="col-sm-12 mt-3">
+                  <div className="col-sm-12 ">
+                    <label ><h6 className="px-3"><b>Society Documents</b></h6></label>
+                  </div>
                   <Input
                     margin="normal"
                     fullWidth
@@ -173,8 +177,8 @@ const AddSociety = ({
                     )}
                 </div>
               </div>
-              <div className="col-md-6 ">
-                <div className="col-md-12 mt-5 ">
+              <div className="col-md-6 m-auto py-4">
+                <div className="col-md-12 py-5 ">
                   <RadioButton label="Type" row flexAlign>
                     <FormControlLabel
                       value={1}
