@@ -5,6 +5,7 @@ const initialState = {
   kunjiRoleListing: [],
   kunjiPermissons: "",
   permissionId: null,
+  editRole: []
 };
 
 const kunjiRoleReducer = (state = initialState, action) => {
@@ -18,6 +19,8 @@ const kunjiRoleReducer = (state = initialState, action) => {
       return { ...state, kunjiPermissons: payload };
     case actionTypes.SET_PERMISSION_ID:
       return { ...state, permissionId: payload };
+    case actionTypes.SET_EDIT_ROLE:
+      return { ...state, editRole: payload}  
     default:
       return state;
   }

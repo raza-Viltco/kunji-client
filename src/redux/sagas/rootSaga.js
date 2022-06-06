@@ -40,6 +40,7 @@ import {
   handleAddRole,
   handleRoleListing,
   handlePermissions,
+  handleEditRole
 } from "./handlers/KunjiRole/AddRole";
 import {
   handleStaffList,
@@ -193,5 +194,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.SOCIETY_DASHBOARD, handleSocietyDashboard);
   yield takeLatest(actionTypes.VEHICEL_LIST, handleVehicleList);
   yield takeLatest(actionTypes.SERVANT_LIST, handleServantList);
+  yield takeLatest(actionTypes.EDIT_ROLE, handleEditRole);
   yield takeLatest(actionTypes.CREATE_TERMS, handleTerms);
 }

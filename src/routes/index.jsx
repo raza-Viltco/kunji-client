@@ -148,7 +148,7 @@ const AppRouter = () => (
           <ViewRole />
         </PrivateRoute>
 
-        <PrivateRoute path="/Role_Detail">
+        <PrivateRoute path="/Role_Detail/:roleId">
           <RoleDetail />
         </PrivateRoute>
 

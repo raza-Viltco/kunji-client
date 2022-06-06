@@ -33,3 +33,13 @@ export const setPermissionIds = (payload) => ({
   type: actionTypes.SET_PERMISSION_ID,
   payload,
 });
+
+export const editRole = (payload) => ({
+  type: actionTypes.EDIT_ROLE,
+  payload
+})
+
+export const setEditRole = (payload) => ({
+  type: actionTypes.SET_EDIT_ROLE,
+  payload
+})

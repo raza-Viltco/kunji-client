@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import Table from "../../../../../components/Table";
 import viewRoleContainer from "../../../../../container/KunjiRole/ViewRoleContainer";
@@ -16,16 +16,24 @@ const ViewRole = ({ rolesDetail, stateLoading }) => {
       type: "actions",
       headerName: "Action",
       width: 160,
-      getActions: () => [
-        <Button
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2, borderRadius: 20, textTransform: "Capitalize" }}
-          size="normal"
-          // click={() => history.push("/Role_Detail")}
-        >
-          View Permissions
-        </Button>,
+      getActions: (params) => [
+        <div className="view-button-outer" style={{ display: "flex" }}>
+          <Link to={`/Role_Detail/${params?.id}`}>
+            <Button
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 2,
+                borderRadius: 20,
+                textTransform: "Capitalize",
+              }}
+              size="normal"
+            >
+              View Permissions
+            </Button>
+          </Link>
+        </div>,
       ],
     },
   ];

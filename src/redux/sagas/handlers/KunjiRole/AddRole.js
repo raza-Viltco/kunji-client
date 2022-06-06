@@ -11,11 +11,13 @@ import {
   setKunjiRoleListing,
   setAssignPermission,
   setPermissionIds,
+  setEditRole,
 } from "../../../actions/KunjiRole/AddRole";
 import {
   addRoleApi,
   roleListingApi,
   assignPermissionApi,
+  editRoleApi,
 } from "../../apis/KunjiRole/AddRole";
 import { localApiStateHandler } from "../localApiStateHandler";
 import { setError } from "../../../actions/local";
@@ -43,7 +45,7 @@ export function* handleAddRole(action) {
 export function* handleRoleListing() {
   function* api() {
     const { data } = yield call(roleListingApi);
-    console.log(data);
+    // console.log(data);
     function* filterItems() {
       let arr = [];
       const keys = Object.keys(data);
@@ -83,6 +85,26 @@ export function* handlePermissions(action) {
       })
     );
     yield put(push("/View_Role"));
+  }
+
+  yield call(() => localApiStateHandler(api));
+}
+
+export function* handleEditRole(action) {
+  console.log(action);
+  function* api() {
+    const { data } = yield call(editRoleApi, action.payload);
+    console.log(data);
+    function* editRoleId() {
+      let roleId = [];
+      for (let i = 0; i < data?.permissions?.length; i++) {
+        if (data?.permissions[i].checked === true) {
+          roleId.push(data?.permissions[i].id);
+        }
+      }
+      yield put(setEditRole(roleId));
+    }
+    yield call(editRoleId);
   }
 
   yield call(() => localApiStateHandler(api));

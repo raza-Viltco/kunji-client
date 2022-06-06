@@ -24,9 +24,19 @@ export const roleListingApi = async () => {
 export const assignPermissionApi = async (data) => {
   const state = getFromPersistance("kunji_auth_data");
   return API.request({
-    headers: {Authorization: `Bearer ${state.data.token}`},
+    headers: { Authorization: `Bearer ${state.data.token}` },
     method: "POST",
     url: "user/assign_permission_to_roles",
-    data
-  })
-}
+    data,
+  });
+};
+
+export const editRoleApi = async (data) => {
+  const state = getFromPersistance("kunji_auth_data");
+  return API.request({
+    headers: { Authorization: `Bearer ${state.data.token}` },
+    method: "GET",
+    url: "user/single-role-permissions",
+    params: { id: data },
+  });
+};
