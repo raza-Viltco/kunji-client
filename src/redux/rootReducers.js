@@ -29,6 +29,7 @@ import panicAlertReducer from "./reducer/SecurityManagement/Society/PanicAlert";
 import viewBillReducer from "./reducer/SocietyAdministration/ViewBill";
 import societyDashboardReducer from "./reducer/SocietyDashboard/SocietyDashboard";
 import vehicleListReducer from "./reducer/SecurityManagement/Society/VehicleList";
+import termsReducer from "./reducer/Terms/Terms";
 
 const reducers = (history) =>
   combineReducers({
@@ -60,6 +61,7 @@ const reducers = (history) =>
     societyDashboard: societyDashboardReducer,
     viewBill: viewBillReducer,
     vehicleList: vehicleListReducer,
+    terms: termsReducer,
     router: connectRouter(history),
   });
 
