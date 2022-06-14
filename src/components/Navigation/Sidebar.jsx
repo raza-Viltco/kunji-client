@@ -268,7 +268,7 @@ const Sidebar = ({
               </NavLink>
             </List>
 
-            {userData?.data?.role.name === "Society Admin" && (
+            {userData?.data?.role.name !== "kunji admin" && (
               <List component="div" disablePadding>
                 <NavLink to="/user_kunji_approval">
                   <ListItemButton sx={{ pl: 4 }}>
@@ -638,18 +638,24 @@ const Sidebar = ({
           )}
 
           {/* ------------------------terms and conditions------------- */}
-          <NavLink to="/terms_condition">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <i class="fas fa-exclamation-circle" id="iconstyle"></i>
-                </ListItemIcon>
-                <ListItemText>
-                  <span className="font-dashboard">Terms and Conditions</span>
-                </ListItemText>
-              </ListItemButton>
-            </ListItem>
-          </NavLink>
+          {userData?.data?.role.name === "kunji admin" && (
+            <>
+              <NavLink to="/terms_condition">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <i class="fas fa-exclamation-circle" id="iconstyle"></i>
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">
+                        Terms and Conditions
+                      </span>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            </>
+          )}
 
           {/* ----------pool-------------------- */}
           {userData?.data?.role.name !== "kunji admin" && (
@@ -674,7 +680,7 @@ const Sidebar = ({
               <ListItemIcon>
                 <BiLogOut size={20} />
               </ListItemIcon>
-              <ListItemText >
+              <ListItemText>
                 <span className="font-dashboard">Logout</span>
               </ListItemText>
             </ListItemButton>
