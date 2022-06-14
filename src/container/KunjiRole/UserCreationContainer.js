@@ -41,10 +41,15 @@ const userCreationContainer = (UserCreationForm) => () => {
     password: Yup.string().required("Password is required"),
     mobile: Yup.string()
       .required("Mobile no  is required")
+      // .matches(
+      //   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+      //   "Phone number is not valid"
+      // )
       .matches(
-        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-        "Phone number is not valid"
+        /^((\+92)?)(3)([0-9]{9})$/,
+        "Enter mobile number with country code "
       ),
+
     cnic: Yup.string().required("Cnic is required"),
     department_id: Yup.string().required("Department is required"),
     role_id: Yup.string().required("Role is required"),

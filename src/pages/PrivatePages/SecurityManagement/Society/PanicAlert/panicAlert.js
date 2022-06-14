@@ -13,16 +13,16 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
+    { field: "id", headerName: "ID", width: 70, headerAlign: "center" },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "name",
       headerName: "Resident Name",
       width: 160,
       valueGetter: (params) => params?.row?.user_list_record?.name,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "location",
       headerName: "Location",
       type: "actions",
@@ -48,24 +48,36 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
         </div>,
       ],
     },
-    { field: "alarm_type", headerName: " Alert Type", width: 160, headerAlign:"center" },
     {
-      headerAlign:"center",
+      field: "alarm_type",
+      headerName: " Alert Type",
+      width: 160,
+      headerAlign: "center",
+    },
+    {
+      headerAlign: "center",
       field: "contactNo",
       headerName: " Contact No",
       width: 160,
       valueGetter: (params) => params?.row?.user_list_record?.mobile,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "emergencyNo",
       headerName: " Emergency  No",
       width: 160,
       valueGetter: (params) => params?.row?.user_list_record?.emergency_contact,
     },
-
     {
-      headerAlign:"center",
+      headerAlign: "center",
+      field: "closedby",
+      headerName: " Closed By",
+      width: 160,
+      valueGetter: (params) =>
+        params?.row?.closedby === null ? "N/A" : params?.row?.closedby?.name,
+    },
+    {
+      headerAlign: "center",
       field: "status",
       headerName: "Status",
       width: 160,
