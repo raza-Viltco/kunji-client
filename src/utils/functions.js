@@ -31,3 +31,10 @@ export const dateFormat = (inputDate) => {
 
   return format;
 };
+
+export const validEmail = (txt) => {
+  if (txt?.indexOf("@") > 0) {
+    return txt;
+  }
+  return "N/A";
+};

@@ -53,7 +53,6 @@ const SocietyListing = ({ societiesList }) => {
               fullWidth
               variant="contained"
               sx={{
-                mt: 3,
                 mb: 2,
                 borderRadius: 20,
                 textTransform: "Capitalize",
