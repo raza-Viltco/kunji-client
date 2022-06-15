@@ -3,6 +3,7 @@ import React from "react";
 import Card from "../../../components/Card";
 import Button from "../../../components/Button";
 import viewOwnershipContainer from "../../../container/PropertyOwnership/ViewOwnershipContainer";
+import { validEmail } from "../../../utils/functions";
 import "./viewProperty.css";
 
 const ViewProperty = ({ viewOwnershipData }) => {
@@ -46,7 +47,9 @@ const ViewProperty = ({ viewOwnershipData }) => {
             <p>{viewOwnershipData?.owner_detail?.name}</p>
             <p>{viewOwnershipData?.owner_detail?.cnic}</p>
             <p>{viewOwnershipData?.owner_detail?.mobile}</p>
-            <p>{viewOwnershipData?.owner_detail?.email}</p>
+            <p>
+              {validEmail(viewOwnershipData?.owner_detail?.email)}
+            </p>
           </div>
         </div>
       </div>

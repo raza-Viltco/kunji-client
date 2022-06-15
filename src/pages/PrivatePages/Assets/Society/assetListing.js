@@ -93,6 +93,7 @@ const AssetListing = ({
                         ? "input-outline"
                         : "bootstyle"
                     }
+                    disabled
                   />
                   {props?.touched?.code && props?.errors?.code && (
                     <InputError>{props?.errors?.code}</InputError>
