@@ -675,6 +675,23 @@ const Sidebar = ({
             </>
           )}
 
+          {userData?.data?.role.name !== "kunji admin" && (
+            <>
+              <NavLink to="/emergency_contacts">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <i class="fad fa-ball-pile" id="iconstyle"></i>
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">Emergency Contact</span>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            </>
+          )}
+
           <ListItem disablePadding onClick={logoutHandler}>
             <ListItemButton>
               <ListItemIcon>

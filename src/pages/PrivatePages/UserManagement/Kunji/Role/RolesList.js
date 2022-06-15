@@ -21,7 +21,7 @@ const RoleList = ({
           <div className="row">
             <h3>Defined Roles</h3>
             <p className="text-center">
-              Assign Permissions to <b>{roleData?.data?.name}</b> role
+              Assign Permissions to <b>{roleData?.name}</b> role
             </p>
             {Object.entries(permissionList).map(([item, value], index) => {
               return (

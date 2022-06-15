@@ -28,7 +28,7 @@ export function* handleAddRole(action) {
   function* api() {
     const { data } = yield call(addRoleApi, values);
     console.log(data);
-    saveToPersistance("role_id", data);
+    saveToPersistance("role_id", data?.data);
     yield put(setKunjiRole(data));
     yield call(formikActions.resetForm);
     yield put(
@@ -75,7 +75,7 @@ export function* handlePermissions(action) {
       form.append("permissions[]", item);
     });
   } else {
-    form.append("role_id", state?.data?.id);
+    form.append("role_id", state?.id);
     action?.payload?.forEach((item) => {
       form.append("permissions[]", item);
     });

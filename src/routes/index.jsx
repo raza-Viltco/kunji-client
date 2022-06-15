@@ -60,6 +60,7 @@ import MiniDrawer from "../pages/PrivatePages/Home";
 import DashboardItems from "../pages/PrivatePages/Home/DashboardItems";
 import StaffMemberListing from "../pages/PrivatePages/UserManagement/Kunji/UserCreation/staffListing";
 import VehicleList from "../pages/PrivatePages/SecurityManagement/Society/Vehicle";
+import EmergencyContact from "../pages/PrivatePages/EmergencyContact";
 
 const AppRouter = () => (
   <ConnectedRouter history={localhistory}>
@@ -242,6 +243,10 @@ const AppRouter = () => (
 
         <PrivateRoute path="/view_property/:ownershipId">
           <ViewProperty />
+        </PrivateRoute>
+
+        <PrivateRoute path="/emergency_contacts">
+          <EmergencyContact />
         </PrivateRoute>
 
         <PrivateRoute path="/poll">
