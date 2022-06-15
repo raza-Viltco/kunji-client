@@ -1,5 +1,6 @@
-import React from "react";
+import { React, useState } from "react";
 import { Formik, Form } from "formik";
+import { AiFillEye } from "react-icons/ai";
 
 import Button from "../../../components/Button";
 import Input from "../../../components/Form/Input";
@@ -13,6 +14,21 @@ const RecoverPassword = ({
   recoverPasswordHandler,
   stateLoading,
 }) => {
+  const [pType, setPType] = useState("password");
+  const [confPas, setConfPas] = useState("password");
+
+  const passHandler = () => {
+    if (pType === "password") {
+      setPType("text");
+    } else setPType("password");
+  };
+
+  const confPasHandler = () => {
+    if (confPas === "password") {
+      setConfPas("text");
+    } else setConfPas("password");
+  };
+
   return (
     <AuthView heading="Recover Password" subject="Enter your new password">
       <Formik
@@ -28,7 +44,7 @@ const RecoverPassword = ({
                 fullWidth
                 name="password"
                 placeholder="Password"
-                type="password"
+                type={pType}
                 id="password"
                 value={props.values.password}
                 onChange={props.handleChange}
@@ -39,6 +55,15 @@ const RecoverPassword = ({
                     : "bootstyle"
                 }
               />
+
+              <div
+                className="show-pass-icon-style"
+                type="button"
+                onClick={passHandler}
+              >
+                <AiFillEye size={30} />
+              </div>
+
               {props.touched.password && Boolean(props.errors.password) && (
                 <InputError>{props.errors.password}</InputError>
               )}
@@ -49,7 +74,7 @@ const RecoverPassword = ({
                 fullWidth
                 name="password_confirmation"
                 placeholder="Confirm Password"
-                type="password"
+                type={confPas}
                 id="password_confirmation"
                 value={props.values.password_confirmation}
                 onChange={props.handleChange}
@@ -61,6 +86,14 @@ const RecoverPassword = ({
                     : "bootstyle"
                 }
               />
+
+              <div
+                className="show-pass-icon-style"
+                type="button"
+                onClick={confPasHandler}
+              >
+                <AiFillEye size={30} />
+              </div>
               {props.touched.password_confirmation &&
                 Boolean(props.errors.password_confirmation) && (
                   <InputError>{props.errors.password_confirmation}</InputError>
