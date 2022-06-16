@@ -115,6 +115,10 @@ import { handleViewBill } from "./handlers/SocietyAdministration/ViewBill";
 import { handleSocietyDashboard } from "./handlers/SocietyDashboard/SocietyDashboard";
 import { handleVehicleList } from "./handlers/SecurityManagement/Society/VehicleList";
 import { handleTerms, handleTermsData } from "./handlers/Terms/Terms";
+import {
+  handleCreateContacts,
+  handleEmergencyContacts,
+} from "./handlers/EmergencyContacts/EmergencyContacts";
 
 export function* watcherSaga() {
   yield takeLatest(actionTypes.LOGIN, handleLogin);
@@ -197,4 +201,6 @@ export function* watcherSaga() {
   yield takeLatest(actionTypes.EDIT_ROLE, handleEditRole);
   yield takeLatest(actionTypes.CREATE_TERMS, handleTerms);
   yield takeLatest(actionTypes.TERMS_DATA, handleTermsData);
+  yield takeLatest(actionTypes.SOCIETY_CONTACTS, handleEmergencyContacts);
+  yield takeLatest(actionTypes.CREATE_CONTACTS, handleCreateContacts);
 }
