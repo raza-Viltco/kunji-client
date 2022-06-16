@@ -140,8 +140,6 @@ const Sidebar = ({
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {/* <MdDashboard size={20} /> */}
-                {/* <i class="fi fi-rr-user"></i> */}
                 <i class="fad fa-columns" id="iconstyle"></i>
               </ListItemIcon>
               <ListItemText>
@@ -199,12 +197,9 @@ const Sidebar = ({
               <ListItemText>
                 <span className="font-dashboard">Department</span>
               </ListItemText>
-              {/* className="font-dashboard"  */}
             </ListItemButton>
           </ListItem>
         </NavLink>
-
-        {/* {userData?.data?.role.name === "kunji admin" && ( */}
         <>
           <ListItemButton onClick={openUserManagementHander}>
             <ListItemIcon>
@@ -232,7 +227,7 @@ const Sidebar = ({
               <NavLink to="/View_Role">
                 <ListItemButton sx={{ pl: 4 }}>
                   <ListItemIcon>
-                    <AiOutlineUserAdd size={23} />
+                    <i class="fas fa-eye" id="iconstyle"></i>
                   </ListItemIcon>
                   <ListItemText>
                     <span className="font-dashboard">View Roles</span>
@@ -244,7 +239,7 @@ const Sidebar = ({
               <NavLink to="/user_kunji_creation">
                 <ListItemButton sx={{ pl: 4 }}>
                   <ListItemIcon>
-                    <MdOutlineFormatListBulleted size={20} />
+                    <i class="fas fa-plus" id="iconstyle"></i>
                   </ListItemIcon>
                   <ListItemText>
                     <span className="font-dashboard">Create Staff Member</span>
@@ -259,10 +254,7 @@ const Sidebar = ({
                     <MdOutlineFormatListBulleted size={20} />
                   </ListItemIcon>
                   <ListItemText>
-                    <span className="font-dashboard">
-                      {" "}
-                      Staff Member Listing
-                    </span>
+                    <span className="font-dashboard">Staff Member Listing</span>
                   </ListItemText>
                 </ListItemButton>
               </NavLink>
@@ -273,7 +265,7 @@ const Sidebar = ({
                 <NavLink to="/user_kunji_approval">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={20} />
+                      <i class="fas fa-user-check" id="iconstyle"></i>
                     </ListItemIcon>
                     <ListItemText>
                       <span className="font-dashboard">User Approvals</span>
@@ -293,8 +285,7 @@ const Sidebar = ({
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    {/* <BsBuilding size={20} /> */}
-                    <i class="fas fa-city" id="iconstyle"></i>
+                    <i class="fas fa-address-card" id="iconstyle"></i>
                   </ListItemIcon>
                   <ListItemText>
                     <span className="font-dashboard">Society Profile</span>
@@ -578,7 +569,7 @@ const Sidebar = ({
                   <NavLink to="/vehicle_list">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <i class="fas fa-truck" id="iconstyle"></i>
+                        <i class="fas fa-car-side" id="iconstyle"></i>
                       </ListItemIcon>
                       <ListItemText>
                         <span className="font-dashboard">
@@ -681,7 +672,7 @@ const Sidebar = ({
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <i class="fad fa-ball-pile" id="iconstyle"></i>
+                      <i class="fas fa-phone-alt" id="iconstyle"></i>
                     </ListItemIcon>
                     <ListItemText>
                       <span className="font-dashboard">Emergency Contact</span>

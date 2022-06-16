@@ -6,14 +6,14 @@ import Input from "../../../components/Form/Input";
 import Button from "../../../components/Button";
 import emergencyContactContainer from "../../../container/EmergencyContact/EmergencyContactContainer";
 
-const EmergencyContact = ({ initialValues }) => {
+const EmergencyContact = ({ initialValues, handleCreateContacts }) => {
   return (
     <Card>
       <h4>Emergency Contacts</h4>
-      <Formik initialValues={initialValues}>
+      <Formik initialValues={initialValues} onSubmit={handleCreateContacts}>
         {(props) => (
           <Form>
-            {console.log(props)}
+            {/* {console.log(props)} */}
             <div className="row">
               <div className="col-md-12">
                 <label className="px-2">
@@ -64,6 +64,7 @@ const EmergencyContact = ({ initialValues }) => {
                   sx={{ mt: 3, mb: 2, borderRadius: 20 }}
                   // isLoading={stateLoading}
                   size="small"
+                  type="submit"
                 >
                   Save
                 </Button>
