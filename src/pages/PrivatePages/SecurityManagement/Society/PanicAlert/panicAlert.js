@@ -71,7 +71,7 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
     {
       headerAlign: "center",
       field: "closedby",
-      headerName: " Closed By",
+      headerName: " Staff Member",
       width: 160,
       valueGetter: (params) =>
         params?.row?.closedby === null ? "N/A" : params?.row?.closedby?.name,
@@ -82,7 +82,11 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
       headerName: "Status",
       width: 160,
       valueGetter: (params) =>
-        params?.row?.status === 1 ? "Closed" : "Raised",
+        params?.row?.status === 0
+          ? "Raised"
+          : params?.row?.status === 1
+          ? "Assigned"
+          : "Closed",
     },
   ];
 

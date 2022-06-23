@@ -21,8 +21,6 @@ const SocietyListing = ({ societiesList }) => {
       headerName: "City",
       width: 120,
       valueGetter: (params) => params.row.city.name,
-
-
     },
     {
       field: "zip_code",
@@ -74,7 +72,6 @@ const SocietyListing = ({ societiesList }) => {
           rows={societiesList}
           columns={columns}
           loading={!societiesList.length}
-      
         />
       </div>
 
