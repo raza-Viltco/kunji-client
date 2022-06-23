@@ -8,10 +8,10 @@ import "./vehicleList.css";
 
 const VehicleList = ({ stateLoading, vehicleListData }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70,headerAlign:"center" },
+    { field: "id", headerName: "ID", width: 70, headerAlign: "center" },
 
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "name",
       headerName: "Resident Name",
       width: 160,
@@ -19,30 +19,47 @@ const VehicleList = ({ stateLoading, vehicleListData }) => {
         params?.row?.user?.first_name + " " + params?.row?.user?.last_name,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "email",
       headerName: "Email",
       width: 160,
       valueGetter: (params) => params?.row?.user?.email,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "mobile",
       headerName: "Mobile No",
       width: 160,
       valueGetter: (params) => params?.row?.user?.mobile,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "cnic",
       headerName: "CNIC",
       width: 160,
       valueGetter: (params) => params?.row?.user?.cnic,
     },
-    { field: "model", headerName: "Vehicle  Model", width: 160, headerAlign:"center" },
-    { field: "color", headerName: " Color", width: 160, headerAlign:"center" },
-    { field: "year", headerName: "  Year", width: 160, headerAlign:"center" },
-    { field: "make", headerName: "  Company", width: 160, headerAlign:"center" },
+    {
+      field: "registration_no",
+      headerName: "Reg No",
+      width: 160,
+      headerAlign: "center",
+    },
+    {
+      field: "model",
+      headerName: "Vehicle  Model",
+      width: 160,
+      headerAlign: "center",
+    },
+
+    { field: "color", headerName: " Color", width: 160, headerAlign: "center" },
+    { field: "year", headerName: "  Year", width: 160, headerAlign: "center" },
+    {
+      field: "make",
+      headerName: "  Company",
+      width: 160,
+      headerAlign: "center",
+    },
     {
       field: "image",
       type: "actions",
