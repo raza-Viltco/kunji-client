@@ -42,14 +42,14 @@ const AssetListing = ({
       getActions: (params) => [
         <div>
           <button
-            className="btn btn-success btn-sm "
+            className="btn btn-success btn-sm mt-2 rounded-pill "
             onClick={() => handleAssetModal(params.id)}
           >
             Edit
           </button>
           &nbsp;
           <button
-            className="btn btn-danger btn-sm "
+            className="btn btn-danger btn-sm  mt-2 rounded-pill"
             onClick={() => handleAssetRemove(params.id)}
           >
             Delete

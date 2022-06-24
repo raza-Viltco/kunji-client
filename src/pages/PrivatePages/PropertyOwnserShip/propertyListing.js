@@ -61,7 +61,7 @@ const PropertyListing = ({
       getActions: (params) => [
         <div>
           <button
-            className="btn btn-success btn-sm"
+            className="btn btn-success btn-sm mt-2 rounded-pill"
             onClick={() => {
               handleAccept(params?.row?.id);
             }}
@@ -70,7 +70,7 @@ const PropertyListing = ({
           </button>
           &nbsp;
           <button
-            className="btn btn-danger btn-sm "
+            className="btn btn-danger btn-sm mt-2 rounded-pill"
             onClick={() => {
               handleReject(params?.row?.id);
             }}

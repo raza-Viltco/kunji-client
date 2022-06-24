@@ -22,6 +22,7 @@ const ViewRole = ({ rolesDetail, stateLoading }) => {
           <Link to={`/Role_Detail/${params?.id}`}>
             <Button
               fullWidth
+              className="mt-2 btn-sm"
               variant="contained"
               sx={{
                 
@@ -32,6 +33,7 @@ const ViewRole = ({ rolesDetail, stateLoading }) => {
             >
               View Permissions
             </Button>
+           
           </Link>
         </div>,
       ],

@@ -334,7 +334,7 @@ const AssignOwnership = ({
                       {getLandlordData?.documents?.map((item) => {
                         return (
                           <a
-                            className="btn btn-success rounded-pill btn-sm mx-1 px-4"
+                            className="btn btn-success rounded-pill btn-sm mx-1 px-4 "
                             href={item}
                             target="_blank"
                           >

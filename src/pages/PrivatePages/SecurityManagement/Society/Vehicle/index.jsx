@@ -66,7 +66,7 @@ const VehicleList = ({ stateLoading, vehicleListData }) => {
       headerName: "Images",
       width: 200,
       getActions: (params) => [
-        <div className="vehicle-list-style">
+        <div className="vehicle-list-style p-0">
           <img
             src={params?.row?.image ? params?.row?.image : Profile_Img}
             height="50px"

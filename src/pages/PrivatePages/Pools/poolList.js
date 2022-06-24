@@ -16,10 +16,25 @@ const PoolList = ({ pollListData, stateLoading }) => {
   };
 
   const columns = [
-    { field: "id", headerName: "Sr", width: 70, headerAlign:"center" },
-    { field: "question", headerName: "Questions", width: 300, headerAlign:"center" },
-    { field: "valid_days", headerName: " Validity", width: 160, headerAlign:"center" },
-    { field: "total_vote", headerName: " Total Votes", width: 160, headerAlign:"center" },
+    { field: "id", headerName: "Sr", width: 70, headerAlign: "center" },
+    {
+      field: "question",
+      headerName: "Questions",
+      width: 300,
+      headerAlign: "center",
+    },
+    {
+      field: "valid_days",
+      headerName: " Validity",
+      width: 160,
+      headerAlign: "center",
+    },
+    {
+      field: "total_vote",
+      headerName: " Total Votes",
+      width: 160,
+      headerAlign: "center",
+    },
     {
       field: "first_name",
       headerName: "Person",
@@ -35,13 +50,10 @@ const PoolList = ({ pollListData, stateLoading }) => {
         <div className="view-button-outer" style={{ display: "flex" }}>
           <Link to={`/view_poll/${params.id}`}>
             <Button
-              // type="submit"
               fullWidth
               variant="contained"
-              className="rounded-pill"
-              
+              className="rounded-pill mt-2 rounded-pill"
               size="small"
-              // click={() => handleData(params.id)}
             >
               View
             </Button>

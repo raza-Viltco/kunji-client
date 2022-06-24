@@ -1,3 +1,9 @@
 .vehicle-list-style img {
   padding: 5px;
 }
+
+
+.MuiDataGrid-cell--withRenderer 
+{
+  padding-top: 0% !important;
+}
