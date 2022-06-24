@@ -15,8 +15,8 @@ const loginContainer = (Login) => () => {
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required."),
+      // .email("Invalid email address")
+      .required("Field  is required."),
     password: Yup.string().required("Password is required."),
   });
 
