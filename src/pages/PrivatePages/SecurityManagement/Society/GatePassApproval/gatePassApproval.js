@@ -80,7 +80,7 @@ const GatePassApprovalList = ({
         <div>
           {(params?.row?.status === 0 || params?.row?.status === 2) && (
             <button
-              className="btn btn-success btn-sm"
+              className="btn btn-success btn-sm mt-2 rounded-pill"
               onClick={() => {
                 handleApprovalAcceptance(params.row.id, params.row.status);
               }}
@@ -91,7 +91,7 @@ const GatePassApprovalList = ({
           &nbsp;
           {(params?.row?.status === 0 || params?.row?.status === 1) && (
             <button
-              className="btn btn-danger btn-sm "
+              className="btn btn-danger btn-sm mt-2 rounded-pill"
               onClick={() => {
                 handleApprovalRejection(params.row.id, params.row.status);
               }}

@@ -49,7 +49,7 @@ const DeliveryBookingList = ({
       getActions: (params) => [
         <div>
           <button
-            className="btn btn-success btn-sm "
+            className="btn btn-success btn-sm mt-2 rounded-pill "
             // onClick={handleData(params)}
 
             onClick={() => {

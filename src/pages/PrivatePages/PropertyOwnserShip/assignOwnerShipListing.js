@@ -59,7 +59,7 @@ const AssignOwnershipListing = ({ assignListData, stateLoading }) => {
             <Button
               type="submit"
               fullWidth
-              className="rounded-pill"
+              className="rounded-pill mt-2"
               variant="contained"
               // sx={{ mt: 3, mb: 2 }}
               // isLoading={stateLoading}

@@ -32,7 +32,7 @@ const PanicAlertList = ({ stateLoading, alertValue }) => {
           {Number(params?.row?.lat) !== 0 || undefined ? (
             <button
               onClick={() => handleMap(params)}
-              className="btn btn-success"
+              className="btn btn-success mt-2 rounded-pill btn-sm"
             >
               View
             </button>

@@ -58,7 +58,7 @@ const ServantApprovalList = ({
       getActions: (params) => [
         <div>
           <button
-            className="btn btn-success btn-sm "
+            className="btn btn-success btn-sm mt-2 rounded-pill"
             onClick={() => {
               handleServantList(params?.row?.id);
             }}
@@ -90,7 +90,7 @@ const ServantApprovalList = ({
         <div>
           {(params.row?.status === 0 || params.row?.status === 2) && (
             <button
-              className="btn btn-success btn-sm"
+              className="btn btn-success btn-sm mt-2 rounded-pill"
               onClick={() => {
                 handleApproveServant(params.row.id, params.row.status);
               }}
@@ -101,7 +101,7 @@ const ServantApprovalList = ({
           &nbsp;
           {(params.row?.status === 0 || params.row?.status === 1) && (
             <button
-              className="btn btn-danger btn-sm "
+              className="btn btn-danger btn-sm mt-2 rounded-pill"
               onClick={() => {
                 handleRejetServant(params.row.id, params.row.status);
               }}

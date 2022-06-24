@@ -30,7 +30,7 @@ const DepartmentList = ({
         <div className="col-sm-12 text-center">
           {params.row.status === 1 ? (
             <button
-              className="btn btn-danger"
+              className="btn btn-danger mt-2 btn-sm rounded-pill"
               onClick={() =>
                 handleDepartmentStatus(params.id, params.row.status)
               }
@@ -39,7 +39,7 @@ const DepartmentList = ({
             </button>
           ) : (
             <button
-              className="btn btn-success"
+              className="btn btn-success mt-2 btn-sm rounded-pill"
               onClick={() =>
                 handleDepartmentStatus(params.id, params.row.status)
               }
