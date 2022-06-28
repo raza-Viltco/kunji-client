@@ -2,6 +2,7 @@ import React from "react";
 
 import Table from "../../../../../components/Table";
 import Card from "../../../../../components/Card";
+import { dateFormat } from "../../../../../utils/functions";
 import visitorListContainer from "../../../../../container/Security Management/Society/VisitoList";
 import "./visitorList.css";
 
@@ -31,13 +32,45 @@ const VisitorsList = ({ visitorListData, stateLoading }) => {
         <div>{params.row.first_name + " " + params.row.last_name}</div>,
       ],
     },
-    { field: "mobile", headerName: "Mobile No", width: 160, headerAlign:"center" },
-    { field: "email", headerName: "Email", width: 160, headerAlign:"center" },
-    { field: "arrival_date", headerName: "Arrival Date", width: 160, headerAlign:"center" },
-    { field: "time_in", headerName: "Arrival Time", width: 160, headerAlign:"center" },
-    { field: "leaving_date", headerName: "Leaving Date", width: 160, headerAlign:"center" },
-    { field: "time_out", headerName: "Leaving Time", width: 160, headerAlign:"center" },
-    { field: "code", headerName: "Entry Code", width: 160, headerAlign:"center" },
+    {
+      field: "mobile",
+      headerName: "Mobile No",
+      width: 160,
+      headerAlign: "center",
+    },
+    { field: "email", headerName: "Email", width: 160, headerAlign: "center" },
+    {
+      field: "arrival_date",
+      headerName: "Arrival Date",
+      width: 160,
+      headerAlign: "center",
+      valueGetter: (params) => dateFormat(params?.row?.arrival_date),
+    },
+    {
+      field: "time_in",
+      headerName: "Arrival Time",
+      width: 160,
+      headerAlign: "center",
+    },
+    {
+      field: "leaving_date",
+      headerName: "Leaving Date",
+      width: 160,
+      headerAlign: "center",
+      valueGetter: (params) => dateFormat(params?.row?.leaving_date)
+    },
+    {
+      field: "time_out",
+      headerName: "Leaving Time",
+      width: 160,
+      headerAlign: "center",
+    },
+    {
+      field: "code",
+      headerName: "Entry Code",
+      width: 160,
+      headerAlign: "center",
+    },
   ];
 
   return (

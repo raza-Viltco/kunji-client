@@ -26,6 +26,7 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { BiLogOut } from "react-icons/bi";
 import { logout } from "../../redux/actions/Auth/user";
+import { checkForPermission } from "../../utils/functions";
 import "./sidebar.css";
 
 const Sidebar = ({
@@ -276,7 +277,6 @@ const Sidebar = ({
             )}
           </Collapse>
         </>
-        {/* )} */}
 
         {/* ----------society Profile---- */}
         {userData?.data?.role.name !== "kunji admin" && (

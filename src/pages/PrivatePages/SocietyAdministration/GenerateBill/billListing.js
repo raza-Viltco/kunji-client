@@ -2,32 +2,39 @@ import React from "react";
 
 import Table from "../../../../components/Table";
 import Button from "../../../../components/Button";
+import { dateFormat } from "../../../../utils/functions";
 import billListContainer from "../../../../container/SocietyAdministration/BillListContainer";
 
 const BillListing = ({ billListData }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
+    { field: "id", headerName: "ID", width: 70, headerAlign: "center" },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "charges_code",
       headerName: "Charges Code",
       valueGetter: (params) => params?.row?.charges_type_list?.charges_code,
       width: 280,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "charges_title",
       headerName: "Charges Title",
       valueGetter: (params) => params?.row?.charges_type_list?.charges_title,
       width: 280,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "charges",
       headerName: " Charges",
       valueGetter: (params) => params?.row?.charges_type_list?.charges,
     },
-    { field: "due_date", headerName: " Due Date", width: 280,headerAlign:"center" },
+    {
+      field: "due_date",
+      headerName: " Due Date",
+      width: 280,
+      headerAlign: "center",
+      valueGetter: (params) => dateFormat(params?.row?.due_date),
+    },
   ];
 
   return (
