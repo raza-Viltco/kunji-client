@@ -45,7 +45,7 @@ const Auth = ({
 
             <div className="col-sm-12 mt-3 p-0">
               <Input
-                placeholder="Enter Email"
+                placeholder="Enter Email/Mobile No"
                 margin="normal"
                 fullWidth
                 id="email"
@@ -86,11 +86,14 @@ const Auth = ({
                     : "bootstyle"
                 }
               />
-            
-            <div className="show-pass-icon-style" type="button" onClick={passHandler}>
-                  <AiFillEye size={30} />
-                </div>
-             
+
+              <div
+                className="show-pass-icon-style"
+                type="button"
+                onClick={passHandler}
+              >
+                <AiFillEye size={30} />
+              </div>
 
               {props.touched.password && Boolean(props.errors.password) && (
                 <InputError>{props.errors.password}</InputError>
