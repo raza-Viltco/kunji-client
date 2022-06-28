@@ -87,7 +87,7 @@ export function* handleOwnership(action) {
     const { data } = yield call(assignOwnershipApi, form);
     yield put(setAssignOwnership(data.data));
     yield call(formikActions.resetForm);
-    yield call(nullValue)
+    yield call(nullValue);
     yield call(setVal);
     yield put(
       setError({
