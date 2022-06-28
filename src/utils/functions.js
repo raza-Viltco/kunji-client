@@ -41,11 +41,6 @@ export const validEmail = (txt) => {
 };
 
 export const checkForPermission = (module, right) => {
-  // const loggedInUserPermissions = {
-  //   vehicle: ["add", "delete", "update"],
-  //   apartment: ["add", "update", "delete"],
-  // };
-
   const authData = getFromPersistance("kunji_auth_data");
   const loggedInUserPermissions = authData?.data?.permissions;
 

@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 import { Profile_Img } from "../../constants/AssetsConstants";
 import { logout } from "../../redux/actions/Auth/user";
+import { checkForPermission } from "../../utils/functions";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -73,8 +74,6 @@ export default function CustomizedMenus() {
     dispatch(logout());
   };
 
-  
-
   return (
     <div>
       <Button
@@ -106,14 +105,17 @@ export default function CustomizedMenus() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem>
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to="/user_profile"
-          >
-            <i class="fas fa-user-alt"></i>&nbsp; My Profile
-          </Link>
-        </MenuItem>
+        {checkForPermission("User Management", "View Profile") && (
+          <MenuItem>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to="/user_profile"
+            >
+              <i class="fas fa-user-alt"></i>&nbsp; My Profile
+            </Link>
+          </MenuItem>
+        )}
+
         <Divider sx={{ my: 0.5 }} />
 
         <MenuItem onClick={logoutHandler}>

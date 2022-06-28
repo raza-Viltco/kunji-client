@@ -16,9 +16,16 @@ const BuildingList = ({ buildingArrData, stateLoading }) => {
   ];
 
   return (
-    <div style={{ height: "100vh", width: "100%", background: "white" }}>
-      <Table rows={buildingArrData} columns={columns} loading={stateLoading} />
-    </div>
+    <>
+      <h3>Building List</h3>
+      <div style={{ height: "100vh", width: "100%", background: "white" }}>
+        <Table
+          rows={buildingArrData}
+          columns={columns}
+          loading={stateLoading}
+        />
+      </div>
+    </>
   );
 };
 
