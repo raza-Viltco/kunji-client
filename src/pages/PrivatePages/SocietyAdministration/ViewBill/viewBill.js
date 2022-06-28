@@ -2,13 +2,14 @@ import React from "react";
 
 import Card from "../../../../components/Card";
 import Table from "../../../../components/Table";
+import { dateFormat } from "../../../../utils/functions";
 import viewBillContainer from "../../../../container/SocietyAdministration/ViewBillContainer";
 
 const ViewBillData = ({ viewBillList, stateLoading }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70,headerAlign:"center" },
+    { field: "id", headerName: "ID", width: 70, headerAlign: "center" },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "role",
       headerName: "Role",
       width: 160,
@@ -20,39 +21,39 @@ const ViewBillData = ({ viewBillList, stateLoading }) => {
           : "pending",
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "name",
       headerName: "Name",
       width: 160,
       valueGetter: (params) => params?.row?.view_user_name_on_bill?.name,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "cnic",
       headerName: "CNIC",
       width: 160,
       valueGetter: (params) => params?.row?.view_user_name_on_bill?.cnic,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "mobile",
       headerName: "Mobile No",
       width: 160,
       valueGetter: (params) => params?.row?.view_user_name_on_bill?.mobile,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "address",
       headerName: "Address",
       width: 160,
       valueGetter: (params) => params?.row?.view_user_name_on_bill?.address,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "dueDate",
       headerName: "Due Date",
       width: 160,
-      valueGetter: (params) => params?.row?.due_date,
+      valueGetter: (params) => dateFormat(params?.row?.due_date),
     },
   ];
 

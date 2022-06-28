@@ -2,6 +2,7 @@ import React from "react";
 
 import Table from "../../../../../components/Table";
 import Card from "../../../../../components/Card";
+import { dateFormat } from "../../../../../utils/functions";
 import gatePassContainer from "../../../../../container/Security Management/Society/GatePassContainer";
 import "./gatePassApproval.css";
 
@@ -12,9 +13,9 @@ const GatePassApprovalList = ({
   handleApprovalAcceptance,
 }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70,headerAlign:"center" },
+    { field: "id", headerName: "ID", width: 70, headerAlign: "center" },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "servant",
       headerName: "Resident Name",
       width: 160,
@@ -22,7 +23,7 @@ const GatePassApprovalList = ({
         params?.row?.servant?.map_address?.resedent?.name,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "servant.map_address",
       headerName: "Resident Address",
       width: 160,
@@ -34,7 +35,7 @@ const GatePassApprovalList = ({
         params?.row?.servant?.map_address?.mapping_level_three_name,
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "servant.name",
       headerName: " Servant Name",
       width: 160,
@@ -43,23 +44,28 @@ const GatePassApprovalList = ({
         " " +
         params?.row?.servant?.last_name,
     },
-    { field: "entry_code", headerName: "Entry Code", width: 160,headerAlign:"center" },
     {
-      headerAlign:"center",
+      field: "entry_code",
+      headerName: "Entry Code",
+      width: 160,
+      headerAlign: "center",
+    },
+    {
+      headerAlign: "center",
       field: "start_date",
       headerName: "Valid From Date",
       width: 160,
-      valueGetter: (params) => params?.row?.start_date?.split(" ")[0],
+      valueGetter: (params) => dateFormat(params?.row?.start_date),
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "end_date",
       headerName: "Valid Till Date",
       width: 160,
-      valueGetter: (params) => params?.row?.end_date?.split(" ")[0],
+      valueGetter: (params) => dateFormat(params?.row?.end_date),
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "status",
       headerName: "Status",
       width: 160,
@@ -71,7 +77,7 @@ const GatePassApprovalList = ({
           : "Rejected",
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "actions",
       type: "actions",
       headerName: "Action",
