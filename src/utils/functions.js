@@ -24,10 +24,11 @@ export const dateFormat = (inputDate) => {
   const date = new Date(inputDate);
 
   const day = date.getDate();
-  const month = date.getMonth() + 1;
+  // const month = date.getMonth() + 1;
+  const month = date.toLocaleString('default', { month: 'long' })
   const year = date.getFullYear();
 
-  const format = day + "-" + month + "-" + year;
+  const format = day + " " + month + ", " + year;
 
   return format;
 };
@@ -37,4 +38,22 @@ export const validEmail = (txt) => {
     return txt;
   }
   return "N/A";
+};
+
+export const checkForPermission = (module, right) => {
+  // const loggedInUserPermissions = {
+  //   vehicle: ["add", "delete", "update"],
+  //   apartment: ["add", "update", "delete"],
+  // };
+
+  const authData = getFromPersistance("kunji_auth_data");
+  const loggedInUserPermissions = authData?.data?.permissions;
+
+  if (!!loggedInUserPermissions[module]) {
+    for (let i = 0; i < loggedInUserPermissions[module].length; i++) {
+      if (loggedInUserPermissions[module][i] === right) return true;
+    }
+  }
+
+  return false;
 };

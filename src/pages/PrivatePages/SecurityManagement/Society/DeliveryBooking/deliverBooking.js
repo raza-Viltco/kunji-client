@@ -3,6 +3,7 @@ import React from "react";
 import Table from "../../../../../components/Table";
 import Card from "../../../../../components/Card";
 import "./deliveryBooking.css";
+import { dateFormat } from "../../../../../utils/functions";
 import deliveryBookingContainer from "../../../../../container/Security Management/Society/DeliveryBooking";
 
 const DeliveryBookingList = ({
@@ -11,11 +12,16 @@ const DeliveryBookingList = ({
   handleNotify,
 }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70,headerAlign:"center" },
-    { headerAlign:"center",field: "resident", headerName: "Resident Name", width: 160,
-    valueGetter: (params) => params?.row?.user?.name },
+    { field: "id", headerName: "ID", width: 70, headerAlign: "center" },
     {
-      headerAlign:"center",
+      headerAlign: "center",
+      field: "resident",
+      headerName: "Resident Name",
+      width: 160,
+      valueGetter: (params) => params?.row?.user?.name,
+    },
+    {
+      headerAlign: "center",
       field: "address",
       headerName: "Resident Address",
       width: 200,
@@ -28,18 +34,45 @@ const DeliveryBookingList = ({
       // getActions: (params) => [<div>{params?.row?.address}</div>],
     },
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "vendor",
       headerName: " Delivery Vendor",
       width: 200,
-      valueGetter: (params) => params?.row?.vendor_id
+      valueGetter: (params) => params?.row?.vendor_id,
       // getActions: (params) => [<div>{params?.row?.vendor}</div>],
     },
-    { field: "order_no", headerName: " Order No", width: 160 ,headerAlign:"center"},
-    { field: "arrival_date_from", headerName: "Arrival Date From", width: 160,headerAlign:"center" },
-    { field: "arrival_date_to", headerName: "Valid Till Date", width: 160,headerAlign:"center" },
-    { field: "arrival_time_to", headerName: "Arrival Time From", width: 160,headerAlign:"center" },
-    { field: "arrival_time_form", headerName: "Arrival Time To", width: 160,headerAlign:"center" },
+    {
+      field: "order_no",
+      headerName: " Order No",
+      width: 160,
+      headerAlign: "center",
+    },
+    {
+      field: "arrival_date_from",
+      headerName: "Arrival Date From",
+      width: 160,
+      headerAlign: "center",
+      valueGetter: (params) => dateFormat(params.row.arrival_date_from),
+    },
+    {
+      field: "arrival_date_to",
+      headerName: "Valid Till Date",
+      width: 160,
+      headerAlign: "center",
+      valueGetter: (params) => dateFormat(params.row.arrival_date_to),
+    },
+    {
+      field: "arrival_time_to",
+      headerName: "Arrival Time From",
+      width: 160,
+      headerAlign: "center",
+    },
+    {
+      field: "arrival_time_form",
+      headerName: "Arrival Time To",
+      width: 160,
+      headerAlign: "center",
+    },
 
     {
       field: "notify",
