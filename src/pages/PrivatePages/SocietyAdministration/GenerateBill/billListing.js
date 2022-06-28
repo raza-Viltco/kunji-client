@@ -39,6 +39,7 @@ const BillListing = ({ billListData }) => {
 
   return (
     <>
+      <h3>Society Bill List</h3>
       <div style={{ height: "100vh", width: "100%", background: "white" }}>
         <Table
           rows={billListData}

@@ -212,69 +212,87 @@ const Sidebar = ({
             {openUserManagement ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={openUserManagement} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <NavLink to="/kunji_Role">
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <AiOutlineUserAdd size={23} />
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">Create Role</span>
-                  </ListItemText>
-                </ListItemButton>
-              </NavLink>
-            </List>
-            <List component="div" disablePadding>
-              <NavLink to="/View_Role">
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <i class="fas fa-eye" id="iconstyle"></i>
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">View Roles</span>
-                  </ListItemText>
-                </ListItemButton>
-              </NavLink>
-            </List>
-            <List component="div" disablePadding>
-              <NavLink to="/user_kunji_creation">
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <i class="fas fa-plus" id="iconstyle"></i>
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">Create Staff Member</span>
-                  </ListItemText>
-                </ListItemButton>
-              </NavLink>
-            </List>
-            <List component="div" disablePadding>
-              <NavLink to="/staff_member_list">
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <MdOutlineFormatListBulleted size={20} />
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">Staff Member Listing</span>
-                  </ListItemText>
-                </ListItemButton>
-              </NavLink>
-            </List>
+            {checkForPermission("User Management", "Assign Permissions") && (
+              <>
+                <List component="div" disablePadding>
+                  <NavLink to="/kunji_Role">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <AiOutlineUserAdd size={23} />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">Create Role</span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+                <List component="div" disablePadding>
+                  <NavLink to="/View_Role">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fas fa-eye" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">View Roles</span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              </>
+            )}
 
-            {userData?.data?.role.name !== "kunji admin" && (
+            {checkForPermission("User Management", "Create a User") && (
               <List component="div" disablePadding>
-                <NavLink to="/user_kunji_approval">
+                <NavLink to="/user_kunji_creation">
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
-                      <i class="fas fa-user-check" id="iconstyle"></i>
+                      <i class="fas fa-plus" id="iconstyle"></i>
                     </ListItemIcon>
                     <ListItemText>
-                      <span className="font-dashboard">User Approvals</span>
+                      <span className="font-dashboard">
+                        Create Staff Member
+                      </span>
                     </ListItemText>
                   </ListItemButton>
                 </NavLink>
               </List>
             )}
+
+            {checkForPermission(
+              "User Management",
+              "Add Society User Listing"
+            ) && (
+              <List component="div" disablePadding>
+                <NavLink to="/staff_member_list">
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <MdOutlineFormatListBulleted size={20} />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">
+                        Staff Member Listing
+                      </span>
+                    </ListItemText>
+                  </ListItemButton>
+                </NavLink>
+              </List>
+            )}
+
+            {userData?.data?.role.name !== "kunji admin" &&
+              checkForPermission("User Management", "Approve user") && (
+                <List component="div" disablePadding>
+                  <NavLink to="/user_kunji_approval">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fas fa-user-check" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">User Approvals</span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              )}
           </Collapse>
         </>
 
@@ -304,10 +322,7 @@ const Sidebar = ({
                   <i class="fas fa-building" id="iconstyle"></i>
                 </ListItemIcon>
                 <ListItemText>
-                  <span className="font-dashboard">
-                    {" "}
-                    Society Configuration{" "}
-                  </span>
+                  <span className="font-dashboard">Society Configuration</span>
                 </ListItemText>
                 {/* className="font-dashboard" */}
                 {openSocietyConfi ? <ExpandLess /> : <ExpandMore />}
@@ -321,8 +336,7 @@ const Sidebar = ({
                       </ListItemIcon>
                       <ListItemText>
                         <span className="font-dashboard">
-                          {" "}
-                          Add Sector/ Block No{" "}
+                          Add Sector/ Block No
                         </span>
                       </ListItemText>
                     </ListItemButton>
@@ -368,30 +382,36 @@ const Sidebar = ({
                 {openVerticalConfig ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={openVerticalConfig} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink to="/define_building">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-building" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard"> Building</span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-                <List component="div" disablePadding>
-                  <NavLink to="/add_apartment">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fal fa-building" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">Apartment</span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {(checkForPermission("Property Mgmt.", "Mapping Level1") ||
+                  checkForPermission("Property Mgmt.", "Full Map")) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/define_building">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-building" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard"> Building</span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
+                {(checkForPermission("Property Mgmt.", "level2") ||
+                  checkForPermission("Property Mgmt.", "Full Map")) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/add_apartment">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fal fa-building" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">Apartment</span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
               </Collapse>
             </>
           )}
@@ -418,18 +438,20 @@ const Sidebar = ({
 
         {userData?.data?.role.name !== "kunji admin" && (
           <>
-            <NavLink to="/assets">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <i class="fad fa-ball-pile" id="iconstyle"></i>
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">Assets</span>
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
+            {checkForPermission("Assets", "View Assets and Facilities") && (
+              <NavLink to="/assets">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <i class="fad fa-ball-pile" id="iconstyle"></i>
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">Assets</span>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            )}
           </>
         )}
 
@@ -447,42 +469,113 @@ const Sidebar = ({
               {openSocietyAdmin ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={openSocietyAdmin} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NavLink to="/society_charges_type">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <i class="fas fa-file-invoice-dollar" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard"> Charges Type </span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              <List component="div" disablePadding>
-                <NavLink to="/society_generate_bill">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <i class="fal fa-file-invoice-dollar" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard"> Generate Bill </span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-              <List component="div" disablePadding>
-                <NavLink to="/view_bill">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <i class="fal fa-file-invoice" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">View Bill </span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
+              {(checkForPermission("Society Administration", "Charges List") ||
+                checkForPermission(
+                  "Society Administration",
+                  "Add Society Charges"
+                )) && (
+                <List component="div" disablePadding>
+                  <NavLink to="/society_charges_type">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i
+                          class="fas fa-file-invoice-dollar"
+                          id="iconstyle"
+                        ></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard"> Charges Type </span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              )}
+              {(checkForPermission("Society Administration", "Generate Bill") ||
+                checkForPermission(
+                  "Society Administration",
+                  "Generate Society Bills"
+                )) && (
+                <List component="div" disablePadding>
+                  <NavLink to="/society_generate_bill">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i
+                          class="fal fa-file-invoice-dollar"
+                          id="iconstyle"
+                        ></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard"> Generate Bill </span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              )}
+
+              {checkForPermission("Society Administration", "View Bill") && (
+                <List component="div" disablePadding>
+                  <NavLink to="/view_bill">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fal fa-file-invoice" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">View Bill </span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              )}
+
+              {checkForPermission(
+                "Society Administration",
+                "Update Emergency Contacts"
+              ) && (
+                <List component="div" disablePadding>
+                  <NavLink to="/emergency_contacts">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fas fa-phone-alt" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">
+                          Emergency Contact
+                        </span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              )}
+
+              {checkForPermission("Society Administration", "Polls") && (
+                <List component="div" disablePadding>
+                  <NavLink to="/poll">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fad fa-ball-pile" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard"> Poll</span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              )}
+
+              {checkForPermission("Society Administration", "Send Notices") && (
+                <List component="div" disablePadding>
+                  <NavLink to="/society_notices">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <i class="fas fa-newspaper" id="iconstyle"></i>
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">Notices</span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              )}
             </Collapse>
           </>
         )}
@@ -505,126 +598,131 @@ const Sidebar = ({
                 {openSecurity ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={openSecurity} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink to="/society_visitor_list">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="far fa-list" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard"> Visitor List </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-                <List component="div" disablePadding>
-                  <NavLink to="/servant_visitor_list">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-thumbs-up" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">
-                          {" "}
-                          Servant Approval{" "}
-                        </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {checkForPermission("Security Mgmt.", "Visitor List") && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/society_visitor_list">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="far fa-list" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard"> Visitor List </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-                <List component="div" disablePadding>
-                  <NavLink to="/gate_pass_approval">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-id-card" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">
-                          {" "}
-                          Gate Pass Approval{" "}
-                        </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {checkForPermission("Security Mgmt.", "Servant List") && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/servant_visitor_list">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-thumbs-up" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">
+                            Servant Approval
+                          </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-                <List component="div" disablePadding>
-                  <NavLink to="/society_delivery_booking">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-truck" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">
-                          {" "}
-                          Delivery Booking{" "}
-                        </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {checkForPermission(
+                  "Security Mgmt.",
+                  "Servant Gatepass Approvals"
+                ) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/gate_pass_approval">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-id-card" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">
+                            Gate Pass Approval
+                          </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-                <List component="div" disablePadding>
-                  <NavLink to="/vehicle_list">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-car-side" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">
-                          Registered Vehicles
-                        </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {checkForPermission(
+                  "Security Mgmt.",
+                  "Delivery Booking List"
+                ) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/society_delivery_booking">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-truck" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">
+                            Delivery Booking
+                          </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-                <List component="div" disablePadding>
-                  <NavLink to="/society_panic_alert">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-cash-register" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard"> Panic Alert </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {checkForPermission(
+                  "Security Mgmt.",
+                  "Registered Vehicles"
+                ) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/vehicle_list">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-car-side" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">
+                            Registered Vehicles
+                          </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-                <List component="div" disablePadding>
-                  <NavLink to="/complaints">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-user-headset" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard"> Complaints </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {checkForPermission("Security Mgmt.", "Panic Alerts") && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/society_panic_alert">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-cash-register" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard"> Panic Alert </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
+
+                {checkForPermission(
+                  "Security Mgmt.",
+                  "Open/Closed Complaints List"
+                ) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/complaints">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-user-headset" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard"> Complaints </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
               </Collapse>
-            </>
-          )}
-
-          {/* --------notices--------------- */}
-          {userData?.data?.role.name !== "kunji admin" && (
-            <>
-              <NavLink to="/society_notices">
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <i class="fas fa-newspaper" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">Notices</span>
-                    </ListItemText>
-                    {/* className="font-dashboard"   */}
-                  </ListItemButton>
-                </ListItem>
-              </NavLink>
             </>
           )}
 
@@ -641,41 +739,6 @@ const Sidebar = ({
                       <span className="font-dashboard">
                         Terms and Conditions
                       </span>
-                    </ListItemText>
-                  </ListItemButton>
-                </ListItem>
-              </NavLink>
-            </>
-          )}
-
-          {/* ----------pool-------------------- */}
-          {userData?.data?.role.name !== "kunji admin" && (
-            <>
-              <NavLink to="/poll">
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <i class="fad fa-ball-pile" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">Poll</span>
-                    </ListItemText>
-                  </ListItemButton>
-                </ListItem>
-              </NavLink>
-            </>
-          )}
-
-          {userData?.data?.role.name !== "kunji admin" && (
-            <>
-              <NavLink to="/emergency_contacts">
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <i class="fas fa-phone-alt" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">Emergency Contact</span>
                     </ListItemText>
                   </ListItemButton>
                 </ListItem>
