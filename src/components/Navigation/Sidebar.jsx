@@ -328,20 +328,26 @@ const Sidebar = ({
                 {openSocietyConfi ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={openSocietyConfi} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink to="/add_sector">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <AiOutlineUserAdd size={23} />
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">
-                          Add Sector/ Block No
-                        </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {(checkForPermission("Property Mgmt.", "Mapping Level1") ||
+                  checkForPermission(
+                    "Property Mgmt.",
+                    "View Buildings/Sector"
+                  )) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/add_sector">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <AiOutlineUserAdd size={23} />
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">
+                            Add Sector/ Block No
+                          </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
                 {/* <List component="div" disablePadding>
                 <NavLink to="/add_street">
                   <ListItemButton sx={{ pl: 4 }}>
@@ -352,18 +358,21 @@ const Sidebar = ({
                   </ListItemButton>
                 </NavLink>
               </List> */}
-                <List component="div" disablePadding>
-                  <NavLink to="/add_plots">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-layer-group" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard"> Plots </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
+                {(checkForPermission("Property Mgmt.", "level2") ||
+                  checkForPermission("Property Mgmt.", "Full Map")) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/add_plots">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-layer-group" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard"> Plots </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
               </Collapse>
             </>
           )}
@@ -383,7 +392,10 @@ const Sidebar = ({
               </ListItemButton>
               <Collapse in={openVerticalConfig} timeout="auto" unmountOnExit>
                 {(checkForPermission("Property Mgmt.", "Mapping Level1") ||
-                  checkForPermission("Property Mgmt.", "Full Map")) && (
+                  checkForPermission(
+                    "Property Mgmt.",
+                    "View Buildings/Sector"
+                  )) && (
                   <List component="div" disablePadding>
                     <NavLink to="/define_building">
                       <ListItemButton sx={{ pl: 4 }}>
@@ -419,18 +431,21 @@ const Sidebar = ({
         {/* ---------------------------property ownership-------------- */}
         {userData?.data?.role.name !== "kunji admin" && (
           <>
-            <NavLink to="/property_ownership">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <MdDashboard size={20} />
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">Property Ownership</span>
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
+            {(checkForPermission("Property Mgmt.", "Add Property Owner") ||
+              checkForPermission("Property Mgmt.", "Property List")) && (
+              <NavLink to="/property_ownership">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MdDashboard size={20} />
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">Property Ownership</span>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            )}
           </>
         )}
 

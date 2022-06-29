@@ -5,6 +5,7 @@ import Card from "../../../components/Card";
 import Button from "../../../components/Button";
 import Table from "../../../components/Table";
 import propertyListContainer from "../../../container/PropertyOwnership/PropertyListingContainer";
+import { checkForPermission } from "../../../utils/functions";
 import "./propertyListing.css";
 
 const PropertyListing = ({
@@ -14,7 +15,7 @@ const PropertyListing = ({
   handleReject,
 }) => {
   const columns = [
-    { field: "id", headerName: "ID", width: 70, headerAlign:"center" },
+    { field: "id", headerName: "ID", width: 70, headerAlign: "center" },
     // { field: "location", headerName: "Location", width: 300 },
     {
       field: "mapping_level_one_name",
@@ -26,34 +27,36 @@ const PropertyListing = ({
         " " +
         params?.row?.mapping_level_two_name,
       width: 260,
-      headerAlign:"center"
+      headerAlign: "center",
     },
 
     {
       field: "first_name",
       headerName: " User Name",
       valueGetter: (params) =>
-        params?.row?.landlord?.first_name + " " + params?.row?.landlord?.last_name,
+        params?.row?.landlord?.first_name +
+        " " +
+        params?.row?.landlord?.last_name,
       width: 260,
-      headerAlign:"center"
+      headerAlign: "center",
     },
     {
       field: "cnic",
       headerName: "CNIC",
       valueGetter: (params) => params?.row?.landlord?.cnic,
       width: 260,
-      headerAlign:"center"
+      headerAlign: "center",
     },
     {
       field: "mobile",
       headerName: "MOBILE",
       valueGetter: (params) => params?.row?.landlord?.mobile,
       width: 260,
-      headerAlign:"center"
+      headerAlign: "center",
     },
 
     {
-      headerAlign:"center",
+      headerAlign: "center",
       field: "actions",
       type: "actions",
       headerName: "Action",
@@ -84,33 +87,40 @@ const PropertyListing = ({
 
   return (
     <Card>
-      <div className="property-outer-flex">
-        <div>
-          <h4>Property Ownership</h4>
-        </div>
+      {checkForPermission("Property Mgmt.", "Add Property Owner") && (
+        <div className="property-outer-flex">
+          <div>
+            <h4>Property Ownership</h4>
+          </div>
 
-        <div className="society_btn__wrapper">
-          <Link to="/assign_ownership">
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2, borderRadius: 20 }}
-              size="small"
-            >
-              Assign OwnerShip
-            </Button>
-          </Link>
+          <div className="society_btn__wrapper">
+            <Link to="/assign_ownership">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2, borderRadius: 20 }}
+                size="small"
+              >
+                Assign OwnerShip
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
 
-      <div style={{ height: "100vh", width: "100%", background: "white" }}>
-        <Table
-          rows={ownershipListData}
-          columns={columns}
-          loading={stateLoading}
-        />
-      </div>
+      {checkForPermission("Property Mgmt.", "Property List") && (
+        <>
+          <h4> Property Approve List </h4>
+          <div style={{ height: "100vh", width: "100%", background: "white" }}>
+            <Table
+              rows={ownershipListData}
+              columns={columns}
+              loading={stateLoading}
+            />
+          </div>
+        </>
+      )}
     </Card>
   );
 };

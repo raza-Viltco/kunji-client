@@ -112,7 +112,9 @@ const DefineBuilding = ({
         </>
       )}
 
-      {checkForPermission("Property Mgmt.", "Full Map") && <BuildingList />}
+      {checkForPermission("Property Mgmt.", "View Buildings/Sector") && (
+        <BuildingList />
+      )}
     </Card>
   );
 };
