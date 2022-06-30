@@ -189,132 +189,139 @@ const Sidebar = ({
         )}
 
         {/* -----------------------department--------------- */}
-        <NavLink activeClassName="selected" to="/add_kunji_department">
-          <ListItem disablePadding>
-            <ListItemButton>
+        {userData?.data?.role.name !== "Security Guard" && (
+          <NavLink activeClassName="selected" to="/add_kunji_department">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <i class="fas fa-atlas" id="iconstyle"></i>
+                </ListItemIcon>
+                <ListItemText>
+                  <span className="font-dashboard">Department</span>
+                </ListItemText>
+              </ListItemButton>
+            </ListItem>
+          </NavLink>
+        )}
+
+        {userData?.data?.role.name !== "Security Guard" && (
+          <>
+            <ListItemButton onClick={openUserManagementHander}>
               <ListItemIcon>
-                <i class="fas fa-atlas" id="iconstyle"></i>
+                <SiHomeassistantcommunitystore size={20} />
               </ListItemIcon>
               <ListItemText>
-                <span className="font-dashboard">Department</span>
+                <span className="font-dashboard">User Management</span>
               </ListItemText>
+              {openUserManagement ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-          </ListItem>
-        </NavLink>
-        <>
-          <ListItemButton onClick={openUserManagementHander}>
-            <ListItemIcon>
-              <SiHomeassistantcommunitystore size={20} />
-            </ListItemIcon>
-            <ListItemText>
-              <span className="font-dashboard">User Management</span>
-            </ListItemText>
-            {openUserManagement ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
-          <Collapse in={openUserManagement} timeout="auto" unmountOnExit>
-            {checkForPermission("User Management", "Assign Permissions") && (
-              <>
+            <Collapse in={openUserManagement} timeout="auto" unmountOnExit>
+              {checkForPermission("User Management", "Assign Permissions") && (
+                <>
+                  <List component="div" disablePadding>
+                    <NavLink to="/kunji_Role">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <AiOutlineUserAdd size={23} />
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">Create Role</span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                  <List component="div" disablePadding>
+                    <NavLink to="/View_Role">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-eye" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">View Roles</span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                </>
+              )}
+
+              {checkForPermission("User Management", "Create a User") && (
                 <List component="div" disablePadding>
-                  <NavLink to="/kunji_Role">
+                  <NavLink to="/user_kunji_creation">
                     <ListItemButton sx={{ pl: 4 }}>
                       <ListItemIcon>
-                        <AiOutlineUserAdd size={23} />
+                        <i class="fas fa-plus" id="iconstyle"></i>
                       </ListItemIcon>
                       <ListItemText>
-                        <span className="font-dashboard">Create Role</span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-                <List component="div" disablePadding>
-                  <NavLink to="/View_Role">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-eye" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">View Roles</span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              </>
-            )}
-
-            {checkForPermission("User Management", "Create a User") && (
-              <List component="div" disablePadding>
-                <NavLink to="/user_kunji_creation">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <i class="fas fa-plus" id="iconstyle"></i>
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">
-                        Create Staff Member
-                      </span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            )}
-
-            {checkForPermission(
-              "User Management",
-              "Add Society User Listing"
-            ) && (
-              <List component="div" disablePadding>
-                <NavLink to="/staff_member_list">
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <MdOutlineFormatListBulleted size={20} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <span className="font-dashboard">
-                        Staff Member Listing
-                      </span>
-                    </ListItemText>
-                  </ListItemButton>
-                </NavLink>
-              </List>
-            )}
-
-            {userData?.data?.role.name !== "kunji admin" &&
-              checkForPermission("User Management", "Approve user") && (
-                <List component="div" disablePadding>
-                  <NavLink to="/user_kunji_approval">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-user-check" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">User Approvals</span>
+                        <span className="font-dashboard">
+                          Create Staff Member
+                        </span>
                       </ListItemText>
                     </ListItemButton>
                   </NavLink>
                 </List>
               )}
-          </Collapse>
-        </>
 
-        {/* ----------society Profile---- */}
-        {userData?.data?.role.name !== "kunji admin" && (
-          <>
-            <NavLink to="/society_profile">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <i class="fas fa-address-card" id="iconstyle"></i>
-                  </ListItemIcon>
-                  <ListItemText>
-                    <span className="font-dashboard">Society Profile</span>
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
+              {checkForPermission(
+                "User Management",
+                "Add Society User Listing"
+              ) && (
+                <List component="div" disablePadding>
+                  <NavLink to="/staff_member_list">
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemIcon>
+                        <MdOutlineFormatListBulleted size={20} />
+                      </ListItemIcon>
+                      <ListItemText>
+                        <span className="font-dashboard">
+                          Staff Member Listing
+                        </span>
+                      </ListItemText>
+                    </ListItemButton>
+                  </NavLink>
+                </List>
+              )}
+
+              {userData?.data?.role.name !== "kunji admin" &&
+                checkForPermission("User Management", "Approve user") && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/user_kunji_approval">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-user-check" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">User Approvals</span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
+            </Collapse>
           </>
         )}
 
+        {/* ----------society Profile---- */}
         {userData?.data?.role.name !== "kunji admin" &&
+          userData?.data?.role.name !== "Security Guard" && (
+            <>
+              <NavLink to="/society_profile">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <i class="fas fa-address-card" id="iconstyle"></i>
+                    </ListItemIcon>
+                    <ListItemText>
+                      <span className="font-dashboard">Society Profile</span>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            </>
+          )}
+
+        {userData?.data?.role.name !== "kunji admin" &&
+          userData?.data?.role.name !== "Security Guard" &&
           userData?.data?.society?.society_type === 1 && (
             <>
               <ListItemButton onClick={openSocietyConfigHandler}>
@@ -379,6 +386,7 @@ const Sidebar = ({
         {/* ------vertical-society------- */}
 
         {userData?.data?.role.name !== "kunji admin" &&
+          userData?.data?.role.name !== "Security Guard" &&
           userData?.data?.society?.society_type === 0 && (
             <>
               <ListItemButton onClick={OpenVerticalConfigHandler}>
@@ -471,129 +479,142 @@ const Sidebar = ({
         )}
 
         {/* --------------society-Administrator--------- */}
-        {userData?.data?.role.name !== "kunji admin" && (
-          <>
-            <ListItemButton onClick={OpenSocietyAdminHandler}>
-              <ListItemIcon>
-                <i class="fas fa-user-shield" id="iconstyle"></i>
-              </ListItemIcon>
-              <ListItemText>
-                <span className="font-dashboard">Society Administration</span>
-              </ListItemText>
-              {/* className="font-dashboard" */}
-              {openSocietyAdmin ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={openSocietyAdmin} timeout="auto" unmountOnExit>
-              {(checkForPermission("Society Administration", "Charges List") ||
-                checkForPermission(
+        {userData?.data?.role.name !== "kunji admin" &&
+          userData?.data?.role.name !== "Security Guard" && (
+            <>
+              <ListItemButton onClick={OpenSocietyAdminHandler}>
+                <ListItemIcon>
+                  <i class="fas fa-user-shield" id="iconstyle"></i>
+                </ListItemIcon>
+                <ListItemText>
+                  <span className="font-dashboard">Society Administration</span>
+                </ListItemText>
+                {/* className="font-dashboard" */}
+                {openSocietyAdmin ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Collapse in={openSocietyAdmin} timeout="auto" unmountOnExit>
+                {(checkForPermission(
                   "Society Administration",
-                  "Add Society Charges"
-                )) && (
-                <List component="div" disablePadding>
-                  <NavLink to="/society_charges_type">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i
-                          class="fas fa-file-invoice-dollar"
-                          id="iconstyle"
-                        ></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard"> Charges Type </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              )}
-              {(checkForPermission("Society Administration", "Generate Bill") ||
-                checkForPermission(
+                  "Charges List"
+                ) ||
+                  checkForPermission(
+                    "Society Administration",
+                    "Add Society Charges"
+                  )) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/society_charges_type">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i
+                            class="fas fa-file-invoice-dollar"
+                            id="iconstyle"
+                          ></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard"> Charges Type </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
+                {(checkForPermission(
                   "Society Administration",
-                  "Generate Society Bills"
-                )) && (
-                <List component="div" disablePadding>
-                  <NavLink to="/society_generate_bill">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i
-                          class="fal fa-file-invoice-dollar"
-                          id="iconstyle"
-                        ></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard"> Generate Bill </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              )}
+                  "Generate Bill"
+                ) ||
+                  checkForPermission(
+                    "Society Administration",
+                    "Generate Society Bills"
+                  )) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/society_generate_bill">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i
+                            class="fal fa-file-invoice-dollar"
+                            id="iconstyle"
+                          ></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">
+                            {" "}
+                            Generate Bill{" "}
+                          </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-              {checkForPermission("Society Administration", "View Bill") && (
-                <List component="div" disablePadding>
-                  <NavLink to="/view_bill">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fal fa-file-invoice" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">View Bill </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              )}
+                {checkForPermission("Society Administration", "View Bill") && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/view_bill">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fal fa-file-invoice" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">View Bill </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-              {checkForPermission(
-                "Society Administration",
-                "Update Emergency Contacts"
-              ) && (
-                <List component="div" disablePadding>
-                  <NavLink to="/emergency_contacts">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-phone-alt" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">
-                          Emergency Contact
-                        </span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              )}
+                {checkForPermission(
+                  "Society Administration",
+                  "Update Emergency Contacts"
+                ) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/emergency_contacts">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-phone-alt" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">
+                            Emergency Contact
+                          </span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-              {checkForPermission("Society Administration", "Polls") && (
-                <List component="div" disablePadding>
-                  <NavLink to="/poll">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fad fa-ball-pile" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard"> Poll</span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              )}
+                {checkForPermission("Society Administration", "Polls") && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/poll">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fad fa-ball-pile" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard"> Poll</span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
 
-              {checkForPermission("Society Administration", "Send Notices") && (
-                <List component="div" disablePadding>
-                  <NavLink to="/society_notices">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <i class="fas fa-newspaper" id="iconstyle"></i>
-                      </ListItemIcon>
-                      <ListItemText>
-                        <span className="font-dashboard">Notices</span>
-                      </ListItemText>
-                    </ListItemButton>
-                  </NavLink>
-                </List>
-              )}
-            </Collapse>
-          </>
-        )}
+                {checkForPermission(
+                  "Society Administration",
+                  "Send Notices"
+                ) && (
+                  <List component="div" disablePadding>
+                    <NavLink to="/society_notices">
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <i class="fas fa-newspaper" id="iconstyle"></i>
+                        </ListItemIcon>
+                        <ListItemText>
+                          <span className="font-dashboard">Notices</span>
+                        </ListItemText>
+                      </ListItemButton>
+                    </NavLink>
+                  </List>
+                )}
+              </Collapse>
+            </>
+          )}
 
         <List className="sidebar-anchor-outer">
           {/* ----------------------------------------------------society List-------------- */}

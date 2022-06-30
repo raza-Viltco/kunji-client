@@ -11,7 +11,8 @@ const DashboardItems = () => {
     <>
       {userData?.data?.role.name === "kunji admin" ? (
         <Dashboard />
-      ) : userData?.data?.role.name === "Society Admin" ? (
+      ) : userData?.data?.role.name === "Society Admin" ||
+        userData?.data?.role.name === "Security Guard" ? (
         <SocietyDashboard />
       ) : (
         ""

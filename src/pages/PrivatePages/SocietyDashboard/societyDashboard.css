@@ -42,6 +42,15 @@
   text-decoration: none;
   color: black;
 }
+.guard-dashboard-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 44px;
+  margin-top: 20px;
+  /* margin-left: 12px; */
+}
 
 @media screen and (max-width: 900px) {
   .society-dashboard-flex {
@@ -68,5 +77,13 @@
     width: 260px;
     height: 119px;
     margin: 12px;
+  }
+  .guard-dashboard-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 13px;
+    margin-left: 0px;
   }
 }
